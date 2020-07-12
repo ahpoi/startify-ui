@@ -1,0 +1,40 @@
+{
+  "name": "startify-ui",
+  "version": "1.0.3",
+  "description": "UI Component for React",
+  "keywords": [],
+  "license": "ISC",
+  "author": "ahpoi",
+  "main": "lib/index.js",
+  "types": "lib",
+  "scripts": {
+    "build": "tsc -p .",
+    "build-storybook": "build-storybook",
+    "storybook": "start-storybook -p 6006",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addon-storysource": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/preset-typescript": "^3.0.0",
+    "@storybook/react": "^5.3.19",
+    "@types/react": "^16.9.43",
+    "@types/styled-components": "^5.1.1",
+    "babel-loader": "^8.1.0",
+    "react": "^16.13.1",
+    "react-docgen-typescript-loader": "^3.7.2",
+    "styled-components": "^5.1.1",
+    "ts-loader": "^8.0.0",
+    "typescript": "^3.9.6"
+  },
+  "peerDependencies": {
+    "react": ">=16.9.43",
+    "styled-components": "^5.1.1"
+  },
+  "dependencies": {
+    "@storybook/addon-docs": "^5.3.19"
+  }
+}

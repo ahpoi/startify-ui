@@ -1,0 +1,14 @@
+src/tests
+lib/tests
+lib.es2015/tests
+
+.storybook
+
+# build tools
+.travis.yml
+
+# editor settings
+.idea
+
+# npm
+npm-debug.log*

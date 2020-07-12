@@ -1,0 +1,12 @@
+# Node stuff
+node_modules
+npm-debug.log*
+
+# Our build assets
+lib
+
+# Mac
+.DS_Store
+
+# IDEs
+.idea
