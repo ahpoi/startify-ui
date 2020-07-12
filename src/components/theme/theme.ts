@@ -5,6 +5,23 @@ declare module "styled-components" {
   export interface DefaultTheme {
     typography: {
       fontFamily: string;
+      fontWeight: {
+        light: number,
+        medium: number,
+        bold: number,
+      }
+      color: {
+        dark: string;
+        mid: string;
+        light: string;
+      },
+      heading: {
+        one: TypographySizeTheme,
+        two: TypographySizeTheme,
+        three: TypographySizeTheme,
+        four: TypographySizeTheme,
+        five: TypographySizeTheme
+      },
     },
     button: {
       base: {
@@ -36,9 +53,8 @@ declare module "styled-components" {
   }
 
   interface TypographySizeTheme {
-    web: number;
-    tablet: number;
-    mobile: number;
+    web: string;
+    mobile: string;
   }
 }
 
@@ -52,6 +68,38 @@ export const mainColorTheme: ColorTheme = {
 export const MainTheme: DefaultTheme = {
   typography: {
     fontFamily: "",
+    fontWeight: {
+      light: 400,
+      medium: 500,
+      bold: 700
+    },
+    color: {
+      dark: "#1C1C1C",
+      mid: "#585858",
+      light: "#808080",
+    },
+    heading: {
+      one: {
+        web: "38px",
+        mobile: "30px"
+      },
+      two: {
+        web: "30px",
+        mobile: "24px"
+      },
+      three: {
+        web: "26px",
+        mobile: "20px"
+      },
+      four: {
+        web: "20px",
+        mobile: "16px"
+      },
+      five: {
+        web: "16px",
+        mobile: "14px"
+      },
+    }
   },
   button: {
     base: {
@@ -89,4 +137,10 @@ export const MainTheme: DefaultTheme = {
       },
     }
   }
+};
+
+
+export const Breakpoints = {
+  small: "480px",
+  large: "970px"
 };

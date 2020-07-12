@@ -20,6 +20,7 @@ module.exports = {
         '@storybook/addon-actions',
         '@storybook/addon-links',
         '@storybook/addon-storysource',
+        '@storybook/addon-viewport/register',
         {
             name: "@storybook/addon-docs",
             options: {
