@@ -1,4 +1,4 @@
-import {DefaultTheme} from "styled-components";
+import {DefaultTheme, ColorTheme} from "styled-components";
 
 declare module "styled-components" {
 
@@ -35,17 +35,19 @@ declare module "styled-components" {
     backgroundOnHoverColor: string;
   }
 
-  interface LinkTheme {
-    color: string;
-    onHoverColor: string;
-  }
-
   interface TypographySizeTheme {
     web: number;
     tablet: number;
     mobile: number;
   }
 }
+
+export const mainColorTheme: ColorTheme = {
+  primary: "#172B4D",
+  primaryDark: "#071E45",
+  secondary: "#008DA6",
+  secondaryDark: "#027187",
+};
 
 export const MainTheme: DefaultTheme = {
   typography: {
@@ -58,32 +60,32 @@ export const MainTheme: DefaultTheme = {
     },
     variants: {
       primary: {
-        backgroundColor: "#172B4D",
-        backgroundOnHoverColor: "#071E45",
-        borderColor: "#071E45",
-        borderOnHoverColor: "#172B4D",
+        backgroundColor: mainColorTheme.primary,
+        backgroundOnHoverColor: mainColorTheme.primaryDark,
+        borderColor: mainColorTheme.primary,
+        borderOnHoverColor: mainColorTheme.primaryDark,
         color: "white"
       },
       primaryOutlined: {
         backgroundColor: "transparent",
         backgroundOnHoverColor: "transparent",
-        borderColor: "#172B4D",
-        borderOnHoverColor: "#172B4D",
-        color: "#172B4D"
+        borderColor: mainColorTheme.primary,
+        borderOnHoverColor: mainColorTheme.primaryDark,
+        color: mainColorTheme.primary,
       },
       secondary: {
-        backgroundColor: "#008DA6",
-        backgroundOnHoverColor: "#027187",
-        borderColor: "#008DA6",
-        borderOnHoverColor: "#008DA6",
+        backgroundColor: mainColorTheme.secondary,
+        backgroundOnHoverColor: mainColorTheme.secondaryDark,
+        borderColor: mainColorTheme.secondary,
+        borderOnHoverColor: mainColorTheme.secondaryDark,
         color: "white"
       },
       secondaryOutlined: {
         backgroundColor: "transparent",
         backgroundOnHoverColor: "transparent",
-        borderColor: "#008DA6",
-        borderOnHoverColor: "#027187",
-        color: "#008DA6"
+        borderColor: mainColorTheme.secondary,
+        borderOnHoverColor: mainColorTheme.secondaryDark,
+        color: mainColorTheme.secondary,
       },
     }
   }

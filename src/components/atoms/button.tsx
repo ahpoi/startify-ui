@@ -16,7 +16,7 @@ export const Button = ({ id, children, variant = "primary", onClick, type = "sub
   const theme = (useTheme().button.variants[variant as never]) as ButtonTheme;
   return (!isLoading ? <StyledButton{...theme} id={id} type={type} onClick={onClick} style={{ width }}>
     <div children={children}/>
-  </StyledButton> : <StyledButton{...theme} id={id} type={type} style={{ width }}>
+  </StyledButton> : <StyledButton{...theme} id={id} type={type} style={{ width }} disabled>
     <div style={{ color: "transparent" }} children={children}/>
     <div style={{ position: "absolute", left: "calc(50% - 12px)", top: "20%" }}><Spinner/></div>
   </StyledButton>);
@@ -47,9 +47,6 @@ const StyledButton = styled.button<ButtonTheme>`
   }  
 `;
 
-/**
- * TODO move to Spinner Component
- */
 export const Spinner = styled.div`
   border-width: 2px;
   width: 20px;
