@@ -14,7 +14,7 @@ export const button = () =>
       </Button>
     </ThemeProvider>
 
-export const primaryStyles = () => (
+export const primaryVariants = () => (
     <ThemeProvider theme={DefaultAppTheme}>
       <Container>
         <Button variant={"primary"} width={"225px"} onClick={onClick}>
@@ -30,7 +30,7 @@ export const primaryStyles = () => (
     </ThemeProvider>
 );
 
-export const secondaryStyles = () => (
+export const secondaryVariants = () => (
     <ThemeProvider theme={DefaultAppTheme}>
       <Container>
         <Button variant={"secondary"} width={"225px"} onClick={onClick}>

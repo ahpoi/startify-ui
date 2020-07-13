@@ -7,7 +7,16 @@ export default {
   component: Alert
 };
 
-export const alerts = () =>
+export const alert = () =>
+    <ThemeProvider theme={DefaultAppTheme}>
+      <Container>
+        <Alert variant={"success"}>
+          This is a success alert—check it out!
+        </Alert>
+      </Container>
+    </ThemeProvider>;
+
+export const variants = () =>
     <ThemeProvider theme={DefaultAppTheme}>
       <Container>
         <Alert variant={"success"}>
@@ -23,6 +32,27 @@ export const alerts = () =>
           This is a warning alert—check it out!
         </Alert>
         <Alert variant={"error"}>
+          This is a danger alert—check it out!
+        </Alert>
+      </Container>
+    </ThemeProvider>;
+
+export const close = () =>
+    <ThemeProvider theme={DefaultAppTheme}>
+      <Container>
+        <Alert variant={"success"} onClose={() => (0)}>
+          This is a success alert—check it out!
+        </Alert>
+        <Alert variant={"info"} onClose={() => (0)}>
+          This is a info alert—check it out!
+        </Alert>
+        <Alert variant={"light"} onClose={() => (0)}>
+          This is a light alert—check it out!
+        </Alert>
+        <Alert variant={"warning"} onClose={() => (0)}>
+          This is a warning alert—check it out!
+        </Alert>
+        <Alert variant={"error"} onClose={() => (0)}>
           This is a danger alert—check it out!
         </Alert>
       </Container>
