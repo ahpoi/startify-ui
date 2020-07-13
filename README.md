@@ -7,7 +7,7 @@ React components for faster and easier web development.
 This is a very simple component library where it provides the minimum, but enough to build beautiful themeable UI. 
 Most other component library is either over-engineered and very heavy, requires lots of messing around for theming or not themable at all. 
 
-Our component library just take a simple theme object and that's it! 
+Our component library just take a simple theme object and that's it! Built with Typescript!
 
 Demo of the components can be found [here!](https://ahpoi.github.io/startify-ui/?path=/docs/inputs-button--button-styles)
 
