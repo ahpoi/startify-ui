@@ -2,6 +2,7 @@ src/tests
 lib/tests
 lib.es2015/tests
 
+stories/**/*
 .storybook
 
 # build tools

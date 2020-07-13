@@ -22,6 +22,7 @@ declare module "styled-components" {
         four: TypographySizeTheme,
         five: TypographySizeTheme
       },
+      paragraph: TypographySizeTheme
     },
     button: {
       base: {
@@ -31,8 +32,10 @@ declare module "styled-components" {
       variants: {
         primary: ButtonTheme,
         primaryOutlined: ButtonTheme,
+        primaryOutlinedFilled: ButtonTheme,
         secondary: ButtonTheme
-        secondaryOutlined: ButtonTheme
+        secondaryOutlined: ButtonTheme,
+        secondaryOutlinedFilled: ButtonTheme
       }
     }
   }
@@ -47,8 +50,9 @@ declare module "styled-components" {
   export interface ButtonTheme {
     color: string;
     borderColor: string;
-    borderOnHoverColor: string;
     backgroundColor: string;
+    colorOnHover: string;
+    borderOnHoverColor: string;
     backgroundOnHoverColor: string;
   }
 
@@ -56,11 +60,12 @@ declare module "styled-components" {
     web: string;
     mobile: string;
   }
+
 }
 
 export const mainColorTheme: ColorTheme = {
   primary: "#172B4D",
-  primaryDark: "#071E45",
+  primaryDark: "#051632",
   secondary: "#008DA6",
   secondaryDark: "#027187",
 };
@@ -99,41 +104,65 @@ export const MainTheme: DefaultTheme = {
         web: "16px",
         mobile: "14px"
       },
+    },
+    paragraph: {
+      web: "14px",
+      mobile: "12px"
     }
   },
   button: {
     base: {
       fontSize: "14px",
-      borderRadius: "8px"
+      borderRadius: "4px"
     },
     variants: {
       primary: {
+        color: "white",
         backgroundColor: mainColorTheme.primary,
-        backgroundOnHoverColor: mainColorTheme.primaryDark,
         borderColor: mainColorTheme.primary,
+        colorOnHover: 'white',
         borderOnHoverColor: mainColorTheme.primaryDark,
-        color: "white"
+        backgroundOnHoverColor: mainColorTheme.primaryDark,
       },
       primaryOutlined: {
-        backgroundColor: "transparent",
-        backgroundOnHoverColor: "transparent",
-        borderColor: mainColorTheme.primary,
-        borderOnHoverColor: mainColorTheme.primaryDark,
         color: mainColorTheme.primary,
+        backgroundColor: "transparent",
+        borderColor: mainColorTheme.primary,
+        colorOnHover: mainColorTheme.primary,
+        backgroundOnHoverColor: "transparent",
+        borderOnHoverColor: mainColorTheme.primaryDark,
+      },
+      primaryOutlinedFilled: {
+        color: mainColorTheme.primary,
+        backgroundColor: "transparent",
+        borderColor: mainColorTheme.primary,
+        colorOnHover: "white",
+        backgroundOnHoverColor: mainColorTheme.primary,
+        borderOnHoverColor: mainColorTheme.primary,
       },
       secondary: {
+        color: "white",
         backgroundColor: mainColorTheme.secondary,
-        backgroundOnHoverColor: mainColorTheme.secondaryDark,
         borderColor: mainColorTheme.secondary,
+        colorOnHover: 'white',
+        backgroundOnHoverColor: mainColorTheme.secondaryDark,
         borderOnHoverColor: mainColorTheme.secondaryDark,
-        color: "white"
       },
       secondaryOutlined: {
-        backgroundColor: "transparent",
-        backgroundOnHoverColor: "transparent",
-        borderColor: mainColorTheme.secondary,
-        borderOnHoverColor: mainColorTheme.secondaryDark,
         color: mainColorTheme.secondary,
+        backgroundColor: "transparent",
+        borderColor: mainColorTheme.secondary,
+        colorOnHover: mainColorTheme.secondary,
+        backgroundOnHoverColor: "transparent",
+        borderOnHoverColor: mainColorTheme.secondaryDark,
+      },
+      secondaryOutlinedFilled: {
+        color: mainColorTheme.secondary,
+        backgroundColor: "transparent",
+        borderColor: mainColorTheme.secondary,
+        colorOnHover: "white",
+        backgroundOnHoverColor: mainColorTheme.secondary,
+        borderOnHoverColor: mainColorTheme.secondaryDark,
       },
     }
   }
