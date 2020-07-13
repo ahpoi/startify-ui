@@ -2,8 +2,9 @@ src/tests
 lib/tests
 lib.es2015/tests
 
-stories/**/*
 .storybook
+stories/**/*
+storybook-static
 
 # build tools
 .travis.yml

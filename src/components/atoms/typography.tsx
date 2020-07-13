@@ -84,6 +84,7 @@ const StyledParagraph = styled.p<TypographyProps>`
   text-align: ${(props) => props.textAlign};
   color: ${(props) => props.color ?? props.theme.typography.color.mid};
   margin: 0px;
+  hyphens: auto;
   @media (max-width: ${Breakpoints.small}) {
     font-size: ${(props) => props.fontSize?.mobile ?? props.theme.typography.paragraph.mobile};
   }

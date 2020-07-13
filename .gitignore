@@ -1,6 +1,7 @@
 # Node stuff
 node_modules
 npm-debug.log*
+storybook-static
 
 # Our build assets
 lib

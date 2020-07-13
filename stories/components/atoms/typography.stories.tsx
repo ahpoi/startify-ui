@@ -1,7 +1,6 @@
 import * as React from "react";
 import styled, {ThemeProvider} from "styled-components";
-import {MainTheme} from "../../../src/components/theme/theme";
-import {Heading1, Heading2, Heading3, Heading4, Heading5, Paragraph} from "../../../src";
+import {Heading1, Heading2, Heading3, Heading4, Heading5, MainTheme, Paragraph} from "../../../src";
 
 export default {
   title: "Typography|Typography",

@@ -1,7 +1,6 @@
 import * as React from "react";
 import styled, {ThemeProvider} from "styled-components";
-import {MainTheme} from "../../../src/components/theme/theme";
-import {Button} from "../../../src";
+import {Button, MainTheme} from "../../../src";
 
 export default {
   title: "Inputs|Button",
