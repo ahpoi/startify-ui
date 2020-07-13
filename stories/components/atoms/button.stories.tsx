@@ -46,6 +46,25 @@ export const secondaryVariants = () => (
     </ThemeProvider>
 );
 
+export const loading = () => (
+    <ThemeProvider theme={DefaultAppTheme}>
+      <Container>
+        <Button variant={"primary"} width={"200px"} isLoading onClick={onClick}>
+          Primary
+        </Button>
+        <Button variant={"primaryOutlined"} width={"200px"} isLoading onClick={onClick}>
+          Primary Outline
+        </Button>
+        <Button variant={"secondary"} width={"200px"} isLoading onClick={onClick}>
+          Secondary
+        </Button>
+        <Button variant={"secondaryOutlined"} width={"200px"} isLoading onClick={onClick}>
+          Secondary Outline
+        </Button>
+      </Container>
+    </ThemeProvider>
+);
+
 export const sizeVariants = () => (
     <ThemeProvider theme={DefaultAppTheme}>
       <Container>
@@ -68,26 +87,7 @@ export const sizeVariants = () => (
     </ThemeProvider>
 );
 
-export const loading = () => (
-    <ThemeProvider theme={DefaultAppTheme}>
-      <Container>
-        <Button variant={"primary"} width={"200px"} isLoading onClick={onClick}>
-          Primary
-        </Button>
-        <Button variant={"primaryOutlined"} width={"200px"} isLoading onClick={onClick}>
-          Primary Outline
-        </Button>
-        <Button variant={"secondary"} width={"200px"} isLoading onClick={onClick}>
-          Secondary
-        </Button>
-        <Button variant={"secondaryOutlined"} width={"200px"} isLoading onClick={onClick}>
-          Secondary Outline
-        </Button>
-      </Container>
-    </ThemeProvider>
-);
-
-export const loadingSizes = () => (
+export const sizeVariantsLoading = () => (
     <ThemeProvider theme={DefaultAppTheme}>
       <Container>
         <div>
@@ -112,19 +112,18 @@ export const loadingSizes = () => (
 export const disabled = () => (
     <ThemeProvider theme={DefaultAppTheme}>
       <Container>
-        <Button variant={"secondary"} width={"225px"} disabled onClick={onClick}>
+        <Button variant={"secondary"} disabled onClick={onClick}>
           Disabled
         </Button>
-        <Button variant={"secondaryOutlined"} width={"225px"} disabled onClick={onClick}>
+        <Button variant={"secondaryOutlined"} disabled onClick={onClick}>
           Disabled
         </Button>
-        <Button variant={"secondaryOutlinedFilled"} width={"225px"} disabled onClick={onClick}>
+        <Button variant={"secondaryOutlinedFilled"} disabled onClick={onClick}>
           Disabled
         </Button>
       </Container>
     </ThemeProvider>
 );
-
 
 const onClick = () => {
   console.log("clicked");
