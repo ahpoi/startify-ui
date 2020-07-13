@@ -12,7 +12,7 @@ export const button = () =>
       <Button variant={"primary"} onClick={onClick}>
         Button
       </Button>
-    </ThemeProvider>
+    </ThemeProvider>;
 
 export const primaryVariants = () => (
     <ThemeProvider theme={DefaultAppTheme}>
@@ -45,18 +45,25 @@ export const secondaryVariants = () => (
       </Container>
     </ThemeProvider>
 );
-export const disabled = () => (
+
+export const sizeVariants = () => (
     <ThemeProvider theme={DefaultAppTheme}>
       <Container>
-        <Button variant={"secondary"} width={"225px"} disabled onClick={onClick}>
-          Disabled
-        </Button>
-        <Button variant={"secondaryOutlined"} width={"225px"} disabled onClick={onClick}>
-          Disabled
-        </Button>
-        <Button variant={"secondaryOutlinedFilled"} width={"225px"} disabled onClick={onClick}>
-          Disabled
-        </Button>
+        <div>
+          <Button size={"small"} onClick={onClick}>
+            Small
+          </Button>
+        </div>
+        <div>
+          <Button size={"medium"} onClick={onClick}>
+            Medium
+          </Button>
+        </div>
+        <div>
+          <Button size={"large"} onClick={onClick}>
+            Large
+          </Button>
+        </div>
       </Container>
     </ThemeProvider>
 );
@@ -79,6 +86,45 @@ export const loading = () => (
       </Container>
     </ThemeProvider>
 );
+
+export const loadingSizes = () => (
+    <ThemeProvider theme={DefaultAppTheme}>
+      <Container>
+        <div>
+          <Button size={"small"} onClick={onClick} isLoading>
+            Small
+          </Button>
+        </div>
+        <div>
+          <Button size={"medium"} onClick={onClick} isLoading>
+            Medium
+          </Button>
+        </div>
+        <div>
+          <Button size={"large"} onClick={onClick} isLoading>
+            Large
+          </Button>
+        </div>
+      </Container>
+    </ThemeProvider>
+);
+
+export const disabled = () => (
+    <ThemeProvider theme={DefaultAppTheme}>
+      <Container>
+        <Button variant={"secondary"} width={"225px"} disabled onClick={onClick}>
+          Disabled
+        </Button>
+        <Button variant={"secondaryOutlined"} width={"225px"} disabled onClick={onClick}>
+          Disabled
+        </Button>
+        <Button variant={"secondaryOutlinedFilled"} width={"225px"} disabled onClick={onClick}>
+          Disabled
+        </Button>
+      </Container>
+    </ThemeProvider>
+);
+
 
 const onClick = () => {
   console.log("clicked");

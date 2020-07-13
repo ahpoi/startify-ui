@@ -1,9 +1,10 @@
 import * as React from "react";
-import styled, {useTheme, ButtonTheme} from "styled-components";
+import styled, {useTheme, ButtonVariantTheme} from "styled-components";
 
 export interface ButtonProps {
   id?: string;
   type?: "submit" | "button";
+  size?: "small" | "medium" | "large";
   variant?: "primary" | "primaryOutlined" | "primaryOutlinedFilled" | "secondary" | "secondaryOutlined" | "secondaryOutlinedFilled";
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => any;
   disabled?: boolean;
@@ -12,23 +13,40 @@ export interface ButtonProps {
   children: React.ReactNode;
 }
 
-export const Button = ({ id, children, variant = "primary", onClick, type = "submit", width = "auto", isLoading , disabled}: ButtonProps) => {
-  const theme = (useTheme().button.variants[variant as never]) as ButtonTheme;
-  return (!isLoading ? <StyledButton {...theme} id={id} type={type} onClick={onClick} style={{ width }} disabled={disabled}>
-    <div children={children}/>
-  </StyledButton> : <StyledButton {...theme} id={id} type={type} style={{ width }}>
-    <div style={{ color: "transparent" }} children={children}/>
-    <div style={{ position: "absolute", left: "calc(50% - 12px)", top: "20%" }}><Spinner/></div>
-  </StyledButton>);
+export const Button = ({ id, children, variant = "primary", size = "medium", onClick, type = "submit", width = "auto", isLoading, disabled }: ButtonProps) => {
+  const { variants, sizes } = useTheme().button;
+  const variantTheme: ButtonVariantTheme = (variants[variant as never]);
+  const sizeFontSize: string = (sizes[size as never]);
+  const sizePadding: string = SizePadding[size]
+  const theme: StyledButtonProps = { ...variantTheme, fontSize: sizeFontSize, padding: sizePadding };
+  return (!isLoading ?
+      <StyledButton {...theme} id={id} type={type} onClick={onClick} style={{ width }} disabled={disabled}>
+        <div children={children}/>
+      </StyledButton> : <StyledButton {...theme} id={id} type={type} style={{ width }}>
+        <div style={{ color: "transparent" }} children={children}/>
+        <div style={{ position: "absolute", left: "50%", top: "52%", transform: "translate(-50%, -50%)" }}><Spinner/></div>
+      </StyledButton>);
 };
 
-type StyledButtonProps = ButtonTheme
+const SizePadding = {
+  small: "6px 18px 6px",
+  medium: "12px 30px 12px",
+  large: "16px 32px 16px",
+}
+
+interface SizeProps {
+  fontSize: string
+  padding: string
+}
+
+type StyledButtonProps = ButtonVariantTheme & SizeProps
+
 const StyledButton = styled.button<StyledButtonProps>`
   position: relative;
-  font-size: ${({ theme }) => theme.button.base.fontSize};
+  font-size: ${(props) => props.fontSize};
   cursor: pointer;
   height: auto;
-  padding: 12px 30px 12px;
+  padding: ${(props) => props.padding};
   text-decoration: none;
   outline: none;
   border-radius: ${({ theme }) => theme.button.base.borderRadius};
@@ -52,10 +70,10 @@ const StyledButton = styled.button<StyledButtonProps>`
   }  
 `;
 
-export const Spinner = styled.div`
+const Spinner = styled.div`
   border-width: 1.5px;
-  width: 20px;
-  height: 20px;
+  width: 12px;
+  height: 12px;
   color: currentColor;
   display: inline-block;
   background: transparent;
@@ -65,8 +83,7 @@ export const Spinner = styled.div`
   border-right-color: currentColor;
   border-bottom-color: transparent;
   border-radius: 100%;
-  animation: rotation .75s linear infinite;
-  
+  animation: rotation 1.5s linear infinite;
   @keyframes rotation {
     from {
       transform: rotate(0deg);

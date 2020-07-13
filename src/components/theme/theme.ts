@@ -27,13 +27,14 @@ declare module "styled-components" {
         fontSize: string;
         borderRadius: string;
       }
+      sizes: ButtonSizesTheme,
       variants: {
-        primary: ButtonTheme,
-        primaryOutlined: ButtonTheme,
-        primaryOutlinedFilled: ButtonTheme,
-        secondary: ButtonTheme
-        secondaryOutlined: ButtonTheme,
-        secondaryOutlinedFilled: ButtonTheme
+        primary: ButtonVariantTheme,
+        primaryOutlined: ButtonVariantTheme,
+        primaryOutlinedFilled: ButtonVariantTheme,
+        secondary: ButtonVariantTheme
+        secondaryOutlined: ButtonVariantTheme,
+        secondaryOutlinedFilled: ButtonVariantTheme
       }
     }
     alert: AlertTheme
@@ -46,13 +47,19 @@ declare module "styled-components" {
     secondaryDark: string;
   }
 
-  export interface ButtonTheme {
+  export interface ButtonVariantTheme {
     color: string;
     borderColor: string;
     backgroundColor: string;
     colorOnHover: string;
     borderOnHoverColor: string;
     backgroundOnHoverColor: string;
+  }
+
+  export interface ButtonSizesTheme {
+    small: string;
+    medium: string;
+    large: string;
   }
 
   export interface AlertTheme  {

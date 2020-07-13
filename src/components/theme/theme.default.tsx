@@ -86,6 +86,11 @@ export const DefaultAppTheme: DefaultTheme = {
       fontSize: "14px",
       borderRadius: "4px"
     },
+    sizes: {
+      small: "12px",
+      medium: "14px",
+      large: "18px"
+    },
     variants: {
       primary: {
         color: "white",
