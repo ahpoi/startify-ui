@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled, {ThemeProvider} from "styled-components";
-import {Button, MainTheme} from "../../../src";
+import {Button, DefaultAppTheme} from "../../../src";
 
 export default {
   title: "Inputs|Button",
@@ -8,14 +8,14 @@ export default {
 };
 
 export const button = () =>
-    <ThemeProvider theme={MainTheme}>
+    <ThemeProvider theme={DefaultAppTheme}>
       <Button variant={"primary"} onClick={onClick}>
         Button
       </Button>
     </ThemeProvider>
 
 export const primaryStyles = () => (
-    <ThemeProvider theme={MainTheme}>
+    <ThemeProvider theme={DefaultAppTheme}>
       <Container>
         <Button variant={"primary"} width={"225px"} onClick={onClick}>
           Primary
@@ -31,7 +31,7 @@ export const primaryStyles = () => (
 );
 
 export const secondaryStyles = () => (
-    <ThemeProvider theme={MainTheme}>
+    <ThemeProvider theme={DefaultAppTheme}>
       <Container>
         <Button variant={"secondary"} width={"225px"} onClick={onClick}>
           Secondary
@@ -46,7 +46,7 @@ export const secondaryStyles = () => (
     </ThemeProvider>
 );
 export const disabled = () => (
-    <ThemeProvider theme={MainTheme}>
+    <ThemeProvider theme={DefaultAppTheme}>
       <Container>
         <Button variant={"secondary"} width={"225px"} disabled onClick={onClick}>
           Disabled
@@ -62,7 +62,7 @@ export const disabled = () => (
 );
 
 export const loading = () => (
-    <ThemeProvider theme={MainTheme}>
+    <ThemeProvider theme={DefaultAppTheme}>
       <Container>
         <Button variant={"primary"} width={"200px"} isLoading onClick={onClick}>
           Primary

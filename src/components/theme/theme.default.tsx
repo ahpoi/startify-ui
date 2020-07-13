@@ -1,13 +1,47 @@
-import {DefaultTheme, ColorTheme} from "styled-components";
+import {DefaultTheme, ColorTheme, AlertTheme} from "styled-components";
 
-export const mainColorTheme: ColorTheme = {
+export const DefaultAppColorTheme: ColorTheme = {
   primary: "#172B4D",
   primaryDark: "#051632",
   secondary: "#008DA6",
   secondaryDark: "#027187",
 };
 
-export const MainTheme: DefaultTheme = {
+export const DefaultAppAlertTheme: AlertTheme = {
+  base: {
+    fontSize: "14px",
+    borderRadius: "2px",
+  },
+  variants: {
+    success: {
+      color: "#155724",
+      backgroundColor: "#D4EDDA",
+      borderColor: "#C3E6CB"
+    },
+    light: {
+      color: "#818182",
+      backgroundColor: "#fafafa",
+      borderColor: "#FDFDFE"
+    },
+    info: {
+      color: "#0C5460",
+      backgroundColor: "#D1ECF1",
+      borderColor: "#BEE5EB"
+    },
+    warning: {
+      color: "#856404",
+      backgroundColor: "#FFF3CD",
+      borderColor: "#FFEEBA"
+    },
+    error: {
+      color: "#721C24",
+      backgroundColor: "#F8D7DA",
+      borderColor: "#F5C6CB"
+    }
+  }
+};
+
+export const DefaultAppTheme: DefaultTheme = {
   typography: {
     fontFamily: "",
     fontWeight: {
@@ -55,85 +89,53 @@ export const MainTheme: DefaultTheme = {
     variants: {
       primary: {
         color: "white",
-        backgroundColor: mainColorTheme.primary,
-        borderColor: mainColorTheme.primary,
+        backgroundColor: DefaultAppColorTheme.primary,
+        borderColor: DefaultAppColorTheme.primary,
         colorOnHover: "white",
-        borderOnHoverColor: mainColorTheme.primaryDark,
-        backgroundOnHoverColor: mainColorTheme.primaryDark,
+        borderOnHoverColor: DefaultAppColorTheme.primaryDark,
+        backgroundOnHoverColor: DefaultAppColorTheme.primaryDark,
       },
       primaryOutlined: {
-        color: mainColorTheme.primary,
+        color: DefaultAppColorTheme.primary,
         backgroundColor: "transparent",
-        borderColor: mainColorTheme.primary,
-        colorOnHover: mainColorTheme.primary,
+        borderColor: DefaultAppColorTheme.primary,
+        colorOnHover: DefaultAppColorTheme.primary,
         backgroundOnHoverColor: "transparent",
-        borderOnHoverColor: mainColorTheme.primaryDark,
+        borderOnHoverColor: DefaultAppColorTheme.primaryDark,
       },
       primaryOutlinedFilled: {
-        color: mainColorTheme.primary,
+        color: DefaultAppColorTheme.primary,
         backgroundColor: "transparent",
-        borderColor: mainColorTheme.primary,
+        borderColor: DefaultAppColorTheme.primary,
         colorOnHover: "white",
-        backgroundOnHoverColor: mainColorTheme.primary,
-        borderOnHoverColor: mainColorTheme.primary,
+        backgroundOnHoverColor: DefaultAppColorTheme.primary,
+        borderOnHoverColor: DefaultAppColorTheme.primary,
       },
       secondary: {
         color: "white",
-        backgroundColor: mainColorTheme.secondary,
-        borderColor: mainColorTheme.secondary,
+        backgroundColor: DefaultAppColorTheme.secondary,
+        borderColor: DefaultAppColorTheme.secondary,
         colorOnHover: "white",
-        backgroundOnHoverColor: mainColorTheme.secondaryDark,
-        borderOnHoverColor: mainColorTheme.secondaryDark,
+        backgroundOnHoverColor: DefaultAppColorTheme.secondaryDark,
+        borderOnHoverColor: DefaultAppColorTheme.secondaryDark,
       },
       secondaryOutlined: {
-        color: mainColorTheme.secondary,
+        color: DefaultAppColorTheme.secondary,
         backgroundColor: "transparent",
-        borderColor: mainColorTheme.secondary,
-        colorOnHover: mainColorTheme.secondary,
+        borderColor: DefaultAppColorTheme.secondary,
+        colorOnHover: DefaultAppColorTheme.secondary,
         backgroundOnHoverColor: "transparent",
-        borderOnHoverColor: mainColorTheme.secondaryDark,
+        borderOnHoverColor: DefaultAppColorTheme.secondaryDark,
       },
       secondaryOutlinedFilled: {
-        color: mainColorTheme.secondary,
+        color: DefaultAppColorTheme.secondary,
         backgroundColor: "transparent",
-        borderColor: mainColorTheme.secondary,
+        borderColor: DefaultAppColorTheme.secondary,
         colorOnHover: "white",
-        backgroundOnHoverColor: mainColorTheme.secondary,
-        borderOnHoverColor: mainColorTheme.secondaryDark,
+        backgroundOnHoverColor: DefaultAppColorTheme.secondary,
+        borderOnHoverColor: DefaultAppColorTheme.secondaryDark,
       },
     }
   },
-  alert: {
-    base: {
-      fontSize: "14px",
-      borderRadius: "2px",
-    },
-    variants: {
-      success: {
-        color: "#155724",
-        backgroundColor: "#D4EDDA",
-        borderColor: "#C3E6CB"
-      },
-      light: {
-        color: "#818182",
-        backgroundColor: "#fafafa",
-        borderColor: "#FDFDFE"
-      },
-      info: {
-        color: "#0C5460",
-        backgroundColor: "#D1ECF1",
-        borderColor: "#BEE5EB"
-      },
-      warning: {
-        color: "#856404",
-        backgroundColor: "#FFF3CD",
-        borderColor: "#FFEEBA"
-      },
-      error: {
-        color: "#721C24",
-        backgroundColor: "#F8D7DA",
-        borderColor: "#F5C6CB"
-      }
-    }
-  }
+  alert: DefaultAppAlertTheme
 };

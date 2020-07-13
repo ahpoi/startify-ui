@@ -36,19 +36,7 @@ declare module "styled-components" {
         secondaryOutlinedFilled: ButtonTheme
       }
     }
-    alert: {
-      base: {
-        fontSize: string;
-        borderRadius: string;
-      }
-      variants: {
-        success: AlertTheme,
-        info: AlertTheme,
-        light: AlertTheme
-        warning: AlertTheme,
-        error: AlertTheme
-      }
-    }
+    alert: AlertTheme
   }
 
   export interface ColorTheme {
@@ -67,7 +55,20 @@ declare module "styled-components" {
     backgroundOnHoverColor: string;
   }
 
-  export interface AlertTheme {
+  export interface AlertTheme  {
+    base: {
+      fontSize: string;
+      borderRadius: string;
+    }
+    variants: {
+      success: AlertVariantTheme,
+      info: AlertVariantTheme,
+      light: AlertVariantTheme
+      warning: AlertVariantTheme,
+      error: AlertVariantTheme
+    }
+  }
+  export interface AlertVariantTheme {
     color: string;
     borderColor: string;
     backgroundColor: string;

@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled, {ThemeProvider} from "styled-components";
-import {Heading1, Heading2, Heading3, Heading4, Heading5, MainTheme, Paragraph} from "../../../src";
+import {Heading1, Heading2, Heading3, Heading4, Heading5, DefaultAppTheme, Paragraph} from "../../../src";
 
 export default {
   title: "Typography|Typography",
@@ -8,7 +8,7 @@ export default {
 };
 
 export const typography = () => (
-    <ThemeProvider theme={MainTheme}>
+    <ThemeProvider theme={DefaultAppTheme}>
       <Container>
         <Heading1>Heading 1</Heading1>
         <Heading2>Heading 2</Heading2>
@@ -21,7 +21,7 @@ export const typography = () => (
 );
 
 export const custom = () => (
-    <ThemeProvider theme={MainTheme}>
+    <ThemeProvider theme={DefaultAppTheme}>
       <Container>
         <Heading1 fontWeight={900} color={"#008DA6"} textAlign={"center"} fontSize={{ web: "100px", mobile: "50px" }}>
           Heading 1

@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled, {ThemeProvider} from "styled-components";
-import {Alert, MainTheme} from "../../../src";
+import {Alert, DefaultAppTheme} from "../../../src";
 
 export default {
   title: "Presentation|Alert",
@@ -8,7 +8,7 @@ export default {
 };
 
 export const alerts = () =>
-    <ThemeProvider theme={MainTheme}>
+    <ThemeProvider theme={DefaultAppTheme}>
       <Container>
         <Alert variant={"success"}>
           This is a success alert—check it out!

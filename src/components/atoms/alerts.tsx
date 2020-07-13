@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled, {useTheme, AlertTheme} from "styled-components";
+import styled, {useTheme, AlertVariantTheme} from "styled-components";
 
 interface AlertProps {
   id?: string;
@@ -9,13 +9,13 @@ interface AlertProps {
 }
 
 export const Alert = ({ children, variant, className }: AlertProps) => {
-  const theme: AlertTheme = useTheme().alert.variants[variant];
+  const theme: AlertVariantTheme = useTheme().alert.variants[variant];
   return <StyledAlert className={`${className} ${variant}`} {...theme}>
     {children}
   </StyledAlert>;
 };
 
-const StyledAlert = styled.div<AlertTheme>`
+const StyledAlert = styled.div<AlertVariantTheme>`
     color: ${(props) => props.color};
     background-color: ${(props) => props.backgroundColor};
     border-color: ${(props) => props.borderColor};
