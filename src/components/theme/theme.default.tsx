@@ -116,7 +116,7 @@ export const MainTheme: DefaultTheme = {
       },
       light: {
         color: "#818182",
-        backgroundColor: "#FEFEFE",
+        backgroundColor: "#fafafa",
         borderColor: "#FDFDFE"
       },
       info: {

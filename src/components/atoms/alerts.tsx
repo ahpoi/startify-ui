@@ -24,7 +24,7 @@ const StyledAlert = styled.div<AlertTheme>`
     border-width: 1px;
     border-style: solid;
     font-size: ${({ theme }) => theme.alert.base.fontSize};
-    word-wrap: "break-word;
+    word-wrap: break-word;
 `;
 
 StyledAlert.displayName = "Styled Alert";

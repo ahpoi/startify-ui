@@ -16,11 +16,11 @@ export const alerts = () =>
         <Alert variant={"info"}>
           This is a info alert—check it out!
         </Alert>
-        <Alert variant={"warning"}>
-          This is a warning alert—check it out!
-        </Alert>
         <Alert variant={"light"}>
           This is a light alert—check it out!
+        </Alert>
+        <Alert variant={"warning"}>
+          This is a warning alert—check it out!
         </Alert>
         <Alert variant={"error"}>
           This is a danger alert—check it out!
