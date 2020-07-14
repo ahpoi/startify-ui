@@ -2,9 +2,9 @@ import * as React from "react";
 import styled, {useTheme, AlertVariantTheme} from "styled-components";
 
 interface AlertProps {
+  variant: "success" | "info" | "light" | "warning" | "error",
   children: React.ReactNode,
   onClose?: () => any;
-  variant: "success" | "info" | "light" | "warning" | "error"
 }
 
 export const Alert = ({ children, variant, onClose }: AlertProps) => {

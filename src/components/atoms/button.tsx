@@ -3,26 +3,26 @@ import styled, {useTheme, ButtonVariantTheme} from "styled-components";
 
 export interface ButtonProps {
   id?: string;
-  type?: "submit" | "button";
-  size?: "small" | "medium" | "large";
   variant?: "primary" | "primaryOutlined" | "primaryOutlinedFilled" | "secondary" | "secondaryOutlined" | "secondaryOutlinedFilled";
+  type?: "submit" | "button";
+  size?: "small" | "medium" | "large"
+  children: React.ReactNode;
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => any;
   disabled?: boolean;
   width?: string;
   isLoading?: boolean;
-  children: React.ReactNode;
 }
 
 export const Button = ({ id, children, variant = "primary", size = "medium", onClick, type = "submit", width = "auto", isLoading, disabled }: ButtonProps) => {
   const { variants, sizes } = useTheme().button;
   const variantTheme: ButtonVariantTheme = (variants[variant as never]);
   const sizeFontSize: string = (sizes[size as never]);
-  const sizePadding: string = SizePadding[size]
-  const theme: StyledButtonProps = { ...variantTheme, fontSize: sizeFontSize, padding: sizePadding };
+  const sizePadding: string = SizePadding[size];
+  const styledBtnProps: StyledButtonProps = { ...variantTheme, fontSize: sizeFontSize, padding: sizePadding , isLoading: isLoading};
   return (!isLoading ?
-      <StyledButton {...theme} id={id} type={type} onClick={onClick} style={{ width }} disabled={disabled}>
+      <StyledButton {...styledBtnProps} id={id} type={type} onClick={onClick} style={{ width }} disabled={disabled}>
         <div children={children}/>
-      </StyledButton> : <StyledButton {...theme} id={id} type={type} style={{ width }}>
+      </StyledButton> : <StyledButton {...styledBtnProps} id={id} type={"button"} style={{ width }}>
         <div style={{ color: "transparent" }} children={children}/>
         <div style={{ position: "absolute", left: "50%", top: "52%", transform: "translate(-50%, -50%)" }}><Spinner/></div>
       </StyledButton>);
@@ -39,7 +39,7 @@ interface SizeProps {
   padding: string
 }
 
-type StyledButtonProps = ButtonVariantTheme & SizeProps
+type StyledButtonProps = ButtonVariantTheme & SizeProps & {isLoading?: boolean}
 
 const StyledButton = styled.button<StyledButtonProps>`
   position: relative;
@@ -50,6 +50,9 @@ const StyledButton = styled.button<StyledButtonProps>`
   text-decoration: none;
   outline: none;
   border-radius: ${({ theme }) => theme.button.base.borderRadius};
+  ${({ isLoading }) => isLoading &&`
+    cursor: not-allowed;
+  `};
   &:disabled {
     cursor: not-allowed;
     color: rgba(0,0,0,.25);
