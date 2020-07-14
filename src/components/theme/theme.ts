@@ -22,22 +22,9 @@ declare module "styled-components" {
       },
       paragraph: TypographySizeTheme
     },
-    button: {
-      base: {
-        fontSize: string;
-        borderRadius: string;
-      }
-      sizes: ButtonSizesTheme,
-      variants: {
-        primary: ButtonVariantTheme,
-        primaryOutlined: ButtonVariantTheme,
-        primaryOutlinedFilled: ButtonVariantTheme,
-        secondary: ButtonVariantTheme
-        secondaryOutlined: ButtonVariantTheme,
-        secondaryOutlinedFilled: ButtonVariantTheme
-      }
-    }
-    alert: AlertTheme
+    button: ButtonTheme,
+    alert: AlertTheme,
+    badge: BadgeTheme
   }
 
   export interface ColorTheme {
@@ -45,6 +32,22 @@ declare module "styled-components" {
     primaryDark: string;
     secondary: string;
     secondaryDark: string;
+  }
+
+  export interface ButtonTheme {
+    base: {
+      fontSize: string;
+      borderRadius: string;
+    }
+    sizes: ButtonSizesTheme,
+    variants: {
+      primary: ButtonVariantTheme,
+      primaryOutlined: ButtonVariantTheme,
+      primaryOutlinedFilled: ButtonVariantTheme,
+      secondary: ButtonVariantTheme
+      secondaryOutlined: ButtonVariantTheme,
+      secondaryOutlinedFilled: ButtonVariantTheme
+    }
   }
 
   export interface ButtonVariantTheme {
@@ -75,9 +78,31 @@ declare module "styled-components" {
       error: AlertVariantTheme
     }
   }
+
   export interface AlertVariantTheme {
     color: string;
     borderColor: string;
+    backgroundColor: string;
+  }
+
+  export interface BadgeTheme  {
+    base: {
+      fontSize: string;
+      fontWeight: number;
+      borderRadius: string;
+    }
+    variants: {
+      primary: BadgeVariantTheme,
+      secondary: BadgeVariantTheme,
+      success: BadgeVariantTheme,
+      info: BadgeVariantTheme,
+      warning: BadgeVariantTheme,
+      error: BadgeVariantTheme
+    }
+  }
+
+  export interface BadgeVariantTheme {
+    color: string;
     backgroundColor: string;
   }
 

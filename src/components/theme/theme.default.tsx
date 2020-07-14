@@ -1,4 +1,4 @@
-import {DefaultTheme, ColorTheme, AlertTheme} from "styled-components";
+import {DefaultTheme, ColorTheme, AlertTheme, BadgeTheme} from "styled-components";
 
 export const DefaultAppColorTheme: ColorTheme = {
   primary: "#172B4D",
@@ -14,8 +14,8 @@ export const DefaultAppAlertTheme: AlertTheme = {
   },
   variants: {
     success: {
-      color: "#155724",
-      backgroundColor: "#D4EDDA",
+      color: "#067A3D",
+      backgroundColor: "#DFF0D8",
       borderColor: "#C3E6CB"
     },
     light: {
@@ -24,19 +24,53 @@ export const DefaultAppAlertTheme: AlertTheme = {
       borderColor: "#FDFDFE"
     },
     info: {
-      color: "#0C5460",
-      backgroundColor: "#D1ECF1",
+      color: "#0D72A8",
+      backgroundColor: "#E6EFF5",
       borderColor: "#BEE5EB"
     },
     warning: {
-      color: "#856404",
-      backgroundColor: "#FFF3CD",
+      color: "#8A6D3B",
+      backgroundColor: "#FCF8E2",
       borderColor: "#FFEEBA"
     },
     error: {
-      color: "#721C24",
-      backgroundColor: "#F8D7DA",
+      color: "#BC111E",
+      backgroundColor: "#F2DEDE",
       borderColor: "#F5C6CB"
+    }
+  }
+};
+
+export const DefaultAppBadgeTheme: BadgeTheme = {
+  base: {
+    fontSize: "10px",
+    fontWeight: 600,
+    borderRadius: "6px",
+  },
+  variants: {
+    primary: {
+      color: "white",
+      backgroundColor: DefaultAppColorTheme.primary,
+    },
+    secondary: {
+      color: "white",
+      backgroundColor: DefaultAppColorTheme.secondary,
+    },
+    success: {
+      color: "#067A3D",
+      backgroundColor: "#DFF0D8",
+    },
+    info: {
+      color: "#0D72A8",
+      backgroundColor: "#E6EFF5",
+    },
+    warning: {
+      color: "#8A6D3B",
+      backgroundColor: "#FCF8E2",
+    },
+    error: {
+      color: "#BC111E",
+      backgroundColor: "#F2DEDE",
     }
   }
 };
@@ -142,5 +176,6 @@ export const DefaultAppTheme: DefaultTheme = {
       },
     }
   },
-  alert: DefaultAppAlertTheme
+  alert: DefaultAppAlertTheme,
+  badge: DefaultAppBadgeTheme
 };
