@@ -1,11 +1,14 @@
 import * as React from "react";
-import styled from "styled-components";
+import styled, {useTheme} from "styled-components";
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   isInvalid?: boolean;
 }
 
-export const Input = (props: InputProps) => <StyledInput {...props}/>;
+export const Input = (props: InputProps) => {
+  const errorClassName = props.isInvalid ? useTheme().input.base.classNameError : "";
+  return <StyledInput {...props} className={errorClassName}/>;
+};
 
 const StyledInput = styled.input<{ isInvalid?: boolean }>`
   font-size: ${({ theme }) => theme.input.fontSize};

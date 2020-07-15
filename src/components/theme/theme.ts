@@ -6,6 +6,9 @@ declare module "styled-components" {
     alert: AlertTheme,
     badge: BadgeTheme,
     input: {
+      base: {
+        classNameError: string;
+      }
       fontSize: string;
       color: string;
       backgroundColor: string;

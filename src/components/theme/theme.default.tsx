@@ -182,6 +182,9 @@ export const DefaultAppTheme: DefaultTheme = {
   alert: DefaultAppAlertTheme,
   badge: DefaultAppBadgeTheme,
   input: {
+    base: {
+      classNameError: "startify-field-error"
+    },
     color: "#000",
     fontSize: "16px",
     backgroundColor: "#fff",
