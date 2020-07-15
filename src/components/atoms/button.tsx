@@ -64,7 +64,6 @@ const StyledButton = styled.button<StyledButtonProps>`
   background-color: ${(props) => props.backgroundColor};
   border: 1px solid ${(props) => props.borderColor};
   &:hover:enabled,
-  &:focus:enabled,
   &:active:enabled {
     transition: background-color 100ms linear, box-shadow 300ms;
     color: ${(props) => props.colorOnHover};
