@@ -5,9 +5,7 @@ React components for faster and easier web development.
 ## Why another component library? 
 
 This is a very simple component library where it provides the minimum, but enough to build beautiful themeable UI. 
-Most other component library is either over-engineered and very heavy, requires lots of messing around for theming or not themable at all. 
-
-Our component library just take a simple theme object and that's it! Built with Typescript!
+Used by lots of my internal projects. 
 
 Demo of the components can be found [here!](https://ahpoi.github.io/startify-ui/?path=/docs/inputs-button--button-styles)
 
@@ -15,7 +13,7 @@ Demo of the components can be found [here!](https://ahpoi.github.io/startify-ui/
 
 We make use of styled-components theming support by exporting a <ThemeProvider> wrapper component. This component provides a theme to all React components underneath itself via the context API.
 
-Example our  Theme and properties that are themeable:
+Example our Theme and properties that are themeable:
 
 ```
 const mainColorTheme: ColorTheme = {

@@ -43,6 +43,7 @@ type StyledButtonProps = ButtonVariantTheme & SizeProps & {isLoading?: boolean}
 
 const StyledButton = styled.button<StyledButtonProps>`
   position: relative;
+  display: inline-block;
   font-size: ${(props) => props.fontSize};
   cursor: pointer;
   height: auto;

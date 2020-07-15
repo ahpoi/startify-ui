@@ -1,27 +1,7 @@
 declare module "styled-components" {
 
   export interface DefaultTheme {
-    typography: {
-      fontFamily: string;
-      fontWeight: {
-        light: number,
-        medium: number,
-        bold: number,
-      }
-      color: {
-        dark: string;
-        mid: string;
-        light: string;
-      },
-      heading: {
-        one: TypographySizeTheme,
-        two: TypographySizeTheme,
-        three: TypographySizeTheme,
-        four: TypographySizeTheme,
-        five: TypographySizeTheme
-      },
-      paragraph: TypographySizeTheme
-    },
+    typography: TypographyTheme,
     button: ButtonTheme,
     alert: AlertTheme,
     badge: BadgeTheme
@@ -32,6 +12,27 @@ declare module "styled-components" {
     primaryDark: string;
     secondary: string;
     secondaryDark: string;
+  }
+
+  export interface TypographyTheme {
+    fontWeight: {
+      light: number,
+      medium: number,
+      bold: number,
+    }
+    color: {
+      dark: string;
+      mid: string;
+      light: string;
+    },
+    heading: {
+      one: TypographySizeTheme,
+      two: TypographySizeTheme,
+      three: TypographySizeTheme,
+      four: TypographySizeTheme,
+      five: TypographySizeTheme
+    },
+    paragraph: TypographySizeTheme
   }
 
   export interface ButtonTheme {
@@ -65,7 +66,7 @@ declare module "styled-components" {
     large: string;
   }
 
-  export interface AlertTheme  {
+  export interface AlertTheme {
     base: {
       fontSize: string;
       borderRadius: string;
@@ -85,7 +86,7 @@ declare module "styled-components" {
     backgroundColor: string;
   }
 
-  export interface BadgeTheme  {
+  export interface BadgeTheme {
     base: {
       fontSize: string;
       fontWeight: number;

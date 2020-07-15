@@ -1,4 +1,4 @@
-import {DefaultTheme, ColorTheme, AlertTheme, BadgeTheme} from "styled-components";
+import {DefaultTheme, ColorTheme, AlertTheme, BadgeTheme, TypographyTheme, ButtonTheme} from "styled-components";
 
 export const DefaultAppColorTheme: ColorTheme = {
   primary: "#172B4D",
@@ -75,107 +75,110 @@ export const DefaultAppBadgeTheme: BadgeTheme = {
   }
 };
 
+export const DefaultTypographyTheme: TypographyTheme = {
+  fontWeight: {
+    light: 400,
+    medium: 500,
+    bold: 700
+  },
+  color: {
+    dark: "#1C1C1C",
+    mid: "#585858",
+    light: "#808080",
+  },
+  heading: {
+    one: {
+      web: "38px",
+      mobile: "30px"
+    },
+    two: {
+      web: "30px",
+      mobile: "24px"
+    },
+    three: {
+      web: "26px",
+      mobile: "20px"
+    },
+    four: {
+      web: "20px",
+      mobile: "16px"
+    },
+    five: {
+      web: "16px",
+      mobile: "14px"
+    },
+  },
+  paragraph: {
+    web: "14px",
+    mobile: "12px"
+  }
+};
+
+export const DefaultAppButtonTheme: ButtonTheme = {
+  base: {
+    fontSize: "14px",
+    borderRadius: "4px"
+  },
+  sizes: {
+    small: "12px",
+    medium: "14px",
+    large: "18px"
+  },
+  variants: {
+    primary: {
+      color: "white",
+      backgroundColor: DefaultAppColorTheme.primary,
+      borderColor: DefaultAppColorTheme.primary,
+      colorOnHover: "white",
+      borderOnHoverColor: DefaultAppColorTheme.primaryDark,
+      backgroundOnHoverColor: DefaultAppColorTheme.primaryDark,
+    },
+    primaryOutlined: {
+      color: DefaultAppColorTheme.primary,
+      backgroundColor: "transparent",
+      borderColor: DefaultAppColorTheme.primary,
+      colorOnHover: DefaultAppColorTheme.primary,
+      backgroundOnHoverColor: "transparent",
+      borderOnHoverColor: DefaultAppColorTheme.primaryDark,
+    },
+    primaryOutlinedFilled: {
+      color: DefaultAppColorTheme.primary,
+      backgroundColor: "transparent",
+      borderColor: DefaultAppColorTheme.primary,
+      colorOnHover: "white",
+      backgroundOnHoverColor: DefaultAppColorTheme.primary,
+      borderOnHoverColor: DefaultAppColorTheme.primary,
+    },
+    secondary: {
+      color: "white",
+      backgroundColor: DefaultAppColorTheme.secondary,
+      borderColor: DefaultAppColorTheme.secondary,
+      colorOnHover: "white",
+      backgroundOnHoverColor: DefaultAppColorTheme.secondaryDark,
+      borderOnHoverColor: DefaultAppColorTheme.secondaryDark,
+    },
+    secondaryOutlined: {
+      color: DefaultAppColorTheme.secondary,
+      backgroundColor: "transparent",
+      borderColor: DefaultAppColorTheme.secondary,
+      colorOnHover: DefaultAppColorTheme.secondary,
+      backgroundOnHoverColor: "transparent",
+      borderOnHoverColor: DefaultAppColorTheme.secondaryDark,
+    },
+    secondaryOutlinedFilled: {
+      color: DefaultAppColorTheme.secondary,
+      backgroundColor: "transparent",
+      borderColor: DefaultAppColorTheme.secondary,
+      colorOnHover: "white",
+      backgroundOnHoverColor: DefaultAppColorTheme.secondary,
+      borderOnHoverColor: DefaultAppColorTheme.secondaryDark,
+    },
+  }
+};
+
 export const DefaultAppTheme: DefaultTheme = {
-  typography: {
-    fontFamily: "",
-    fontWeight: {
-      light: 400,
-      medium: 500,
-      bold: 700
-    },
-    color: {
-      dark: "#1C1C1C",
-      mid: "#585858",
-      light: "#808080",
-    },
-    heading: {
-      one: {
-        web: "38px",
-        mobile: "30px"
-      },
-      two: {
-        web: "30px",
-        mobile: "24px"
-      },
-      three: {
-        web: "26px",
-        mobile: "20px"
-      },
-      four: {
-        web: "20px",
-        mobile: "16px"
-      },
-      five: {
-        web: "16px",
-        mobile: "14px"
-      },
-    },
-    paragraph: {
-      web: "14px",
-      mobile: "12px"
-    }
-  },
-  button: {
-    base: {
-      fontSize: "14px",
-      borderRadius: "4px"
-    },
-    sizes: {
-      small: "12px",
-      medium: "14px",
-      large: "18px"
-    },
-    variants: {
-      primary: {
-        color: "white",
-        backgroundColor: DefaultAppColorTheme.primary,
-        borderColor: DefaultAppColorTheme.primary,
-        colorOnHover: "white",
-        borderOnHoverColor: DefaultAppColorTheme.primaryDark,
-        backgroundOnHoverColor: DefaultAppColorTheme.primaryDark,
-      },
-      primaryOutlined: {
-        color: DefaultAppColorTheme.primary,
-        backgroundColor: "transparent",
-        borderColor: DefaultAppColorTheme.primary,
-        colorOnHover: DefaultAppColorTheme.primary,
-        backgroundOnHoverColor: "transparent",
-        borderOnHoverColor: DefaultAppColorTheme.primaryDark,
-      },
-      primaryOutlinedFilled: {
-        color: DefaultAppColorTheme.primary,
-        backgroundColor: "transparent",
-        borderColor: DefaultAppColorTheme.primary,
-        colorOnHover: "white",
-        backgroundOnHoverColor: DefaultAppColorTheme.primary,
-        borderOnHoverColor: DefaultAppColorTheme.primary,
-      },
-      secondary: {
-        color: "white",
-        backgroundColor: DefaultAppColorTheme.secondary,
-        borderColor: DefaultAppColorTheme.secondary,
-        colorOnHover: "white",
-        backgroundOnHoverColor: DefaultAppColorTheme.secondaryDark,
-        borderOnHoverColor: DefaultAppColorTheme.secondaryDark,
-      },
-      secondaryOutlined: {
-        color: DefaultAppColorTheme.secondary,
-        backgroundColor: "transparent",
-        borderColor: DefaultAppColorTheme.secondary,
-        colorOnHover: DefaultAppColorTheme.secondary,
-        backgroundOnHoverColor: "transparent",
-        borderOnHoverColor: DefaultAppColorTheme.secondaryDark,
-      },
-      secondaryOutlinedFilled: {
-        color: DefaultAppColorTheme.secondary,
-        backgroundColor: "transparent",
-        borderColor: DefaultAppColorTheme.secondary,
-        colorOnHover: "white",
-        backgroundOnHoverColor: DefaultAppColorTheme.secondary,
-        borderOnHoverColor: DefaultAppColorTheme.secondaryDark,
-      },
-    }
-  },
+  typography: DefaultTypographyTheme,
+  button: DefaultAppButtonTheme,
   alert: DefaultAppAlertTheme,
   badge: DefaultAppBadgeTheme
 };

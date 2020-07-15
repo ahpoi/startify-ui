@@ -6,6 +6,7 @@ import * as CSS from "csstype";
 
 export interface TypographyProps {
   children: React.ReactNode;
+  fontFamily?: CSS.FontFamilyProperty;
   fontWeight?: CSS.FontWeightProperty;
   fontSize?: {
     web?: string;
@@ -24,6 +25,7 @@ export const Heading5 = (props: TypographyProps) => <StyledHeading5 {...props}/>
 export const Paragraph = (props: TypographyProps) => <StyledParagraph {...props}/>;
 
 const StyledHeading1 = styled.h1<TypographyProps>`
+  font-family: ${(props) => props.fontFamily};
   font-size: ${(props) => props.fontSize?.web ?? props.theme.typography.heading.one.web};
   font-weight: ${(props) => props.fontWeight ?? 'normal'};
   text-align: ${(props) => props.textAlign};

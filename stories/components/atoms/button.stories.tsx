@@ -9,9 +9,9 @@ export default {
 
 export const button = () =>
     <ThemeProvider theme={DefaultAppTheme}>
-      <Button variant={"primary"} onClick={onClick}>
-        Button
-      </Button>
+        <Button variant={"primary"} onClick={onClick}>
+          Click me
+        </Button>
     </ThemeProvider>;
 
 export const primaryVariants = () => (
