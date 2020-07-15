@@ -185,8 +185,17 @@ export const DefaultAppTheme: DefaultTheme = {
     base: {
       classNameError: "startify-field-error"
     },
+    label: {
+      color: "#3a3a3a",
+      colorError: "#FF5630",
+      fontSizeError: "14px",
+      fontSize: "15px",
+      fontWeight: 400,
+      fontWeightError: 400
+    },
     color: "#000",
     fontSize: "16px",
+    fontWeight: 400,
     backgroundColor: "#fff",
     backgroundColorDisabled: "rgba(128,128,128,0.7)",
     borderRadius: "3px",

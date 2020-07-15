@@ -9,7 +9,16 @@ declare module "styled-components" {
       base: {
         classNameError: string;
       }
+      label: {
+        color: string;
+        colorError: string;
+        fontSize: string;
+        fontSizeError: string;
+        fontWeight: number
+        fontWeightError: number;
+      }
       fontSize: string;
+      fontWeight: number;
       color: string;
       backgroundColor: string;
       backgroundColorDisabled: string;
