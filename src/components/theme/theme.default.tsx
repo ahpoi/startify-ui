@@ -180,5 +180,15 @@ export const DefaultAppTheme: DefaultTheme = {
   typography: DefaultTypographyTheme,
   button: DefaultAppButtonTheme,
   alert: DefaultAppAlertTheme,
-  badge: DefaultAppBadgeTheme
+  badge: DefaultAppBadgeTheme,
+  input: {
+    color: "#000",
+    fontSize: "16px",
+    backgroundColor: "#fff",
+    backgroundColorDisabled: "rgba(128,128,128,0.7)",
+    borderRadius: "3px",
+    borderColor: DefaultAppColorTheme.secondary,
+    borderColorOnHover: DefaultAppColorTheme.secondaryDark,
+    borderColorError: "#FF5630",
+  }
 };

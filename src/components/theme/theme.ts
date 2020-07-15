@@ -4,7 +4,17 @@ declare module "styled-components" {
     typography: TypographyTheme,
     button: ButtonTheme,
     alert: AlertTheme,
-    badge: BadgeTheme
+    badge: BadgeTheme,
+    input: {
+      fontSize: string;
+      color: string;
+      backgroundColor: string;
+      backgroundColorDisabled: string;
+      borderRadius: string;
+      borderColor: string;
+      borderColorOnHover: string;
+      borderColorError: string;
+    }
   }
 
   export interface ColorTheme {
