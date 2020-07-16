@@ -15,6 +15,7 @@ export const TextInput = (props: InputProps) => {
 };
 
 const StyledInput = styled.input<{ error?: any }>`
+  box-sizing: border-box;
   font-size: ${({ theme }) => theme.input.fontSize};
   font-weight: ${({ theme }) => theme.input.fontWeight};
   color: ${({ theme }) => theme.input.color};

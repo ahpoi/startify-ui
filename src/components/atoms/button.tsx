@@ -7,7 +7,7 @@ export interface ButtonProps {
   type?: "submit" | "button";
   size?: "small" | "medium" | "large"
   children: React.ReactNode;
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => any;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => any;
   disabled?: boolean;
   width?: string;
   isLoading?: boolean;

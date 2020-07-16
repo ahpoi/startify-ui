@@ -24,7 +24,7 @@ export const textInputField = () => {
   </StoriesDefaultThemeProvider>;
 };
 
-export const invalid = () => {
+export const invalidField = () => {
   return <StoriesDefaultThemeProvider>
     <StoriesVerticalContainer>
       <TextInputField id={"email"}
