@@ -5,4 +5,6 @@ export * from "./components/atoms/alert"
 export * from "./components/atoms/badge"
 export * from "./components/atoms/input"
 
+export * from "./components/molecules/text-input-field"
+
 export * from "./components/theme/theme.default"

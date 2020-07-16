@@ -1,21 +1,22 @@
 import * as React from "react";
-import styled, {ThemeProvider} from "styled-components";
-import {Button, DefaultAppTheme} from "../../../src";
+import styled from "styled-components";
+import {Button} from "../../../src";
+import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 
 export default {
-  title: "Inputs|Button",
+  title: "Action|Button",
   component: Button
 };
 
 export const button = () =>
-    <ThemeProvider theme={DefaultAppTheme}>
-        <Button variant={"primary"} onClick={onClick}>
-          Click me
-        </Button>
-    </ThemeProvider>;
+    <StoriesDefaultThemeProvider>
+      <Button variant={"primary"} onClick={onClick}>
+        Click me
+      </Button>
+    </StoriesDefaultThemeProvider>;
 
 export const primaryVariants = () => (
-    <ThemeProvider theme={DefaultAppTheme}>
+    <StoriesDefaultThemeProvider>
       <Container>
         <Button variant={"primary"} width={"225px"} onClick={onClick}>
           Primary
@@ -27,11 +28,11 @@ export const primaryVariants = () => (
           Primary Outline Filled
         </Button>
       </Container>
-    </ThemeProvider>
+    </StoriesDefaultThemeProvider>
 );
 
 export const secondaryVariants = () => (
-    <ThemeProvider theme={DefaultAppTheme}>
+    <StoriesDefaultThemeProvider>
       <Container>
         <Button variant={"secondary"} width={"225px"} onClick={onClick}>
           Secondary
@@ -43,11 +44,11 @@ export const secondaryVariants = () => (
           Secondary Outline Filled
         </Button>
       </Container>
-    </ThemeProvider>
+    </StoriesDefaultThemeProvider>
 );
 
 export const loading = () => (
-    <ThemeProvider theme={DefaultAppTheme}>
+    <StoriesDefaultThemeProvider>
       <Container>
         <Button variant={"primary"} width={"200px"} isLoading onClick={onClick}>
           Primary
@@ -62,11 +63,11 @@ export const loading = () => (
           Secondary Outline
         </Button>
       </Container>
-    </ThemeProvider>
+    </StoriesDefaultThemeProvider>
 );
 
 export const sizeVariants = () => (
-    <ThemeProvider theme={DefaultAppTheme}>
+    <StoriesDefaultThemeProvider>
       <Container>
         <div>
           <Button size={"small"} onClick={onClick}>
@@ -84,11 +85,11 @@ export const sizeVariants = () => (
           </Button>
         </div>
       </Container>
-    </ThemeProvider>
+    </StoriesDefaultThemeProvider>
 );
 
 export const sizeVariantsLoading = () => (
-    <ThemeProvider theme={DefaultAppTheme}>
+    <StoriesDefaultThemeProvider>
       <Container>
         <div>
           <Button size={"small"} onClick={onClick} isLoading>
@@ -106,11 +107,11 @@ export const sizeVariantsLoading = () => (
           </Button>
         </div>
       </Container>
-    </ThemeProvider>
+    </StoriesDefaultThemeProvider>
 );
 
 export const disabled = () => (
-    <ThemeProvider theme={DefaultAppTheme}>
+    <StoriesDefaultThemeProvider>
       <Container>
         <Button variant={"secondary"} disabled onClick={onClick}>
           Disabled
@@ -122,7 +123,7 @@ export const disabled = () => (
           Disabled
         </Button>
       </Container>
-    </ThemeProvider>
+    </StoriesDefaultThemeProvider>
 );
 
 const onClick = () => {

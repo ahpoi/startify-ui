@@ -1,6 +1,6 @@
 import * as React from "react";
-import styled, {ThemeProvider} from "styled-components";
-import {Badge, DefaultAppTheme} from "../../../src";
+import {Badge} from "../../../src";
+import {StoriesDefaultThemeProvider, StoriesVerticalContainer} from "../../utils/stories-container";
 
 export default {
   title: "Presentation|Badge",
@@ -8,19 +8,19 @@ export default {
 };
 
 export const badge = () =>
-    <ThemeProvider theme={DefaultAppTheme}>
-      <Container>
+    <StoriesDefaultThemeProvider>
+      <StoriesVerticalContainer>
         <div>
           <Badge variant={"success"}>
             SUCCESS
           </Badge>
         </div>
-      </Container>
-    </ThemeProvider>;
+      </StoriesVerticalContainer>
+    </StoriesDefaultThemeProvider>;
 
 export const variants = () =>
-    <ThemeProvider theme={DefaultAppTheme}>
-      <Container>
+    <StoriesDefaultThemeProvider>
+      <StoriesVerticalContainer>
         <div>
           <Badge variant={"primary"}>
             PRIMARY
@@ -51,15 +51,5 @@ export const variants = () =>
             ERROR
           </Badge>
         </div>
-      </Container>
-    </ThemeProvider>;
-
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  &>*+* {
-   margin-top: 16px
-  };
-`;
+      </StoriesVerticalContainer>
+    </StoriesDefaultThemeProvider>
