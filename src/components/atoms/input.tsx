@@ -31,4 +31,8 @@ const StyledInput = styled.input<{ error?: any }>`
     cursor: not-allowed;
     background-color: ${({ theme }) => theme.input.backgroundColorDisabled};
   };
+  &:hover:enabled,
+  &:focus:enabled {
+    border-color: ${({ theme }) => theme.input.borderColorOnHover};
+  }  
 `;

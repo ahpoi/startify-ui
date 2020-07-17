@@ -5,6 +5,9 @@ export interface FormProps {
   children: React.ReactNode
 }
 
+/**
+ * Wrapper around the native form that prevents the default web behaviour
+ */
 export const Form = ({ onSubmit, children }: FormProps) =>
     <form
         onKeyDown={
@@ -15,7 +18,6 @@ export const Form = ({ onSubmit, children }: FormProps) =>
             }
           }
         }
-
         onSubmit={
           (e) => {
             e.preventDefault();

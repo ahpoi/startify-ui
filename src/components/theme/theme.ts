@@ -5,28 +5,7 @@ declare module "styled-components" {
     button: ButtonTheme,
     alert: AlertTheme,
     badge: BadgeTheme,
-    input: {
-      base: {
-        classNameError: string;
-      }
-      label: {
-        color: string;
-        colorError: string;
-        fontSize: string;
-        fontSizeError: string;
-        fontWeight: number
-        fontWeightError: number;
-      }
-      fontSize: string;
-      fontWeight: number;
-      color: string;
-      backgroundColor: string;
-      backgroundColorDisabled: string;
-      borderRadius: string;
-      borderColor: string;
-      borderColorOnHover: string;
-      borderColorError: string;
-    }
+    input: InputTheme
   }
 
   export interface ColorTheme {
@@ -134,6 +113,28 @@ declare module "styled-components" {
     mobile: string;
   }
 
+  export interface InputTheme {
+    base: {
+      classNameError: string;
+    }
+    label: {
+      color: string;
+      colorError: string;
+      fontSize: string;
+      fontSizeError: string;
+      fontWeight: number
+      fontWeightError: number;
+    }
+    fontSize: string;
+    fontWeight: number;
+    color: string;
+    backgroundColor: string;
+    backgroundColorDisabled: string;
+    borderRadius: string;
+    borderColor: string;
+    borderColorOnHover: string;
+    borderColorError: string;
+  }
 }
 
 export const Breakpoints = {

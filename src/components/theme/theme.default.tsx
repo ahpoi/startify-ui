@@ -1,4 +1,4 @@
-import {DefaultTheme, ColorTheme, AlertTheme, BadgeTheme, TypographyTheme, ButtonTheme} from "styled-components";
+import {DefaultTheme, ColorTheme, AlertTheme, BadgeTheme, TypographyTheme, ButtonTheme, InputTheme} from "styled-components";
 
 export const DefaultAppColorTheme: ColorTheme = {
   primary: "#172B4D",
@@ -176,31 +176,33 @@ export const DefaultAppButtonTheme: ButtonTheme = {
   }
 };
 
+export const DefaultInputTheme: InputTheme = {
+  base: {
+    classNameError: "startify-field-error"
+  },
+  label: {
+    color: "#3a3a3a",
+    colorError: "#FF5630",
+    fontSizeError: "14px",
+    fontSize: "15px",
+    fontWeight: 400,
+    fontWeightError: 400
+  },
+  color: "#000",
+  fontSize: "16px",
+  fontWeight: 400,
+  backgroundColor: "#ffffff",
+  backgroundColorDisabled: "#f6f6f6",
+  borderRadius: "3px",
+  borderColor: "#EBEBEB",
+  borderColorOnHover: DefaultAppColorTheme.secondaryDark,
+  borderColorError: "#FF5630",
+}
+
 export const DefaultAppTheme: DefaultTheme = {
   typography: DefaultTypographyTheme,
   button: DefaultAppButtonTheme,
   alert: DefaultAppAlertTheme,
   badge: DefaultAppBadgeTheme,
-  input: {
-    base: {
-      classNameError: "startify-field-error"
-    },
-    label: {
-      color: "#3a3a3a",
-      colorError: "#FF5630",
-      fontSizeError: "14px",
-      fontSize: "15px",
-      fontWeight: 400,
-      fontWeightError: 400
-    },
-    color: "#000",
-    fontSize: "16px",
-    fontWeight: 400,
-    backgroundColor: "#ffffff",
-    backgroundColorDisabled: "#f6f6f6",
-    borderRadius: "3px",
-    borderColor: DefaultAppColorTheme.secondary,
-    borderColorOnHover: DefaultAppColorTheme.secondaryDark,
-    borderColorError: "#FF5630",
-  }
+  input: DefaultInputTheme
 };

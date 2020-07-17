@@ -7,5 +7,4 @@ export * from "./components/atoms/input"
 export * from "./components/atoms/form"
 
 export * from "./components/molecules/text-input-field"
-
 export * from "./components/theme/theme.default"
