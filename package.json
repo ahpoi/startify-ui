@@ -17,6 +17,7 @@
   "devDependencies": {
     "@babel/core": "^7.10.4",
     "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-docs": "^5.3.19",
     "@storybook/addon-knobs": "^5.3.19",
     "@storybook/addon-links": "^5.3.19",
     "@storybook/addon-storysource": "^5.3.19",
@@ -37,8 +38,5 @@
   "peerDependencies": {
     "react": ">=16.9.43",
     "styled-components": "^5.1.1"
-  },
-  "dependencies": {
-    "@storybook/addon-docs": "^5.3.19"
   }
 }
