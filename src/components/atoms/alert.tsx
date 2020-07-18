@@ -1,35 +1,39 @@
 import * as React from "react";
-import styled, {useTheme, AlertVariantTheme} from "styled-components";
+import styled from "styled-components";
 
 interface AlertProps {
-  variant: "success" | "info" | "light" | "warning" | "error",
+  variant?: "success" | "info" | "light" | "warning" | "error",
+  customStyle?: AlertVariant
   children: React.ReactNode,
   onClose?: () => any;
 }
 
-export const Alert = ({ children, variant, onClose }: AlertProps) => {
-  const theme: AlertVariantTheme = useTheme().alert.variants[variant];
+export const Alert = ({ children, variant = "success", customStyle, onClose }: AlertProps) => {
+  let _variant: AlertVariant = AlertVariants[variant as never];
+  if (customStyle) {
+    _variant = customStyle;
+  }
   return onClose ?
-      <StyledAlert {...theme}>
+      <StyledAlert {..._variant}>
         <div style={{ display: "inline-block" }}>{children}</div>
         <CloseButton aria-label="close" type={"button"}>
-          <CloseIcon color={theme.color}/>
+          <CloseIcon color={_variant.color}/>
         </CloseButton>
-      </StyledAlert> : <StyledAlert {...theme}>
+      </StyledAlert> : <StyledAlert {..._variant}>
         {children}
       </StyledAlert>;
 };
 
-const StyledAlert = styled.div<AlertVariantTheme>`
+const StyledAlert = styled.div<AlertVariant>`
     position: relative;
+    font-size: 80%;
     color: ${(props) => props.color};
     background-color: ${(props) => props.backgroundColor};
     border-color: ${(props) => props.borderColor};
     padding: 12px;
-    border-radius: ${({ theme }) => theme.alert.base.borderRadius};
+    border-radius: 4px;
     border-width: 1px;
     border-style: solid;
-    font-size: ${({ theme }) => theme.alert.base.fontSize};
     word-wrap: break-word;
 `;
 
@@ -43,6 +47,40 @@ const CloseButton = styled.button`
    border: none;
    padding: 0px;
 `;
+
+interface AlertVariant {
+  color: string;
+  borderColor: string;
+  backgroundColor: string;
+}
+
+const AlertVariants = {
+  success: {
+    color: "#067A3D",
+    backgroundColor: "#DFF0D8",
+    borderColor: "#C3E6CB"
+  },
+  light: {
+    color: "#818182",
+    backgroundColor: "#fafafa",
+    borderColor: "#FDFDFE"
+  },
+  info: {
+    color: "#0D72A8",
+    backgroundColor: "#E6EFF5",
+    borderColor: "#BEE5EB"
+  },
+  warning: {
+    color: "#8A6D3B",
+    backgroundColor: "#FCF8E2",
+    borderColor: "#FFEEBA"
+  },
+  error: {
+    color: "#BC111E",
+    backgroundColor: "#F2DEDE",
+    borderColor: "#F5C6CB"
+  }
+};
 
 const CloseIcon = ({ color }: { color: string }) => (
     <svg width={20} height={20} viewBox="0 0 22 18">

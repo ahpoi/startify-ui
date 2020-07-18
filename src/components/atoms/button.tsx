@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled, {useTheme, ButtonVariantTheme} from "styled-components";
+import styled, {useTheme} from "styled-components";
 
 export interface ButtonProps {
   id?: string;
@@ -14,32 +14,103 @@ export interface ButtonProps {
 }
 
 export const Button = ({ id, children, variant = "primary", size = "medium", onClick, type = "submit", width = "auto", isLoading, disabled }: ButtonProps) => {
-  const { variants, sizes } = useTheme().button;
-  const variantTheme: ButtonVariantTheme = (variants[variant as never]);
-  const sizeFontSize: string = (sizes[size as never]);
-  const sizePadding: string = SizePadding[size];
-  const styledBtnProps: StyledButtonProps = { ...variantTheme, fontSize: sizeFontSize, padding: sizePadding , isLoading: isLoading};
+  const buttonVariant: ButtonVariant = useButtonVariant()[variant];
+  const sizeVariant = SizeVariants[size];
+  const styledBtnProps: StyledButtonProps = { ...buttonVariant, fontSize: sizeVariant.fontSize, padding: sizeVariant.padding, isLoading: isLoading };
   return (!isLoading ?
       <StyledButton {...styledBtnProps} id={id} type={type} onClick={onClick} style={{ width }} disabled={disabled}>
         <div children={children}/>
-      </StyledButton> : <StyledButton {...styledBtnProps} id={id} type={"button"} style={{ width }}>
+      </StyledButton> : <StyledButton  {...styledBtnProps} id={id} type={"button"} style={{ width }}>
         <div style={{ color: "transparent" }} children={children}/>
-        <div style={{ position: "absolute", left: "50%", top: "52%", transform: "translate(-50%, -50%)" }}><Spinner/></div>
+        <div style={{ position: "absolute", left: "50%", top: "52%", transform: "translate(-50%, -50%)" }}><Spinner/>
+        </div>
       </StyledButton>);
 };
 
-const SizePadding = {
-  small: "6px 18px 6px",
-  medium: "12px 30px 12px",
-  large: "16px 32px 16px",
-}
+const SizeVariants = {
+  small: {
+    fontSize: "14px",
+    padding: "6px 18px 6px",
+  },
+  medium: {
+    fontSize: "16px",
+    padding: "12px 30px 12px",
+  },
+  large: {
+    fontSize: "18px",
+    padding: "16px 32px 16px",
+  }
+};
 
-interface SizeProps {
+const useButtonVariant = () => {
+  const { primary, primaryDark, secondary, secondaryDark } = useTheme().color;
+  return {
+    primary: {
+      color: "white",
+      backgroundColor: primary,
+      borderColor: primary,
+      colorOnHover: "white",
+      borderOnHoverColor: primaryDark,
+      backgroundOnHoverColor: primaryDark,
+    },
+    primaryOutlined: {
+      color: primary,
+      backgroundColor: "transparent",
+      borderColor: primary,
+      colorOnHover: primary,
+      backgroundOnHoverColor: "transparent",
+      borderOnHoverColor: primaryDark,
+    },
+    primaryOutlinedFilled: {
+      color: primary,
+      backgroundColor: "transparent",
+      borderColor: primary,
+      colorOnHover: "white",
+      backgroundOnHoverColor: primary,
+      borderOnHoverColor: primary,
+    },
+    secondary: {
+      color: "white",
+      backgroundColor: secondary,
+      borderColor: secondary,
+      colorOnHover: "white",
+      backgroundOnHoverColor: secondaryDark,
+      borderOnHoverColor: secondaryDark,
+    },
+    secondaryOutlined: {
+      color: secondary,
+      backgroundColor: "transparent",
+      borderColor: secondary,
+      colorOnHover: secondary,
+      backgroundOnHoverColor: "transparent",
+      borderOnHoverColor: secondaryDark,
+    },
+    secondaryOutlinedFilled: {
+      color: secondary,
+      backgroundColor: "transparent",
+      borderColor: secondary,
+      colorOnHover: "white",
+      backgroundOnHoverColor: secondary,
+      borderOnHoverColor: secondaryDark,
+    },
+  };
+};
+
+interface SizeVariant {
   fontSize: string
   padding: string
 }
 
-type StyledButtonProps = ButtonVariantTheme & SizeProps & {isLoading?: boolean}
+interface ButtonVariant {
+  color: string;
+  borderColor: string;
+  backgroundColor: string;
+  colorOnHover: string;
+  borderOnHoverColor: string;
+  backgroundOnHoverColor: string;
+}
+
+type StyledButtonProps = ButtonVariant & SizeVariant & { isLoading?: boolean }
 
 const StyledButton = styled.button<StyledButtonProps>`
   position: relative;
@@ -50,8 +121,8 @@ const StyledButton = styled.button<StyledButtonProps>`
   padding: ${(props) => props.padding};
   text-decoration: none;
   outline: none;
-  border-radius: ${({ theme }) => theme.button.base.borderRadius};
-  ${({ isLoading }) => isLoading &&`
+  border-radius: 4px;
+  ${({ isLoading }) => isLoading && `
     cursor: not-allowed;
   `};
   &:disabled {

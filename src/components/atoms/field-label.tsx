@@ -15,13 +15,13 @@ export const FieldLabel = (props: FieldLabelProps) => {
 };
 
 export const FieldErrorMessage = styled.div`
-  font-size: ${({ theme }) => theme.input.label.fontSizeError};
-  font-weight: ${({ theme }) => theme.input.label.fontWeightError};
-  color: ${({ theme }) => theme.input.label.colorError};
+  font-size: 14px;
+  font-weight: 400;
+  color: ${({ theme }) => theme.color.error};
 `;
 
 const StyledLabel = styled.label<{ error?: boolean }>`
-  font-size: ${({ theme }) => theme.input.label.fontSize};
-  font-weight: ${({ theme }) => theme.input.label.fontWeight};
-  color: ${({ theme, error }) => (error ? theme.input.label.colorError : theme.input.label.color)};
+  font-size: 15px;
+  font-weight: 400;
+  color: ${({ theme, error }) => (error ? theme.color.error : theme.color.textMid)};
 `;

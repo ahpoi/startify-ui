@@ -22,16 +22,6 @@ export const variants = () =>
     <StoriesDefaultThemeProvider>
       <StoriesVerticalContainer>
         <div>
-          <Badge variant={"primary"}>
-            PRIMARY
-          </Badge>
-        </div>
-        <div>
-          <Badge variant={"secondary"}>
-            SECONDARY
-          </Badge>
-        </div>
-        <div>
           <Badge variant={"success"}>
             SUCCESS
           </Badge>

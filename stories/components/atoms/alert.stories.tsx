@@ -34,6 +34,9 @@ export const variants = () =>
         <Alert variant={"error"}>
           This is a danger alert—check it out!
         </Alert>
+        <Alert customStyle={{ backgroundColor: "blue", borderColor: "red", color: "white" }}>
+          This is a custom alert—check it out!
+        </Alert>
       </Container>
     </ThemeProvider>;
 
@@ -54,6 +57,9 @@ export const close = () =>
         </Alert>
         <Alert variant={"error"} onClose={() => (0)}>
           This is a danger alert—check it out!
+        </Alert>
+        <Alert customStyle={{ backgroundColor: "blue", borderColor: "red", color: "white" }} onClose={() => (0)}>
+          This is a custom alert—check it out!
         </Alert>
       </Container>
     </ThemeProvider>;

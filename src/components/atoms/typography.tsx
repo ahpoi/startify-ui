@@ -1,8 +1,8 @@
 import * as React from "react";
 
 import styled from "styled-components";
-import {Breakpoints} from "../theme/theme";
 import * as CSS from "csstype";
+import {Breakpoints} from "../styles/sizes";
 
 export interface TypographyProps {
   children: React.ReactNode;
@@ -24,70 +24,98 @@ export const Heading5 = (props: TypographyProps) => <StyledHeading5 {...props}/>
 
 export const Paragraph = (props: TypographyProps) => <StyledParagraph {...props}/>;
 
+const TypographyVariants = {
+  heading: {
+    one: {
+      web: "36px",
+      mobile: "28px"
+    },
+    two: {
+      web: "30px",
+      mobile: "24px"
+    },
+    three: {
+      web: "26px",
+      mobile: "20px"
+    },
+    four: {
+      web: "20px",
+      mobile: "16px"
+    },
+    five: {
+      web: "16px",
+      mobile: "14px"
+    },
+  },
+  paragraph: {
+    web: "14px",
+    mobile: "12px"
+  }
+};
 const StyledHeading1 = styled.h1<TypographyProps>`
   font-family: ${(props) => props.fontFamily};
-  font-size: ${(props) => props.fontSize?.web ?? props.theme.typography.heading.one.web};
-  font-weight: ${(props) => props.fontWeight ?? 'normal'};
+  font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.one.web};
+  font-weight: ${(props) => props.fontWeight ?? "normal"};
   text-align: ${(props) => props.textAlign};
-  color: ${(props) => props.color ?? props.theme.typography.color.mid};
+  color: ${(props) => props.color ?? props.theme.color.textMid};
   margin: 0px;
   @media (max-width: ${Breakpoints.small}) {
-    font-size: ${(props) => props.fontSize?.mobile ?? props.theme.typography.heading.one.mobile};
+    font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.one.mobile};
   }
 `;
 
 const StyledHeading2 = styled.h2<TypographyProps>`
-  font-size: ${(props) => props.fontSize?.web ?? props.theme.typography.heading.two.web};
-  font-weight: ${(props) => props.fontWeight ?? 'normal'};
-  color: ${(props) => props.color ?? props.theme.typography.color.mid};
+  font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.two.web};
+  font-weight: ${(props) => props.fontWeight ?? "normal"};
+  color: ${(props) => props.color ?? props.theme.color.textMid};
   text-align: ${(props) => props.textAlign};
   margin: 0px;
   @media (max-width: ${Breakpoints.small}) {
-    font-size: ${(props) => props.fontSize?.mobile ?? props.theme.typography.heading.two.mobile};
+    font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.two.mobile};
   }
 `;
 
 const StyledHeading3 = styled.h3<TypographyProps>`
-  font-size: ${(props) => props.fontSize?.web ?? props.theme.typography.heading.three.web};
-  font-weight: ${(props) => props.fontWeight ?? 'normal'};
+  font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.three.web};
+  font-weight: ${(props) => props.fontWeight ?? "normal"};
   text-align: ${(props) => props.textAlign};
-  color: ${(props) => props.color ?? props.theme.typography.color.mid};
+  color: ${(props) => props.color ?? props.theme.color.textMid};
   margin: 0px;
   @media (max-width: ${Breakpoints.small}) {
-    font-size: ${(props) => props.fontSize?.mobile ?? props.theme.typography.heading.three.mobile};
+    font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.three.mobile};
   }
 `;
 
 const StyledHeading4 = styled.h4<TypographyProps>`
-  font-size: ${(props) => props.fontSize?.web ?? props.theme.typography.heading.four.web};
-  font-weight: ${(props) => props.fontWeight ?? 'normal'};
+  font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.four.web};
+  font-weight: ${(props) => props.fontWeight ?? "normal"};
   text-align: ${(props) => props.textAlign};
-  color: ${(props) => props.color ?? props.theme.typography.color.mid};
+  color: ${(props) => props.color ?? props.theme.color.textMid};
   margin: 0px;
   @media (max-width: ${Breakpoints.small}) {
-    font-size: ${(props) => props.fontSize?.mobile ?? props.theme.typography.heading.four.mobile};
+    font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.four.mobile};
   }
 `;
 
 const StyledHeading5 = styled.h5<TypographyProps>`
-  font-size: ${(props) => props.fontSize?.web ?? props.theme.typography.heading.five.web};
-  font-weight: ${(props) => props.fontWeight ?? 'normal'};
+  font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.five.web};
+  font-weight: ${(props) => props.fontWeight ?? "normal"};
   text-align: ${(props) => props.textAlign};
-  color: ${(props) => props.color ?? props.theme.typography.color.mid};
+  color: ${(props) => props.color ?? props.theme.color.textMid};
   margin: 0px;
   @media (max-width: ${Breakpoints.small}) {
-    font-size: ${(props) => props.fontSize?.mobile ?? props.theme.typography.heading.five.mobile};
+    font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.five.mobile};
   }
 `;
 
 const StyledParagraph = styled.p<TypographyProps>`
-  font-size: ${(props) => props.fontSize?.web ?? props.theme.typography.paragraph.web};
-  font-weight: ${(props) => props.fontWeight ?? 'normal'};
+  font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.paragraph.web};
+  font-weight: ${(props) => props.fontWeight ?? "normal"};
   text-align: ${(props) => props.textAlign};
-  color: ${(props) => props.color ?? props.theme.typography.color.mid};
+  color: ${(props) => props.color ?? props.theme.color.textMid};
   margin: 0px;
   hyphens: auto;
   @media (max-width: ${Breakpoints.small}) {
-    font-size: ${(props) => props.fontSize?.mobile ?? props.theme.typography.paragraph.mobile};
+    font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.paragraph.mobile};
   }
 `;

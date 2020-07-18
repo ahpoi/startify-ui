@@ -4,7 +4,7 @@ React components for faster and easier web development.
 
 ## Why another component library? 
 
-This is a very simple component library where it provides the minimum, but enough to build beautiful themeable UI. 
+This is a very simple component library where it provides the minimum, but enough to build beautiful themeable UI by only proving the primary and secondary color. 
 Used by lots of my internal projects. 
 
 Demo of the components can be found [here!](https://ahpoi.github.io/startify-ui/?path=/docs/inputs-button--button-styles)
