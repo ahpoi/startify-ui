@@ -4,7 +4,7 @@ import {Button} from "../../../src";
 import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 
 export default {
-  title: "Action|Button",
+  title: "Inputs|Button",
   component: Button
 };
 

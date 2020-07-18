@@ -114,9 +114,6 @@ declare module "styled-components" {
   }
 
   export interface InputTheme {
-    base: {
-      classNameError: string;
-    }
     label: {
       color: string;
       colorError: string;

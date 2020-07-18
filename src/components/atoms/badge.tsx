@@ -23,7 +23,6 @@ const StyledBadge = styled.div<BadgeVariantTheme>`
     white-space: nowrap;
     padding: 8px;
     border-radius: ${({ theme }) => theme.badge.base.borderRadius};
-    letter-spacing: 0.1em;
     min-width: 80px;
     font-size: ${({ theme }) => theme.badge.base.fontSize};
     font-weight: ${({ theme }) => theme.badge.base.fontWeight};

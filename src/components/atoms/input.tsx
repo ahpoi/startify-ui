@@ -1,20 +1,11 @@
 import * as React from "react";
-import styled, {useTheme} from "styled-components";
+import styled from "styled-components";
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  id?: string,
-  name?: string,
-  label?: string
-  star?: boolean
-  error?: string | null;
+  error?: boolean;
 }
 
-export const TextInput = (props: InputProps) => {
-  const errorClassName = props.error ? useTheme().input.base.classNameError : "";
-  return <StyledInput {...props} className={errorClassName}/>;
-};
-
-const StyledInput = styled.input<{ error?: any }>`
+export const TextInput = styled.input<InputProps>`
   box-sizing: border-box;
   font-size: ${({ theme }) => theme.input.fontSize};
   font-weight: ${({ theme }) => theme.input.fontWeight};

@@ -44,8 +44,8 @@ export const DefaultAppAlertTheme: AlertTheme = {
 export const DefaultAppBadgeTheme: BadgeTheme = {
   base: {
     fontSize: "10px",
-    fontWeight: 600,
-    borderRadius: "6px",
+    fontWeight: 400,
+    borderRadius: "4px",
   },
   variants: {
     primary: {
@@ -177,9 +177,6 @@ export const DefaultAppButtonTheme: ButtonTheme = {
 };
 
 export const DefaultInputTheme: InputTheme = {
-  base: {
-    classNameError: "startify-field-error"
-  },
   label: {
     color: "#3a3a3a",
     colorError: "#FF5630",
