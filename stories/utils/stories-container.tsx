@@ -1,11 +1,15 @@
 import styled, {ThemeProvider} from "styled-components";
-import {DefaultAppTheme} from "../../src";
+import {BaseStyle, DefaultAppTheme} from "../../src";
 import * as React from "react";
 
-export const StoriesDefaultThemeProvider = (props: { children: React.ReactNode }) =>
+export const StoriesDefaultThemeProvider = (props: { children: React.ReactNode }) => {
+  return <>
+    <BaseStyle/>
     <ThemeProvider theme={DefaultAppTheme}>
       {props.children}
-    </ThemeProvider>;
+    </ThemeProvider>
+  </>;
+};
 
 export const StoriesVerticalContainer = styled.div`
   display: flex;

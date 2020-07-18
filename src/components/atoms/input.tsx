@@ -6,7 +6,6 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
 }
 
 export const TextInput = styled.input<InputProps>`
-  box-sizing: border-box;
   font-size: ${({ theme }) => theme.input.fontSize};
   font-weight: ${({ theme }) => theme.input.fontWeight};
   color: ${({ theme }) => theme.input.color};

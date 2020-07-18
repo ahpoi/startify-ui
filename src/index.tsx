@@ -7,4 +7,6 @@ export * from "./components/atoms/field-label"
 export * from "./components/atoms/input"
 export * from "./components/atoms/form"
 
+export * from "./components/utils/base-style"
+export * from "./components/utils/normalise"
 export * from "./components/theme/theme.default"
