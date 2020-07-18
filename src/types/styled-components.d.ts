@@ -5,6 +5,11 @@ declare module "styled-components" {
   export interface DefaultTheme {
     typography: TypographyTheme,
     color: ColorTheme
+    border: {
+      radiusSmall: string
+      radiusMedium: string
+      radiusLarge: string
+    }
   }
 
   export interface ColorTheme {

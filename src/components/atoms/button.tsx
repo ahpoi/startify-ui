@@ -121,7 +121,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   padding: ${(props) => props.padding};
   text-decoration: none;
   outline: none;
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.border.radiusSmall};
   ${({ isLoading }) => isLoading && `
     cursor: not-allowed;
   `};

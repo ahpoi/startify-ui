@@ -31,7 +31,7 @@ const StyledAlert = styled.div<AlertVariant>`
     background-color: ${(props) => props.backgroundColor};
     border-color: ${(props) => props.borderColor};
     padding: 12px;
-    border-radius: 4px;
+    border-radius: ${({ theme }) => theme.border.radiusSmall};
     border-width: 1px;
     border-style: solid;
     word-wrap: break-word;

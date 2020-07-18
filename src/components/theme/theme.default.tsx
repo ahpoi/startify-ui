@@ -25,5 +25,10 @@ export const DefaultTypographyTheme: TypographyTheme = {
 
 export const DefaultAppTheme: DefaultTheme = {
   typography: DefaultTypographyTheme,
-  color: DefaultAppColorTheme
+  color: DefaultAppColorTheme,
+  border: {
+    radiusSmall: "4px",
+    radiusMedium: "8px",
+    radiusLarge: "12px"
+  }
 };

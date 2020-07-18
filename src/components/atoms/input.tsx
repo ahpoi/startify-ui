@@ -13,7 +13,7 @@ export const TextInput = styled.input<InputProps>`
   width: 100%;
   height: 40;
   line-height: normal;
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.border.radiusSmall};
   border: 1px solid ${({ error, disabled, theme }) => (error && !disabled ? theme.color.error : theme.color.textLight)};
   background-color: ${InputBaseColors.backgroundColor};
   padding: 8px 10px;
