@@ -4,15 +4,17 @@ import styled from "styled-components";
 interface BadgeProps {
   variant?: "success" | "info" | "warning" | "error"
   customStyle?: BadgeVariant
-  children: React.ReactNode
+  children: React.ReactNode,
+  width?: string
 }
 
-export const Badge = ({ children, customStyle, variant = "info" }: BadgeProps) => {
+export const Badge = ({ children, customStyle, variant = "info", width = "auto" }: BadgeProps) => {
   let _variant: BadgeVariant = BadgeVariants[variant as never];
   if (customStyle) {
     _variant = customStyle;
   }
-  return <StyledBadge {..._variant}>
+  const styledBadgeProps: StyledBadgeProps = { ..._variant, width };
+  return <StyledBadge {...styledBadgeProps} >
     {children}
   </StyledBadge>;
 };
@@ -42,7 +44,11 @@ const BadgeVariants = {
   }
 };
 
-const StyledBadge = styled.div<BadgeVariant>`
+interface StyledBadgeProps extends BadgeVariant {
+  width: string;
+}
+
+const StyledBadge = styled.div<StyledBadgeProps>`
     text-align: center;
     color: ${(props) => props.color};
     background-color: ${(props) => props.backgroundColor};
@@ -52,7 +58,7 @@ const StyledBadge = styled.div<BadgeVariant>`
     white-space: nowrap;
     padding: 8px;
     border-radius: ${({ theme }) => theme.border.radiusSmall}px;
-    min-width: 80px;
+    width: ${(props) => props.width};
     font-size: 80%;
     font-weight: 400;
     word-wrap: break-word;
