@@ -1,30 +1,3 @@
-export const FontSizes = {
-  h1: "38px",
-  h2: "30px",
-  h3: "26px",
-  h4: "20px",
-  h5: "16px",
-
-  h1Mobile: "30px",
-  h2Mobile: "24px",
-  h3Mobile: "20px",
-  h4Mobile: "16px",
-  h5Mobile: "14px",
-
-  buttonText: "14px",
-
-  paragraph: "14px",
-  paragraphSmall: "12px",
-  paragraphXSmall: "10px",
-
-  alert: "14px",
-
-  label: "16px",
-  labelError: "14px",
-
-  input: "16px",
-};
-
 export const FontWeight = {
   light: 300,
   normal: 400,
@@ -42,8 +15,9 @@ export const MaxWidths = {
 };
 
 export const Spaces = {
-  xxSmall: 4,
-  xSmall: 8,
+  xxxSmall: 4,
+  xxSmall: 8,
+  xSmall: 12,
   small: 16,
   medium: 24,
   large: 32,
@@ -62,6 +36,8 @@ export const BorderRadius = {
 };
 
 export const Breakpoints = {
-  small: "480px",
-  large: "970px"
+  small: 576,
+  medium: 768,
+  large: 970,
+  xLarge: 1200
 };

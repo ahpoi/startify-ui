@@ -1,5 +1,15 @@
 import * as React from "react";
-import {Heading1, Heading2, Heading3, Heading4, Heading5, Paragraph} from "../../../src";
+import {
+  Heading1,
+  Heading2,
+  Heading3,
+  Heading4,
+  Heading5,
+  Paragraph,
+  ParagraphHeading,
+  SmallText,
+  Text
+} from "../../../src";
 import {StoriesDefaultThemeProvider, StoriesVerticalContainer} from "../../utils/stories-container";
 
 export default {
@@ -15,7 +25,10 @@ export const typography = () => (
         <Heading3>Heading 3</Heading3>
         <Heading4>Heading 4</Heading4>
         <Heading5>Heading 5</Heading5>
+        <ParagraphHeading>Paragraph Heading</ParagraphHeading>
         <Paragraph>Paragraph</Paragraph>
+        <Text>Text</Text>
+        <SmallText>Small Text</SmallText>
       </StoriesVerticalContainer>
     </StoriesDefaultThemeProvider>
 );

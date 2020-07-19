@@ -26,12 +26,12 @@ export const Alert = ({ children, variant = "success", customStyle, onClose }: A
 
 const StyledAlert = styled.div<AlertVariant>`
     position: relative;
-    font-size: 80%;
+    font-size: 14px;
     color: ${(props) => props.color};
     background-color: ${(props) => props.backgroundColor};
     border-color: ${(props) => props.borderColor};
     padding: 12px;
-    border-radius: ${({ theme }) => theme.border.radiusSmall};
+    border-radius: ${({ theme }) => theme.border.radiusSmall}px;
     border-width: 1px;
     border-style: solid;
     word-wrap: break-word;

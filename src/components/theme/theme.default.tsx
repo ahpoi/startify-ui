@@ -10,6 +10,8 @@ export const DefaultAppColorTheme: ColorTheme = {
   error: "#D61834",
   errorDark: "#BD152E",
 
+  heading: "#2A2A2A",
+
   textDark: "#2A2A2A",
   textMid: "#585858",
   textLight: "#bdbdbd",
@@ -27,8 +29,8 @@ export const DefaultAppTheme: DefaultTheme = {
   typography: DefaultTypographyTheme,
   color: DefaultAppColorTheme,
   border: {
-    radiusSmall: "4px",
-    radiusMedium: "8px",
-    radiusLarge: "12px"
+    radiusSmall: 4,
+    radiusMedium: 8,
+    radiusLarge: 12
   }
 };

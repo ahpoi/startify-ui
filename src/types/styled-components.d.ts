@@ -6,9 +6,9 @@ declare module "styled-components" {
     typography: TypographyTheme,
     color: ColorTheme
     border: {
-      radiusSmall: string
-      radiusMedium: string
-      radiusLarge: string
+      radiusSmall: number
+      radiusMedium: number
+      radiusLarge: number
     }
   }
 
@@ -19,6 +19,8 @@ declare module "styled-components" {
     secondaryDark: string;
     error: string;
     errorDark: string;
+
+    heading: string;
 
     textDark: string;
     textMid: string;

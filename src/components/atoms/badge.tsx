@@ -51,7 +51,7 @@ const StyledBadge = styled.div<BadgeVariant>`
     text-decoration: none;
     white-space: nowrap;
     padding: 8px;
-    border-radius: ${({ theme }) => theme.border.radiusSmall};
+    border-radius: ${({ theme }) => theme.border.radiusSmall}px;
     min-width: 80px;
     font-size: 80%;
     font-weight: 400;

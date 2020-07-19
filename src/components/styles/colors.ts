@@ -34,7 +34,11 @@ export const CommonColors = {
   grey90: "rgba(128,128,128,0.9)",
 };
 
+/**
+ * If needed later will move to Theme
+ */
 export const InputBaseColors = {
+  borderColor: "#EBEBEB",
   backgroundColor: "#ffffff",
   backgroundColorDisabled: "#f6f6f6",
 }
