@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Link, LinkButton, Vertical} from "../../../src";
-import {StoriesDefaultThemeProvider, StoriesVerticalContainer} from "../../utils/stories-container";
+import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 
 export default {
   title: "Action|Link",
@@ -16,18 +16,18 @@ export const link = () =>
 
 export const linkCustomStyle = () =>
     <StoriesDefaultThemeProvider>
-      <StoriesVerticalContainer>
+      <Vertical>
         <Link href={"/hello"}
               text={"Link"}
               customStyle={{ color: "red", colorOnHover: "blue" }}/>
-      </StoriesVerticalContainer>
+      </Vertical>
     </StoriesDefaultThemeProvider>;
 
 export const linkButton = () =>
     <StoriesDefaultThemeProvider>
-      <StoriesVerticalContainer>
+      <Vertical>
         <div>
           <LinkButton text={"Button styled as link"} onClick={() => console.log("submitted")}/>
         </div>
-      </StoriesVerticalContainer>
+      </Vertical>
     </StoriesDefaultThemeProvider>;
