@@ -16,85 +16,46 @@ We make use of styled-components theming support by exporting a <ThemeProvider> 
 Example our Theme and properties that are themeable:
 
 ```
-const mainColorTheme: ColorTheme = {
+export const DefaultAppColorTheme: ColorTheme = {
   primary: "#172B4D",
-  primaryDark: "#071E45",
+  primaryDark: "#051632",
+
   secondary: "#008DA6",
   secondaryDark: "#027187",
+
+  error: "#D61834",
+  errorDark: "#BD152E",
+
+  heading: "#2A2A2A",
+
+  textDark: "#2A2A2A",
+  textMid: "#585858",
+  textLight: "#bdbdbd",
 };
 
-export const MainTheme: DefaultTheme = {
-  typography: {
-    fontFamily: "",
-    fontWeight: {
-      light: 400,
-      medium: 500,
-      bold: 700
-    },
-    color: {
-      dark: "#1C1C1C",
-      mid: "#585858",
-      light: "#808080",
-    },
-    heading: {
-      one: {
-        web: "38px",
-        mobile: "30px"
-      },
-      two: {
-        web: "30px",
-        mobile: "24px"
-      },
-      three: {
-        web: "26px",
-        mobile: "20px"
-      },
-      four: {
-        web: "20px",
-        mobile: "16px"
-      },
-      five: {
-        web: "16px",
-        mobile: "14px"
-      },
-    }
+export const DefaultTypographyTheme: TypographyTheme = {
+  fontWeight: {
+    light: 400,
+    medium: 500,
+    bold: 700
   },
-  button: {
-    base: {
-      fontSize: "14px",
-      borderRadius: "8px"
-    },
-    variants: {
-      primary: {
-        backgroundColor: mainColorTheme.primary,
-        backgroundOnHoverColor: mainColorTheme.primaryDark,
-        borderColor: mainColorTheme.primary,
-        borderOnHoverColor: mainColorTheme.primaryDark,
-        color: "white"
-      },
-      primaryOutlined: {
-        backgroundColor: "transparent",
-        backgroundOnHoverColor: "transparent",
-        borderColor: mainColorTheme.primary,
-        borderOnHoverColor: mainColorTheme.primaryDark,
-        color: mainColorTheme.primary,
-      },
-      secondary: {
-        backgroundColor: mainColorTheme.secondary,
-        backgroundOnHoverColor: mainColorTheme.secondaryDark,
-        borderColor: mainColorTheme.secondary,
-        borderOnHoverColor: mainColorTheme.secondaryDark,
-        color: "white"
-      },
-      secondaryOutlined: {
-        backgroundColor: "transparent",
-        backgroundOnHoverColor: "transparent",
-        borderColor: mainColorTheme.secondary,
-        borderOnHoverColor: mainColorTheme.secondaryDark,
-        color: mainColorTheme.secondary,
-      },
-    }
+  text: {
+    small: "12px",
+    medium: "14px",
+    large: "16px"
   }
+};
+
+export const DefaultAppBorderTheme = {
+  radiusSmall: 4,
+  radiusMedium: 8,
+  radiusLarge: 12
+}
+
+export const DefaultAppTheme: AppTheme = {
+  typography: DefaultTypographyTheme,
+  color: DefaultAppColorTheme,
+  border: DefaultAppBorderTheme
 };
 ```
 
