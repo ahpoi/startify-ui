@@ -29,15 +29,15 @@ export const Button = ({ id, children, variant = "primary", size = "medium", onC
 
 const SizeVariants = {
   small: {
-    fontSize: "14px",
+    fontSize: "12px",
     padding: "6px 18px 6px",
   },
   medium: {
-    fontSize: "16px",
+    fontSize: "14px",
     padding: "12px 30px 12px",
   },
   large: {
-    fontSize: "18px",
+    fontSize: "16px",
     padding: "16px 32px 16px",
   }
 };
@@ -121,6 +121,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   padding: ${(props) => props.padding};
   text-decoration: none;
   outline: none;
+  line-height: 1em;
   border-radius: ${({ theme }) => theme.border.radiusSmall}px;
   ${({ isLoading }) => isLoading && `
     cursor: not-allowed;

@@ -23,5 +23,5 @@ export const FieldErrorMessage = styled.div`
 const StyledLabel = styled.label<{ error?: boolean }>`
   font-size: 15px;
   font-weight: 400;
-  color: ${({ theme, error }) => (error ? theme.color.error : theme.color.textMid)};
+  color: ${({ theme, error }) => (error ? theme.color.error : theme.color.textLight)};
 `;

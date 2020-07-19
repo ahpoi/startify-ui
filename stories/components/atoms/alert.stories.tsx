@@ -43,7 +43,7 @@ export const variants = () =>
 export const close = () =>
     <ThemeProvider theme={DefaultAppTheme}>
       <Container>
-        <Alert variant={"success"} onClose={() => (0)}>
+        <Alert variant={"success"} onClose={() => console.log("clicked")}>
           This is a success alert—check it out!
         </Alert>
         <Alert variant={"info"} onClose={() => (0)}>

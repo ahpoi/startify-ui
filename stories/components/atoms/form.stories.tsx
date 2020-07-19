@@ -1,4 +1,4 @@
-import {Button, FieldLabel, Form, TextInput,} from "../../../src";
+import {Button, FieldLabel, Form,} from "../../../src";
 import {StoriesDefaultThemeProvider, StoriesVerticalContainer} from "../../utils/stories-container";
 import * as React from "react";
 import {createGlobalStyle} from "styled-components";
@@ -19,7 +19,6 @@ export const formContainer = () => (
           <div>
             <FieldLabel>First name</FieldLabel>
             <FieldWrapperDivider/>
-            <TextInput/>
           </div>
           <Button type={"submit"}>Submit</Button>
         </StoriesVerticalContainer>

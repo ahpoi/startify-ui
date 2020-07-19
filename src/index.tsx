@@ -7,7 +7,20 @@ export * from "./components/atoms/field-label"
 export * from "./components/atoms/input"
 export * from "./components/atoms/form"
 export * from "./components/atoms/link"
+export * from "./components/atoms/image"
+export * from "./components/atoms/divider"
 
-export * from "./components/utils/base-style"
-export * from "./components/utils/normalise"
+export * from "./components/layout/layout"
+export * from "./components/layout/responsive-layout"
+export * from "./components/layout/base-style"
+export * from "./components/layout/normalise"
+
+export * from "./utils/dom.utils"
+export * from "./utils/common.utils"
+export * from "./utils/storage.utils"
+
 export * from "./components/theme/theme.default"
+export * from "./components/theme/theme.types"
+
+export * from "./components/styles/colors"
+export * from "./components/styles/sizes"

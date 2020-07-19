@@ -1,32 +1,39 @@
 import * as React from "react";
+import * as CSS from "csstype";
 
 import styled from "styled-components";
-import * as CSS from "csstype";
 import {Breakpoints} from "../styles/sizes";
 
-export interface TypographyProps {
+interface BaseTypographyProps {
   children: React.ReactNode;
   fontFamily?: CSS.FontFamilyProperty;
   fontWeight?: CSS.FontWeightProperty;
-  fontSize?: {
-    web?: string;
-    mobile?: string;
-  },
   textAlign?: CSS.TextAlignProperty;
   color?: CSS.Color
 }
 
-export const Heading1 = (props: TypographyProps) => <StyledHeading1 {...props}/>;
-export const Heading2 = (props: TypographyProps) => <StyledHeading2 {...props}/>;
-export const Heading3 = (props: TypographyProps) => <StyledHeading3 {...props}/>;
-export const Heading4 = (props: TypographyProps) => <StyledHeading4 {...props}/>;
-export const Heading5 = (props: TypographyProps) => <StyledHeading5 {...props}/>;
+export interface HeadingProps extends BaseTypographyProps {
+  fontSize?: {
+    web?: CSS.FontSizeProperty<any>;
+    mobile?: CSS.FontSizeProperty<any>;
+  },
+}
 
-export const Paragraph = (props: TypographyProps) => <StyledParagraph {...props}/>;
-export const ParagraphHeading = (props: TypographyProps) => <StyledParagraphHeading {...props}/>;
+export interface ParagraphProps extends BaseTypographyProps {
+  fontSize?: CSS.FontSizeProperty<any>
+}
 
-export const Text = (props: TypographyProps) => <StyledText {...props}/>;
-export const SmallText = (props: Omit<TypographyProps, "fontSize">) => <StyledSmallText {...props}/>;
+export const Heading1 = (props: HeadingProps) => <StyledHeading1 {...props}/>;
+export const Heading2 = (props: HeadingProps) => <StyledHeading2 {...props}/>;
+export const Heading3 = (props: HeadingProps) => <StyledHeading3 {...props}/>;
+export const Heading4 = (props: HeadingProps) => <StyledHeading4 {...props}/>;
+export const Heading5 = (props: HeadingProps) => <StyledHeading5 {...props}/>;
+
+export const Paragraph = (props: ParagraphProps) => <StyledParagraph {...props}/>;
+export const ParagraphHeading = (props: ParagraphProps) => <StyledParagraphHeading {...props}/>;
+
+export const Text = (props: ParagraphProps) => <StyledText {...props}/>;
+export const SmallText = (props: Omit<ParagraphProps, "fontSize">) => <StyledSmallText {...props}/>;
 
 const TypographyVariants = {
   heading: {
@@ -53,7 +60,7 @@ const TypographyVariants = {
   }
 };
 
-const StyledHeading1 = styled.h1<TypographyProps>`
+const StyledHeading1 = styled.h1<HeadingProps>`
   font-family: ${(props) => props.fontFamily};
   font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.one.web};
   font-weight: ${(props) => props.fontWeight ?? "normal"};
@@ -65,7 +72,7 @@ const StyledHeading1 = styled.h1<TypographyProps>`
   }
 `;
 
-const StyledHeading2 = styled.h2<TypographyProps>`
+const StyledHeading2 = styled.h2<HeadingProps>`
   font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.two.web};
   font-weight: ${(props) => props.fontWeight ?? "normal"};
   color: ${(props) => props.color ?? props.theme.color.heading};
@@ -76,7 +83,7 @@ const StyledHeading2 = styled.h2<TypographyProps>`
   }
 `;
 
-const StyledHeading3 = styled.h3<TypographyProps>`
+const StyledHeading3 = styled.h3<HeadingProps>`
   font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.three.web};
   font-weight: ${(props) => props.fontWeight ?? "normal"};
   text-align: ${(props) => props.textAlign};
@@ -87,7 +94,7 @@ const StyledHeading3 = styled.h3<TypographyProps>`
   }
 `;
 
-const StyledHeading4 = styled.h4<TypographyProps>`
+const StyledHeading4 = styled.h4<HeadingProps>`
   font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.four.web};
   font-weight: ${(props) => props.fontWeight ?? "normal"};
   text-align: ${(props) => props.textAlign};
@@ -98,7 +105,7 @@ const StyledHeading4 = styled.h4<TypographyProps>`
   }
 `;
 
-const StyledHeading5 = styled.h5<TypographyProps>`
+const StyledHeading5 = styled.h5<HeadingProps>`
   font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.five.web};
   font-weight: ${(props) => props.fontWeight ?? "normal"};
   text-align: ${(props) => props.textAlign};
@@ -109,8 +116,8 @@ const StyledHeading5 = styled.h5<TypographyProps>`
   }
 `;
 
-const StyledParagraph = styled.p<TypographyProps>`
-  font-size: ${(props) => props.fontSize?.web ?? props.theme.typography.text.medium};
+const StyledParagraph = styled.p<ParagraphProps>`
+  font-size: ${(props) => props.fontSize ?? props.theme.typography.text.medium};
   font-weight: ${(props) => props.fontWeight ?? "normal"};
   text-align: ${(props) => props.textAlign};
   color: ${(props) => props.color ?? props.theme.color.textMid};

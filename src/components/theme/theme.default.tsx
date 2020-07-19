@@ -1,4 +1,4 @@
-import {DefaultTheme, ColorTheme, TypographyTheme} from "styled-components";
+import {AppTheme,ColorTheme, TypographyTheme} from "./theme.types";
 
 export const DefaultAppColorTheme: ColorTheme = {
   primary: "#172B4D",
@@ -30,12 +30,14 @@ export const DefaultTypographyTheme: TypographyTheme = {
   }
 };
 
-export const DefaultAppTheme: DefaultTheme = {
+export const DefaultAppBorderTheme = {
+  radiusSmall: 4,
+  radiusMedium: 8,
+  radiusLarge: 12
+}
+
+export const DefaultAppTheme: AppTheme = {
   typography: DefaultTypographyTheme,
   color: DefaultAppColorTheme,
-  border: {
-    radiusSmall: 4,
-    radiusMedium: 8,
-    radiusLarge: 12
-  }
+  border: DefaultAppBorderTheme
 };

@@ -71,17 +71,17 @@ export const sizeVariants = () => (
       <Container>
         <div>
           <Button size={"small"} onClick={onClick}>
-            Small
+            Small Button
           </Button>
         </div>
         <div>
           <Button size={"medium"} onClick={onClick}>
-            Medium
+            Medium Button
           </Button>
         </div>
         <div>
           <Button size={"large"} onClick={onClick}>
-            Large
+            Large Button
           </Button>
         </div>
       </Container>

@@ -1,11 +1,3 @@
-export const FontWeight = {
-  light: 300,
-  normal: 400,
-  medium: 500,
-  semiBold: 600,
-  bold: 700,
-};
-
 export const MaxWidths = {
   xLarge: 1140,
   large: 960,
@@ -29,10 +21,11 @@ export const Spaces = {
 };
 
 export const BorderRadius = {
-  radiusSmall: 4,
-  radiusMedium: 6,
-  radiusLarge: 8,
-  radiusxLarge: 12,
+  radiusXsmall: 4,
+  radiusSmall: 6,
+  radiusMedium: 8,
+  radiusLarge: 12,
+  radiusXlarge: 16,
 };
 
 export const Breakpoints = {

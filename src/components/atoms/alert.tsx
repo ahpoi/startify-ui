@@ -13,7 +13,7 @@ export const Alert = ({ children, variant = "success", customStyle, onClose }: A
   return onClose ?
       <StyledAlert {...styledProps}>
         <div style={{ display: "inline-block" }}>{children}</div>
-        <CloseButton aria-label="close" type={"button"}>
+        <CloseButton aria-label="close" type={"button"} onClick={onClose}>
           <CloseIcon color={styledProps.color}/>
         </CloseButton>
       </StyledAlert> : <StyledAlert {...styledProps}>
