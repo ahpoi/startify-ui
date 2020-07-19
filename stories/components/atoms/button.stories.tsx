@@ -1,6 +1,5 @@
 import * as React from "react";
-import styled from "styled-components";
-import {Button} from "../../../src";
+import {Button, Horizontal} from "../../../src";
 import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 
 export default {
@@ -17,7 +16,7 @@ export const button = () =>
 
 export const primaryVariants = () => (
     <StoriesDefaultThemeProvider>
-      <Container>
+      <Horizontal>
         <Button variant={"primary"} width={"225px"} onClick={onClick}>
           Primary
         </Button>
@@ -27,13 +26,13 @@ export const primaryVariants = () => (
         <Button variant={"primaryOutlinedFilled"} width={"225px"} onClick={onClick}>
           Primary Outline Filled
         </Button>
-      </Container>
+      </Horizontal>
     </StoriesDefaultThemeProvider>
 );
 
 export const secondaryVariants = () => (
     <StoriesDefaultThemeProvider>
-      <Container>
+      <Horizontal>
         <Button variant={"secondary"} width={"225px"} onClick={onClick}>
           Secondary
         </Button>
@@ -43,13 +42,13 @@ export const secondaryVariants = () => (
         <Button variant={"secondaryOutlinedFilled"} width={"225px"} onClick={onClick}>
           Secondary Outline Filled
         </Button>
-      </Container>
+      </Horizontal>
     </StoriesDefaultThemeProvider>
 );
 
 export const loading = () => (
     <StoriesDefaultThemeProvider>
-      <Container>
+      <Horizontal>
         <Button variant={"primary"} width={"200px"} isLoading onClick={onClick}>
           Primary
         </Button>
@@ -62,13 +61,13 @@ export const loading = () => (
         <Button variant={"secondaryOutlined"} width={"200px"} isLoading onClick={onClick}>
           Secondary Outline
         </Button>
-      </Container>
+      </Horizontal>
     </StoriesDefaultThemeProvider>
 );
 
 export const sizeVariants = () => (
     <StoriesDefaultThemeProvider>
-      <Container>
+      <Horizontal>
         <div>
           <Button size={"small"} onClick={onClick}>
             Small Button
@@ -84,13 +83,13 @@ export const sizeVariants = () => (
             Large Button
           </Button>
         </div>
-      </Container>
+      </Horizontal>
     </StoriesDefaultThemeProvider>
 );
 
 export const sizeVariantsLoading = () => (
     <StoriesDefaultThemeProvider>
-      <Container>
+      <Horizontal>
         <div>
           <Button size={"small"} onClick={onClick} isLoading>
             Small
@@ -106,13 +105,13 @@ export const sizeVariantsLoading = () => (
             Large
           </Button>
         </div>
-      </Container>
+      </Horizontal>
     </StoriesDefaultThemeProvider>
 );
 
 export const disabled = () => (
     <StoriesDefaultThemeProvider>
-      <Container>
+      <Horizontal>
         <Button variant={"secondary"} disabled onClick={onClick}>
           Disabled
         </Button>
@@ -122,15 +121,10 @@ export const disabled = () => (
         <Button variant={"secondaryOutlinedFilled"} disabled onClick={onClick}>
           Disabled
         </Button>
-      </Container>
+      </Horizontal>
     </StoriesDefaultThemeProvider>
 );
 
 const onClick = () => {
   console.log("clicked");
 };
-
-const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;

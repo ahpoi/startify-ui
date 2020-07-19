@@ -14,6 +14,7 @@ export * from "./components/layout/layout"
 export * from "./components/layout/responsive-layout"
 export * from "./components/layout/base-style"
 export * from "./components/layout/normalise"
+export * from "./components/layout/box"
 
 export * from "./utils/dom.utils"
 export * from "./utils/common.utils"

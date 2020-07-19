@@ -1,6 +1,6 @@
 import * as React from "react";
-import styled, {ThemeProvider} from "styled-components";
-import {Alert, DefaultAppTheme} from "../../../src";
+import {ThemeProvider} from "styled-components";
+import {Alert, DefaultAppTheme, Vertical} from "../../../src";
 
 export default {
   title: "Presentation|Alert",
@@ -9,16 +9,16 @@ export default {
 
 export const alert = () =>
     <ThemeProvider theme={DefaultAppTheme}>
-      <Container>
+      <Vertical>
         <Alert variant={"success"}>
           This is a success alert—check it out!
         </Alert>
-      </Container>
+      </Vertical>
     </ThemeProvider>;
 
 export const variants = () =>
     <ThemeProvider theme={DefaultAppTheme}>
-      <Container>
+      <Vertical>
         <Alert variant={"success"}>
           This is a success alert—check it out!
         </Alert>
@@ -37,12 +37,12 @@ export const variants = () =>
         <Alert customStyle={{ backgroundColor: "blue", borderColor: "red", color: "white" }}>
           This is a custom alert—check it out!
         </Alert>
-      </Container>
+      </Vertical>
     </ThemeProvider>;
 
 export const close = () =>
     <ThemeProvider theme={DefaultAppTheme}>
-      <Container>
+      <Vertical>
         <Alert variant={"success"} onClose={() => console.log("clicked")}>
           This is a success alert—check it out!
         </Alert>
@@ -61,14 +61,5 @@ export const close = () =>
         <Alert customStyle={{ backgroundColor: "blue", borderColor: "red", color: "white" }} onClose={() => (0)}>
           This is a custom alert—check it out!
         </Alert>
-      </Container>
+      </Vertical>
     </ThemeProvider>;
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  &>*+* {
-   margin-top: 16px
-  };
-`;

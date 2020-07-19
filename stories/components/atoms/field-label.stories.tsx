@@ -1,6 +1,6 @@
-import {StoriesDefaultThemeProvider, StoriesVerticalContainer} from "../../utils/stories-container";
+import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 import * as React from "react";
-import {FieldErrorMessage, FieldLabel} from "../../../src";
+import {FieldErrorMessage, FieldLabel, Vertical} from "../../../src";
 
 export default {
   title: "Inputs|FieldLabel",
@@ -9,10 +9,10 @@ export default {
 
 export const fieldLabel = () => (
     <StoriesDefaultThemeProvider>
-      <StoriesVerticalContainer>
+      <Vertical>
         <FieldLabel>First name</FieldLabel>
         <FieldLabel star>Last name</FieldLabel>
-      </StoriesVerticalContainer>
+      </Vertical>
     </StoriesDefaultThemeProvider>
 );
 
@@ -29,7 +29,6 @@ export const fieldLabelWithInputErrorSample = () => (
     <StoriesDefaultThemeProvider>
       <div>
         <FieldLabel>First name</FieldLabel>
-        <FieldWrapperDivider/>
         <FieldWrapperDivider/>
         <FieldErrorMessage>Please enter a first name</FieldErrorMessage>
       </div>

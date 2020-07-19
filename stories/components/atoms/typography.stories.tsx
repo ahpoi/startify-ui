@@ -8,9 +8,9 @@ import {
   Paragraph,
   ParagraphHeading,
   SmallText,
-  Text
+  Text, Vertical
 } from "../../../src";
-import {StoriesDefaultThemeProvider, StoriesVerticalContainer} from "../../utils/stories-container";
+import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 
 export default {
   title: "Typography|Typography",
@@ -19,7 +19,7 @@ export default {
 
 export const typography = () => (
     <StoriesDefaultThemeProvider>
-      <StoriesVerticalContainer>
+      <Vertical>
         <Heading1>Heading 1</Heading1>
         <Heading2>Heading 2</Heading2>
         <Heading3>Heading 3</Heading3>
@@ -29,13 +29,13 @@ export const typography = () => (
         <Paragraph>Paragraph</Paragraph>
         <Text>Text</Text>
         <SmallText>Small Text</SmallText>
-      </StoriesVerticalContainer>
+      </Vertical>
     </StoriesDefaultThemeProvider>
 );
 
 export const custom = () => (
     <StoriesDefaultThemeProvider>
-      <StoriesVerticalContainer>
+      <Vertical>
         <Heading1 fontFamily={"sans-serif"} fontWeight={900} color={"#008DA6"} textAlign={"center"}
                   fontSize={{ web: "100px", mobile: "50px" }}>
           Heading 1
@@ -60,6 +60,6 @@ export const custom = () => (
                    fontSize={{ web: "50px", mobile: "5px" }}>
           Paragraph
         </Paragraph>
-      </StoriesVerticalContainer>
+      </Vertical>
     </StoriesDefaultThemeProvider>
 );

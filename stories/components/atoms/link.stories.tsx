@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Link, LinkButton} from "../../../src";
+import {Link, LinkButton, Vertical} from "../../../src";
 import {StoriesDefaultThemeProvider, StoriesVerticalContainer} from "../../utils/stories-container";
 
 export default {
@@ -9,9 +9,9 @@ export default {
 
 export const link = () =>
     <StoriesDefaultThemeProvider>
-      <StoriesVerticalContainer>
+      <Vertical>
         <Link href={"/hello"} text={"Link"}/>
-      </StoriesVerticalContainer>
+      </Vertical>
     </StoriesDefaultThemeProvider>;
 
 export const linkCustomStyle = () =>

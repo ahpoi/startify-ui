@@ -1,6 +1,6 @@
 import * as React from "react";
-import {Badge} from "../../../src";
-import {StoriesDefaultThemeProvider, StoriesVerticalContainer} from "../../utils/stories-container";
+import {Badge, Vertical} from "../../../src";
+import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 
 export default {
   title: "Presentation|Badge",
@@ -9,18 +9,18 @@ export default {
 
 export const badge = () =>
     <StoriesDefaultThemeProvider>
-      <StoriesVerticalContainer>
-        <div>
-          <Badge variant={"success"}>
-            SUCCESS
-          </Badge>
-        </div>
-      </StoriesVerticalContainer>
+
+      <div>
+        <Badge variant={"success"}>
+          SUCCESS
+        </Badge>
+      </div>
+
     </StoriesDefaultThemeProvider>;
 
 export const variants = () =>
     <StoriesDefaultThemeProvider>
-      <StoriesVerticalContainer>
+      <Vertical>
         <div>
           <Badge variant={"success"}>
             SUCCESS
@@ -41,5 +41,5 @@ export const variants = () =>
             ERROR
           </Badge>
         </div>
-      </StoriesVerticalContainer>
-    </StoriesDefaultThemeProvider>
+      </Vertical>
+    </StoriesDefaultThemeProvider>;

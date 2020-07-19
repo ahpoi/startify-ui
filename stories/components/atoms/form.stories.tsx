@@ -1,5 +1,5 @@
-import {Button, FieldLabel, Form,} from "../../../src";
-import {StoriesDefaultThemeProvider, StoriesVerticalContainer} from "../../utils/stories-container";
+import {Button, FieldLabel, Form, Vertical,} from "../../../src";
+import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 import * as React from "react";
 import {createGlobalStyle} from "styled-components";
 
@@ -15,13 +15,13 @@ export default {
 export const formContainer = () => (
     <StoriesDefaultThemeProvider>
       <Form onSubmit={() => console.log("Submitted")}>
-        <StoriesVerticalContainer>
+        <Vertical>
           <div>
             <FieldLabel>First name</FieldLabel>
             <FieldWrapperDivider/>
           </div>
           <Button type={"submit"}>Submit</Button>
-        </StoriesVerticalContainer>
+        </Vertical>
       </Form>
     </StoriesDefaultThemeProvider>
 );

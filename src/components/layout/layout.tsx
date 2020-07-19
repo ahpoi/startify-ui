@@ -1,6 +1,5 @@
 import * as React from "react";
-
-export type BoxUnit = number | string;
+import {BoxUnit, calculateUnit} from "./box";
 
 export const ConditionalDisplay = (props: {
   when?: boolean;
@@ -31,4 +30,3 @@ export const MaxWidth = ({
     />
 );
 
-export const calculateUnit = (value: BoxUnit): string => typeof value === "number" ? value.toString() + "px" : value;
