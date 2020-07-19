@@ -22,6 +22,11 @@ export const DefaultTypographyTheme: TypographyTheme = {
     light: 400,
     medium: 500,
     bold: 700
+  },
+  text: {
+    small: "12px",
+    medium: "14px",
+    large: "16px"
   }
 };
 

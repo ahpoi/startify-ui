@@ -9,10 +9,7 @@ interface BadgeProps {
 }
 
 export const Badge = ({ children, customStyle, variant = "info", width = "auto" }: BadgeProps) => {
-  let _variant: BadgeVariant = BadgeVariants[variant as never];
-  if (customStyle) {
-    _variant = customStyle;
-  }
+  const _variant: BadgeVariant = customStyle ?? BadgeVariants[variant as never];
   const styledBadgeProps: StyledBadgeProps = { ..._variant, width };
   return <StyledBadge {...styledBadgeProps} >
     {children}

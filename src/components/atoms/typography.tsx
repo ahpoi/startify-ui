@@ -50,16 +50,6 @@ const TypographyVariants = {
       web: "16px",
       mobile: "14px"
     },
-  },
-  text: {
-    small: {
-      web: "12px",
-      mobile: "10px"
-    },
-    mid: {
-      web: "14px",
-      mobile: "12px"
-    }
   }
 };
 
@@ -120,15 +110,12 @@ const StyledHeading5 = styled.h5<TypographyProps>`
 `;
 
 const StyledParagraph = styled.p<TypographyProps>`
-  font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.text.mid.web};
+  font-size: ${(props) => props.fontSize?.web ?? props.theme.typography.text.medium};
   font-weight: ${(props) => props.fontWeight ?? "normal"};
   text-align: ${(props) => props.textAlign};
   color: ${(props) => props.color ?? props.theme.color.textMid};
   margin: 0px;
   hyphens: auto;
-  @media (max-width: ${Breakpoints.small}px) {
-    font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.text.mid.mobile};
-  }
 `;
 
 const StyledParagraphHeading = styled(StyledParagraph)`
@@ -137,8 +124,5 @@ const StyledParagraphHeading = styled(StyledParagraph)`
 
 const StyledText = styled(StyledParagraph).attrs({ as: "div" })``;
 const StyledSmallText = styled(StyledParagraph).attrs({ as: "div" })`
-  font-size: ${TypographyVariants.text.small.web};
-  @media (max-width: ${Breakpoints.small}px) {
-    font-size: ${TypographyVariants.text.small.mobile};
-  }
+  font-size: ${(props) => props.theme.typography.text.small};
 `;

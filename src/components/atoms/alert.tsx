@@ -9,17 +9,14 @@ interface AlertProps {
 }
 
 export const Alert = ({ children, variant = "success", customStyle, onClose }: AlertProps) => {
-  let _variant: AlertVariant = AlertVariants[variant as never];
-  if (customStyle) {
-    _variant = customStyle;
-  }
+  const styledProps: AlertVariant = customStyle ?? AlertVariants[variant as never];
   return onClose ?
-      <StyledAlert {..._variant}>
+      <StyledAlert {...styledProps}>
         <div style={{ display: "inline-block" }}>{children}</div>
         <CloseButton aria-label="close" type={"button"}>
-          <CloseIcon color={_variant.color}/>
+          <CloseIcon color={styledProps.color}/>
         </CloseButton>
-      </StyledAlert> : <StyledAlert {..._variant}>
+      </StyledAlert> : <StyledAlert {...styledProps}>
         {children}
       </StyledAlert>;
 };

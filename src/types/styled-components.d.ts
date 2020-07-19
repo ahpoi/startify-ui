@@ -31,7 +31,12 @@ declare module "styled-components" {
     fontWeight: {
       light: number,
       medium: number,
-      bold: number,
+      bold: number
+    }
+    text: {
+      small: string,
+      medium: string,
+      large: string;
     }
   }
 
