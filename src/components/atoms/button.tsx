@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled, {useTheme} from "styled-components";
 import {CommonColors} from "../..";
+import {Spinner} from "./spinner";
 
 export interface ButtonProps {
   id?: string;
@@ -26,7 +27,8 @@ export const Button = ({ id, children, variant = "primary", size = "medium", onC
         <div children={children}/>
       </StyledButton> : <StyledButton  {...styledBtnProps} id={id} type={"button"} style={{ width }}>
         <div style={{ color: "transparent" }} children={children}/>
-        <div style={{ position: "absolute", left: "50%", top: "52%", transform: "translate(-50%, -50%)" }}><Spinner/>
+        <div style={{ position: "absolute", left: "50%", top: "52%", transform: "translate(-50%, -50%)" }}>
+          <Spinner color={"currentColor"} size={12} borderWidth={"1.5px"}/>
         </div>
       </StyledButton>);
 };
@@ -187,28 +189,4 @@ const StyledButton = styled.button<StyledButtonProps>`
     border-color: ${(props) => props.borderOnHoverColor};
     box-shadow:inset 0px 0px 0px 1px ${(props) => props.borderOnHoverColor};
   }  
-`;
-
-const Spinner = styled.div`
-  border-width: 1.5px;
-  width: 12px;
-  height: 12px;
-  color: currentColor;
-  display: inline-block;
-  background: transparent;
-  border-style: solid;
-  border-top-color: currentColor;
-  border-left-color: currentColor;
-  border-right-color: currentColor;
-  border-bottom-color: transparent;
-  border-radius: 100%;
-  animation: rotation 1.5s linear infinite;
-  @keyframes rotation {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(359deg);
-    }
-  }
 `;

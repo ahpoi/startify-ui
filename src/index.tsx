@@ -9,6 +9,7 @@ export * from "./components/atoms/form"
 export * from "./components/atoms/link"
 export * from "./components/atoms/image"
 export * from "./components/atoms/divider"
+export * from "./components/atoms/spinner"
 
 export * from "./components/layout/layout"
 export * from "./components/layout/page-layout"
