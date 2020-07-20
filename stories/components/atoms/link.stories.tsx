@@ -19,6 +19,7 @@ export const linkCustomStyle = () =>
       <Vertical>
         <Link href={"/hello"}
               text={"Link"}
+              underline={false}
               customStyle={{ color: "red", colorOnHover: "blue" }}/>
       </Vertical>
     </StoriesDefaultThemeProvider>;
