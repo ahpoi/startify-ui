@@ -4,7 +4,7 @@ import * as React from "react";
 
 export const StoriesDefaultThemeProvider = (props: { children: React.ReactNode }) => {
   return <>
-    <GlobalStyle backgroundColor={"blue"}/>
+    <GlobalStyle/>
     <ThemeProvider theme={DefaultAppTheme}>
       {props.children}
     </ThemeProvider>

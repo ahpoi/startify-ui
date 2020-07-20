@@ -11,6 +11,7 @@ export * from "./components/atoms/image"
 export * from "./components/atoms/divider"
 
 export * from "./components/layout/layout"
+export * from "./components/layout/page-layout"
 export * from "./components/layout/responsive-layout"
 export * from "./components/layout/global-style"
 export * from "./components/layout/normalise"
