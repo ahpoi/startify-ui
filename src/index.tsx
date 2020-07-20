@@ -12,7 +12,7 @@ export * from "./components/atoms/divider"
 
 export * from "./components/layout/layout"
 export * from "./components/layout/responsive-layout"
-export * from "./components/layout/base-style"
+export * from "./components/layout/global-style"
 export * from "./components/layout/normalise"
 export * from "./components/layout/box"
 
@@ -25,3 +25,5 @@ export * from "./components/theme/theme.types"
 
 export * from "./components/styles/colors"
 export * from "./components/styles/sizes"
+export {Horizontal} from "./components/layout/gls";
+export {Vertical} from "./components/layout/gls";
