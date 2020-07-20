@@ -137,6 +137,16 @@ export const disabled = () => (
     </StoriesDefaultThemeProvider>
 );
 
+export const others = () => (
+    <StoriesDefaultThemeProvider>
+      <Horizontal>
+        <Button variant={"text"} onClick={onClick}>
+          Text
+        </Button>
+      </Horizontal>
+    </StoriesDefaultThemeProvider>
+);
+
 const onClick = () => {
   console.log("clicked");
 };

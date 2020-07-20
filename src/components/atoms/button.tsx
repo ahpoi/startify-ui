@@ -6,7 +6,8 @@ export interface ButtonProps {
   id?: string;
   variant?:
       | "primary" | "primaryOutlined" | "primaryOutlinedFilled" | "textPrimary" | "textPrimaryFilled"
-      | "secondary" | "secondaryOutlined" | "secondaryOutlinedFilled" | "textSecondary"| "textSecondaryFilled"
+      | "secondary" | "secondaryOutlined" | "secondaryOutlinedFilled" | "textSecondary" | "textSecondaryFilled"
+      | "text"
   type?: "submit" | "button";
   size?: "small" | "medium" | "large"
   children: React.ReactNode;
@@ -16,7 +17,7 @@ export interface ButtonProps {
   isLoading?: boolean;
 }
 
-export const Button = ({ id, children, variant = "primary", size = "medium", onClick, type = "submit", width = "auto", isLoading, disabled }: ButtonProps) => {
+export const Button = ({ id, children, variant = "primary", size = "medium", onClick, type = "button", width = "auto", isLoading, disabled }: ButtonProps) => {
   const buttonVariant: ButtonVariant = useButtonVariant()[variant];
   const sizeVariant = SizeVariants[size];
   const styledBtnProps: StyledButtonProps = { ...buttonVariant, ...sizeVariant, isLoading: isLoading };
@@ -46,8 +47,16 @@ const SizeVariants = {
 };
 
 const useButtonVariant = () => {
-  const { primary, primaryDark, secondary, secondaryDark } = useTheme().color;
+  const { primary, primaryDark, secondary, secondaryDark, textMid, textDark } = useTheme().color;
   return {
+    text: {
+      color: textMid,
+      backgroundColor: "transparent",
+      borderColor: "transparent",
+      colorOnHover: textDark,
+      backgroundOnHoverColor: CommonColors.greyLight30,
+      borderOnHoverColor: "transparent",
+    },
     primary: {
       color: "white",
       backgroundColor: primary,

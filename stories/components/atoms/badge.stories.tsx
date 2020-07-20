@@ -64,4 +64,32 @@ export const sizes = () =>
     </StoriesDefaultThemeProvider>;
 
 
+export const clickable = () =>
+    <StoriesDefaultThemeProvider>
+      <Vertical>
+        <div>
+          <Badge variant={"success"} onClick={onClick}>
+            SUCCESS
+          </Badge>
+        </div>
+        <div>
+          <Badge variant={"info"} onClick={onClick}>
+            INFO
+          </Badge>
+        </div>
+        <div>
+          <Badge variant={"warning"} onClick={onClick}>
+            WARNING
+          </Badge>
+        </div>
+        <div>
+          <Badge variant={"error"} onClick={onClick}>
+            ERROR
+          </Badge>
+        </div>
+      </Vertical>
+    </StoriesDefaultThemeProvider>;
 
+const onClick = () => {
+  console.log("clicked");
+};

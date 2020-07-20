@@ -32,7 +32,7 @@ export const LinkButton = ({ onClick, text, underline = true, customStyle }: Lin
 const useDefaultStyle = (): StyledLinkProps => {
   const { color, typography } = useTheme();
   const { secondary, secondaryDark } = color;
-  return { color: secondary, colorOnHover: secondaryDark, fontSize: typography.text.small, fontWeight: 400 };
+  return { color: secondary, colorOnHover: secondaryDark, fontSize: typography.text.medium, fontWeight: 400 };
 };
 
 interface StyledLinkProps {
