@@ -32,6 +32,17 @@ export const CommonColors = {
   grey70: "rgba(128,128,128,0.7)",
   grey80: "rgba(128,128,128,0.8)",
   grey90: "rgba(128,128,128,0.9)",
+
+  greyLight: "rgb(238,238,238)",
+  greyLight10: "rgb(238,238,238, 0.1)",
+  greyLight20: "rgb(238,238,238, 0.2)",
+  greyLight30: "rgb(238,238,238, 0.3)",
+  greyLight40: "rgb(238,238,238, 0.4)",
+  greyLight50: "rgb(238,238,238, 0.5)",
+  greyLight60: "rgb(238,238,238, 0.6)",
+  greyLight70: "rgb(238,238,238, 0.7)",
+  greyLight80: "rgb(238,238,238, 0.8)",
+  greyLight90: "rgb(238,238,238, 0.9)",
 };
 
 /**

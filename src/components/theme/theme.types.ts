@@ -33,6 +33,7 @@ export interface TypographyTheme {
 }
 
 export interface BorderTheme {
+  radiusxSmall: number
   radiusSmall: number
   radiusMedium: number
   radiusLarge: number

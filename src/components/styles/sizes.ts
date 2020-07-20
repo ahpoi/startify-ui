@@ -20,14 +20,6 @@ export const Spaces = {
   xxxxxLarge: 128,
 };
 
-export const BorderRadius = {
-  radiusXsmall: 4,
-  radiusSmall: 6,
-  radiusMedium: 8,
-  radiusLarge: 12,
-  radiusXlarge: 16,
-};
-
 export const Breakpoints = {
   small: 576,
   medium: 768,

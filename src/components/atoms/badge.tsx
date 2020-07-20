@@ -3,14 +3,16 @@ import styled from "styled-components";
 
 interface BadgeProps {
   variant?: "success" | "info" | "warning" | "error"
+  size?: "small" | "medium" | "large"
   customStyle?: BadgeVariant
   children: React.ReactNode,
   width?: string
 }
 
-export const Badge = ({ children, customStyle, variant = "info", width = "auto" }: BadgeProps) => {
-  const _variant: BadgeVariant = customStyle ?? BadgeVariants[variant as never];
-  const styledBadgeProps: StyledBadgeProps = { ..._variant, width };
+export const Badge = ({ children, customStyle, variant = "info", size = "medium", width = "auto" }: BadgeProps) => {
+  const badgeVariant: BadgeVariant = customStyle ?? BadgeVariants[variant as never];
+  const sizeVariant = SizeVariants[size];
+  const styledBadgeProps: StyledBadgeProps = { ...badgeVariant, ...sizeVariant, width };
   return <StyledBadge {...styledBadgeProps} >
     {children}
   </StyledBadge>;
@@ -41,22 +43,41 @@ const BadgeVariants = {
   }
 };
 
-interface StyledBadgeProps extends BadgeVariant {
-  width: string;
+
+interface SizeVariant {
+  fontSize: string
+  padding: string
 }
 
+const SizeVariants = {
+  small: {
+    fontSize: "10px",
+    padding: "6px",
+  },
+  medium: {
+    fontSize: "12px",
+    padding: "8px",
+  },
+  large: {
+    fontSize: "14px",
+    padding: "8px 10px 8px",
+  }
+};
+
+type StyledBadgeProps = BadgeVariant & SizeVariant & { width: string }
+
 const StyledBadge = styled.div<StyledBadgeProps>`
+    display: inline-block;
     text-align: center;
     color: ${(props) => props.color};
     background-color: ${(props) => props.backgroundColor};
-    display: inline-block;
     height: auto;
     text-decoration: none;
     white-space: nowrap;
-    padding: 8px;
-    border-radius: ${({ theme }) => theme.border.radiusSmall}px;
+    padding: ${(props) => props.padding};
+    border-radius: ${({ theme }) => theme.border.radiusxSmall}px;
     width: ${(props) => props.width};
-    font-size: 80%;
+    font-size: ${(props) => props.fontSize};
     font-weight: 400;
     word-wrap: break-word;
     outline: none;

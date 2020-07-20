@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Badge, Vertical} from "../../../src";
+import {Badge, Horizontal, Vertical} from "../../../src";
 import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 
 export default {
@@ -9,13 +9,11 @@ export default {
 
 export const badge = () =>
     <StoriesDefaultThemeProvider>
-
       <div>
         <Badge variant={"success"}>
           SUCCESS
         </Badge>
       </div>
-
     </StoriesDefaultThemeProvider>;
 
 export const variants = () =>
@@ -43,3 +41,27 @@ export const variants = () =>
         </div>
       </Vertical>
     </StoriesDefaultThemeProvider>;
+
+export const sizes = () =>
+    <StoriesDefaultThemeProvider>
+      <Horizontal>
+        <div>
+          <Badge variant={"success"} size={"small"}>
+            SMALL
+          </Badge>
+        </div>
+        <div>
+          <Badge variant={"success"} size={"medium"}>
+            MEDIUM
+          </Badge>
+        </div>
+        <div>
+          <Badge variant={"success"} size={"large"}>
+            LARGE
+          </Badge>
+        </div>
+      </Horizontal>
+    </StoriesDefaultThemeProvider>;
+
+
+

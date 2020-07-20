@@ -1,9 +1,12 @@
 import * as React from "react";
 import styled, {useTheme} from "styled-components";
+import {CommonColors} from "../..";
 
 export interface ButtonProps {
   id?: string;
-  variant?: "primary" | "primaryOutlined" | "primaryOutlinedFilled" | "secondary" | "secondaryOutlined" | "secondaryOutlinedFilled";
+  variant?:
+      | "primary" | "primaryOutlined" | "primaryOutlinedFilled" | "textPrimary" | "textPrimaryFilled"
+      | "secondary" | "secondaryOutlined" | "secondaryOutlinedFilled" | "textSecondary"| "textSecondaryFilled"
   type?: "submit" | "button";
   size?: "small" | "medium" | "large"
   children: React.ReactNode;
@@ -16,7 +19,7 @@ export interface ButtonProps {
 export const Button = ({ id, children, variant = "primary", size = "medium", onClick, type = "submit", width = "auto", isLoading, disabled }: ButtonProps) => {
   const buttonVariant: ButtonVariant = useButtonVariant()[variant];
   const sizeVariant = SizeVariants[size];
-  const styledBtnProps: StyledButtonProps = { ...buttonVariant, fontSize: sizeVariant.fontSize, padding: sizeVariant.padding, isLoading: isLoading };
+  const styledBtnProps: StyledButtonProps = { ...buttonVariant, ...sizeVariant, isLoading: isLoading };
   return (!isLoading ?
       <StyledButton {...styledBtnProps} id={id} type={type} onClick={onClick} style={{ width }} disabled={disabled}>
         <div children={children}/>
@@ -30,7 +33,7 @@ export const Button = ({ id, children, variant = "primary", size = "medium", onC
 const SizeVariants = {
   small: {
     fontSize: "12px",
-    padding: "6px 18px 6px",
+    padding: "8px 18px 8px",
   },
   medium: {
     fontSize: "14px",
@@ -69,6 +72,22 @@ const useButtonVariant = () => {
       backgroundOnHoverColor: primary,
       borderOnHoverColor: primary,
     },
+    textPrimary: {
+      color: primary,
+      backgroundColor: "transparent",
+      borderColor: "transparent",
+      colorOnHover: primary,
+      backgroundOnHoverColor: CommonColors.greyLight30,
+      borderOnHoverColor: "transparent",
+    },
+    textPrimaryFilled: {
+      color: primary,
+      backgroundColor: "transparent",
+      borderColor: "transparent",
+      colorOnHover: "white",
+      backgroundOnHoverColor: primary,
+      borderOnHoverColor: "transparent",
+    },
     secondary: {
       color: "white",
       backgroundColor: secondary,
@@ -91,8 +110,24 @@ const useButtonVariant = () => {
       borderColor: secondary,
       colorOnHover: "white",
       backgroundOnHoverColor: secondary,
-      borderOnHoverColor: secondaryDark,
+      borderOnHoverColor: secondary,
     },
+    textSecondary: {
+      color: secondary,
+      backgroundColor: "transparent",
+      borderColor: "transparent",
+      colorOnHover: secondary,
+      backgroundOnHoverColor: CommonColors.greyLight30,
+      borderOnHoverColor: "transparent",
+    },
+    textSecondaryFilled: {
+      color: secondary,
+      backgroundColor: "transparent",
+      borderColor: "transparent",
+      colorOnHover: "white",
+      backgroundOnHoverColor: secondary,
+      borderOnHoverColor: "transparent",
+    }
   };
 };
 

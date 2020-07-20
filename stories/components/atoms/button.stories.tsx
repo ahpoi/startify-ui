@@ -17,14 +17,20 @@ export const button = () =>
 export const primaryVariants = () => (
     <StoriesDefaultThemeProvider>
       <Horizontal>
-        <Button variant={"primary"} width={"225px"} onClick={onClick}>
+        <Button variant={"primary"} onClick={onClick}>
           Primary
         </Button>
-        <Button variant={"primaryOutlined"} width={"225px"} onClick={onClick}>
+        <Button variant={"primaryOutlined"} onClick={onClick}>
           Primary Outline
         </Button>
-        <Button variant={"primaryOutlinedFilled"} width={"225px"} onClick={onClick}>
+        <Button variant={"primaryOutlinedFilled"} onClick={onClick}>
           Primary Outline Filled
+        </Button>
+        <Button variant={"textPrimary"} onClick={onClick}>
+          Text Primary
+        </Button>
+        <Button variant={"textPrimaryFilled"} onClick={onClick}>
+          Text Primary Filled
         </Button>
       </Horizontal>
     </StoriesDefaultThemeProvider>
@@ -33,14 +39,20 @@ export const primaryVariants = () => (
 export const secondaryVariants = () => (
     <StoriesDefaultThemeProvider>
       <Horizontal>
-        <Button variant={"secondary"} width={"225px"} onClick={onClick}>
+        <Button variant={"secondary"} onClick={onClick}>
           Secondary
         </Button>
-        <Button variant={"secondaryOutlined"} width={"225px"} onClick={onClick}>
+        <Button variant={"secondaryOutlined"} onClick={onClick}>
           Secondary Outline
         </Button>
-        <Button variant={"secondaryOutlinedFilled"} width={"225px"} onClick={onClick}>
+        <Button variant={"secondaryOutlinedFilled"} onClick={onClick}>
           Secondary Outline Filled
+        </Button>
+        <Button variant={"textSecondary"} onClick={onClick}>
+          Text Secondary
+        </Button>
+        <Button variant={"textSecondaryFilled"} onClick={onClick}>
+          Text Secondary Filled
         </Button>
       </Horizontal>
     </StoriesDefaultThemeProvider>
