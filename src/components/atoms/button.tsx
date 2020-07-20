@@ -1,7 +1,8 @@
 import * as React from "react";
 import styled, {useTheme} from "styled-components";
-import {CommonColors} from "../..";
+import {calculateUnit, CommonColors} from "../..";
 import {Spinner} from "./spinner";
+import * as CSS from "csstype";
 
 export interface ButtonProps {
   id?: string;
@@ -11,6 +12,8 @@ export interface ButtonProps {
       | "text"
   type?: "submit" | "button";
   size?: "small" | "medium" | "large"
+  customVariant?: ButtonVariant;
+  customSize?: SizeVariant;
   children: React.ReactNode;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => any;
   disabled?: boolean;
@@ -18,9 +21,9 @@ export interface ButtonProps {
   isLoading?: boolean;
 }
 
-export const Button = ({ id, children, variant = "primary", size = "medium", onClick, type = "button", width = "auto", isLoading, disabled }: ButtonProps) => {
-  const buttonVariant: ButtonVariant = useButtonVariant()[variant];
-  const sizeVariant = SizeVariants[size];
+export const Button = ({ id, children, variant = "primary", size = "medium", onClick, type = "button", width = "auto", customVariant, customSize, isLoading, disabled }: ButtonProps) => {
+  const buttonVariant: ButtonVariant = customVariant ?? useButtonVariant()[variant];
+  const sizeVariant = customSize ?? ButtonSizeVariants[size];
   const styledBtnProps: StyledButtonProps = { ...buttonVariant, ...sizeVariant, isLoading: isLoading };
   return (!isLoading ?
       <StyledButton {...styledBtnProps} id={id} type={type} onClick={onClick} style={{ width }} disabled={disabled}>
@@ -33,23 +36,27 @@ export const Button = ({ id, children, variant = "primary", size = "medium", onC
       </StyledButton>);
 };
 
-const SizeVariants = {
+export const ButtonSizeVariants = {
   small: {
     fontSize: "12px",
+    fontWeight: 400,
     padding: "8px 18px 8px",
   },
   medium: {
     fontSize: "14px",
+    fontWeight: 400,
     padding: "12px 30px 12px",
   },
   large: {
     fontSize: "16px",
+    fontWeight: 400,
     padding: "16px 32px 16px",
   }
 };
 
 const useButtonVariant = () => {
   const { primary, primaryDark, secondary, secondaryDark, textMid, textDark } = useTheme().color;
+  const { radiusSmall } = useTheme().border;
   return {
     text: {
       color: textMid,
@@ -58,6 +65,7 @@ const useButtonVariant = () => {
       colorOnHover: textDark,
       backgroundOnHoverColor: CommonColors.greyLight30,
       borderOnHoverColor: "transparent",
+      borderRadius: radiusSmall
     },
     primary: {
       color: "white",
@@ -66,6 +74,7 @@ const useButtonVariant = () => {
       colorOnHover: "white",
       borderOnHoverColor: primaryDark,
       backgroundOnHoverColor: primaryDark,
+      borderRadius: radiusSmall
     },
     primaryOutlined: {
       color: primary,
@@ -74,6 +83,7 @@ const useButtonVariant = () => {
       colorOnHover: primary,
       backgroundOnHoverColor: "transparent",
       borderOnHoverColor: primaryDark,
+      borderRadius: radiusSmall
     },
     primaryOutlinedFilled: {
       color: primary,
@@ -82,6 +92,7 @@ const useButtonVariant = () => {
       colorOnHover: "white",
       backgroundOnHoverColor: primary,
       borderOnHoverColor: primary,
+      borderRadius: radiusSmall
     },
     textPrimary: {
       color: primary,
@@ -90,6 +101,7 @@ const useButtonVariant = () => {
       colorOnHover: primary,
       backgroundOnHoverColor: CommonColors.greyLight30,
       borderOnHoverColor: "transparent",
+      borderRadius: radiusSmall
     },
     textPrimaryFilled: {
       color: primary,
@@ -98,6 +110,7 @@ const useButtonVariant = () => {
       colorOnHover: "white",
       backgroundOnHoverColor: primary,
       borderOnHoverColor: "transparent",
+      borderRadius: radiusSmall
     },
     secondary: {
       color: "white",
@@ -106,6 +119,7 @@ const useButtonVariant = () => {
       colorOnHover: "white",
       backgroundOnHoverColor: secondaryDark,
       borderOnHoverColor: secondaryDark,
+      borderRadius: radiusSmall
     },
     secondaryOutlined: {
       color: secondary,
@@ -114,6 +128,7 @@ const useButtonVariant = () => {
       colorOnHover: secondary,
       backgroundOnHoverColor: "transparent",
       borderOnHoverColor: secondaryDark,
+      borderRadius: radiusSmall
     },
     secondaryOutlinedFilled: {
       color: secondary,
@@ -122,6 +137,7 @@ const useButtonVariant = () => {
       colorOnHover: "white",
       backgroundOnHoverColor: secondary,
       borderOnHoverColor: secondary,
+      borderRadius: radiusSmall
     },
     textSecondary: {
       color: secondary,
@@ -130,6 +146,7 @@ const useButtonVariant = () => {
       colorOnHover: secondary,
       backgroundOnHoverColor: CommonColors.greyLight30,
       borderOnHoverColor: "transparent",
+      borderRadius: radiusSmall
     },
     textSecondaryFilled: {
       color: secondary,
@@ -138,12 +155,14 @@ const useButtonVariant = () => {
       colorOnHover: "white",
       backgroundOnHoverColor: secondary,
       borderOnHoverColor: "transparent",
+      borderRadius: radiusSmall
     }
   };
 };
 
 interface SizeVariant {
-  fontSize: string
+  fontSize: CSS.FontSizeProperty<any>;
+  fontWeight: CSS.FontWeightProperty;
   padding: string
 }
 
@@ -154,21 +173,26 @@ interface ButtonVariant {
   colorOnHover: string;
   borderOnHoverColor: string;
   backgroundOnHoverColor: string;
+  borderRadius: CSS.BorderRadiusProperty<any>
 }
 
-type StyledButtonProps = ButtonVariant & SizeVariant & { isLoading?: boolean }
+type StyledButtonProps =
+    ButtonVariant
+    & SizeVariant
+    & { isLoading?: boolean, borderRadius: CSS.BorderRadiusProperty<any> }
 
 const StyledButton = styled.button<StyledButtonProps>`
   position: relative;
   display: inline-block;
   font-size: ${(props) => props.fontSize};
+  font-weight: ${(props) => props.fontWeight};
   cursor: pointer;
   height: auto;
   padding: ${(props) => props.padding};
   text-decoration: none;
   outline: none;
   line-height: 1em;
-  border-radius: ${({ theme }) => theme.border.radiusSmall}px;
+  border-radius: ${({ borderRadius }) => calculateUnit(borderRadius)};
   ${({ isLoading }) => isLoading && `
     cursor: not-allowed;
   `};

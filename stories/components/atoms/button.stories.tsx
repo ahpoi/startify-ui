@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Button, Horizontal} from "../../../src";
+import {Button, ButtonSizeVariants, Horizontal} from "../../../src";
 import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 
 export default {
@@ -142,6 +142,23 @@ export const others = () => (
       <Horizontal>
         <Button variant={"text"} onClick={onClick}>
           Text
+        </Button>
+        <Button variant={"text"} onClick={onClick}
+                customSize={{
+                  fontSize: "14px",
+                  fontWeight: 700,
+                  padding: ButtonSizeVariants.medium.padding
+                }}
+                customVariant={{
+                  backgroundColor: "#3D96EF",
+                  backgroundOnHoverColor: "#3592ef",
+                  borderColor: "#3D96EF",
+                  borderOnHoverColor: "#3D96EF",
+                  color: "white",
+                  colorOnHover: "white",
+                  borderRadius: "2px"
+                }}>
+          Custom Styled
         </Button>
       </Horizontal>
     </StoriesDefaultThemeProvider>
