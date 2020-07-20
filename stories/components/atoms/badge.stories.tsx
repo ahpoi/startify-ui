@@ -2,6 +2,7 @@ import * as React from "react";
 import {Badge, Horizontal, Vertical} from "../../../src";
 import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 
+// @ts-ignore
 export default {
   title: "Presentation|Badge",
   component: Badge
@@ -88,6 +89,23 @@ export const clickable = () =>
           </Badge>
         </div>
       </Vertical>
+    </StoriesDefaultThemeProvider>;
+
+
+export const others = () =>
+    <StoriesDefaultThemeProvider>
+      <Horizontal>
+        <div>
+          <Badge variant={"primary"} onClick={onClick}>
+            Primary
+          </Badge>
+        </div>
+        <div>
+          <Badge variant={"secondary"} onClick={onClick}>
+            Secondary
+          </Badge>
+        </div>
+      </Horizontal>
     </StoriesDefaultThemeProvider>;
 
 const onClick = () => {

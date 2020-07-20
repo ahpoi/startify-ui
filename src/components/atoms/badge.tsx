@@ -1,8 +1,8 @@
 import * as React from "react";
-import styled from "styled-components";
+import styled, {useTheme} from "styled-components";
 
 interface BadgeProps {
-  variant?: "success" | "info" | "warning" | "error"
+  variant?: "primary" | "secondary" | "success" | "info" | "warning" | "error"
   size?: "small" | "medium" | "large"
   customStyle?: BadgeVariant
   children: React.ReactNode,
@@ -11,7 +11,7 @@ interface BadgeProps {
 }
 
 export const Badge = ({ children, customStyle, variant = "info", size = "medium", minWidth = "auto", onClick = undefined }: BadgeProps) => {
-  const badgeVariant: BadgeVariant = customStyle ?? BadgeVariants[variant as never];
+  const badgeVariant: BadgeVariant = customStyle ?? useBadgeVariant()[variant as never];
   const sizeVariant = SizeVariants[size];
   const styledBadgeProps: StyledBadgeProps = { ...badgeVariant, ...sizeVariant, minWidth, isClickable: onClick !== undefined };
   return <StyledBadge {...styledBadgeProps} onClick={onClick}>
@@ -24,24 +24,36 @@ interface BadgeVariant {
   backgroundColor: string;
 }
 
-const BadgeVariants = {
-  success: {
-    color: "#067A3D",
-    backgroundColor: "#DFF0D8",
-  },
-  info: {
-    color: "#0D72A8",
-    backgroundColor: "#E6EFF5",
-  },
-  warning: {
-    color: "#8A6D3B",
-    backgroundColor: "#FCF8E2",
-  },
-  error: {
-    color: "#BC111E",
-    backgroundColor: "#F2DEDE",
-  }
+const useBadgeVariant = () => {
+  const { primary, secondary } = useTheme().color;
+  return {
+    primary: {
+      color: "white",
+      backgroundColor: primary
+    },
+    secondary: {
+      color: "white",
+      backgroundColor: secondary
+    },
+    success: {
+      color: "#067A3D",
+      backgroundColor: "#DFF0D8",
+    },
+    info: {
+      color: "#0D72A8",
+      backgroundColor: "#E6EFF5",
+    },
+    warning: {
+      color: "#8A6D3B",
+      backgroundColor: "#FCF8E2",
+    },
+    error: {
+      color: "#BC111E",
+      backgroundColor: "#F2DEDE",
+    }
+  };
 };
+
 
 interface SizeVariant {
   fontSize: string
