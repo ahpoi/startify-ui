@@ -16,7 +16,7 @@ export * from "./components/layout/page-layout"
 export * from "./components/layout/responsive-layout"
 export * from "./components/layout/global-style"
 export * from "./components/layout/normalise"
-export * from "./components/layout/box"
+export * from "./components/layout/gls/box"
 
 export * from "./utils/dom.utils"
 export * from "./utils/common.utils"
@@ -27,5 +27,5 @@ export * from "./components/theme/theme.types"
 
 export * from "./components/styles/colors"
 export * from "./components/styles/sizes"
-export {Horizontal} from "./components/layout/gls";
-export {Vertical} from "./components/layout/gls";
+export {Horizontal} from "./components/layout/gls/gls";
+export {Vertical} from "./components/layout/gls/gls";

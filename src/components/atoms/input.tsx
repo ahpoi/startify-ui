@@ -2,6 +2,8 @@ import * as React from "react";
 import styled, {css} from "styled-components";
 import {InputBaseColors} from "../styles/colors";
 
+export type InputType = "text" | "number" | "email" | "password" | "tel" | "url"
+
 interface BaseProps {
   id?: string;
   name?: string;
@@ -19,6 +21,7 @@ export interface TextInputProps extends BaseProps {
   maxLength?: number;
   autoFocus?: boolean;
   className?: string;
+  type?: InputType;
   onFocus?: () => any;
   onBlur?: () => any;
   onKeyDown?: (e: React.SyntheticEvent<any>) => any;
@@ -38,6 +41,7 @@ export class TextInput extends React.Component<TextInputProps> {
         name={this.props.name}
         className={this.props.className}
         placeholder={this.props.placeholder}
+        type={this.props.type || "text"}
         value={this.props.value || ""}
         minLength={this.props.minLength}
         maxLength={this.props.maxLength}
@@ -102,7 +106,7 @@ const BaseInputCss = css<StyledInputProps>`
   width: 100%;
   height: 40;
   line-height: normal;
-  border-radius: ${({ theme }) => theme.border.radiusSmall}px;
+  border-radius: ${({ theme }) => theme.border.radiusxSmall}px;
   border: 1px solid ${({ error, disabled, theme }) => (error && !disabled ? theme.color.error : InputBaseColors.borderColor)};
   background-color: ${InputBaseColors.backgroundColor};
   padding: 8px 10px;
@@ -126,3 +130,5 @@ export const StyledTextAreaInput = styled.textarea<{ error?: boolean, minHeight?
   resize: none;
   min-height: ${({ minHeight = "150px" }) => minHeight};
 `;
+
+

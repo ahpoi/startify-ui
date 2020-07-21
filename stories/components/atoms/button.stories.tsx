@@ -79,7 +79,7 @@ export const loading = () => (
 
 export const sizeVariants = () => (
     <StoriesDefaultThemeProvider>
-      <Horizontal>
+      <Horizontal verticalAlign={"center"}>
         <div>
           <Button size={"small"} onClick={onClick}>
             Small Button
@@ -101,7 +101,7 @@ export const sizeVariants = () => (
 
 export const sizeVariantsLoading = () => (
     <StoriesDefaultThemeProvider>
-      <Horizontal>
+      <Horizontal verticalAlign={"center"}>
         <div>
           <Button size={"small"} onClick={onClick} isLoading>
             Small

@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import * as CSS from "csstype";
-import {Horizontal} from "../layout/gls";
+import {Horizontal} from "../layout/gls/gls";
 
 
 interface DotProps {

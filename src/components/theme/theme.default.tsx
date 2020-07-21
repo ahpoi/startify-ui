@@ -31,7 +31,7 @@ export const DefaultTypographyTheme: TypographyTheme = {
 };
 
 export const DefaultAppBorderTheme = {
-  radiusxSmall: 4,
+  radiusxSmall: 3,
   radiusSmall: 6,
   radiusMedium: 8,
   radiusLarge: 12

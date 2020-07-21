@@ -1,5 +1,5 @@
 import * as React from "react";
-import {BoxUnit, calculateUnit} from "./box";
+import {BoxUnit, calculateUnit} from "./gls/box";
 
 export const ConditionalDisplay = (props: {
   when?: boolean;

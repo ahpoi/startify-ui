@@ -11,7 +11,6 @@ export type BoxUnit = number | string;
 
 export const calculateUnit = (value: BoxUnit): string => typeof value === "number" ? value.toString() + "px" : value;
 
-
 export const flexRoot = css`
  display: flex;
 `;

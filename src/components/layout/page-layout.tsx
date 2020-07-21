@@ -1,5 +1,5 @@
 import styled, {css} from "styled-components";
-import {content, vertical} from "./box";
+import {content, vertical} from "./gls/box";
 
 const fullWH = css`
   height: 100%;

@@ -4,6 +4,8 @@ export const MaxWidths = {
   medium: 768,
   small: 576,
   xSmall: 400,
+
+  pageContent: 960
 };
 
 export const Spaces = {
