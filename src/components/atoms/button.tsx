@@ -31,7 +31,7 @@ export const Button = ({ id, children, variant = "primary", size = "medium", onC
       </StyledButton> : <StyledButton  {...styledBtnProps} id={id} type={"button"} style={{ width }}>
         <div style={{ color: "transparent" }} children={children}/>
         <div style={{ position: "absolute", left: "50%", top: "52%", transform: "translate(-50%, -50%)" }}>
-          <Spinner color={"currentColor"} size={12} borderWidth={"1.5px"}/>
+          <Spinner color={"currentColor"} size={16} borderWidth={"2px"}/>
         </div>
       </StyledButton>);
 };

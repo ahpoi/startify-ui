@@ -22,10 +22,10 @@ export * from "./utils/dom.utils"
 export * from "./utils/common.utils"
 export * from "./utils/storage.utils"
 
-export * from "./components/theme/theme.default"
-export * from "./components/theme/theme.types"
+export * from "./theme/theme.default"
+export * from "./theme/theme.types"
 
-export * from "./components/styles/colors"
-export * from "./components/styles/sizes"
+export * from "./styles/colors"
+export * from "./styles/sizes"
 export {Horizontal} from "./components/layout/gls/gls";
 export {Vertical} from "./components/layout/gls/gls";

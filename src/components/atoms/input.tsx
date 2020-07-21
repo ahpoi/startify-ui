@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled, {css} from "styled-components";
-import {InputBaseColors} from "../styles/colors";
+import {InputBaseColors} from "../../styles/colors";
 
 export type InputType = "text" | "number" | "email" | "password" | "tel" | "url"
 

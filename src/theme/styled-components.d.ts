@@ -1,4 +1,4 @@
-import 'styled-components';
+import 'src/theme/styled-components';
 import {AppTheme} from "..";
 
 declare module "styled-components" {

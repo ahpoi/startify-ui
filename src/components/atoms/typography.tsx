@@ -1,8 +1,8 @@
 import * as React from "react";
 import * as CSS from "csstype";
 
-import styled from "styled-components";
-import {Breakpoints} from "../styles/sizes";
+import styled, {css} from "styled-components";
+import {Breakpoints} from "../../styles/sizes";
 
 interface BaseTypographyProps {
   children: React.ReactNode;
@@ -19,7 +19,7 @@ export interface HeadingProps extends BaseTypographyProps {
   },
 }
 
-export interface ParagraphProps extends BaseTypographyProps {
+export interface TextProps extends BaseTypographyProps {
   fontSize?: CSS.FontSizeProperty<any>
 }
 
@@ -29,11 +29,13 @@ export const Heading3 = (props: HeadingProps) => <StyledHeading3 {...props}/>;
 export const Heading4 = (props: HeadingProps) => <StyledHeading4 {...props}/>;
 export const Heading5 = (props: HeadingProps) => <StyledHeading5 {...props}/>;
 
-export const Paragraph = (props: ParagraphProps) => <StyledParagraph {...props}/>;
-export const ParagraphHeading = (props: ParagraphProps) => <StyledParagraphHeading {...props}/>;
+export const Paragraph = (props: TextProps) => <StyledParagraph {...props}/>;
+export const ParagraphHeading = (props: TextProps) => <StyledParagraphHeading {...props}/>;
 
-export const Text = (props: ParagraphProps) => <StyledText {...props}/>;
-export const SmallText = (props: Omit<ParagraphProps, "fontSize">) => <StyledSmallText {...props}/>;
+export const Text = (props: TextProps) => <StyledText {...props}/>;
+export const SmallText = (props: Omit<TextProps, "fontSize">) => <StyledSmallText {...props}/>;
+
+export const ListItem = (props: TextProps) => <StyledListItem {...props}/>;
 
 const TypographyVariants = {
   heading: {
@@ -116,7 +118,7 @@ const StyledHeading5 = styled.h5<HeadingProps>`
   }
 `;
 
-const StyledParagraph = styled.p<ParagraphProps>`
+const textCss = css<TextProps>`
   font-size: ${(props) => props.fontSize ?? props.theme.typography.text.medium};
   font-weight: ${(props) => props.fontWeight ?? "normal"};
   text-align: ${(props) => props.textAlign};
@@ -125,11 +127,25 @@ const StyledParagraph = styled.p<ParagraphProps>`
   hyphens: auto;
 `;
 
-const StyledParagraphHeading = styled(StyledParagraph)`
+const StyledParagraph = styled.p<TextProps>`
+  ${textCss}
+`;
+
+const StyledListItem = styled.li<TextProps>`
+  ${textCss}
+  margin: 0 0 6px 0;
+`;
+
+const StyledParagraphHeading = styled.p<TextProps>`
+  ${textCss}
   color: ${(props) => props.color ?? props.theme.color.heading};
 `;
 
-const StyledText = styled(StyledParagraph).attrs({ as: "div" })``;
-const StyledSmallText = styled(StyledParagraph).attrs({ as: "div" })`
+const StyledText = styled.div`
+${textCss}
+`;
+
+const StyledSmallText = styled.div`
+  ${textCss}
   font-size: ${(props) => props.theme.typography.text.small};
 `;

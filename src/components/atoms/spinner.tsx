@@ -2,7 +2,7 @@ import * as React from "react";
 import * as CSS from "csstype";
 
 import styled from "styled-components";
-import {BoxUnit, calculateUnit, CommonColors} from "../..";
+import {BoxUnit, calculateUnit} from "../..";
 
 interface SpinnerProps {
   color?: CSS.ColorProperty
@@ -30,9 +30,9 @@ const StyledFullScreen = styled.div`
 
 const StyledSpinner = styled.div<SpinnerProps>`
   border-width: ${({ borderWidth }) => calculateUnit(borderWidth ?? 2)};
-  width: ${({ size }) => calculateUnit(size ?? 20)};
-  height: ${({ size }) => calculateUnit(size ?? 20)};
-  color:  ${({ color }) => color ?? CommonColors.grey};
+  width: ${({ size }) => calculateUnit(size ?? 24)};
+  height: ${({ size }) => calculateUnit(size ?? 24)};
+  color:  ${(props) => props.color ?? props.theme.color.secondary};
   display: inline-block;
   background: transparent;
   border-style: solid;

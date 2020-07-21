@@ -4,7 +4,7 @@ import {
   Heading2,
   Heading3,
   Heading4,
-  Heading5,
+  Heading5, ListItem,
   Paragraph,
   ParagraphHeading,
   SmallText,
@@ -29,6 +29,13 @@ export const typography = () => (
         <Paragraph>Paragraph</Paragraph>
         <Text>Text</Text>
         <SmallText>Small Text</SmallText>
+        <div>
+          <Text>List:</Text>
+          <ul>
+            <ListItem>List item one</ListItem>
+            <ListItem>List item two</ListItem>
+          </ul>
+        </div>
       </Vertical>
     </StoriesDefaultThemeProvider>
 );
