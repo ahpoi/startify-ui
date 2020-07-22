@@ -1,3 +1,5 @@
+import * as React from "react";
+
 import styled from "styled-components";
 import {BoxUnit, contentHorizontal, contentVertical, horizontallySpaced, verticallySpaced} from "./box";
 
@@ -42,7 +44,7 @@ export const Horizontal = styled.div.attrs({
  ${({ verticalAlign }) => verticalAlign === "baseline" && `
     align-items: baseline;
  `};
-`;
+` as React.FunctionComponent<HorizontalsAlignProps>;
 
 export interface VerticalAlignProps extends SpacingProp {
   verticalAlign?: "center" | "bottom",
@@ -69,7 +71,7 @@ export const Vertical = styled.div.attrs({
  ${({ horizontalAlign }) => horizontalAlign === "right" && `
     align-items: flex-end;
  `};
-`;
+` as React.FunctionComponent<VerticalAlignProps>;
 
 export const StretchSpacer = styled.div.attrs({
   "data-comment": "StretchSpacer"

@@ -10,13 +10,11 @@ interface SpinnerProps {
   borderWidth?: BoxUnit
 }
 
-export const Spinner = (props: SpinnerProps) => <StyledSpinner {...props}/>;
-
 /**
  * Full Page spinner
  */
 export const PageSpinner = (props: SpinnerProps) => <StyledFullScreen>
-  <StyledSpinner {...props}/>
+  <Spinner {...props}/>
 </StyledFullScreen>;
 
 const StyledFullScreen = styled.div`
@@ -28,7 +26,7 @@ const StyledFullScreen = styled.div`
   flex-grow: 1;
 `;
 
-const StyledSpinner = styled.div<SpinnerProps>`
+export const Spinner = styled.div<SpinnerProps>`
   border-width: ${({ borderWidth }) => calculateUnit(borderWidth ?? 2)};
   width: ${({ size }) => calculateUnit(size ?? 24)};
   height: ${({ size }) => calculateUnit(size ?? 24)};
@@ -50,4 +48,4 @@ const StyledSpinner = styled.div<SpinnerProps>`
       transform: rotate(359deg);
     }
   }
-`;
+` as React.FunctionComponent<SpinnerProps>;

@@ -23,19 +23,94 @@ export interface TextProps extends BaseTypographyProps {
   fontSize?: CSS.FontSizeProperty<any>
 }
 
-export const Heading1 = (props: HeadingProps) => <StyledHeading1 {...props}/>;
-export const Heading2 = (props: HeadingProps) => <StyledHeading2 {...props}/>;
-export const Heading3 = (props: HeadingProps) => <StyledHeading3 {...props}/>;
-export const Heading4 = (props: HeadingProps) => <StyledHeading4 {...props}/>;
-export const Heading5 = (props: HeadingProps) => <StyledHeading5 {...props}/>;
+export const Heading1 = styled.h1<HeadingProps>`
+  font-family: ${(props) => props.fontFamily};
+  font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.one.web};
+  font-weight: ${(props) => props.fontWeight ?? "normal"};
+  text-align: ${(props) => props.textAlign};
+  color: ${(props) => props.color ?? props.theme.color.heading};
+  margin: 0px;
+  @media (max-width: ${Breakpoints.small}px) {
+    font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.one.mobile};
+  }
+` as React.FunctionComponent<HeadingProps>;
 
-export const Paragraph = (props: TextProps) => <StyledParagraph {...props}/>;
-export const ParagraphHeading = (props: TextProps) => <StyledParagraphHeading {...props}/>;
+export const Heading2 = styled.h2<HeadingProps>`
+  font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.two.web};
+  font-weight: ${(props) => props.fontWeight ?? "normal"};
+  color: ${(props) => props.color ?? props.theme.color.heading};
+  text-align: ${(props) => props.textAlign};
+  margin: 0px;
+  @media (max-width: ${Breakpoints.small}px) {
+    font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.two.mobile};
+  }
+` as React.FunctionComponent<HeadingProps>;
 
-export const Text = (props: TextProps) => <StyledText {...props}/>;
-export const SmallText = (props: Omit<TextProps, "fontSize">) => <StyledSmallText {...props}/>;
+export const Heading3 = styled.h3<HeadingProps>`
+  font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.three.web};
+  font-weight: ${(props) => props.fontWeight ?? "normal"};
+  text-align: ${(props) => props.textAlign};
+  color: ${(props) => props.color ?? props.theme.color.heading};
+  margin: 0px;
+  @media (max-width: ${Breakpoints.small}px) {
+    font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.three.mobile};
+  }
+` as React.FunctionComponent<HeadingProps>;
 
-export const ListItem = (props: TextProps) => <StyledListItem {...props}/>;
+export const Heading4 = styled.h4<HeadingProps>`
+  font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.four.web};
+  font-weight: ${(props) => props.fontWeight ?? "normal"};
+  text-align: ${(props) => props.textAlign};
+  color: ${(props) => props.color ?? props.theme.color.heading};
+  margin: 0px;
+  @media (max-width: ${Breakpoints.small}px) {
+    font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.four.mobile};
+  }
+` as React.FunctionComponent<HeadingProps>;
+
+export const Heading5 = styled.h5<HeadingProps>`
+  font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.five.web};
+  font-weight: ${(props) => props.fontWeight ?? "normal"};
+  text-align: ${(props) => props.textAlign};
+  color: ${(props) => props.color ?? props.theme.color.heading};
+  margin: 0px;
+  @media (max-width: ${Breakpoints.small}px) {
+    font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.five.mobile};
+  }
+` as React.FunctionComponent<HeadingProps>;
+
+const textCss = css<TextProps>`
+  font-size: ${(props) => props.fontSize ?? props.theme.typography.text.medium};
+  font-weight: ${(props) => props.fontWeight ?? "normal"};
+  text-align: ${(props) => props.textAlign};
+  color: ${(props) => props.color ?? props.theme.color.textMid};
+  margin: 0px;
+  hyphens: auto;
+`;
+
+export const Paragraph = styled.p<TextProps>`
+  ${textCss}
+` as React.FunctionComponent<TextProps>;
+
+export const ListItem = styled.li<TextProps>`
+  ${textCss}
+  margin: 0 0 6px 0;
+` as React.FunctionComponent<TextProps>;
+
+export const ParagraphHeading = styled.p<TextProps>`
+  ${textCss}
+  color: ${(props) => props.color ?? props.theme.color.heading};
+` as React.FunctionComponent<TextProps>;
+
+export const Text = styled.div`
+${textCss}
+` as React.FunctionComponent<TextProps>;
+
+export const SmallText = styled.div`
+  ${textCss}
+  font-size: ${(props) => props.theme.typography.text.small};
+`;
+
 
 const TypographyVariants = {
   heading: {
@@ -61,91 +136,3 @@ const TypographyVariants = {
     },
   }
 };
-
-const StyledHeading1 = styled.h1<HeadingProps>`
-  font-family: ${(props) => props.fontFamily};
-  font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.one.web};
-  font-weight: ${(props) => props.fontWeight ?? "normal"};
-  text-align: ${(props) => props.textAlign};
-  color: ${(props) => props.color ?? props.theme.color.heading};
-  margin: 0px;
-  @media (max-width: ${Breakpoints.small}px) {
-    font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.one.mobile};
-  }
-`;
-
-const StyledHeading2 = styled.h2<HeadingProps>`
-  font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.two.web};
-  font-weight: ${(props) => props.fontWeight ?? "normal"};
-  color: ${(props) => props.color ?? props.theme.color.heading};
-  text-align: ${(props) => props.textAlign};
-  margin: 0px;
-  @media (max-width: ${Breakpoints.small}px) {
-    font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.two.mobile};
-  }
-`;
-
-const StyledHeading3 = styled.h3<HeadingProps>`
-  font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.three.web};
-  font-weight: ${(props) => props.fontWeight ?? "normal"};
-  text-align: ${(props) => props.textAlign};
-  color: ${(props) => props.color ?? props.theme.color.heading};
-  margin: 0px;
-  @media (max-width: ${Breakpoints.small}px) {
-    font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.three.mobile};
-  }
-`;
-
-const StyledHeading4 = styled.h4<HeadingProps>`
-  font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.four.web};
-  font-weight: ${(props) => props.fontWeight ?? "normal"};
-  text-align: ${(props) => props.textAlign};
-  color: ${(props) => props.color ?? props.theme.color.heading};
-  margin: 0px;
-  @media (max-width: ${Breakpoints.small}px) {
-    font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.four.mobile};
-  }
-`;
-
-const StyledHeading5 = styled.h5<HeadingProps>`
-  font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.five.web};
-  font-weight: ${(props) => props.fontWeight ?? "normal"};
-  text-align: ${(props) => props.textAlign};
-  color: ${(props) => props.color ?? props.theme.color.heading};
-  margin: 0px;
-  @media (max-width: ${Breakpoints.small}px) {
-    font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.five.mobile};
-  }
-`;
-
-const textCss = css<TextProps>`
-  font-size: ${(props) => props.fontSize ?? props.theme.typography.text.medium};
-  font-weight: ${(props) => props.fontWeight ?? "normal"};
-  text-align: ${(props) => props.textAlign};
-  color: ${(props) => props.color ?? props.theme.color.textMid};
-  margin: 0px;
-  hyphens: auto;
-`;
-
-const StyledParagraph = styled.p<TextProps>`
-  ${textCss}
-`;
-
-const StyledListItem = styled.li<TextProps>`
-  ${textCss}
-  margin: 0 0 6px 0;
-`;
-
-const StyledParagraphHeading = styled.p<TextProps>`
-  ${textCss}
-  color: ${(props) => props.color ?? props.theme.color.heading};
-`;
-
-const StyledText = styled.div`
-${textCss}
-`;
-
-const StyledSmallText = styled.div`
-  ${textCss}
-  font-size: ${(props) => props.theme.typography.text.small};
-`;

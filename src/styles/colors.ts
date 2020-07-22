@@ -53,3 +53,11 @@ export const InputBaseColors = {
   backgroundColor: "#ffffff",
   backgroundColorDisabled: "#f6f6f6",
 }
+
+export const Shadow = {
+  shadow1: "0px 1px 2px rgba(0, 0, 0, 0.1)",
+  shadow2: "0px -1px 25px rgba(0, 0, 0, 0.12)",
+  shadow3: "0px 9px 40px rgba(0, 0, 0, 0.16)",
+  shadow4: "0px 10px 15px rgba(0, 0, 0, 0.1)",
+  shadow5: "0px 10px 30px rgba(0, 0, 0, 0.3)",
+};

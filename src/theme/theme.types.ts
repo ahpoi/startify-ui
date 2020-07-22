@@ -2,6 +2,7 @@ export interface AppTheme {
   typography: TypographyTheme,
   color: ColorTheme
   border: BorderTheme
+  shadow: ShadowTheme
 }
 
 export interface ColorTheme {
@@ -30,6 +31,12 @@ export interface TypographyTheme {
     medium: string,
     large: string;
   }
+}
+
+export interface ShadowTheme {
+  small: string;
+  medium: string;
+  large: string;
 }
 
 export interface BorderTheme {
