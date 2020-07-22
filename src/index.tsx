@@ -19,6 +19,8 @@ export * from "./components/layout/global-style"
 export * from "./components/layout/normalise"
 export * from "./components/layout/gls/box"
 
+export * from "./components/others/extras"
+
 export * from "./utils/dom.utils"
 export * from "./utils/common.utils"
 export * from "./utils/storage.utils"

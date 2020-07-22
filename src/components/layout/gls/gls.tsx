@@ -3,6 +3,8 @@ import * as React from "react";
 import styled from "styled-components";
 import {BoxUnit, contentHorizontal, contentVertical, horizontallySpaced, verticallySpaced} from "./box";
 
+type HtmlDivProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+
 /**
  * Minimised version of gls  https://github.com/basarat/gls
  * rewritten in styled component
@@ -44,7 +46,7 @@ export const Horizontal = styled.div.attrs({
  ${({ verticalAlign }) => verticalAlign === "baseline" && `
     align-items: baseline;
  `};
-` as React.FunctionComponent<HorizontalsAlignProps>;
+` as React.FunctionComponent<HorizontalsAlignProps & HtmlDivProps>;
 
 export interface VerticalAlignProps extends SpacingProp {
   verticalAlign?: "center" | "bottom",
@@ -71,7 +73,7 @@ export const Vertical = styled.div.attrs({
  ${({ horizontalAlign }) => horizontalAlign === "right" && `
     align-items: flex-end;
  `};
-` as React.FunctionComponent<VerticalAlignProps>;
+` as React.FunctionComponent<VerticalAlignProps & HtmlDivProps>;
 
 export const StretchSpacer = styled.div.attrs({
   "data-comment": "StretchSpacer"

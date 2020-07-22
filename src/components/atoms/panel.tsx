@@ -29,7 +29,7 @@ export const Panel = styled.div<PanelProps>`
   padding: ${(props) => calculateUnit(props.padding ?? Spaces.medium)};
   ${props => props.isResponsive && css`
      @media (max-width: ${Breakpoints.small}px) {
-       padding: ${(props: PanelProps) => calculateUnit(props.mobile?.padding ?? Spaces.xSmall)};
+       padding: ${(props: PanelProps) => calculateUnit(props.mobile?.padding ?? Spaces.small)};
        ${props => props.mobile?.seamless && `
          border: none;
          box-shadow: none;
