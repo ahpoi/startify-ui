@@ -3,14 +3,24 @@ import * as CSS from "csstype";
 
 import styled from "styled-components";
 import {calculateUnit} from "../..";
+import {HtmlDivProps} from "../others/types";
 
-interface Props {
+interface HorizontalProps {
   height?: CSS.HeightProperty<any>;
   color?: CSS.ColorProperty
 }
 
-export const HorizontalDivider = styled.div<{ height: CSS.HeightProperty<any>, color: CSS.ColorProperty }>`
-  border: none;
-  height: ${(props) => calculateUnit(props.height ?? 1)};
-  box-shadow: 0px 1px 0px ${(props) => props.color ?? "rgba(0, 0, 0, 0.1)"};
-` as React.FunctionComponent<Props>;
+export const HorizontalDivider = styled.div<HorizontalProps>`
+  border-bottom: ${({ height }) => calculateUnit(height ?? 1)} solid ${({ color }) => color ?? "#EFF2F7"}};
+` as React.FunctionComponent<HorizontalProps & HtmlDivProps>;
+
+interface VerticalProps {
+  height?: CSS.HeightProperty<any>;
+  width?: CSS.WidthProperty<any>;
+  color?: CSS.ColorProperty
+}
+
+export const VerticalDivider = styled.div<VerticalProps>`
+  border-left: ${(props) => calculateUnit(props.width ?? 1)} solid ${(props) => props.color ?? "#EFF2F7"};
+  height: ${(props) => calculateUnit(props.height ?? "100%")};
+` as React.FunctionComponent<VerticalProps & HtmlDivProps>;

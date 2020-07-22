@@ -2,8 +2,7 @@ import * as React from "react";
 
 import styled from "styled-components";
 import {BoxUnit, contentHorizontal, contentVertical, horizontallySpaced, verticallySpaced} from "./box";
-
-type HtmlDivProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+import {HtmlDivProps} from "../../others/types";
 
 /**
  * Minimised version of gls  https://github.com/basarat/gls
