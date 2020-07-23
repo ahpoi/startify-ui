@@ -18,6 +18,7 @@ export * from "./components/layout/responsive-layout"
 export * from "./components/layout/global-style"
 export * from "./components/layout/normalise"
 export * from "./components/layout/gls/box"
+export * from "./components/layout/gls/gls"
 
 export * from "./components/others/extras"
 
@@ -30,5 +31,3 @@ export * from "./theme/theme.types"
 
 export * from "./styles/colors"
 export * from "./styles/sizes"
-export {Horizontal} from "./components/layout/gls/gls";
-export {Vertical} from "./components/layout/gls/gls";

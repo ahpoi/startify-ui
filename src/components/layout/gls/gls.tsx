@@ -10,7 +10,7 @@ import {
   horizontallySpaced,
   verticallySpaced
 } from "./box";
-import {HtmlDivProps} from "../../others/types";
+import {DivPrimitiveProps} from "../../others/types";
 
 /**
  * Minimised version of gls https://github.com/basarat/gls as its just too good! 🌹
@@ -57,7 +57,7 @@ export const Horizontal = styled.div.attrs({
  ${({ verticalAlign }) => verticalAlign === "baseline" && `
     align-items: baseline;
  `};
-` as React.FunctionComponent<HorizontalsAlignProps & HtmlDivProps>;
+` as React.FunctionComponent<HorizontalsAlignProps & DivPrimitiveProps>;
 Horizontal.displayName = "Horizontal";
 
 export interface VerticalAlignProps extends SpacingProps {
@@ -85,7 +85,7 @@ export const Vertical = styled.div.attrs({
  ${({ horizontalAlign }) => horizontalAlign === "right" && `
     align-items: flex-end;
  `};
-` as React.FunctionComponent<VerticalAlignProps & HtmlDivProps>;
+` as React.FunctionComponent<VerticalAlignProps & DivPrimitiveProps>;
 Vertical.displayName = "Vertical";
 
 /**
@@ -95,7 +95,7 @@ export const StretchSpacer = styled.div.attrs({
   "data-comment": "StretchSpacer"
 })<StretchProps>`
   flex: ${(props) => props.sizing || 1};
-` as React.FunctionComponent<StretchProps & HtmlDivProps>;
+` as React.FunctionComponent<StretchProps & DivPrimitiveProps>;
 StretchSpacer.displayName = "StretchSpacer";
 
 export const HorizontalSpacer = styled.div.attrs({
@@ -103,14 +103,14 @@ export const HorizontalSpacer = styled.div.attrs({
 })<SpacingProps>`
   display: inline-block;
   width: ${(props) => calculateUnit(props.space ?? defaultSpace)}};
-` as React.FunctionComponent<SpacingProps & HtmlDivProps>;
+` as React.FunctionComponent<SpacingProps & DivPrimitiveProps>;
 HorizontalSpacer.displayName = "HorizontalSpacer";
 
 export const VerticalSpacer = styled.div.attrs({
   "data-comment": "VerticalSpacer"
 })<SpacingProps>`
   height: ${(props) => calculateUnit(props.space ?? defaultSpace)}};
-` as React.FunctionComponent<SpacingProps & HtmlDivProps>;
+` as React.FunctionComponent<SpacingProps & DivPrimitiveProps>;
 
 VerticalSpacer.displayName = "VerticalSpacer";
 
@@ -123,10 +123,10 @@ export const Content = styled.div.attrs({
   "data-comment": "Content"
 })`
  ${content}
-` as React.FunctionComponent<HtmlDivProps>;
+` as React.FunctionComponent<DivPrimitiveProps>;
 
 export const Stretch = styled.div.attrs({
   "data-comment": "Stretch"
 })<{ sizing?: number }>`
   flex: ${(props) => props.sizing || 1};
-` as React.FunctionComponent<StretchProps & HtmlDivProps>;
+` as React.FunctionComponent<StretchProps & DivPrimitiveProps>;

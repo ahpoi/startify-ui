@@ -3,6 +3,9 @@ import * as CSS from "csstype";
 
 import styled, {css} from "styled-components";
 import {Breakpoints} from "../../styles/sizes";
+import {DivPrimitiveProps} from "../others/types";
+
+type HeadingPrimitiveType = React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>
 
 interface BaseTypographyProps {
   children: React.ReactNode;
@@ -33,7 +36,7 @@ export const Heading1 = styled.h1<HeadingProps>`
   @media (max-width: ${Breakpoints.small}px) {
     font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.one.mobile};
   }
-` as React.FunctionComponent<HeadingProps>;
+` as React.FunctionComponent<HeadingProps & HeadingPrimitiveType>;
 
 export const Heading2 = styled.h2<HeadingProps>`
   font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.two.web};
@@ -44,7 +47,7 @@ export const Heading2 = styled.h2<HeadingProps>`
   @media (max-width: ${Breakpoints.small}px) {
     font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.two.mobile};
   }
-` as React.FunctionComponent<HeadingProps>;
+` as React.FunctionComponent<HeadingProps & HeadingPrimitiveType>;
 
 export const Heading3 = styled.h3<HeadingProps>`
   font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.three.web};
@@ -55,7 +58,7 @@ export const Heading3 = styled.h3<HeadingProps>`
   @media (max-width: ${Breakpoints.small}px) {
     font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.three.mobile};
   }
-` as React.FunctionComponent<HeadingProps>;
+` as React.FunctionComponent<HeadingProps & HeadingPrimitiveType>;
 
 export const Heading4 = styled.h4<HeadingProps>`
   font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.four.web};
@@ -66,7 +69,7 @@ export const Heading4 = styled.h4<HeadingProps>`
   @media (max-width: ${Breakpoints.small}px) {
     font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.four.mobile};
   }
-` as React.FunctionComponent<HeadingProps>;
+` as React.FunctionComponent<HeadingProps & HeadingPrimitiveType>;
 
 export const Heading5 = styled.h5<HeadingProps>`
   font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.five.web};
@@ -88,29 +91,31 @@ const textCss = css<TextProps>`
   hyphens: auto;
 `;
 
+type ParagraphPrimitive = React.DetailedHTMLProps<React.LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>
+
 export const Paragraph = styled.p<TextProps>`
   ${textCss}
-` as React.FunctionComponent<TextProps>;
-
-export const ListItem = styled.li<TextProps>`
-  ${textCss}
-  margin: 0 0 6px 0;
-` as React.FunctionComponent<TextProps>;
+` as React.FunctionComponent<TextProps & ParagraphPrimitive>;
 
 export const ParagraphHeading = styled.p<TextProps>`
   ${textCss}
   color: ${(props) => props.color ?? props.theme.color.heading};
-` as React.FunctionComponent<TextProps>;
+` as React.FunctionComponent<TextProps & ParagraphPrimitive>;
+
+export const ListItem = styled.li<TextProps>`
+  ${textCss}
+  margin: 0 0 6px 0;
+` as React.FunctionComponent<TextProps & React.DetailedHTMLProps<React.LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>>;
+
 
 export const Text = styled.div`
 ${textCss}
-` as React.FunctionComponent<TextProps>;
+` as React.FunctionComponent<TextProps & DivPrimitiveProps>;
 
 export const SmallText = styled.div`
   ${textCss}
   font-size: ${(props) => props.theme.typography.text.small};
-`;
-
+` as React.FunctionComponent<TextProps & DivPrimitiveProps>;
 
 const TypographyVariants = {
   heading: {
