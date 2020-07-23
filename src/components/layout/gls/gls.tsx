@@ -1,19 +1,31 @@
 import * as React from "react";
 
 import styled from "styled-components";
-import {BoxUnit, contentHorizontal, contentVertical, horizontallySpaced, verticallySpaced} from "./box";
+import {
+  BoxUnit,
+  calculateUnit, content,
+  contentHorizontal,
+  contentVertical,
+  defaultSpace,
+  horizontallySpaced,
+  verticallySpaced
+} from "./box";
 import {HtmlDivProps} from "../../others/types";
 
 /**
- * Minimised version of gls  https://github.com/basarat/gls
+ * Minimised version of gls https://github.com/basarat/gls as its just too good! 🌹
  * rewritten in styled component
  */
-export interface SpacingProp {
+export interface SpacingProps {
   /** Spacing between each child */
   space?: BoxUnit,
 }
 
-export interface HorizontalsAlignProps extends SpacingProp {
+export interface StretchProps {
+  sizing?: number,
+}
+
+export interface HorizontalsAlignProps extends SpacingProps {
   verticalAlign?: "top" | "center" | "bottom" | "baseline",
   /** Child alignment in horizontal axis */
   horizontalAlign?: "left" | "center" | "right",
@@ -46,8 +58,9 @@ export const Horizontal = styled.div.attrs({
     align-items: baseline;
  `};
 ` as React.FunctionComponent<HorizontalsAlignProps & HtmlDivProps>;
+Horizontal.displayName = "Horizontal";
 
-export interface VerticalAlignProps extends SpacingProp {
+export interface VerticalAlignProps extends SpacingProps {
   verticalAlign?: "center" | "bottom",
   horizontalAlign?: "left" | "center" | "right",
 }
@@ -73,9 +86,47 @@ export const Vertical = styled.div.attrs({
     align-items: flex-end;
  `};
 ` as React.FunctionComponent<VerticalAlignProps & HtmlDivProps>;
+Vertical.displayName = "Vertical";
 
+/**
+ * Spacers
+ */
 export const StretchSpacer = styled.div.attrs({
   "data-comment": "StretchSpacer"
+})<StretchProps>`
+  flex: ${(props) => props.sizing || 1};
+` as React.FunctionComponent<StretchProps & HtmlDivProps>;
+StretchSpacer.displayName = "StretchSpacer";
+
+export const HorizontalSpacer = styled.div.attrs({
+  "data-comment": "HorizontalSpacer"
+})<SpacingProps>`
+  display: inline-block;
+  width: ${(props) => calculateUnit(props.space ?? defaultSpace)}};
+` as React.FunctionComponent<SpacingProps & HtmlDivProps>;
+HorizontalSpacer.displayName = "HorizontalSpacer";
+
+export const VerticalSpacer = styled.div.attrs({
+  "data-comment": "VerticalSpacer"
+})<SpacingProps>`
+  height: ${(props) => calculateUnit(props.space ?? defaultSpace)}};
+` as React.FunctionComponent<SpacingProps & HtmlDivProps>;
+
+VerticalSpacer.displayName = "VerticalSpacer";
+
+/**
+ Containers:
+ Content takes up as much space as needed its child.
+ Stretch into the parent container.
+ */
+export const Content = styled.div.attrs({
+  "data-comment": "Content"
+})`
+ ${content}
+` as React.FunctionComponent<HtmlDivProps>;
+
+export const Stretch = styled.div.attrs({
+  "data-comment": "Stretch"
 })<{ sizing?: number }>`
   flex: ${(props) => props.sizing || 1};
-`;
+` as React.FunctionComponent<StretchProps & HtmlDivProps>;
