@@ -104,17 +104,17 @@ export const sizeVariantsLoading = () => (
       <Horizontal verticalAlign={"center"}>
         <div>
           <Button size={"small"} onClick={onClick} isLoading>
-            Small
+            Small Button
           </Button>
         </div>
         <div>
           <Button size={"medium"} onClick={onClick} isLoading>
-            Medium
+            Medium Button
           </Button>
         </div>
         <div>
           <Button size={"large"} onClick={onClick} isLoading>
-            Large
+            Large Button
           </Button>
         </div>
       </Horizontal>
@@ -143,7 +143,8 @@ export const others = () => (
         <Button variant={"text"} onClick={onClick}>
           Text
         </Button>
-        <Button variant={"text"} onClick={onClick}
+        <Button variant={"text"}
+                onClick={onClick}
                 customSize={{
                   fontSize: "14px",
                   fontWeight: 700,

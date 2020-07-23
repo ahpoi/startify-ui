@@ -82,7 +82,7 @@ const useButtonVariant = () => {
       borderColor: primary,
       colorOnHover: primary,
       backgroundOnHoverColor: "transparent",
-      borderOnHoverColor: primaryDark,
+      borderOnHoverColor: primary,
       borderRadius: radiusSmall
     },
     primaryOutlinedFilled: {
@@ -118,7 +118,7 @@ const useButtonVariant = () => {
       borderColor: secondary,
       colorOnHover: "white",
       backgroundOnHoverColor: secondaryDark,
-      borderOnHoverColor: secondaryDark,
+      borderOnHoverColor: secondary,
       borderRadius: radiusSmall
     },
     secondaryOutlined: {
