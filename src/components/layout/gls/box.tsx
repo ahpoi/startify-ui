@@ -5,7 +5,7 @@ import {css} from "styled-components";
  * rewritten in styled component
  */
 
-const defaultSpace = 24;
+export const defaultSpace = 24;
 
 export type BoxUnit = number | string;
 
