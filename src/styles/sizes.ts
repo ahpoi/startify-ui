@@ -5,7 +5,11 @@ export const MaxWidths = {
   small: 576,
   xSmall: 400,
 
-  pageContent: 1140
+  header: 1140,
+  footer: 1140,
+
+  pageContent: 960
+
 };
 
 export const Spaces = {

@@ -1,5 +1,6 @@
 import * as React from "react";
 import {BoxUnit, calculateUnit} from "./gls/box";
+import {MaxWidths} from "../..";
 
 export const ConditionalDisplay = (props: {
   when?: boolean;
@@ -12,11 +13,11 @@ export const ConditionalDisplay = (props: {
  * If you want a constrained max width layout
  */
 export const MaxWidth = ({
-                           maxWidth,
+                           maxWidth = MaxWidths.pageContent,
                            centered,
                            children,
                          }: {
-  maxWidth: BoxUnit;
+  maxWidth?: BoxUnit;
   centered?: boolean;
   children?: React.ReactNode;
 }) => (
@@ -29,4 +30,5 @@ export const MaxWidth = ({
         children={children}
     />
 );
+
 
