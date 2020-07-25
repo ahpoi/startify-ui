@@ -55,6 +55,7 @@ export const StyledLinkBasedCss = css<StyledLinkProps>`
    font-weight: ${(props) => props.fontWeight};
    text-decoration: ${(props) => props.underline ? "underline" : "none!important"};
    &:hover,
+   $:focus,
    &:active {
      transition: background-color 100ms linear, box-shadow 300ms;
      color: ${(props) => props.colorOnHover};

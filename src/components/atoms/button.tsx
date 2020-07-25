@@ -7,8 +7,8 @@ import * as CSS from "csstype";
 export interface ButtonProps {
   id?: string;
   variant?:
-      | "primary" | "primaryOutlined" | "primaryOutlinedFilled" | "textPrimary" | "textPrimaryFilled"
-      | "secondary" | "secondaryOutlined" | "secondaryOutlinedFilled" | "textSecondary" | "textSecondaryFilled"
+      | "primary" | "primaryOutlined" | "primaryOutlinedFilled"
+      | "secondary" | "secondaryOutlined" | "secondaryOutlinedFilled"
       | "text"
   type?: "submit" | "button";
   size?: "small" | "medium" | "large"
@@ -23,7 +23,7 @@ export interface ButtonProps {
 
 export const Button = ({ id, children, variant = "primary", size = "medium", onClick, type = "button", width = "auto", customVariant, customSize, isLoading, disabled }: ButtonProps) => {
   const buttonVariant: ButtonVariant = customVariant ?? useButtonVariant()[variant];
-  const sizeVariant = customSize ?? ButtonSizeVariants[size];
+  const sizeVariant = customSize ?? useButtonSizeVariant()[size];
   const styledBtnProps: StyledButtonProps = { ...buttonVariant, ...sizeVariant, isLoading: isLoading };
   return (!isLoading ?
       <StyledButton {...styledBtnProps} id={id} type={type} onClick={onClick} style={{ width }} disabled={disabled}>
@@ -36,36 +36,40 @@ export const Button = ({ id, children, variant = "primary", size = "medium", onC
       </StyledButton>);
 };
 
-export const ButtonSizeVariants = {
-  small: {
-    fontSize: "12px",
-    fontWeight: 400,
-    padding: "8px 18px 8px",
-  },
-  medium: {
-    fontSize: "14px",
-    fontWeight: 400,
-    padding: "12px 30px 12px",
-  },
-  large: {
-    fontSize: "16px",
-    fontWeight: 400,
-    padding: "16px 32px 16px",
-  }
+export const useButtonSizeVariant = () => {
+  const { radiusxSmall, radiusSmall } = useTheme().border;
+  return {
+    small: {
+      fontSize: "12px",
+      fontWeight: 400,
+      padding: "8px 18px 8px",
+      borderRadius: radiusxSmall
+    },
+    medium: {
+      fontSize: "14px",
+      fontWeight: 400,
+      padding: "12px 30px 12px",
+      borderRadius: radiusSmall
+    },
+    large: {
+      fontSize: "16px",
+      fontWeight: 400,
+      padding: "16px 32px 16px",
+      borderRadius: radiusSmall
+    }
+  };
 };
 
 const useButtonVariant = () => {
   const { primary, primaryDark, secondary, secondaryDark, textMid, textDark } = useTheme().color;
-  const { radiusSmall } = useTheme().border;
   return {
     text: {
       color: textMid,
-      backgroundColor: "transparent",
+      backgroundColor: CommonColors.greyLight30,
       borderColor: "transparent",
       colorOnHover: textDark,
-      backgroundOnHoverColor: CommonColors.greyLight30,
-      borderOnHoverColor: "transparent",
-      borderRadius: radiusSmall
+      backgroundOnHoverColor: CommonColors.greyLight70,
+      borderOnHoverColor: CommonColors.greyLight70,
     },
     primary: {
       color: "white",
@@ -74,7 +78,6 @@ const useButtonVariant = () => {
       colorOnHover: "white",
       borderOnHoverColor: primaryDark,
       backgroundOnHoverColor: primaryDark,
-      borderRadius: radiusSmall
     },
     primaryOutlined: {
       color: primary,
@@ -83,7 +86,6 @@ const useButtonVariant = () => {
       colorOnHover: primary,
       backgroundOnHoverColor: "transparent",
       borderOnHoverColor: primary,
-      borderRadius: radiusSmall
     },
     primaryOutlinedFilled: {
       color: primary,
@@ -92,7 +94,6 @@ const useButtonVariant = () => {
       colorOnHover: "white",
       backgroundOnHoverColor: primary,
       borderOnHoverColor: primary,
-      borderRadius: radiusSmall
     },
     textPrimary: {
       color: primary,
@@ -101,7 +102,6 @@ const useButtonVariant = () => {
       colorOnHover: primary,
       backgroundOnHoverColor: CommonColors.greyLight30,
       borderOnHoverColor: "transparent",
-      borderRadius: radiusSmall
     },
     textPrimaryFilled: {
       color: primary,
@@ -110,7 +110,6 @@ const useButtonVariant = () => {
       colorOnHover: "white",
       backgroundOnHoverColor: primary,
       borderOnHoverColor: "transparent",
-      borderRadius: radiusSmall
     },
     secondary: {
       color: "white",
@@ -119,7 +118,6 @@ const useButtonVariant = () => {
       colorOnHover: "white",
       backgroundOnHoverColor: secondaryDark,
       borderOnHoverColor: secondary,
-      borderRadius: radiusSmall
     },
     secondaryOutlined: {
       color: secondary,
@@ -128,7 +126,6 @@ const useButtonVariant = () => {
       colorOnHover: secondary,
       backgroundOnHoverColor: "transparent",
       borderOnHoverColor: secondaryDark,
-      borderRadius: radiusSmall
     },
     secondaryOutlinedFilled: {
       color: secondary,
@@ -137,7 +134,6 @@ const useButtonVariant = () => {
       colorOnHover: "white",
       backgroundOnHoverColor: secondary,
       borderOnHoverColor: secondary,
-      borderRadius: radiusSmall
     },
     textSecondary: {
       color: secondary,
@@ -146,7 +142,6 @@ const useButtonVariant = () => {
       colorOnHover: secondary,
       backgroundOnHoverColor: CommonColors.greyLight30,
       borderOnHoverColor: "transparent",
-      borderRadius: radiusSmall
     },
     textSecondaryFilled: {
       color: secondary,
@@ -155,7 +150,6 @@ const useButtonVariant = () => {
       colorOnHover: "white",
       backgroundOnHoverColor: secondary,
       borderOnHoverColor: "transparent",
-      borderRadius: radiusSmall
     }
   };
 };
@@ -163,7 +157,8 @@ const useButtonVariant = () => {
 interface SizeVariant {
   fontSize: CSS.FontSizeProperty<any>;
   fontWeight: CSS.FontWeightProperty;
-  padding: string
+  padding: string;
+  borderRadius: CSS.BorderRadiusProperty<any>
 }
 
 interface ButtonVariant {
@@ -173,7 +168,6 @@ interface ButtonVariant {
   colorOnHover: string;
   borderOnHoverColor: string;
   backgroundOnHoverColor: string;
-  borderRadius: CSS.BorderRadiusProperty<any>
 }
 
 type StyledButtonProps =
@@ -206,6 +200,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   background-color: ${(props) => props.backgroundColor};
   border: 1px solid ${(props) => props.borderColor};
   &:hover:enabled,
+  &:focus:enabled,
   &:active:enabled {
     transition: background-color 100ms linear, box-shadow 300ms;
     color: ${(props) => props.colorOnHover};

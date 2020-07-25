@@ -88,7 +88,7 @@ const textCss = css<TextProps>`
   text-align: ${(props) => props.textAlign};
   color: ${(props) => props.color ?? props.theme.color.textMid};
   margin: 0px;
-  hyphens: auto;
+  hyphens: manual;
 `;
 
 type ParagraphPrimitive = React.DetailedHTMLProps<React.LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>

@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Button, ButtonSizeVariants, Horizontal} from "../../../src";
+import {Button, Horizontal} from "../../../src";
 import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 
 export default {
@@ -26,12 +26,6 @@ export const primaryVariants = () => (
         <Button variant={"primaryOutlinedFilled"} onClick={onClick}>
           Primary Outline Filled
         </Button>
-        <Button variant={"textPrimary"} onClick={onClick}>
-          Text Primary
-        </Button>
-        <Button variant={"textPrimaryFilled"} onClick={onClick}>
-          Text Primary Filled
-        </Button>
       </Horizontal>
     </StoriesDefaultThemeProvider>
 );
@@ -47,12 +41,6 @@ export const secondaryVariants = () => (
         </Button>
         <Button variant={"secondaryOutlinedFilled"} onClick={onClick}>
           Secondary Outline Filled
-        </Button>
-        <Button variant={"textSecondary"} onClick={onClick}>
-          Text Secondary
-        </Button>
-        <Button variant={"textSecondaryFilled"} onClick={onClick}>
-          Text Secondary Filled
         </Button>
       </Horizontal>
     </StoriesDefaultThemeProvider>
@@ -143,12 +131,12 @@ export const others = () => (
         <Button variant={"text"} onClick={onClick}>
           Text
         </Button>
-        <Button variant={"text"}
-                onClick={onClick}
+        <Button onClick={onClick}
                 customSize={{
                   fontSize: "14px",
                   fontWeight: 700,
-                  padding: ButtonSizeVariants.medium.padding
+                  padding: "12px 30px 12px",
+                  borderRadius: "2px"
                 }}
                 customVariant={{
                   backgroundColor: "#3D96EF",
@@ -157,7 +145,6 @@ export const others = () => (
                   borderOnHoverColor: "#3D96EF",
                   color: "white",
                   colorOnHover: "white",
-                  borderRadius: "2px"
                 }}>
           Custom Styled
         </Button>
