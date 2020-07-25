@@ -26,8 +26,14 @@ export const Modal = (props: ModalProps) => {
 
   const node = React.useRef<HTMLDivElement>(null);
 
-  useKeyboardEvent("escape", () => onCancel?.());
-  useOnOutsideClick(node, () => onCancel?.());
+  const onClose = () => {
+    if (!onSubmitLoading) {
+      onCancel?.();
+    }
+  };
+
+  useKeyboardEvent("escape", onClose);
+  useOnOutsideClick(node, onClose);
 
   return isVisible ? createPortal(<ModalOverlay>
     <ModalContainer ref={node}>
@@ -35,10 +41,10 @@ export const Modal = (props: ModalProps) => {
       <VerticalSpacer space={24}/>
       {message && <Text>{message}</Text>}
       {children}
-      <VerticalSpacer space={24}/>
+      <VerticalSpacer space={32}/>
       <Horizontal horizontalAlign={"right"} space={12}>
         {onCancel &&
-        <Button onClick={onCancel} variant={"text"}>{cancelBtnTxt}</Button>}
+        <Button onClick={onClose} variant={"text"} >{cancelBtnTxt}</Button>}
         <Button onClick={onSubmit} isLoading={onSubmitLoading} type={submitBtnType}>{submitBtnTxt}</Button>
       </Horizontal>
     </ModalContainer>
