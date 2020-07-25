@@ -17,10 +17,12 @@ export const simpleMessageModal = () => {
       <Button onClick={() => setModalVisible(true)}>Show modal</Button>
       <Modal title={"Are you sure you want to exit?"}
              isVisible={isModalVisible}
-             onOk={() => console.log("submitted")}
+             onSubmit={() => console.log("submitted")}
              onCancel={() => (setModalVisible(false))}
-             onCancelText={"Exit"}
-             message={"By existing there is no way to come back"}/>
+             cancelBtnTxt={"Exit"}
+             message={"By existing there is no way to come back"}
+             renderDivId={"root"}
+      />
     </div>
   </StoriesDefaultThemeProvider>;
 };
@@ -35,9 +37,11 @@ export const modalComplex = () => {
       <Button onClick={() => setModalVisible(true)}>Show modal</Button>
       <Modal title={"Are you sure you want to exit?"}
              isVisible={isModalVisible}
-             onOk={() => console.log("submitted")}
+             onSubmit={() => console.log("submitted")}
              onCancel={() => (setModalVisible(false))}
-             onCancelText={"Exit"}>
+             cancelBtnTxt={"Exit"}
+             renderDivId={"root"}
+            >
         <HorizontalDivider/>
         <VerticalSpacer/>
         <Heading4>This is a children</Heading4>

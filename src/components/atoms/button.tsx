@@ -37,13 +37,13 @@ export const Button = ({ id, children, variant = "primary", size = "medium", onC
 };
 
 export const useButtonSizeVariant = () => {
-  const { radiusxSmall, radiusSmall } = useTheme().border;
+  const { radiusSmall } = useTheme().border;
   return {
     small: {
       fontSize: "12px",
       fontWeight: 400,
       padding: "8px 18px 8px",
-      borderRadius: radiusxSmall
+      borderRadius: radiusSmall
     },
     medium: {
       fontSize: "14px",
