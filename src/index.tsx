@@ -12,6 +12,8 @@ export * from "./components/atoms/image"
 export * from "./components/atoms/divider"
 export * from "./components/atoms/spinner"
 
+export * from "./components/molecules/modal"
+
 export * from "./components/layout/layout"
 export * from "./components/layout/page-layout"
 export * from "./components/layout/responsive-layout"
