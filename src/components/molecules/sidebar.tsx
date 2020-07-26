@@ -1,6 +1,5 @@
 import * as React from "react";
 import styled from "styled-components";
-import {createPortal} from "react-dom";
 import {useOnOutsideClick} from "../../hooks/common.hook";
 
 interface SidebarProps {
@@ -15,11 +14,11 @@ export const Sidebar = ({ isOpen, onStateChange, children }: SidebarProps) => {
     onStateChange?.({ isOpen: false });
   };
   useOnOutsideClick(node, onClose);
-  return isOpen ? createPortal(<div data-comment="sidebar">
-    <SidebarRoot isOpen={isOpen}/>
-    <SideBarOverlay isOpen={isOpen}/>
-    <SideBarContent ref={node} isOpen={isOpen} children={children}/>
-  </div>, document.getElementById("root") ?? document.body) : null;
+  return <div data-comment="sidebar" style={{ display: isOpen ? "contents" : "none" }}>
+    <SidebarRoot data-comment="sidebar-root" isOpen={isOpen}/>
+    <SideBarOverlay data-comment="sidebar-overlay" isOpen={isOpen}/>
+    <SideBarContent data-comment="sidebar-content" ref={node} isOpen={isOpen} children={children}/>
+  </div>;
 };
 
 const width = 300;
