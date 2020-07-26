@@ -16,7 +16,7 @@ export const simpleMessageModal = () => {
       <Modal title={"Are you sure you want to exit?"}
              isOpen={isModalVisible}
              onSubmit={() => console.log("submitted")}
-             onClose={() => (setModalVisible(false))}
+             onStateChange={({isOpen}) =>  setModalVisible(isOpen)}
              closeBtnTxt={"Exit"}
              hasCloseButton
              message={"By exiting there is no way to come back"}
@@ -33,7 +33,7 @@ export const modalComplex = () => {
       <Modal title={"Are you sure you want to exit?"}
              isOpen={isModalVisible}
              onSubmit={() => console.log("submitted")}
-             onClose={() => (setModalVisible(false))}
+             onStateChange={({isOpen}) =>  setModalVisible(isOpen)}
              hasCloseIcon
              closeBtnTxt={"Exit"}
       >

@@ -14,7 +14,7 @@ interface ModalProps {
   onSubmitLoading?: boolean;
   submitBtnType?: "submit" | "button";
   submitBtnTxt?: string;
-  onClose?: () => any;
+  onStateChange? : (state: { isOpen: boolean }) => void;
   closeBtnTxt?: string;
   hasCloseButton?: boolean;
   hasCloseIcon?: boolean;
@@ -26,12 +26,12 @@ interface ModalProps {
 export const Modal = (props: ModalProps) => {
 
   const { title, message, modalWidth, isOpen, hasCloseIcon = false, hasCloseButton = false, children } = props;
-  const { onSubmit, submitBtnTxt = "Proceed", onSubmitLoading, submitBtnType, onClose, closeBtnTxt = "Cancel" } = props;
+  const { onSubmit, submitBtnTxt = "Proceed", onSubmitLoading, submitBtnType, onStateChange, closeBtnTxt = "Cancel" } = props;
 
   const node = React.useRef<HTMLDivElement>(null);
   const _onClose = () => {
     if (!onSubmitLoading) {
-      onClose?.();
+      onStateChange?.({isOpen: false})
     }
   };
 
@@ -42,7 +42,7 @@ export const Modal = (props: ModalProps) => {
     <ModalContainer ref={node} modalWidth={modalWidth}>
       <Horizontal verticalAlign={"center"}>
         <Heading4 fontWeight={"bold"}>{title}</Heading4>
-        {hasCloseIcon && <><StretchSpacer/><IconClose onClick={onClose} size={24}/></>}
+        {hasCloseIcon && <><StretchSpacer/><IconClose onClick={_onClose} size={24}/></>}
       </Horizontal>
       <VerticalSpacer spacing={24}/>
       {message && <Text>{message}</Text>}
