@@ -109,6 +109,7 @@ type LandingPageSectionProps = {
   backgroundColor?: string
   centered?: boolean;
   isFullWidth?: boolean;
+  verticalPadding?: number;
   children: React.ReactNode;
 } & BaseWidthProps
 
@@ -126,6 +127,10 @@ const StyledLandingPageSection = styled.section.attrs({
  ${cssPageResponsiveSideSpace}
  ${({ centered = true }) => centered && `
     margin: 0 auto;
+ `};
+  ${({ verticalPadding }) => verticalPadding && `
+    padding-top: ${verticalPadding}px;
+    padding-bottom: ${verticalPadding}px;
  `};
   max-width: ${(props: LandingPageSectionProps) => calculateUnit(props.maxWidth ?? MaxWidths.pageContent)};
 ` as React.FunctionComponent<LandingPageSectionProps & React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>>;

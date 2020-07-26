@@ -15,7 +15,7 @@ export const responsive = () =>
             Some Heading
           </Heading1>
           <HorizontalDivider/>
-          <Vertical space={12}>
+          <Vertical spacing={12}>
             <Paragraph>
               Some Content
             </Paragraph>
@@ -41,7 +41,7 @@ export const responsiveWithOverrideStyle = () =>
             Some Heading
           </Heading1>
           <HorizontalDivider/>
-          <Vertical space={12}>
+          <Vertical spacing={12}>
             <Paragraph>
               Some Content
             </Paragraph>

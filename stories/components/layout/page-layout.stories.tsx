@@ -22,22 +22,22 @@ export const pageLayout = () =>
       <PageRoot>
         <Header>
           <HorizontalDivider/>
-          <VerticalSpacer space={6}/>
+          <VerticalSpacer spacing={6}/>
           <MaxWidth centered>
-            <Horizontal space={0}>
+            <Horizontal spacing={0}>
               <HeaderLogo name={"Birdies"} Logo={TestLogo} color={"#FF5050"} onClick={() => (9)}/>
               <StretchSpacer/>
-              <Button variant={"textSecondary"} size={"small"}>Login</Button>
-              <Button variant={"textSecondary"} size={"small"}>Sign up</Button>
+              <Button variant={"text"} size={"small"}>Login</Button>
+              <Button variant={"text"} size={"small"}>Sign up</Button>
             </Horizontal>
           </MaxWidth>
-          <VerticalSpacer space={6}/>
+          <VerticalSpacer spacing={6}/>
           <HorizontalDivider/>
         </Header>
         <PageBody>
           <Heading1>Welcome to my Website</Heading1>
-          <VerticalSpacer space={48}/>
-          <Vertical space={12}>
+          <VerticalSpacer spacing={48}/>
+          <Vertical spacing={12}>
             <Paragraph>Lorum Ipsume - Hello I am Ian</Paragraph>
             <Paragraph>Lorum Ipsume - Hello I am Ian</Paragraph>
             <Paragraph>Lorum Ipsume - Hello I am Ian</Paragraph>
@@ -47,7 +47,7 @@ export const pageLayout = () =>
           </Vertical>
         </PageBody>
         <HorizontalDivider/>
-        <VerticalSpacer space={12}/>
+        <VerticalSpacer spacing={12}/>
         <Footer>
           <SmallText textAlign={"center"}>Build in Melbourne</SmallText>
         </Footer>
@@ -59,16 +59,16 @@ export const pageLandingLayout = () =>
       <PageRoot>
         <Header>
           <HorizontalDivider/>
-          <VerticalSpacer space={6}/>
+          <VerticalSpacer spacing={6}/>
           <MaxWidth centered>
-            <Horizontal space={0}>
+            <Horizontal spacing={0}>
               <HeaderLogo name={"Birdies"} Logo={TestLogo} color={"#FF5050"} onClick={() => (9)}/>
               <StretchSpacer/>
-              <Button variant={"textSecondary"} size={"small"}>Login</Button>
-              <Button variant={"textSecondary"} size={"small"}>Sign up</Button>
+              <Button variant={"text"} size={"small"}>Login</Button>
+              <Button variant={"text"} size={"small"}>Sign up</Button>
             </Horizontal>
           </MaxWidth>
-          <VerticalSpacer space={6}/>
+          <VerticalSpacer spacing={6}/>
           <HorizontalDivider/>
         </Header>
         <LandingPageBody>
@@ -76,9 +76,8 @@ export const pageLandingLayout = () =>
             <LandingPageSection>
               <Heading1>Welcome to my Landing PageWebsite</Heading1>
             </LandingPageSection>
-            <LandingPageSection backgroundColor={CommonColors.grey30}>
-              <VerticalSpacer/>
-              <Vertical space={12}>
+            <LandingPageSection backgroundColor={CommonColors.grey30} verticalPadding={24}>
+              <Vertical spacing={12}>
                 <Paragraph>Lorum Ipsume - Hello I am Ian</Paragraph>
                 <Paragraph>Lorum Ipsume - Hello I am Ian</Paragraph>
                 <Paragraph>Lorum Ipsume - Hello I am Ian</Paragraph>
@@ -86,7 +85,6 @@ export const pageLandingLayout = () =>
                 <Paragraph>Lorum Ipsume - Hello I am Ian</Paragraph>
                 <Paragraph>Lorum Ipsume - Hello I am Ian</Paragraph>
               </Vertical>
-              <VerticalSpacer/>
             </LandingPageSection>
           </Vertical>
         </LandingPageBody>
