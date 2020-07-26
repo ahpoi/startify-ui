@@ -33,7 +33,7 @@ interface BackButtonProps {
 export const BackButton = ({ onClick, text }: BackButtonProps) => {
   const color = useTheme().color.secondary;
   return (
-      <Horizontal space={4} verticalAlign={"center"}>
+      <Horizontal spacing={4} verticalAlign={"center"}>
         <IconBackArrow size={14} color={color}/>
         <LinkButton underline={false} onClick={onClick ? onClick() : () => window.history.back()}
                     text={text ?? "Back"}/>
@@ -50,8 +50,8 @@ interface PoweredByProps {
 
 export const PoweredBy = ({ name, url, Logo, fontSize = "8px" }: PoweredByProps) => (
     <div style={{ cursor: "pointer" }} onClick={() => window.open(url, "_blank")}>
-      <Horizontal space={2} verticalAlign={"center"}>
-        <Vertical space={0} horizontalAlign={"right"}>
+      <Horizontal spacing={2} verticalAlign={"center"}>
+        <Vertical spacing={0} horizontalAlign={"right"}>
           <Text fontWeight={100} fontSize={fontSize}>
             powered by
           </Text>
@@ -94,7 +94,7 @@ export const Ellipsis = ({ rotate = false, size = 4 }: { rotate?: boolean, size?
       transition: "transform 0.2s ease-out",
       transform: `${rotate ? "rotate(90deg)" : "rotate(0deg)"}`
     }}>
-  <Horizontal space={4}>
+  <Horizontal spacing={4}>
     <Dot color={"grey"} size={size}/>
     <Dot color={"grey"} size={size}/>
     <Dot color={"grey"} size={size}/>
@@ -114,7 +114,7 @@ interface HeaderLogoProps {
 export const HeaderLogo = ({ name, color, fontSize = "18px", fontWeight = 700, onClick, Logo }: HeaderLogoProps) => (
     <Horizontal
         verticalAlign={"center"}
-        space={8}
+        spacing={8}
         style={{ cursor: "pointer" }}
         onClick={onClick}
     >

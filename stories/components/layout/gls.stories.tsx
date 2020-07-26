@@ -1,4 +1,4 @@
-import {Horizontal, HorizontalSpacer, Stretch, Vertical, VerticalSpacer} from "../../../src";
+import { Horizontal, HorizontalSpacer, Responsive, Stretch, Vertical, VerticalSpacer} from "../../../src";
 import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 import * as React from "react";
 
@@ -17,9 +17,17 @@ export const horizontal = () =>
 export const vertical = () =>
     <StoriesDefaultThemeProvider>
       <Vertical>
-        <Stretch style={{ backgroundColor: "darkorange" }}>Hello</Stretch>
-        <Stretch style={{ backgroundColor: "lightpink" }}>World</Stretch>
+        <div style={{ backgroundColor: "darkorange" }}>Hello</div>
+        <div style={{ backgroundColor: "lightpink" }}>World</div>
       </Vertical>
+    </StoriesDefaultThemeProvider>;
+
+export const responsive = () =>
+    <StoriesDefaultThemeProvider>
+      <Responsive>
+        <div style={{ backgroundColor: "darkorange" }}>Hello</div>
+        <div style={{ backgroundColor: "lightpink" }}>World</div>
+      </Responsive>
     </StoriesDefaultThemeProvider>;
 
 export const verticalSpacers = () =>

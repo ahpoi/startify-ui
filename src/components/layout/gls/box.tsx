@@ -45,18 +45,18 @@ export const contentVertical = css`
  ${vertical}
 `;
 
-export const horizontallySpaced = css<{ space?: BoxUnit }>`
+export const horizontallySpaced = css<{ spacing?: BoxUnit }>`
  & > * {
-   margin-right: ${props => calculateUnit(props.space ?? defaultSpace)} !important
+   margin-right: ${props => calculateUnit(props.spacing ?? defaultSpace)} !important
  }
  & > *: last-child {
    margin-right: 0px !important
  }
 `;
 
-export const verticallySpaced = css<{ space?: BoxUnit }>`
+export const verticallySpaced = css<{ spacing?: BoxUnit }>`
  & > * {
-   margin-bottom: ${props => calculateUnit(props.space ?? defaultSpace)} !important
+   margin-bottom: ${props => calculateUnit(props.spacing ?? defaultSpace)} !important
  }
  & > *: last-child {
    margin-bottom: 0px !important
