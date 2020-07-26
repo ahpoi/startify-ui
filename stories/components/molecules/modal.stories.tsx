@@ -14,12 +14,12 @@ export const simpleMessageModal = () => {
     <div>
       <Button onClick={() => setModalVisible(true)}>Show modal</Button>
       <Modal title={"Are you sure you want to exit?"}
-             isVisible={isModalVisible}
+             isOpen={isModalVisible}
              onSubmit={() => console.log("submitted")}
-             onCancel={() => (setModalVisible(false))}
-             cancelBtnTxt={"Exit"}
+             onClose={() => (setModalVisible(false))}
+             closeBtnTxt={"Exit"}
+             hasCloseButton
              message={"By exiting there is no way to come back"}
-             renderDivId={"root"}
       />
     </div>
   </StoriesDefaultThemeProvider>;
@@ -31,12 +31,12 @@ export const modalComplex = () => {
     <div>
       <Button onClick={() => setModalVisible(true)}>Show modal</Button>
       <Modal title={"Are you sure you want to exit?"}
-             isVisible={isModalVisible}
+             isOpen={isModalVisible}
              onSubmit={() => console.log("submitted")}
-             onCancel={() => (setModalVisible(false))}
-             cancelBtnTxt={"Exit"}
-             renderDivId={"root"}
-            >
+             onClose={() => (setModalVisible(false))}
+             hasCloseIcon
+             closeBtnTxt={"Exit"}
+      >
         <HorizontalDivider/>
         <VerticalSpacer/>
         <Heading4>This is a children</Heading4>

@@ -3,55 +3,96 @@ import {createPortal} from "react-dom";
 
 import styled from "styled-components";
 import {Breakpoints, Spaces} from "../../styles/sizes";
-import {Button, Heading4, Horizontal, Text, VerticalSpacer} from "../..";
+import {Button, Heading4, Horizontal, StretchSpacer, Text, VerticalSpacer} from "../..";
 import {useKeyboardEvent, useOnOutsideClick} from "../../hooks/common.hook";
+import {IconClose} from "../others/icons";
 
 interface ModalProps {
   title: string
-  isVisible?: boolean
+  isOpen?: boolean
   onSubmit?: () => any;
-  submitBtnTxt?: string;
-  submitBtnType?: "submit" | "button";
   onSubmitLoading?: boolean;
-  onCancel?: () => any;
-  cancelBtnTxt?: string;
+  submitBtnType?: "submit" | "button";
+  submitBtnTxt?: string;
+  onClose?: () => any;
+  closeBtnTxt?: string;
+  hasCloseButton?: boolean;
+  hasCloseIcon?: boolean;
   message?: string;
-  renderDivId?: string;
+  modalWidth?: number;
   children?: React.ReactNode;
 }
 
 export const Modal = (props: ModalProps) => {
-  const { title, message, isVisible, children, renderDivId = "modal-root" } = props;
-  const { onSubmit, submitBtnTxt = "Proceed", onSubmitLoading, submitBtnType, onCancel, cancelBtnTxt = "Cancel" } = props;
+
+  const { title, message, modalWidth, isOpen, hasCloseIcon = false, hasCloseButton = false, children } = props;
+  const { onSubmit, submitBtnTxt = "Proceed", onSubmitLoading, submitBtnType, onClose, closeBtnTxt = "Cancel" } = props;
 
   const node = React.useRef<HTMLDivElement>(null);
-
-  const onClose = () => {
+  const _onClose = () => {
     if (!onSubmitLoading) {
-      onCancel?.();
+      onClose?.();
     }
   };
 
-  useKeyboardEvent("escape", onClose);
-  useOnOutsideClick(node, onClose);
+  useKeyboardEvent("escape", _onClose);
+  useOnOutsideClick(node, _onClose);
 
-  return isVisible ? createPortal(<ModalOverlay>
-    <ModalContainer ref={node}>
-      <Heading4 fontWeight={"bold"}>{title}</Heading4>
+  return isOpen ? createPortal(<ModalOverlay>
+    <ModalContainer ref={node} modalWidth={modalWidth}>
+      <Horizontal verticalAlign={"center"}>
+        <Heading4 fontWeight={"bold"}>{title}</Heading4>
+        {hasCloseIcon && <><StretchSpacer/><IconClose onClick={onClose} size={24}/></>}
+      </Horizontal>
       <VerticalSpacer space={24}/>
       {message && <Text>{message}</Text>}
       {children}
       <VerticalSpacer space={32}/>
       <Horizontal horizontalAlign={"right"} space={12}>
-        {onCancel &&
-        <Button onClick={onClose} variant={"text"} >{cancelBtnTxt}</Button>}
+        {hasCloseButton &&
+        <Button onClick={_onClose} variant={"text"}>{closeBtnTxt}</Button>}
         <Button onClick={onSubmit} isLoading={onSubmitLoading} type={submitBtnType}>{submitBtnTxt}</Button>
       </Horizontal>
     </ModalContainer>
-  </ModalOverlay>, document.getElementById(renderDivId)!!) : <></>;
+  </ModalOverlay>, document.body) : null;
 };
 
-const ModalOverlay = styled.div`
+
+interface SimpleModal {
+  isOpen?: boolean
+  isClosable?: boolean
+  onClose: () => void
+  children: React.ReactNode;
+  modalWidth?: number;
+}
+
+/**
+ * Basic Modal that allows the consumer to provide its on UI
+ */
+export const SimpleModal = (props: SimpleModal) => {
+
+  const { isOpen, onClose, isClosable = true, modalWidth, children } = props;
+  const node = React.useRef<HTMLDivElement>(null);
+
+  const _onClose = () => {
+    //Used for to prevent user from escaping or an action is happening eg:
+    //API request
+    if (isClosable) {
+      onClose();
+    }
+  };
+
+  useKeyboardEvent("escape", _onClose);
+  useOnOutsideClick(node, _onClose);
+
+  return isOpen ? createPortal(<ModalOverlay>
+    <ModalContainer ref={node} modalWidth={modalWidth}>
+      {children}
+    </ModalContainer>
+  </ModalOverlay>, document.body) : null;
+};
+
+export const ModalOverlay = styled.div`
   background-color: rgba(0,0,0,0.6);
   position: fixed;
   width: 100%;
@@ -61,10 +102,10 @@ const ModalOverlay = styled.div`
   left: 0;
 `;
 
-const ModalContainer = styled.div<{ maxWidth?: number }>`
+export const ModalContainer = styled.div<{ modalWidth?: number }>`
   background: white;
   z-index: 100;
-  max-width: ${props => props.maxWidth ?? 500}px;
+  max-width: ${props => props.modalWidth ?? 500}px;
   width: 100%;
   height: auto;
   position: fixed;
