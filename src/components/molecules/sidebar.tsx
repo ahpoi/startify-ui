@@ -1,6 +1,8 @@
 import * as React from "react";
 import styled from "styled-components";
 import {useOnOutsideClick} from "../../hooks/common.hook";
+import {VerticalSpacer} from "../..";
+import {IconClose} from "../others/icons";
 
 interface SidebarProps {
   isOpen: boolean
@@ -16,10 +18,24 @@ export const Sidebar = ({ isOpen, onStateChange, children }: SidebarProps) => {
   useOnOutsideClick(node, onClose);
   return <div data-comment="sidebar" style={{ display: isOpen ? "contents" : "none" }}>
     <SidebarRoot data-comment="sidebar-root" isOpen={isOpen}/>
-    <SideBarOverlay data-comment="sidebar-overlay" isOpen={isOpen}/>
     <SideBarContent data-comment="sidebar-content" ref={node} isOpen={isOpen} children={children}/>
+    <SideBarOverlay role="presentation" data-comment="sidebar-overlay" isOpen={isOpen}>
+      <OverlayClosedButton aria-label={"close sidebar"}
+                           type={"button"}>
+        <IconClose color={"white"}/>
+      </OverlayClosedButton>
+    </SideBarOverlay>
   </div>;
 };
+
+export const SidebarToggle = (props: { onClick: () => any }) =>
+    <StyledSidebarButton onClick={props.onClick}>
+      <Line/>
+      <VerticalSpacer spacing={4}/>
+      <Line/>
+      <VerticalSpacer spacing={4}/>
+      <Line/>
+    </StyledSidebarButton>;
 
 const width = 300;
 const zIndexOverlay = 1;
@@ -61,4 +77,33 @@ const SideBarContent = styled.div<{ isOpen: boolean }>`
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
     width: ${width}px;
     transform: ${({ isOpen }) => isOpen ? "translateX(0%)" : "translateX(-100%)"};
+`;
+
+const OverlayClosedButton = styled.button`
+  position: absolute;
+  top: 5px;
+  left: ${width + 5}px;
+  background: transparent;
+  border: none;
+`;
+
+const StyledSidebarButton = styled.button`
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  display: inline-block;
+  padding: 6px;
+  &:focus,
+  &:hover,
+  &:active {
+    filter: brightness(50%)
+  }  
+`;
+
+const Line = styled.div`
+    width: 22px;
+    height: 3px;
+    border-radius: 100px;
+    background-color: grey
 `;

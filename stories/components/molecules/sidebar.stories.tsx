@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Button} from "../../../src";
 import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
-import {Sidebar} from "../../../src/components/molecules/sidebar";
+import {Sidebar, SidebarToggle} from "../../../src/components/molecules/sidebar";
 
 // @ts-ignore
 export default {
@@ -13,7 +13,7 @@ export const sidebar = () => {
   const [isModalVisible, setModalVisible] = React.useState(false);
   return <StoriesDefaultThemeProvider>
     <div>
-      <Button onClick={() => setModalVisible(true)}>Toggle sidebar</Button>
+      <SidebarToggle onClick={() => setModalVisible(true)}/>
       <Sidebar isOpen={isModalVisible} onStateChange={() => setModalVisible(false)}>
         Hello
       </Sidebar>
