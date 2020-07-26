@@ -44,11 +44,11 @@ export const Modal = (props: ModalProps) => {
         <Heading4 fontWeight={"bold"}>{title}</Heading4>
         {hasCloseIcon && <><StretchSpacer/><IconClose onClick={onClose} size={24}/></>}
       </Horizontal>
-      <VerticalSpacer space={24}/>
+      <VerticalSpacer spacing={24}/>
       {message && <Text>{message}</Text>}
       {children}
-      <VerticalSpacer space={32}/>
-      <Horizontal horizontalAlign={"right"} space={12}>
+      <VerticalSpacer spacing={32}/>
+      <Horizontal horizontalAlign={"right"} spacing={12}>
         {hasCloseButton &&
         <Button onClick={_onClose} variant={"text"}>{closeBtnTxt}</Button>}
         <Button onClick={onSubmit} isLoading={onSubmitLoading} type={submitBtnType}>{submitBtnTxt}</Button>
