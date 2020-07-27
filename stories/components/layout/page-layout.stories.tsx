@@ -20,7 +20,7 @@ export default {
 export const pageLayout = () =>
     <StoriesDefaultThemeProvider>
       <PageRoot>
-        <Header>
+        <Header backgroundColor={CommonColors.grey40}>
           <HorizontalDivider/>
           <VerticalSpacer spacing={6}/>
           <MaxWidth centered>
@@ -47,9 +47,10 @@ export const pageLayout = () =>
           </Vertical>
         </PageBody>
         <HorizontalDivider/>
-        <VerticalSpacer spacing={12}/>
-        <Footer>
+        <Footer backgroundColor={CommonColors.greyLight80}>
+          <VerticalSpacer spacing={12}/>
           <SmallText textAlign={"center"}>Build in Melbourne</SmallText>
+          <VerticalSpacer spacing={12}/>
         </Footer>
       </PageRoot>
     </StoriesDefaultThemeProvider>;
