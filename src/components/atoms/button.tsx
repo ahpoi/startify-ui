@@ -194,7 +194,7 @@ const StyledButton = styled.button<StyledButtonProps>`
     cursor: not-allowed;
     color: rgba(0,0,0,.25);
     background-color: #f5f5f5;
-    border-color: #d9d9d9;
+    border-color: #f5f5f5;
   };
   color: ${(props) => props.color};
   background-color: ${(props) => props.backgroundColor};

@@ -14,7 +14,7 @@ interface ModalProps {
   onSubmitLoading?: boolean;
   submitBtnType?: "submit" | "button";
   submitBtnTxt?: string;
-  onStateChange? : (state: { isOpen: boolean }) => void;
+  onStateChange?: (state: { isOpen: boolean }) => void;
   closeBtnTxt?: string;
   hasCloseButton?: boolean;
   hasCloseIcon?: boolean;
@@ -31,7 +31,7 @@ export const Modal = (props: ModalProps) => {
   const node = React.useRef<HTMLDivElement>(null);
   const _onClose = () => {
     if (!onSubmitLoading) {
-      onStateChange?.({isOpen: false})
+      onStateChange?.({ isOpen: false });
     }
   };
 
@@ -39,21 +39,21 @@ export const Modal = (props: ModalProps) => {
   useOnOutsideClick(node, _onClose);
 
   return isOpen ? createPortal(<ModalOverlay>
-    <ModalContainer ref={node} modalWidth={modalWidth}>
-      <Horizontal verticalAlign={"center"}>
-        <Heading4 fontWeight={"bold"}>{title}</Heading4>
-        {hasCloseIcon && <><StretchSpacer/><IconClose onClick={_onClose} size={24}/></>}
-      </Horizontal>
-      <VerticalSpacer spacing={24}/>
-      {message && <Text>{message}</Text>}
-      {children}
-      <VerticalSpacer spacing={32}/>
-      <Horizontal horizontalAlign={"right"} spacing={12}>
-        {hasCloseButton &&
-        <Button onClick={_onClose} variant={"text"}>{closeBtnTxt}</Button>}
-        <Button onClick={onSubmit} isLoading={onSubmitLoading} type={submitBtnType}>{submitBtnTxt}</Button>
-      </Horizontal>
-    </ModalContainer>
+      <ModalContainer ref={node} modalWidth={modalWidth}>
+        <Horizontal verticalAlign={"center"}>
+          <Heading4 fontWeight={"bold"}>{title}</Heading4>
+          {hasCloseIcon && <><StretchSpacer/><IconClose onClick={_onClose} size={24}/></>}
+        </Horizontal>
+        <VerticalSpacer spacing={24}/>
+        {message && <Text>{message}</Text>}
+        {children}
+        <VerticalSpacer spacing={32}/>
+        <Horizontal horizontalAlign={"right"} spacing={12}>
+          {hasCloseButton &&
+          <Button onClick={_onClose} variant={"text"} disabled={onSubmitLoading}>{closeBtnTxt}</Button>}
+          <Button onClick={onSubmit} isLoading={onSubmitLoading} type={submitBtnType}>{submitBtnTxt}</Button>
+        </Horizontal>
+      </ModalContainer>
   </ModalOverlay>, document.body) : null;
 };
 
@@ -116,6 +116,7 @@ export const ModalContainer = styled.div<{ modalWidth?: number }>`
   box-shadow: ${props => props.theme.shadow.large}px;
   padding: ${Spaces.medium}px;
   @media (max-width: ${Breakpoints.small}px) {
+     width: 95%;
      padding: ${Spaces.small}px;
   }
 `;
