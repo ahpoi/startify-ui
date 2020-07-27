@@ -1,6 +1,8 @@
 import * as React from "react";
 import {BoxUnit, calculateUnit} from "./gls/box";
 import {MaxWidths} from "../..";
+import styled from "styled-components";
+import {DivPrimitiveProps} from "../others/types";
 
 export const ConditionalDisplay = (props: {
   when?: boolean;
@@ -12,23 +14,17 @@ export const ConditionalDisplay = (props: {
 /**
  * If you want a constrained max width layout
  */
-export const MaxWidth = ({
-                           maxWidth = MaxWidths.pageContent,
-                           centered,
-                           children,
-                         }: {
+interface MaxWidthProps {
   maxWidth?: BoxUnit;
   centered?: boolean;
   children?: React.ReactNode;
-}) => (
-    <div
-        style={{
-          maxWidth: calculateUnit(maxWidth),
-          width: "100%",
-          margin: centered ? "0 auto" : undefined,
-        }}
-        children={children}
-    />
-);
+}
 
+export const MaxWidth = styled.div<MaxWidthProps>`
+  max-width: ${props => calculateUnit(props.maxWidth ?? MaxWidths.pageContent)};
+  width: 100%;
+  ${({ centered }) => centered && `
+    margin: 0 auto;
+  `};
+` as React.FunctionComponent<MaxWidthProps & DivPrimitiveProps>;
 

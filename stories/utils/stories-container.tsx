@@ -4,7 +4,7 @@ import * as React from "react";
 
 export const StoriesDefaultThemeProvider = (props: { children: React.ReactNode }) => {
   return <>
-    <GlobalStyle/>
+    <GlobalStyle fontFamily={"Montserrat,Helvetica Neue,HelveticaNeue,Helvetica,Arial,sans-serif"}/>
     <ThemeProvider theme={DefaultAppTheme}>
       {props.children}
     </ThemeProvider>

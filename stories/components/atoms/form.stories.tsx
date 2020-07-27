@@ -1,4 +1,4 @@
-import {Button, FieldLabel, Form, TextInput, Vertical,} from "../../../src";
+import {Button, FieldLabel, Form, TextInput, Vertical, VerticalSpacer,} from "../../../src";
 import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 import * as React from "react";
 import {createGlobalStyle} from "styled-components";
@@ -18,6 +18,7 @@ export const formContainer = () => (
         <Vertical>
           <div>
             <FieldLabel>First name</FieldLabel>
+            <VerticalSpacer spacing={8}/>
             <TextInput onChange={() => (0)} value={""}/>
             <FieldWrapperDivider/>
           </div>
