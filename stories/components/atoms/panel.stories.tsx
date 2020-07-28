@@ -7,7 +7,7 @@ export default {
   component: Panel
 };
 
-export const responsive = () =>
+export const panel = () =>
     <StoriesDefaultThemeProvider>
       <Panel isResponsive mobile={{ seamless: true }}>
         <Vertical>
@@ -33,7 +33,7 @@ export const responsive = () =>
       </Panel>
     </StoriesDefaultThemeProvider>;
 
-export const responsiveWithOverrideStyle = () =>
+export const panelWithOverride = () =>
     <StoriesDefaultThemeProvider>
       <Panel backgroundColor={CommonColors.grey10} padding={48}>
         <Vertical>

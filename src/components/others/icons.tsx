@@ -43,6 +43,32 @@ export const IconClose = (props: IconProps) => {
   );
 };
 
+export const IconError = (props: IconProps) => {
+  const color = props.color || "ca3332";
+  const size = props.size || defaultSize;
+  return (
+      <svg
+          viewBox={`0 0 450 450`}
+          width={size}
+          height={size}
+          style={{ fill: color }}
+      >
+        <path
+            d="M446.324 367.381L262.857 41.692c-15.644-28.444-58.311-28.444-73.956 0L5.435 367.381c-15.644 28.444 4.267 64 36.978 64h365.511c34.133-1.422 54.044-35.556 38.4-64z"
+            fill={color}
+        />
+        <path
+            d="M225.879 63.025l183.467 325.689H42.413L225.879 63.025z"
+            fill="#fff"
+        />
+        <g fill="#3f4448">
+          <path d="M196.013 212.359l11.378 75.378c1.422 8.533 8.533 15.644 18.489 15.644 8.533 0 17.067-7.111 18.489-15.644l11.378-75.378c2.844-18.489-11.378-34.133-29.867-34.133-18.49-.001-31.29 15.644-29.867 34.133z" />
+          <circle cx={225.879} cy={336.092} r={17.067} />
+        </g>
+      </svg>
+  );
+};
+
 interface StyledSvgProps {
   onClick?: () => void;
 }
@@ -55,3 +81,19 @@ export const StyledSvg = styled.svg<StyledSvgProps>`
       } 
   `};
 `;
+
+/**
+ * Provides border around icons for accessiblity
+ */
+export const IconButtonContainer = styled.button`
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  display: inline-block;
+  &:focus,
+  &:hover,
+  &:active {
+    outline: 1px dashed grey;
+  }  
+`

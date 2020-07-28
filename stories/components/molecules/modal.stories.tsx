@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Button, Heading4, HorizontalDivider, Modal, VerticalSpacer} from "../../../src";
+import {Button, Heading4, HorizontalDivider, Modal, ModalError, VerticalSpacer} from "../../../src";
 import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 
 // @ts-ignore
@@ -8,7 +8,7 @@ export default {
   component: Modal
 };
 
-export const simpleMessageModal = () => {
+export const modalSimpleMessage = () => {
   const [isModalVisible, setModalVisible] = React.useState(false);
   return <StoriesDefaultThemeProvider>
     <div>
@@ -16,7 +16,7 @@ export const simpleMessageModal = () => {
       <Modal title={"Are you sure you want to exit?"}
              isOpen={isModalVisible}
              onSubmit={() => console.log("submitted")}
-             onStateChange={({isOpen}) =>  setModalVisible(isOpen)}
+             onStateChange={({ isOpen }) => setModalVisible(isOpen)}
              closeBtnTxt={"Exit"}
              hasCloseButton
              message={"By exiting there is no way to come back"}
@@ -33,7 +33,7 @@ export const modalComplex = () => {
       <Modal title={"Are you sure you want to exit?"}
              isOpen={isModalVisible}
              onSubmit={() => console.log("submitted")}
-             onStateChange={({isOpen}) =>  setModalVisible(isOpen)}
+             onStateChange={({ isOpen }) => setModalVisible(isOpen)}
              hasCloseIcon
              closeBtnTxt={"Exit"}
       >
@@ -42,6 +42,33 @@ export const modalComplex = () => {
         <Heading4>This is a children</Heading4>
         <Heading4>This is another children</Heading4>
       </Modal>
+    </div>
+  </StoriesDefaultThemeProvider>;
+};
+
+export const modalError = () => {
+  const [isModalVisible, setModalVisible] = React.useState(false);
+  return <StoriesDefaultThemeProvider>
+    <div>
+      <Button onClick={() => setModalVisible(true)}>Show modal</Button>
+      <ModalError
+          isOpen={isModalVisible}
+          onStateChange={({ isOpen }) => setModalVisible(isOpen)}
+      />
+    </div>
+  </StoriesDefaultThemeProvider>;
+};
+
+export const modalErrorTryAgain = () => {
+  const [isModalVisible, setModalVisible] = React.useState(false);
+  return <StoriesDefaultThemeProvider>
+    <div>
+      <Button onClick={() => setModalVisible(true)}>Show modal</Button>
+      <ModalError
+          isOpen={isModalVisible}
+          onRetry={() => (0)}
+          onStateChange={({ isOpen }) => setModalVisible(isOpen)}
+      />
     </div>
   </StoriesDefaultThemeProvider>;
 };

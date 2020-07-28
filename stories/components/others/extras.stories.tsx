@@ -26,8 +26,8 @@ export const textWithLink = () =>
 
 export const poweredBy = () => <StoriesDefaultThemeProvider>
   <PoweredBy
-      name={"polyorder"}
-      url={"https://polyorder.com"}
+      name={"Birdies"}
+      url={"https://birdies.com"}
       fontSize={"12px"}
       Logo={TestLogo}
   />
@@ -36,7 +36,7 @@ export const poweredBy = () => <StoriesDefaultThemeProvider>
 export const headerLogo = () => <StoriesDefaultThemeProvider>
   <div>
     <HeaderLogo
-        name={"PolyOrder"}
+        name={"Birdies"}
         color={"#FF5050"}
         fontWeight={500}
         onClick={() => (0)}

@@ -3,9 +3,9 @@ import {createPortal} from "react-dom";
 
 import styled from "styled-components";
 import {Breakpoints, Spaces} from "../../styles/sizes";
-import {Button, Heading4, Horizontal, StretchSpacer, Text, VerticalSpacer} from "../..";
+import {Button, Heading4, Horizontal, StretchSpacer, Text, Vertical, VerticalSpacer} from "../..";
 import {useKeyboardEvent, useOnOutsideClick} from "../../hooks/common.hook";
-import {IconClose} from "../others/icons";
+import {IconButtonContainer, IconClose, IconError} from "../others/icons";
 
 interface ModalProps {
   title: string
@@ -39,21 +39,72 @@ export const Modal = (props: ModalProps) => {
   useOnOutsideClick(node, _onClose);
 
   return isOpen ? createPortal(<ModalOverlay>
-      <ModalContainer ref={node} modalWidth={modalWidth}>
-        <Horizontal verticalAlign={"center"}>
-          <Heading4 fontWeight={"bold"}>{title}</Heading4>
-          {hasCloseIcon && <><StretchSpacer/><IconClose onClick={_onClose} size={24}/></>}
-        </Horizontal>
-        <VerticalSpacer spacing={24}/>
-        {message && <Text>{message}</Text>}
-        {children}
-        <VerticalSpacer spacing={32}/>
-        <Horizontal horizontalAlign={"right"} spacing={12}>
-          {hasCloseButton &&
-          <Button onClick={_onClose} variant={"text"} disabled={onSubmitLoading}>{closeBtnTxt}</Button>}
-          <Button onClick={onSubmit} isLoading={onSubmitLoading} type={submitBtnType}>{submitBtnTxt}</Button>
-        </Horizontal>
-      </ModalContainer>
+    <ModalContainer ref={node} modalWidth={modalWidth}>
+      <Horizontal verticalAlign={"center"}>
+        <Heading4 fontWeight={"bold"}>{title}</Heading4>
+        {hasCloseIcon && <><StretchSpacer/>
+            <IconButtonContainer onClick={_onClose}>
+                <IconClose size={24}/>
+            </IconButtonContainer>
+        </>}
+      </Horizontal>
+      <VerticalSpacer spacing={24}/>
+      {message && <Text>{message}</Text>}
+      {children}
+      <VerticalSpacer spacing={32}/>
+      <Horizontal horizontalAlign={"right"} spacing={12}>
+        {hasCloseButton &&
+        <Button onClick={_onClose} variant={"text"} disabled={onSubmitLoading}>{closeBtnTxt}</Button>}
+        <Button onClick={onSubmit} isLoading={onSubmitLoading} type={submitBtnType}>{submitBtnTxt}</Button>
+      </Horizontal>
+    </ModalContainer>
+  </ModalOverlay>, document.body) : null;
+};
+
+interface ModalError {
+  isOpen: boolean
+  modalWidth?: number;
+  title?: string;
+  message?: string;
+  onRetry?: () => any;
+  onRetrying?: boolean;
+  onStateChange?: (state: { isOpen: boolean }) => void;
+}
+
+export const ModalError = (props: ModalError) => {
+
+  const { isOpen, title = "Something went wrong", message = "An unexpected error has occurred. Please try again soon", modalWidth } = props;
+  const { onRetry, onRetrying, onStateChange } = props;
+
+  const node = React.useRef<HTMLDivElement>(null);
+  const _onClose = () => {
+    if (!onRetrying) {
+      onStateChange?.({ isOpen: false });
+    }
+  };
+
+  useKeyboardEvent("escape", _onClose);
+  useOnOutsideClick(node, _onClose);
+
+  return isOpen ? createPortal(<ModalOverlay>
+    <ModalContainer ref={node} modalWidth={modalWidth}>
+      <Horizontal horizontalAlign={"right"}>
+        <IconButtonContainer onClick={_onClose}>
+          <IconClose size={24}/>
+        </IconButtonContainer>
+      </Horizontal>
+      <VerticalSpacer spacing={12}/>
+      <Vertical horizontalAlign={"center"}>
+        <IconError size={48}/>
+        <Vertical horizontalAlign={"center"} spacing={12}>
+          <Heading4>{title}</Heading4>
+          <Text textAlign={"center"}>{message}</Text>
+        </Vertical>
+        {onRetry &&
+        <Button onClick={onRetry} isLoading={onRetrying} variant={"primaryOutlinedFilled"}>Try Again</Button>}
+      </Vertical>
+      <VerticalSpacer spacing={32}/>
+    </ModalContainer>
   </ModalOverlay>, document.body) : null;
 };
 
