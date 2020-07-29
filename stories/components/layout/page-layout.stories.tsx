@@ -1,4 +1,4 @@
-import {StoriesDefaultThemeProvider, TestLogo} from "../../utils/stories-container";
+import {StoriesDefaultThemeProvider, TestDesktopHeader, TestLogo} from "../../utils/stories-container";
 import * as React from "react";
 import {
   Button, CommonColors, Footer,
@@ -20,20 +20,7 @@ export default {
 export const pageLayout = () =>
     <StoriesDefaultThemeProvider>
       <PageRoot>
-        <Header backgroundColor={CommonColors.grey40}>
-          <HorizontalDivider/>
-          <VerticalSpacer spacing={6}/>
-          <MaxWidth centered>
-            <Horizontal spacing={0}>
-              <HeaderLogo name={"Birdies"} Logo={TestLogo} color={"#FF5050"} onClick={() => (9)}/>
-              <StretchSpacer/>
-              <Button variant={"text"} size={"small"}>Login</Button>
-              <Button variant={"text"} size={"small"}>Sign up</Button>
-            </Horizontal>
-          </MaxWidth>
-          <VerticalSpacer spacing={6}/>
-          <HorizontalDivider/>
-        </Header>
+        <TestDesktopHeader/>
         <PageBody>
           <Heading1>Welcome to my Website</Heading1>
           <VerticalSpacer spacing={48}/>
@@ -54,6 +41,7 @@ export const pageLayout = () =>
         </Footer>
       </PageRoot>
     </StoriesDefaultThemeProvider>;
+;
 
 export const pageLandingLayout = () =>
     <StoriesDefaultThemeProvider>
@@ -94,3 +82,4 @@ export const pageLandingLayout = () =>
         </Footer>
       </PageRoot>
     </StoriesDefaultThemeProvider>;
+;

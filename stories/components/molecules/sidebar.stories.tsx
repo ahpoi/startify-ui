@@ -1,7 +1,6 @@
 import * as React from "react";
-import {Button} from "../../../src";
 import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
-import {Sidebar, SidebarToggle} from "../../../src/components/molecules/sidebar";
+import {Sidebar, SidebarToggle} from "../../../src";
 
 // @ts-ignore
 export default {

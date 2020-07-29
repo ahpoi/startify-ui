@@ -1,7 +1,6 @@
 
 export * from "./components/atoms/button";
 export * from "./components/atoms/typography"
-export * from "./components/atoms/alert"
 export * from "./components/atoms/badge"
 export * from "./components/atoms/panel"
 export * from "./components/atoms/field-label"
@@ -14,6 +13,10 @@ export * from "./components/atoms/spinner"
 export * from "./components/atoms/skeleton-placeholder"
 
 export * from "./components/molecules/modal"
+export * from "./components/molecules/alert"
+
+export * from "./components/navigation/sidebar"
+export * from "./components/navigation/header"
 
 export * from "./components/layout/layout"
 export * from "./components/layout/page-layout"

@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import {useOnOutsideClick} from "../../hooks/common.hook";
-import {VerticalSpacer} from "../..";
+import {VerticalSpacer} from "../../index";
 import {IconClose} from "../others/icons";
 
 interface SidebarProps {

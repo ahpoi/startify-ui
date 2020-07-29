@@ -19,7 +19,9 @@ export const TextWithLink = ({ onClick, text, link, fontSize }: TextWithLink) =>
       <Text fontSize={fontSize}>
         {`${text}`}
         <span>
-          <LinkButton underline={true} onClick={onClick} text={link} customStyle={{ fontSize }}/>
+          <LinkButton underline={true} onClick={onClick} customStyle={{ fontSize }}>
+            {link}
+          </LinkButton>
         </span>
       </Text>
   );
@@ -35,8 +37,9 @@ export const BackButton = ({ onClick, text }: BackButtonProps) => {
   return (
       <Horizontal spacing={4} verticalAlign={"center"}>
         <IconBackArrow size={14} color={color}/>
-        <LinkButton underline={false} onClick={onClick ? onClick() : () => window.history.back()}
-                    text={text ?? "Back"}/>
+        <LinkButton underline={false} onClick={onClick ? onClick() : () => window.history.back()}>
+          {text ?? "Back"}
+        </LinkButton>
       </Horizontal>
   );
 };

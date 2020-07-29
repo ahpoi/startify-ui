@@ -7,11 +7,11 @@ import {DivPrimitiveProps} from "../others/types";
 import {Breakpoints, MaxWidths, Spaces} from "../../styles/sizes";
 import {Content} from "./gls/gls";
 
-type BaseWidthProps = {
+export type BaseWidthProps = {
   maxWidth?: number;
 }
 
-type BackgroundColorProps = {
+export type BackgroundColorProps = {
   backgroundColor?: CSS.BackgroundColorProperty
 }
 
@@ -20,7 +20,7 @@ const cssFullWH = css`
   width: 100%;
 `;
 
-const cssBackgroundColor = css<BackgroundColorProps>`
+export const cssBackgroundColor = css<BackgroundColorProps>`
   ${({ backgroundColor }) => backgroundColor && `
     background-color: ${backgroundColor};
  `};

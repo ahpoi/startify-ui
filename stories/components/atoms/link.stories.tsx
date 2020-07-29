@@ -10,7 +10,9 @@ export default {
 export const link = () =>
     <StoriesDefaultThemeProvider>
       <Vertical>
-        <Link href={"/hello"} text={"Link"}/>
+        <Link href={"/hello"} >
+          Link
+        </Link>
       </Vertical>
     </StoriesDefaultThemeProvider>;
 
@@ -18,9 +20,10 @@ export const linkCustomStyle = () =>
     <StoriesDefaultThemeProvider>
       <Vertical>
         <Link href={"/hello"}
-              text={"Link"}
               underline={false}
-              customStyle={{ color: "red", fontSize: "10px", colorOnHover: "blue" }}/>
+              customStyle={{ color: "red", fontSize: "10px" }}>
+          Link
+        </Link>
       </Vertical>
     </StoriesDefaultThemeProvider>;
 
@@ -28,7 +31,9 @@ export const linkButton = () =>
     <StoriesDefaultThemeProvider>
       <Vertical>
         <div>
-          <LinkButton text={"Button styled as link"} onClick={() => console.log("submitted")}/>
+          <LinkButton onClick={() => console.log("submitted")}>
+            Link
+          </LinkButton>
         </div>
       </Vertical>
     </StoriesDefaultThemeProvider>;
