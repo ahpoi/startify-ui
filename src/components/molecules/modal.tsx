@@ -3,7 +3,7 @@ import {createPortal} from "react-dom";
 
 import styled from "styled-components";
 import {Breakpoints, Spaces} from "../../styles/sizes";
-import {Button, Heading4, Horizontal, StretchSpacer, Text, Vertical, VerticalSpacer} from "../..";
+import {Button, ButtonVariantType, Heading4, Horizontal, StretchSpacer, Text, Vertical, VerticalSpacer} from "../..";
 import {useKeyboardEvent, useOnOutsideClick} from "../../hooks/common.hook";
 import {IconButtonContainer, IconClose, IconError} from "../others/icons";
 
@@ -68,12 +68,13 @@ interface ModalError {
   message?: string;
   onRetry?: () => any;
   onRetrying?: boolean;
+  retryButtonVariant?: ButtonVariantType;
   onStateChange?: (state: { isOpen: boolean }) => void;
 }
 
 export const ModalError = (props: ModalError) => {
 
-  const { isOpen, title = "Something went wrong", message = "An unexpected error has occurred. Please try again soon", modalWidth } = props;
+  const { isOpen, title = "Something went wrong", message = "An unexpected error has occurred. Please try again soon!", modalWidth, retryButtonVariant = "text" } = props;
   const { onRetry, onRetrying, onStateChange } = props;
 
   const node = React.useRef<HTMLDivElement>(null);
@@ -101,7 +102,7 @@ export const ModalError = (props: ModalError) => {
           <Text textAlign={"center"}>{message}</Text>
         </Vertical>
         {onRetry &&
-        <Button onClick={onRetry} isLoading={onRetrying} variant={"primaryOutlinedFilled"}>Try Again</Button>}
+        <Button onClick={onRetry} isLoading={onRetrying} variant={retryButtonVariant}>Try Again</Button>}
       </Vertical>
       <VerticalSpacer spacing={32}/>
     </ModalContainer>

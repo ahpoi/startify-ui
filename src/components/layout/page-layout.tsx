@@ -4,11 +4,10 @@ import * as CSS from "csstype";
 import styled, {css} from "styled-components";
 import {calculateUnit, content, vertical} from "./gls/box";
 import {DivPrimitiveProps} from "../others/types";
-import {MaxWidths, Spaces} from "../../styles/sizes";
+import {Breakpoints, MaxWidths, Spaces} from "../../styles/sizes";
 import {Content} from "./gls/gls";
 
 type BaseWidthProps = {
-  isMaxWidthConstraint?: boolean
   maxWidth?: number;
 }
 
@@ -19,16 +18,6 @@ type BackgroundColorProps = {
 const cssFullWH = css`
   height: 100%;
   width: 100%;
-`;
-
-/**
- * Let the parent control the max width - Useful if you want to define a background color on PageContent Component but
- * do not want to be constraint by the max width
- */
-const cssPageWidth = css<BaseWidthProps>`
-  ${({ isMaxWidthConstraint = true }) => isMaxWidthConstraint && css`
-    max-width: ${(props: PageBodyProps) => calculateUnit(props.maxWidth ?? MaxWidths.pageContent)};
- `};
 `;
 
 const cssBackgroundColor = css<BackgroundColorProps>`
@@ -72,8 +61,14 @@ export const PageRoot = styled.div.attrs({
 type PageBodyProps = {
   centered?: boolean;
   space?: {
-    top?: number
-    bottom?: number
+    web?: {
+      top?: number
+      bottom?: number
+    },
+    mobile?: {
+      top: number
+      bottom: number
+    }
   }
 } & BaseWidthProps & BackgroundColorProps
 
@@ -99,11 +94,15 @@ export const PageBody = styled.main.attrs({
  ${cssPageResponsiveSideSpace}
  ${cssBackgroundColor}
  ${cssPageBody}
- ${cssPageWidth}
   margin: 0 auto;
   width: 100%;
-  padding-top: ${(props) => calculateUnit(props.space?.top ?? Spaces.medium)};
-  padding-bottom: ${(props) => calculateUnit(props.space?.bottom ?? Spaces.medium)};
+  max-width: ${(props: PageBodyProps) => calculateUnit(props.maxWidth ?? MaxWidths.pageContent)};
+  padding-top: ${(props) => calculateUnit(props.space?.web?.top ?? Spaces.medium)};
+  padding-bottom: ${(props) => calculateUnit(props.space?.web?.bottom ?? Spaces.medium)};
+  @media (max-width: ${Breakpoints.small}px) {
+     padding-top: ${(props: PageBodyProps) => calculateUnit(props.space?.mobile?.top ?? 20)};
+     padding-bottom: ${(props: PageBodyProps) => calculateUnit(props.space?.mobile?.bottom ?? 20)};
+  }
 ` as React.FunctionComponent<PageBodyProps & React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>>;
 
 export const Header = styled.header<BaseWidthProps>`

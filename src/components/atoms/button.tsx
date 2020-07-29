@@ -4,12 +4,13 @@ import {calculateUnit, CommonColors} from "../..";
 import {Spinner} from "./spinner";
 import * as CSS from "csstype";
 
+export type ButtonVariantType = | "primary" | "primaryOutlined" | "primaryOutlinedFilled"
+    | "secondary" | "secondaryOutlined" | "secondaryOutlinedFilled"
+    | "text"
+
 export interface ButtonProps {
   id?: string;
-  variant?:
-      | "primary" | "primaryOutlined" | "primaryOutlinedFilled"
-      | "secondary" | "secondaryOutlined" | "secondaryOutlinedFilled"
-      | "text"
+  variant?: ButtonVariantType
   type?: "submit" | "button";
   size?: "small" | "medium" | "large"
   customVariant?: ButtonVariant;
@@ -65,7 +66,7 @@ const useButtonVariant = () => {
   return {
     text: {
       color: textMid,
-      backgroundColor: CommonColors.greyLight30,
+      backgroundColor: CommonColors.greyLight40,
       borderColor: "transparent",
       colorOnHover: textDark,
       backgroundOnHoverColor: CommonColors.greyLight70,
