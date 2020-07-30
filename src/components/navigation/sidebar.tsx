@@ -16,8 +16,7 @@ export const Sidebar = ({ isOpen, onStateChange, children }: SidebarProps) => {
     onStateChange?.({ isOpen: false });
   };
   useOnOutsideClick(node, onClose);
-  return <div data-comment="sidebar" style={{ display: isOpen ? "contents" : "none" }}>
-    <SidebarRoot data-comment="sidebar-root" isOpen={isOpen}/>
+  return <SidebarRoot data-comment="sidebar-root" isOpen={isOpen}>
     <SideBarContent data-comment="sidebar-content" ref={node} isOpen={isOpen} children={children}/>
     <SideBarOverlay role="presentation" data-comment="sidebar-overlay" isOpen={isOpen}>
       <OverlayClosedButton aria-label={"close sidebar"}
@@ -25,7 +24,7 @@ export const Sidebar = ({ isOpen, onStateChange, children }: SidebarProps) => {
         <IconClose color={"white"}/>
       </OverlayClosedButton>
     </SideBarOverlay>
-  </div>;
+  </SidebarRoot>;
 };
 
 export const SidebarNavigation = (props: { children: React.ReactNode }) =>
@@ -75,7 +74,7 @@ const SideBarContent = styled.div<{ isOpen: boolean }>`
     top: 0;
     left: 0;
     bottom: 0;
-    transition: opacity .3s ease-out;
+    transition: transform .3s ease-out;
     overflow-y: auto;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
     width: ${width}px;
@@ -87,6 +86,7 @@ const OverlayClosedButton = styled.button`
   top: 5px;
   left: ${width + 5}px;
   background: transparent;
+  outline: none;
   border: none;
 `;
 
