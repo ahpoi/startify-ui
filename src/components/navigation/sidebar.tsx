@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import {useOnOutsideClick} from "../../hooks/common.hook";
-import {VerticalSpacer} from "../../index";
+import {Vertical, VerticalSpacer} from "../../index";
 import {IconClose} from "../others/icons";
 
 interface SidebarProps {
@@ -28,6 +28,9 @@ export const Sidebar = ({ isOpen, onStateChange, children }: SidebarProps) => {
   </div>;
 };
 
+export const SidebarNavigation = (props: { children: React.ReactNode }) =>
+    <Vertical spacing={0} children={props.children}/>;
+
 export const SidebarToggle = (props: { onClick: () => any }) =>
     <StyledSidebarButton onClick={props.onClick}>
       <Line/>
@@ -37,7 +40,7 @@ export const SidebarToggle = (props: { onClick: () => any }) =>
       <Line/>
     </StyledSidebarButton>;
 
-const width = 300;
+const width = 280;
 const zIndexOverlay = 1;
 const zIndexRoot = 2;
 const zIndexContent = 2;

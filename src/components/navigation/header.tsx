@@ -47,7 +47,7 @@ export const NavigationLink = styled.a<LinkProps>`
    background: none!important;
    display: inline-block;
    border: none;
-   padding 0!important;
+   padding 0;
    outline: none;
    cursor: pointer;
    color: ${(props) => props?.color ?? props.theme.color.textMid};
