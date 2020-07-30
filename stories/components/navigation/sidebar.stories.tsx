@@ -3,8 +3,9 @@ import {StoriesDefaultThemeProvider, TestHeaderLogo} from "../../utils/stories-c
 import {
   DefaultAppColorTheme,
   HorizontalDivider,
-  NavigationLink,
   Sidebar,
+  SidebarItemLink,
+  SidebarItemContainer,
   SidebarNavigation,
   SidebarToggle
 } from "../../../src";
@@ -33,27 +34,19 @@ const SecondaryLinks = [{
   text: "Login"
 }];
 
-const NavPrimaryLinks = () => <>{Links.map(it =>
-    <NavigationLink style={{ padding: "14px 24px" }} key={it.text}
-                    onClick={() => alert(it.text)}>
+const SidebarItemsLinks = () => <>{Links.map(it =>
+    <SidebarItemLink key={it.text}
+                     onClick={() => alert(it.text)}>
       {it.text}
-    </NavigationLink>)}
+    </SidebarItemLink>)}
 </>;
 
-const NavSecondaryLinks = () => <>{SecondaryLinks.map(it =>
-    <NavigationLink style={{ padding: "14px 24px" }} color={DefaultAppColorTheme.secondary} key={it.text}
-                    onClick={() => alert(it.text)}>
+const SidebarItemSecondaryLinks = () => <>{SecondaryLinks.map(it =>
+    <SidebarItemLink color={DefaultAppColorTheme.secondary} key={it.text}
+                     onClick={() => alert(it.text)}>
       {it.text}
-    </NavigationLink>)}
+    </SidebarItemLink>)}
 </>;
-
-const NavDivider = () => <div style={{ padding: "14px 24px" }}>
-  <HorizontalDivider/>
-</div>;
-
-const NavHeader = () => <div style={{ padding: "14px 24px" }}>
-  <TestHeaderLogo/>
-</div>;
 
 export const sidebar = () => {
   const [isModalVisible, setModalVisible] = React.useState(false);
@@ -62,11 +55,14 @@ export const sidebar = () => {
       <SidebarToggle onClick={() => setModalVisible(true)}/>
       <Sidebar isOpen={isModalVisible} onStateChange={() => setModalVisible(false)}>
         <SidebarNavigation>
-          <NavHeader/>
-          <HorizontalDivider/>
-          <NavPrimaryLinks/>
-          <NavDivider/>
-          <NavSecondaryLinks/>
+          <SidebarItemContainer>
+            <TestHeaderLogo/>
+          </SidebarItemContainer>
+          <SidebarItemsLinks/>
+          <SidebarItemContainer>
+            <HorizontalDivider/>
+          </SidebarItemContainer>
+          <SidebarItemSecondaryLinks/>
         </SidebarNavigation>
       </Sidebar>
     </div>
