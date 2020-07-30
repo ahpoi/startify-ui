@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import {useOnOutsideClick} from "../../hooks/common.hook";
-import {Vertical, VerticalSpacer} from "../../index";
+import {Vertical, VerticalSpacer} from "../../components/layout/gls/gls";
 import {IconClose} from "../others/icons";
 
 interface SidebarProps {
@@ -100,7 +100,7 @@ const StyledSidebarButton = styled.button`
   &:focus,
   &:hover,
   &:active {
-    filter: brightness(50%)
+    filter: brightness(50%);
   }  
 `;
 
@@ -108,5 +108,5 @@ const Line = styled.div`
     width: 22px;
     height: 3px;
     border-radius: 100px;
-    background-color: grey
+    background-color: grey;
 `;

@@ -17,6 +17,7 @@ export * from "./components/molecules/alert"
 
 export * from "./components/navigation/sidebar"
 export * from "./components/navigation/header"
+export * from "./components/navigation/navigation-link"
 
 export * from "./components/layout/layout"
 export * from "./components/layout/page-layout"
