@@ -21,7 +21,7 @@ export const Sidebar = ({ isOpen, onStateChange, children }: SidebarProps) => {
     <SideBarOverlay role="presentation" data-comment="sidebar-overlay" isOpen={isOpen}>
       <OverlayClosedButton aria-label={"close sidebar"}
                            type={"button"}>
-        <IconClose color={"white"}/>
+        <IconClose size={32} color={"white"}/>
       </OverlayClosedButton>
     </SideBarOverlay>
   </SidebarRoot>;
@@ -39,7 +39,7 @@ export const SidebarToggle = (props: { onClick: () => any }) =>
       <Line/>
     </StyledSidebarButton>;
 
-const width = 280;
+const width = 250;
 const zIndexOverlay = 1;
 const zIndexRoot = 2;
 const zIndexContent = 2;
@@ -83,7 +83,7 @@ const SideBarContent = styled.div<{ isOpen: boolean }>`
 
 const OverlayClosedButton = styled.button`
   position: absolute;
-  top: 5px;
+  top: 20px;
   left: ${width + 5}px;
   background: transparent;
   outline: none;

@@ -30,7 +30,7 @@ export const NavigationLink = styled.a<LinkProps>`
    &:hover,
    &:active {
      transition: background-color 100ms linear, box-shadow 300ms;
-     filter: brightness(75%);
+     filter: brightness(50%);
   } 
 ` as React.FunctionComponent<LinkProps & AnchorPrimitiveType>;
 

@@ -1,5 +1,15 @@
 import * as React from "react";
-import {BackgroundColorProps, BaseWidthProps, calculateUnit, Header, Horizontal, MaxWidth, StretchSpacer} from "../..";
+import {
+  BackgroundColorProps,
+  BaseWidthProps,
+  calculateUnit,
+  Header,
+  Horizontal,
+  MaxWidth,
+  Sidebar,
+  SidebarToggle,
+  StretchSpacer
+} from "../..";
 
 /**
  * Links are passed as Component as we want to let the consumer provides their own style
@@ -34,3 +44,27 @@ export const DesktopHeader = (props: DesktopHeaderProps) => <Header backgroundCo
     </Horizontal>
   </MaxWidth>
 </Header>;
+
+type MobileHeaderProps = {
+  logo: React.ReactNode,
+  padding?: number
+  isSidebarOpen: boolean;
+  onSideBarToggle: () => any;
+  sidebarNavigation: React.ReactNode,
+} & BaseWidthProps & BackgroundColorProps
+
+export const MobileHeader = (props: MobileHeaderProps) => {
+  return <Header backgroundColor={props.backgroundColor}>
+    <MaxWidth centered
+              style={{ paddingTop: calculateUnit(props.padding ?? 12), paddingBottom: calculateUnit(props.padding ?? 12) }}>
+      <Horizontal verticalAlign={"center"}>
+        {props.logo}
+        <StretchSpacer/>
+        <SidebarToggle onClick={props.onSideBarToggle}/>
+      </Horizontal>
+    </MaxWidth>
+    <Sidebar isOpen={props.isSidebarOpen} onStateChange={() => props.onSideBarToggle()}>
+      {props.sidebarNavigation}
+    </Sidebar>
+  </Header>;
+};

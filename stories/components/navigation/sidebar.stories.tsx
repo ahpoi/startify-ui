@@ -49,11 +49,11 @@ const SidebarItemSecondaryLinks = () => <>{SecondaryLinks.map(it =>
 </>;
 
 export const sidebar = () => {
-  const [isModalVisible, setModalVisible] = React.useState(false);
+  const [isOpen, setOpen] = React.useState(false);
   return <StoriesDefaultThemeProvider>
     <div>
-      <SidebarToggle onClick={() => setModalVisible(true)}/>
-      <Sidebar isOpen={isModalVisible} onStateChange={() => setModalVisible(false)}>
+      <SidebarToggle onClick={() => setOpen(true)}/>
+      <Sidebar isOpen={isOpen} onStateChange={() => setOpen(false)}>
         <SidebarNavigation>
           <SidebarItemContainer>
             <TestHeaderLogo/>
