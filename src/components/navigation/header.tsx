@@ -6,8 +6,7 @@ import {
   Header,
   Horizontal,
   MaxWidth,
-  Sidebar,
-  SidebarToggle,
+  Sidebar, SidebarToggle,
   StretchSpacer
 } from "../..";
 
@@ -49,22 +48,21 @@ type MobileHeaderProps = {
   logo: React.ReactNode,
   padding?: number
   isSidebarOpen: boolean;
-  onSideBarToggle: () => any;
+  onSidebarStateChange: (state: { isOpen: boolean }) => void;
   sidebarNavigation: React.ReactNode,
 } & BaseWidthProps & BackgroundColorProps
 
-export const MobileHeader = (props: MobileHeaderProps) => {
-  return <Header backgroundColor={props.backgroundColor}>
-    <MaxWidth centered
-              style={{ paddingTop: calculateUnit(props.padding ?? 12), paddingBottom: calculateUnit(props.padding ?? 12) }}>
-      <Horizontal verticalAlign={"center"}>
-        {props.logo}
-        <StretchSpacer/>
-        <SidebarToggle onClick={props.onSideBarToggle}/>
-      </Horizontal>
-    </MaxWidth>
-    <Sidebar isOpen={props.isSidebarOpen} onStateChange={() => props.onSideBarToggle()}>
-      {props.sidebarNavigation}
-    </Sidebar>
-  </Header>;
-};
+export const MobileHeader = (props: MobileHeaderProps) =>
+    <Header backgroundColor={props.backgroundColor}>
+      <MaxWidth centered
+                style={{ paddingTop: calculateUnit(props.padding ?? 12), paddingBottom: calculateUnit(props.padding ?? 12) }}>
+        <Horizontal verticalAlign={"center"}>
+          {props.logo}
+          <StretchSpacer/>
+          <SidebarToggle onClick={() => props.onSidebarStateChange({ isOpen: true })}/>
+        </Horizontal>
+      </MaxWidth>
+      <Sidebar isOpen={props.isSidebarOpen} onStateChange={props.onSidebarStateChange}>
+        {props.sidebarNavigation}
+      </Sidebar>
+    </Header>;

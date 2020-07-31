@@ -43,7 +43,7 @@ export const header = () => {
                 backgroundColor={CommonColors.greyLight40}
                 logo={<TestHeaderLogo/>}
                 isSidebarOpen={isSidebarOpen}
-                onSideBarToggle={() => setIsSideBarOpen(!isSidebarOpen)}
+                onSidebarStateChange={({isOpen}) => setIsSideBarOpen(isOpen)}
                 sidebarNavigation={
                   <SidebarNavigation>
                     {Links.map(it =>
