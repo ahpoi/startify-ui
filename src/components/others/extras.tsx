@@ -1,10 +1,10 @@
 import * as React from "react";
 import * as CSS from "csstype";
 import {Text} from "../atoms/typography";
-import {Vertical, Horizontal} from "../layout/gls/gls";
+import {Horizontal, Vertical} from "../layout/gls/gls";
 import {LinkButton} from "../..";
 import {useTheme} from "styled-components";
-import {IconBackArrow} from "./icons";
+import {IconBackArrow, IconChevronDown} from "./icons";
 
 interface TextWithLink {
   text: string;
@@ -36,7 +36,7 @@ export const BackButton = ({ onClick, text }: BackButtonProps) => {
   const color = useTheme().color.secondary;
   return (
       <Horizontal spacing={4} verticalAlign={"center"}>
-        <IconBackArrow size={14} color={color}/>
+        <IconBackArrow size={10} color={color}/>
         <LinkButton underline={false} onClick={onClick ? onClick() : () => window.history.back()}>
           {text ?? "Back"}
         </LinkButton>
@@ -91,19 +91,27 @@ export const Dot = ({ size, color }: DotProps) => <span style={{
   display: "inline-block",
 }}/>;
 
-export const Ellipsis = ({ rotate = false, size = 4 }: { rotate?: boolean, size?: number }) => <div
-    style={{
+export const Ellipsis = ({ rotate = false, size = 4, color = "grey" }: { rotate?: boolean, size?: number, color?: string }) =>
+    <div style={{
       display: "inline-block",
       transition: "transform 0.2s ease-out",
-      transform: `${rotate ? "rotate(90deg)" : "rotate(0deg)"}`
+      transform: `${rotate ? "rotate(-90deg)" : "rotate(0deg)"}`
     }}>
-  <Horizontal spacing={4}>
-    <Dot color={"grey"} size={size}/>
-    <Dot color={"grey"} size={size}/>
-    <Dot color={"grey"} size={size}/>
-  </Horizontal>
-</div>;
+      <Horizontal spacing={4}>
+        <Dot color={color} size={size}/>
+        <Dot color={color} size={size}/>
+        <Dot color={color} size={size}/>
+      </Horizontal>
+    </div>;
 
+export const Chevron = ({ open = false, size = 24, color = "grey" }: { open?: boolean, size?: number, color?: string }) =>
+    <div style={{
+      display: "inline-block",
+      transition: "transform 0.2s ease-out",
+      transform: `${open ? "rotate(-90deg)" : "rotate(0deg)"}`
+    }}>
+      <IconChevronDown size={size} color={color}/>
+    </div>;
 
 interface HeaderLogoProps {
   name: string;

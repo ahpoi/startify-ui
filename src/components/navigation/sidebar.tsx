@@ -1,8 +1,8 @@
 import * as React from "react";
 import styled from "styled-components";
 import {useOnOutsideClick} from "../../hooks/common.hook";
-import {Vertical, VerticalSpacer} from "../../components/layout/gls/gls";
-import {IconClose} from "../others/icons";
+import {Vertical} from "../../components/layout/gls/gls";
+import {IconButtonContainer, IconClose, IconMenu} from "../others/icons";
 
 interface SidebarProps {
   isOpen: boolean
@@ -19,8 +19,7 @@ export const Sidebar = ({ isOpen, onStateChange, children }: SidebarProps) => {
   return <SidebarRoot data-comment="sidebar-root" isOpen={isOpen}>
     <SideBarContent data-comment="sidebar-content" ref={node} isOpen={isOpen} children={children}/>
     <SideBarOverlay role="presentation" data-comment="sidebar-overlay" isOpen={isOpen}>
-      <OverlayClosedButton aria-label={"close sidebar"}
-                           type={"button"}>
+      <OverlayClosedButton aria-label={"close sidebar"}>
         <IconClose size={32} color={"white"}/>
       </OverlayClosedButton>
     </SideBarOverlay>
@@ -31,13 +30,9 @@ export const SidebarNavigation = (props: { children: React.ReactNode }) =>
     <Vertical spacing={0} children={props.children}/>;
 
 export const SidebarToggle = (props: { onClick: () => any }) =>
-    <StyledSidebarButton onClick={props.onClick}>
-      <Line/>
-      <VerticalSpacer spacing={4}/>
-      <Line/>
-      <VerticalSpacer spacing={4}/>
-      <Line/>
-    </StyledSidebarButton>;
+    <IconButtonContainer onClick={props.onClick}>
+      <IconMenu/>
+    </IconButtonContainer>;
 
 const width = 250;
 const zIndexOverlay = 1;
@@ -81,32 +76,8 @@ const SideBarContent = styled.div<{ isOpen: boolean }>`
     transform: ${({ isOpen }) => isOpen ? "translateX(0%)" : "translateX(-100%)"};
 `;
 
-const OverlayClosedButton = styled.button`
+const OverlayClosedButton = styled(IconButtonContainer)`
   position: absolute;
   top: 20px;
   left: ${width + 5}px;
-  background: transparent;
-  outline: none;
-  border: none;
-`;
-
-const StyledSidebarButton = styled.button`
-  border: none;
-  background-color: transparent;
-  outline: none;
-  cursor: pointer;
-  display: inline-block;
-  padding: 6px;
-  &:focus,
-  &:hover,
-  &:active {
-    filter: brightness(50%);
-  }  
-`;
-
-const Line = styled.div`
-    width: 22px;
-    height: 3px;
-    border-radius: 100px;
-    background-color: grey;
 `;

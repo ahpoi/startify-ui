@@ -2,6 +2,7 @@ import * as React from "react";
 import {StoriesDefaultThemeProvider, TestLogo} from "../../utils/stories-container";
 import {
   BackButton,
+  Chevron,
   Dot,
   DotColor,
   Ellipsis,
@@ -9,6 +10,7 @@ import {
   PoweredBy,
   TextWithLink
 } from "../../../src/components/others/extras";
+import {Button, Horizontal, VerticalSpacer} from "../../../src";
 
 export default {
   title: "Others|Extras",
@@ -45,10 +47,17 @@ export const headerLogo = () => <StoriesDefaultThemeProvider>
   </div>
 </StoriesDefaultThemeProvider>;
 
-export const ellipsis = () =>
-    <StoriesDefaultThemeProvider>
-      <Ellipsis size={16}/>
-    </StoriesDefaultThemeProvider>;
+export const chevronAndEllipsis = () => {
+  const [rotate, setOnRotate] = React.useState(false);
+  return <StoriesDefaultThemeProvider>
+    <VerticalSpacer/>
+    <Horizontal verticalAlign={"center"}>
+      <Button size={"small"} onClick={() => setOnRotate(!rotate)}>Rotate</Button>
+      <Ellipsis rotate={rotate} size={16}/>
+      <Chevron open={rotate}/>
+    </Horizontal>
+  </StoriesDefaultThemeProvider>;
+};
 
 export const dot = () =>
     <StoriesDefaultThemeProvider>
