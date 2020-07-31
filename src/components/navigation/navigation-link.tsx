@@ -28,8 +28,8 @@ export const NavigationLink = styled.a<LinkProps>`
    display: inline-block;
    padding 0;
    &:hover,
+   &:focus,
    &:active {
-     transition: background-color 100ms linear, box-shadow 300ms;
      filter: brightness(50%);
   } 
 ` as React.FunctionComponent<LinkProps & AnchorPrimitiveType>;
@@ -44,8 +44,8 @@ export const SidebarItemLink = styled.a<SideBarItemProps>`
    padding ${props => props.padding ?? "14px 24px"};
    text-align: left;
    &:hover,
+   &:focus,
    &:active {
-     transition: background-color 100ms linear, box-shadow 300ms;
      filter: brightness(75%);
   } 
 ` as React.FunctionComponent<SideBarItemProps & AnchorPrimitiveType>;
