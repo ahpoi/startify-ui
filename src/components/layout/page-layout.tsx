@@ -6,6 +6,7 @@ import {calculateUnit, content, vertical} from "./gls/box";
 import {DivPrimitiveProps} from "../others/types";
 import {Breakpoints, MaxWidths, Spaces} from "../../styles/sizes";
 import {Content} from "./gls/gls";
+import {fadeIn} from "../others/animations";
 
 export type BaseWidthProps = {
   maxWidth?: number;
@@ -75,16 +76,7 @@ type PageBodyProps = {
 const cssPageBody = css`
   flex: 1 1 auto;
   flex-direction: column;
-  animation-name: fadeIn;
-  animation-duration: 0.5s;
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+  ${fadeIn}
 `;
 
 export const PageBody = styled.main.attrs({

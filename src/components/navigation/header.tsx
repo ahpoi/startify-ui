@@ -29,7 +29,7 @@ export const DesktopHeader = (props: DesktopHeaderProps) => <Header backgroundCo
       <Horizontal verticalAlign={"center"} spacing={24}>
         {props.logo}
         {props.leftLinks?.length != null && props.leftLinks?.length > 0 &&
-        <Horizontal spacing={12} verticalAlign={"center"}>
+        <Horizontal spacing={14} verticalAlign={"center"}>
           {props.leftLinks?.map(it => it)}
         </Horizontal>
         }
@@ -37,7 +37,7 @@ export const DesktopHeader = (props: DesktopHeaderProps) => <Header backgroundCo
       {props.rightLinks?.length != null && props.rightLinks?.length > 0 &&
       <>
           <StretchSpacer/>
-          <Horizontal spacing={12} verticalAlign={"center"}>
+          <Horizontal spacing={14} verticalAlign={"center"}>
             {props.rightLinks?.map(it => it)}
           </Horizontal>
       </>}

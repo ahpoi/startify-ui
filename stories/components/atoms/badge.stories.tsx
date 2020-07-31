@@ -12,7 +12,7 @@ export const badge = () =>
     <StoriesDefaultThemeProvider>
       <div>
         <Badge variant={"success"}>
-          SUCCESS
+          success
         </Badge>
       </div>
     </StoriesDefaultThemeProvider>;
@@ -22,22 +22,22 @@ export const variants = () =>
       <Vertical>
         <div>
           <Badge variant={"success"}>
-            SUCCESS
+            success
           </Badge>
         </div>
         <div>
           <Badge variant={"info"}>
-            INFO
+            info
           </Badge>
         </div>
         <div>
           <Badge variant={"warning"}>
-            WARNING
+            warning
           </Badge>
         </div>
         <div>
           <Badge variant={"error"}>
-            ERROR
+            error
           </Badge>
         </div>
       </Vertical>
@@ -48,17 +48,17 @@ export const sizes = () =>
       <Horizontal>
         <div>
           <Badge variant={"success"} size={"small"}>
-            SMALL
+            small
           </Badge>
         </div>
         <div>
           <Badge variant={"success"} size={"medium"}>
-            MEDIUM
+            medium
           </Badge>
         </div>
         <div>
           <Badge variant={"success"} size={"large"}>
-            LARGE
+            large
           </Badge>
         </div>
       </Horizontal>
@@ -70,22 +70,22 @@ export const clickable = () =>
       <Vertical>
         <div>
           <Badge variant={"success"} onClick={onClick}>
-            SUCCESS
+            success
           </Badge>
         </div>
         <div>
           <Badge variant={"info"} onClick={onClick}>
-            INFO
+            info
           </Badge>
         </div>
         <div>
           <Badge variant={"warning"} onClick={onClick}>
-            WARNING
+            warning
           </Badge>
         </div>
         <div>
           <Badge variant={"error"} onClick={onClick}>
-            ERROR
+            error
           </Badge>
         </div>
       </Vertical>

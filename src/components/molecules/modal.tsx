@@ -6,6 +6,7 @@ import {Breakpoints, Spaces} from "../../styles/sizes";
 import {Button, ButtonVariantType, Heading4, Horizontal, StretchSpacer, Text, Vertical, VerticalSpacer} from "../..";
 import {useKeyboardEvent, useOnOutsideClick} from "../../hooks/common.hook";
 import {IconButtonContainer, IconClose, IconError} from "../others/icons";
+import {fadeIn} from "../others/animations";
 
 interface ModalProps {
   title: string
@@ -152,6 +153,7 @@ export const ModalOverlay = styled.div`
   z-index: 99;
   top: 0;
   left: 0;
+  ${fadeIn}
 `;
 
 export const ModalContainer = styled.div<{ modalWidth?: number }>`
