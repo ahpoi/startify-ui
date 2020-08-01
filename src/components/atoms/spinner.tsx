@@ -2,9 +2,11 @@ import * as React from "react";
 import * as CSS from "csstype";
 
 import styled from "styled-components";
-import {BoxUnit, calculateUnit} from "../..";
+import {BoxUnit, calculateUnit, Horizontal} from "../..";
+import {DivPrimitiveProps} from "../others/types";
 
-interface SpinnerProps {
+interface PageSpinner {
+  variant?: "circular" | "dots"
   color?: CSS.ColorProperty
   size?: BoxUnit
   borderWidth?: BoxUnit
@@ -13,8 +15,13 @@ interface SpinnerProps {
 /**
  * Full Page spinner
  */
-export const PageSpinner = (props: SpinnerProps) => <StyledFullScreen>
-  <Spinner {...props}/>
+export const PageSpinner = ({ variant = "dots", color, size, borderWidth }: PageSpinner) => <StyledFullScreen>
+  {variant === "circular" &&
+  <Spinner color={color} size={size} borderWidth={borderWidth}/>
+  }
+  {variant === "dots" &&
+  <DotSpinner color={color} size={size}/>
+  }
 </StyledFullScreen>;
 
 const StyledFullScreen = styled.div`
@@ -25,6 +32,12 @@ const StyledFullScreen = styled.div`
   align-items: center;
   flex-grow: 1;
 `;
+
+interface SpinnerProps {
+  color?: CSS.ColorProperty
+  size?: BoxUnit
+  borderWidth?: BoxUnit
+}
 
 export const Spinner = styled.div<SpinnerProps>`
   border-width: ${({ borderWidth }) => calculateUnit(borderWidth ?? 2)};
@@ -49,3 +62,39 @@ export const Spinner = styled.div<SpinnerProps>`
     }
   }
 ` as React.FunctionComponent<SpinnerProps>;
+
+
+type DotsSpinner = {
+  color?: CSS.ColorProperty
+  size?: BoxUnit
+}
+
+export const DotSpinner = ({ color, size }: DotsSpinner) => <Horizontal spacing={6}>
+  <Dot color={color} size={size} animationDelay={"-0.32s"}/>
+  <Dot color={color} size={size} animationDelay={"-0.16s"}/>
+  <Dot color={color} size={size} animationDelay={"0s"}/>
+</Horizontal>;
+
+/**
+ * https://codepen.io/AnoNewb/pen/JwypRN
+ */
+const Dot = styled.div<DotsSpinner & { animationDelay: string }>`
+  width: ${({ size }) => calculateUnit(size ?? 12)};
+  height: ${({ size }) => calculateUnit(size ?? 12)};
+  background-color: ${(props) => props.color ?? props.theme.color.secondary};
+
+  border-radius: 100%;
+  display: inline-block;
+  
+  animation: bouncedelay 1.4s infinite ease-in-out both;
+  animation-delay: ${({ animationDelay }) => animationDelay};
+
+  @keyframes bouncedelay {
+    0%, 80%, 100% { 
+      transform: scale(0);
+    } 40% { 
+      transform: scale(1.0);
+    }
+  }
+` as React.FunctionComponent<DotsSpinner & { animationDelay: string } & DivPrimitiveProps>;
+
