@@ -83,10 +83,11 @@ const StyledBadge = styled.div<StyledBadgeProps>`
     color: ${(props) => props.color};
     background-color: ${(props) => props.backgroundColor};
     ${(props) => props.isClickable && `
-    cursor: pointer;
-    &:hover {
-      filter: brightness(96%)
-    } 
+      cursor: pointer;
+      &:focus,
+      &:hover {
+        filter: brightness(95%)
+      } 
     `};
     height: auto;
     text-decoration: none;
