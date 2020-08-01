@@ -104,7 +104,7 @@ const BaseInputCss = css<StyledInputProps>`
   font-weight: 400;
   color: ${({ theme }) => theme.color.textDark};
   width: 100%;
-  height: 40;
+  height: 40px;
   line-height: normal;
   border-radius: ${({ theme }) => theme.border.radiusxSmall}px;
   border: 1px solid ${({ error, disabled, theme }) => (error && !disabled ? theme.color.error : InputBaseColors.borderColor)};
