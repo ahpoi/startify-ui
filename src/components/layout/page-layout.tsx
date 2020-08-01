@@ -33,8 +33,8 @@ export const cssBackgroundColor = css<BackgroundColorProps>`
  */
 export const cssPageResponsiveSideSpace = css`
   @media (max-width: ${MaxWidths.pageContent}px) {
-    padding-left: ${Spaces.medium}px;
-    padding-right: ${Spaces.medium}px;
+    padding-left: ${Spaces.small}px;
+    padding-right: ${Spaces.small}px;
   }
 `;
 
