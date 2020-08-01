@@ -8,25 +8,28 @@ import {IconButtonContainer, IconClose, IconError} from "../others/icons";
 import {fadeIn} from "../others/animations";
 import {Portal} from "../others/portal";
 
-interface ModalProps {
-  title: string
+type BaseModalProps = {
   isOpen?: boolean
+  onStateChange?: (state: { isOpen: boolean }) => void;
+  modalWidth?: number;
+  padding?: number;
+}
+type ModalProps = {
+  title: string
   onSubmit?: () => any;
   onSubmitLoading?: boolean;
   submitBtnType?: "submit" | "button";
   submitBtnTxt?: string;
-  onStateChange?: (state: { isOpen: boolean }) => void;
   closeBtnTxt?: string;
   hasCloseButton?: boolean;
   hasCloseIcon?: boolean;
   message?: string;
-  modalWidth?: number;
   children?: React.ReactNode;
-}
+} & BaseModalProps
 
 export const Modal = (props: ModalProps) => {
 
-  const { title, message, modalWidth, isOpen, hasCloseIcon = false, hasCloseButton = false, children } = props;
+  const { title, message, modalWidth, padding, isOpen, hasCloseIcon = false, hasCloseButton = false, children } = props;
   const { onSubmit, submitBtnTxt = "Proceed", onSubmitLoading, submitBtnType, onStateChange, closeBtnTxt = "Cancel" } = props;
 
   const node = React.useRef<HTMLDivElement>(null);
@@ -41,7 +44,7 @@ export const Modal = (props: ModalProps) => {
 
   return isOpen ? <Portal>
     <ModalOverlay>
-      <ModalContainer ref={node} modalWidth={modalWidth}>
+      <ModalContainer ref={node} modalWidth={modalWidth} padding={padding}>
         <Horizontal verticalAlign={"center"}>
           <Heading4 fontWeight={"bold"}>{title}</Heading4>
           {hasCloseIcon && <><StretchSpacer/>
@@ -64,20 +67,17 @@ export const Modal = (props: ModalProps) => {
   </Portal> : null;
 };
 
-interface ModalError {
-  isOpen: boolean
-  modalWidth?: number;
+type ModalError = {
   title?: string;
   message?: string;
   onRetry?: () => any;
   onRetrying?: boolean;
   retryButtonVariant?: ButtonVariantType;
-  onStateChange?: (state: { isOpen: boolean }) => void;
-}
+} & BaseModalProps
 
 export const ModalError = (props: ModalError) => {
 
-  const { isOpen, title = "Something went wrong", message = "An unexpected error has occurred. Please try again soon!", modalWidth, retryButtonVariant = "text" } = props;
+  const { isOpen, title = "Something went wrong", message = "An unexpected error has occurred. Please try again soon!", modalWidth, padding, retryButtonVariant = "text" } = props;
   const { onRetry, onRetrying, onStateChange } = props;
 
   const node = React.useRef<HTMLDivElement>(null);
@@ -92,7 +92,7 @@ export const ModalError = (props: ModalError) => {
 
   return isOpen ? <Portal>
     <ModalOverlay>
-      <ModalContainer ref={node} modalWidth={modalWidth}>
+      <ModalContainer ref={node} modalWidth={modalWidth} padding={padding}>
         <Horizontal horizontalAlign={"right"}>
           <IconButtonContainer onClick={_onClose}>
             <IconClose size={24}/>
@@ -115,28 +115,20 @@ export const ModalError = (props: ModalError) => {
 };
 
 
-interface SimpleModal {
-  isOpen?: boolean
-  isClosable?: boolean
-  onClose: () => void
+type BasicModalProps = {
   children: React.ReactNode;
-  modalWidth?: number;
-}
+} & BaseModalProps
 
 /**
  * Basic Modal that allows the consumer to provide its on UI
  */
-export const SimpleModal = (props: SimpleModal) => {
+export const BasicModal = (props: BasicModalProps) => {
 
-  const { isOpen, onClose, isClosable = true, modalWidth, children } = props;
+  const { isOpen, onStateChange, modalWidth, padding, children } = props;
   const node = React.useRef<HTMLDivElement>(null);
 
   const _onClose = () => {
-    //Used for to prevent user from escaping or an action is happening eg:
-    //API request
-    if (isClosable) {
-      onClose();
-    }
+    onStateChange?.({ isOpen: false });
   };
 
   useKeyboardEvent("escape", _onClose);
@@ -144,7 +136,7 @@ export const SimpleModal = (props: SimpleModal) => {
 
   return isOpen ? <Portal>
     <ModalOverlay>
-      <ModalContainer ref={node} modalWidth={modalWidth}>
+      <ModalContainer ref={node} modalWidth={modalWidth} padding={padding}>
         {children}
       </ModalContainer>
     </ModalOverlay>
@@ -162,7 +154,7 @@ export const ModalOverlay = styled.div`
   ${fadeIn}
 `;
 
-export const ModalContainer = styled.div<{ modalWidth?: number }>`
+export const ModalContainer = styled.div<{ modalWidth?: number, padding?: number }>`
   background: white;
   z-index: 100;
   max-width: ${props => props.modalWidth ?? 500}px;
@@ -174,7 +166,7 @@ export const ModalContainer = styled.div<{ modalWidth?: number }>`
   transform: translate(-50%, -25%);
   border-radius: ${props => props.theme.border.radiusMedium}px;
   box-shadow: ${props => props.theme.shadow.large}px;
-  padding: ${Spaces.medium}px;
+  padding:  ${props => props.padding ?? Spaces.medium}px;
   @media (max-width: ${Breakpoints.small}px) {
      width: 95%;
      padding: ${Spaces.small}px;
