@@ -55,10 +55,10 @@ export const PoweredBy = ({ name, url, Logo, fontSize = "8px" }: PoweredByProps)
     <div style={{ cursor: "pointer" }} onClick={() => window.open(url, "_blank")}>
       <Horizontal spacing={2} verticalAlign={"center"}>
         <Vertical spacing={0} horizontalAlign={"right"}>
-          <Text fontWeight={100} fontSize={fontSize}>
+          <Text fontWeight={"light"} fontSize={fontSize}>
             powered by
           </Text>
-          <Text fontWeight={100} fontSize={fontSize}>
+          <Text fontWeight={"light"} fontSize={fontSize}>
             {name}
           </Text>
         </Vertical>

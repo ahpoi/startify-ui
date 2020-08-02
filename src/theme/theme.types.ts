@@ -23,6 +23,7 @@ export interface ColorTheme {
 export interface TypographyTheme {
   fontWeight: {
     light: number,
+    normal: number,
     medium: number,
     bold: number
   }

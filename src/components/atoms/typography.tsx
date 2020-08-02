@@ -10,7 +10,7 @@ type HeadingPrimitiveType = React.DetailedHTMLProps<React.HTMLAttributes<HTMLHea
 interface BaseTypographyProps {
   children: React.ReactNode;
   fontFamily?: CSS.FontFamilyProperty;
-  fontWeight?: CSS.FontWeightProperty;
+  fontWeight?: "light" | "normal" | "medium" | "bold"
   textAlign?: CSS.TextAlignProperty;
   color?: CSS.Color
 }
@@ -19,7 +19,7 @@ export interface HeadingProps extends BaseTypographyProps {
   fontSize?: {
     web?: CSS.FontSizeProperty<any>;
     mobile?: CSS.FontSizeProperty<any>;
-  },
+  }
 }
 
 export interface TextProps extends BaseTypographyProps {
@@ -27,68 +27,61 @@ export interface TextProps extends BaseTypographyProps {
   size?: "small" | "medium" | "large"
 }
 
-export const Heading1 = styled.h1<HeadingProps>`
+const base = css<HeadingProps | TextProps>`
   font-family: ${(props) => props.fontFamily};
-  font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.one.web};
-  font-weight: ${(props) => props.fontWeight ?? "normal"};
+  font-weight: ${(props) => props.theme.typography.fontWeight[props?.fontWeight ?? "normal"]};
   text-align: ${(props) => props.textAlign};
-  color: ${(props) => props.color ?? props.theme.color.heading};
   margin: 0px;
+`
+export const Heading1 = styled.h1<HeadingProps>`
+  ${base}
+  font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.one.web};
+  color: ${(props) => props.color ?? props.theme.color.heading};
   @media (max-width: ${Breakpoints.small}px) {
     font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.one.mobile};
   }
 ` as React.FunctionComponent<HeadingProps & HeadingPrimitiveType>;
 
 export const Heading2 = styled.h2<HeadingProps>`
+  ${base}
   font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.two.web};
-  font-weight: ${(props) => props.fontWeight ?? "normal"};
   color: ${(props) => props.color ?? props.theme.color.heading};
-  text-align: ${(props) => props.textAlign};
-  margin: 0px;
   @media (max-width: ${Breakpoints.small}px) {
     font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.two.mobile};
   }
 ` as React.FunctionComponent<HeadingProps & HeadingPrimitiveType>;
 
 export const Heading3 = styled.h3<HeadingProps>`
+  ${base}
   font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.three.web};
-  font-weight: ${(props) => props.fontWeight ?? "normal"};
-  text-align: ${(props) => props.textAlign};
   color: ${(props) => props.color ?? props.theme.color.heading};
-  margin: 0px;
   @media (max-width: ${Breakpoints.small}px) {
     font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.three.mobile};
   }
 ` as React.FunctionComponent<HeadingProps & HeadingPrimitiveType>;
 
 export const Heading4 = styled.h4<HeadingProps>`
+  ${base}
   font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.four.web};
-  font-weight: ${(props) => props.fontWeight ?? "normal"};
-  text-align: ${(props) => props.textAlign};
   color: ${(props) => props.color ?? props.theme.color.heading};
-  margin: 0px;
   @media (max-width: ${Breakpoints.small}px) {
     font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.four.mobile};
   }
 ` as React.FunctionComponent<HeadingProps & HeadingPrimitiveType>;
 
 export const Heading5 = styled.h5<HeadingProps>`
+  ${base}
   font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.five.web};
-  font-weight: ${(props) => props.fontWeight ?? "normal"};
-  text-align: ${(props) => props.textAlign};
   color: ${(props) => props.color ?? props.theme.color.heading};
-  margin: 0px;
   @media (max-width: ${Breakpoints.small}px) {
     font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.five.mobile};
   }
 ` as React.FunctionComponent<HeadingProps>;
 
 const textCss = css<TextProps>`
+  ${base}
   font-size: ${({ theme, size, fontSize }) => fontSize ?? theme.typography.text[size ?? "medium"]};
-  font-weight: ${(props) => props.fontWeight ?? "normal"};
-  text-align: ${(props) => props.textAlign};
   color: ${(props) => props.color ?? props.theme.color.textMid};
-  margin: 0px;
   hyphens: manual;
 `;
 
