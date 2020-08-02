@@ -11,15 +11,15 @@ interface TextWithLink {
   link: string;
   endText?: string
   onClick?: () => any
-  fontSize?: CSS.FontSizeProperty<any>
+  size?: "small" | "medium" | "large"
 }
 
-export const TextWithLink = ({ onClick, text, link, fontSize }: TextWithLink) => {
+export const TextWithLink = ({ onClick, text, link, size }: TextWithLink) => {
   return (
-      <Text fontSize={fontSize}>
+      <Text size={size}>
         {`${text}`}
         <span>
-          <LinkButton underline={true} onClick={onClick} customStyle={{ fontSize }}>
+          <LinkButton underline={true} size={size} onClick={onClick}>
             {link}
           </LinkButton>
         </span>

@@ -10,18 +10,18 @@ export default {
 export const link = () =>
     <StoriesDefaultThemeProvider>
       <Vertical>
-        <Link href={"/hello"} >
+        <Link href={"/hello"}>
           Link
         </Link>
       </Vertical>
     </StoriesDefaultThemeProvider>;
 
-export const linkCustomStyle = () =>
+export const linkVariant = () =>
     <StoriesDefaultThemeProvider>
       <Vertical>
         <Link href={"/hello"}
               underline={false}
-              customStyle={{ color: "red", fontSize: "10px" }}>
+              variant={"text"}>
           Link
         </Link>
       </Vertical>

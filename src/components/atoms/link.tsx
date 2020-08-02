@@ -7,37 +7,65 @@ interface LinkProps {
   onClick?: () => void;
   underline?: boolean;
   children: React.ReactNode
-  customStyle?: {
-    color?: string;
-    fontSize?: string;
-    fontWeight?: number;
-  },
+  variant?: "primary" | "secondary" | "text"
+  size?: "small" | "medium" | "large"
 }
 
 export type LinkButtonProps = Omit<LinkProps, "target" | "href">
 
-export const Link = ({ href, onClick, underline = true, children, target = "_blank", customStyle }: LinkProps) => {
-  const styledProps = { ...useDefaultStyle(), ...customStyle };
+export const Link = ({ href, onClick, underline = true, children, variant = "secondary", size = "medium", target = "_blank" }: LinkProps) => {
+  const styledProps = { ...useStyleVariant()[variant], ...useSizeVariant()[size] };
   return <StyledLink href={href} target={target} underline={underline}
                      onClick={onClick} {...styledProps}>{children}</StyledLink>;
 };
 
-export const LinkButton = ({ onClick, children, underline = true, customStyle }: LinkButtonProps) => {
-  const styledProps = { ...useDefaultStyle(), ...customStyle };
+export const LinkButton = ({ onClick, children, underline = true, variant = "secondary", size = "medium" }: LinkButtonProps) => {
+  const styledProps = { ...useStyleVariant()[variant], ...useSizeVariant()[size] };
   return <StyledLinkButton type={"button"} underline={underline}
                            onClick={onClick} {...styledProps}>{children}</StyledLinkButton>;
 };
 
-const useDefaultStyle = (): StyledLinkProps => {
-  const { color, typography } = useTheme();
-  const { secondary } = color;
-  return { color: secondary, fontSize: typography.text.medium, fontWeight: 400 };
+const useStyleVariant = () => {
+  const { primary, primaryDark, secondary, secondaryDark, textMid, textDark } = useTheme().color;
+  return {
+    text: {
+      color: textMid,
+      colorOnHover: textDark,
+    },
+    primary: {
+      color: primary,
+      colorOnHover: primaryDark,
+    },
+    secondary: {
+      color: secondary,
+      colorOnHover: secondaryDark,
+    }
+  };
+};
+
+const useSizeVariant = () => {
+  const { typography } = useTheme();
+  return {
+    small: {
+      fontSize: typography.text.small,
+      fontWeight: "normal",
+    },
+    medium: {
+      fontSize: typography.text.medium,
+      fontWeight: "normal",
+    },
+    large: {
+      fontSize: typography.text.large,
+      fontWeight: "normal",
+    }
+  };
 };
 
 interface StyledLinkProps {
   color: string;
+  colorOnHover: string;
   fontSize: string;
-  fontWeight: number;
+  fontWeight: number | string;
   underline?: boolean;
 }
 
@@ -55,7 +83,7 @@ const StyledLinkBasedCss = css<StyledLinkProps>`
    &:hover,
    &:focus,
    &:active {
-     filter: brightness(50%);
+     color: ${(props) => props.colorOnHover};
   } 
 `;
 

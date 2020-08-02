@@ -63,8 +63,20 @@ export const custom = () => (
                   fontSize={{ web: "60px", mobile: "10px" }}>
           Heading 5
         </Heading5>
+        <Paragraph color={"#008DA6"} textAlign={"center"}
+                   size={"small"}>
+          Paragraph Small
+        </Paragraph>
+        <Paragraph  color={"#008DA6"} textAlign={"center"}
+                   size={"medium"}>
+          Paragraph medium
+        </Paragraph>
+        <Paragraph color={"#008DA6"} textAlign={"center"}
+                   size={"large"}>
+          Paragraph large
+        </Paragraph>
         <Paragraph fontFamily={"sans-serif"} fontWeight={900} color={"#008DA6"} textAlign={"center"}
-                   fontSize={{ web: "50px", mobile: "5px" }}>
+                   fontSize={"20px"}>
           Paragraph
         </Paragraph>
       </Vertical>

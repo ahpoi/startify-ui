@@ -24,6 +24,7 @@ export interface HeadingProps extends BaseTypographyProps {
 
 export interface TextProps extends BaseTypographyProps {
   fontSize?: CSS.FontSizeProperty<any>
+  size?: "small" | "medium" | "large"
 }
 
 export const Heading1 = styled.h1<HeadingProps>`
@@ -83,7 +84,7 @@ export const Heading5 = styled.h5<HeadingProps>`
 ` as React.FunctionComponent<HeadingProps>;
 
 const textCss = css<TextProps>`
-  font-size: ${(props) => props.fontSize ?? props.theme.typography.text.medium};
+  font-size: ${({ theme, size, fontSize }) => fontSize ?? theme.typography.text[size ?? "medium"]};
   font-weight: ${(props) => props.fontWeight ?? "normal"};
   text-align: ${(props) => props.textAlign};
   color: ${(props) => props.color ?? props.theme.color.textMid};
@@ -99,7 +100,7 @@ export const Paragraph = styled.p<TextProps>`
 
 export const ParagraphHeading = styled.p<TextProps>`
   ${textCss}
-  color: ${(props) => props.color ?? props.theme.color.heading};
+  color: ${({ color, theme }) => color ?? theme.color.heading};
 ` as React.FunctionComponent<TextProps & ParagraphPrimitive>;
 
 export const ListItem = styled.li<TextProps>`
@@ -107,9 +108,8 @@ export const ListItem = styled.li<TextProps>`
   margin: 0 0 6px 0;
 ` as React.FunctionComponent<TextProps & React.DetailedHTMLProps<React.LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>>;
 
-
 export const Text = styled.div`
-${textCss}
+  ${textCss}
 ` as React.FunctionComponent<TextProps & DivPrimitiveProps>;
 
 export const SmallText = styled.div`
