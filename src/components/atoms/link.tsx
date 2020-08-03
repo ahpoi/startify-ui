@@ -4,7 +4,7 @@ import styled, {css, useTheme} from "styled-components";
 interface LinkProps {
   href: string;
   target?: string
-  onClick?: () => void;
+  onClick?: () => any;
   underline?: boolean;
   children: React.ReactNode
   variant?: "primary" | "secondary" | "text"
@@ -13,13 +13,13 @@ interface LinkProps {
 
 export type LinkButtonProps = Omit<LinkProps, "target" | "href">
 
-export const Link = ({ href, onClick, underline = true, children, variant = "secondary", size = "medium", target = "_blank" }: LinkProps) => {
+export const Link = ({ href, onClick, underline = false, children, variant = "secondary", size = "medium", target = "_blank" }: LinkProps) => {
   const styledProps = { ...useStyleVariant()[variant], ...useSizeVariant()[size] };
   return <StyledLink href={href} target={target} underline={underline}
                      onClick={onClick} {...styledProps}>{children}</StyledLink>;
 };
 
-export const LinkButton = ({ onClick, children, underline = true, variant = "secondary", size = "medium" }: LinkButtonProps) => {
+export const LinkButton = ({ onClick, children, underline = false, variant = "secondary", size = "medium" }: LinkButtonProps) => {
   const styledProps = { ...useStyleVariant()[variant], ...useSizeVariant()[size] };
   return <StyledLinkButton type={"button"} underline={underline}
                            onClick={onClick} {...styledProps}>{children}</StyledLinkButton>;

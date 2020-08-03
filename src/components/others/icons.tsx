@@ -152,6 +152,20 @@ export const IconMenu = (props: IconProps) => {
   );
 };
 
+export const IconUser = (props: IconProps) => {
+  const color = props.color || CommonColors.grey70;
+  const size = props.size || defaultSize;
+  return (
+      <svg
+          viewBox={`0 0 512 512`}
+          width={size}
+          height={size}
+          style={{ fill: color }}
+      >
+        <path d="M255.999 0c-74.443 0-135 60.557-135 135s60.557 135 135 135 135-60.557 135-135-60.557-135-135-135zM478.48 398.68C438.124 338.138 370.579 302 297.835 302h-83.672c-72.744 0-140.288 36.138-180.644 96.68l-2.52 3.779V512H481V402.459l-2.52-3.779z" />
+      </svg>
+  );
+};
 
 /**
  * Provides border around icons for accesability

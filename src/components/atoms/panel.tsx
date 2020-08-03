@@ -26,8 +26,8 @@ export const Panel = styled.div<PanelProps>`
   border: 1px solid ${(props) => props?.borderColor ?? "#EBEBEB"};
   border-radius: ${({ theme }) => calculateUnit(theme.border.radiusMedium)};
   box-shadow:  ${({ theme }) => calculateUnit(theme.shadow.small)};
-  padding: ${(props) => calculateUnit(props.padding ?? Spaces.medium)};
-  ${props => props.isResponsive && css`
+  padding: ${(props) => calculateUnit(props.padding ?? Spaces.large)};
+  ${({ isResponsive = true }) => isResponsive && css`
      @media (max-width: ${Breakpoints.small}px) {
        padding: ${(props: PanelProps) => calculateUnit(props.mobile?.padding ?? Spaces.small)};
        ${props => props.mobile?.seamless && `

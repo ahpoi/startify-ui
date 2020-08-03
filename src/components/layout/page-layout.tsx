@@ -32,7 +32,7 @@ export const cssBackgroundColor = css<BackgroundColorProps>`
  * Usually on Desktop we have a MaxWidth so no need for padding
  */
 export const cssPageResponsiveSideSpace = css`
-  @media (max-width: ${MaxWidths.pageContent}px) {
+  @media (max-width: ${Breakpoints.large}px) {
     padding-left: ${Spaces.small}px;
     padding-right: ${Spaces.small}px;
   }

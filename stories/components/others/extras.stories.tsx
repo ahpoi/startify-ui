@@ -31,7 +31,7 @@ export const poweredBy = () => <StoriesDefaultThemeProvider>
       name={"Birdies"}
       url={"https://birdies.com"}
       fontSize={"12px"}
-      Logo={TestLogo}
+      logo={<TestLogo/>}
   />
 </StoriesDefaultThemeProvider>;
 
@@ -42,7 +42,7 @@ export const headerLogo = () => <StoriesDefaultThemeProvider>
         color={"#FF5050"}
         fontWeight={500}
         onClick={() => (0)}
-        Logo={TestLogo}
+        logo={<TestLogo/>}
     />
   </div>
 </StoriesDefaultThemeProvider>;

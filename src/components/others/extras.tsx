@@ -19,7 +19,7 @@ export const TextWithLink = ({ onClick, text, link, size }: TextWithLink) => {
       <Text size={size}>
         {`${text}`}
         <span>
-          <LinkButton underline={true} size={size} onClick={onClick}>
+          <LinkButton size={size} onClick={onClick}>
             {link}
           </LinkButton>
         </span>
@@ -48,10 +48,10 @@ interface PoweredByProps {
   name: string;
   url: string
   fontSize?: CSS.FontSizeProperty<any>
-  Logo: React.ComponentType<any>;
+  logo: React.ReactNode
 }
 
-export const PoweredBy = ({ name, url, Logo, fontSize = "8px" }: PoweredByProps) => (
+export const PoweredBy = ({ name, url, logo, fontSize = "8px" }: PoweredByProps) => (
     <div style={{ cursor: "pointer" }} onClick={() => window.open(url, "_blank")}>
       <Horizontal spacing={2} verticalAlign={"center"}>
         <Vertical spacing={0} horizontalAlign={"right"}>
@@ -62,7 +62,7 @@ export const PoweredBy = ({ name, url, Logo, fontSize = "8px" }: PoweredByProps)
             {name}
           </Text>
         </Vertical>
-        <Logo/>
+        {logo}
       </Horizontal>
     </div>
 );
@@ -115,21 +115,21 @@ export const Chevron = ({ open = false, size = 24, color = "grey" }: { open?: bo
 
 interface HeaderLogoProps {
   name: string;
-  Logo: React.ComponentType<any>;
+  logo: React.ReactNode,
   fontSize?: CSS.FontSizeProperty<any>
   fontWeight?: CSS.FontWeightProperty
   color?: CSS.ColorProperty,
   onClick: () => any;
 }
 
-export const HeaderLogo = ({ name, color, fontSize = "18px", fontWeight = 700, onClick, Logo }: HeaderLogoProps) => (
+export const HeaderLogo = ({ name, color, fontSize = "18px", fontWeight = 700, onClick, logo }: HeaderLogoProps) => (
     <Horizontal
         verticalAlign={"center"}
         spacing={8}
         style={{ cursor: "pointer" }}
         onClick={onClick}
     >
-      <Logo/>
+      {logo}
       <div style={{
         color,
         fontSize,
