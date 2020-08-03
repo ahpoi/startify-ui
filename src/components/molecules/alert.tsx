@@ -27,7 +27,10 @@ const StyledAlert = styled.div<AlertVariant>`
     color: ${(props) => props.color};
     background-color: ${(props) => props.backgroundColor};
     border-color: ${(props) => props.borderColor};
-    padding: 12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 12px;
+    padding-right: 24px;
     border-radius: ${({ theme }) => theme.border.radiusSmall}px;
     border-width: 1px;
     border-style: solid;
