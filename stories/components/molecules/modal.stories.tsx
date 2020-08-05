@@ -15,10 +15,15 @@ export const modalSimpleMessage = () => {
       <Button onClick={() => setModalVisible(true)}>Show modal</Button>
       <Modal title={"Are you sure you want to exit?"}
              isOpen={isModalVisible}
-             onSubmit={() => console.log("submitted")}
-             onStateChange={({ isOpen }) => setModalVisible(isOpen)}
-             closeBtnTxt={"Exit"}
-             hasCloseButton
+             actions={{
+               primary: {
+                 onSubmit: () => console.log("hello"),
+               },
+               secondary: {
+                 onSubmit: () => setModalVisible(false)
+               }
+             }}
+             onClose={() => setModalVisible(false)}
              message={"By exiting there is no way to come back"}
       />
     </div>
@@ -32,10 +37,15 @@ export const modalComplex = () => {
       <Button onClick={() => setModalVisible(true)}>Show modal</Button>
       <Modal title={"Are you sure you want to exit?"}
              isOpen={isModalVisible}
-             onSubmit={() => console.log("submitted")}
-             onStateChange={({ isOpen }) => setModalVisible(isOpen)}
-             hasCloseIcon
-             closeBtnTxt={"Exit"}
+             actions={{
+               primary: {
+                 onSubmit: () => console.log("hello"),
+               },
+               secondary: {
+                 onSubmit: () => setModalVisible(false)
+               }
+             }}
+             onClose={() => setModalVisible(false)}
       >
         <HorizontalDivider/>
         <VerticalSpacer/>
@@ -53,7 +63,7 @@ export const modalError = () => {
       <Button onClick={() => setModalVisible(true)}>Show modal</Button>
       <ModalError
           isOpen={isModalVisible}
-          onStateChange={({ isOpen }) => setModalVisible(isOpen)}
+          onClose={() => setModalVisible(false)}
       />
     </div>
   </StoriesDefaultThemeProvider>;
@@ -67,7 +77,7 @@ export const modalErrorTryAgain = () => {
       <ModalError
           isOpen={isModalVisible}
           onRetry={() => (0)}
-          onStateChange={({ isOpen }) => setModalVisible(isOpen)}
+          onClose={() => setModalVisible(false)}
       />
     </div>
   </StoriesDefaultThemeProvider>;

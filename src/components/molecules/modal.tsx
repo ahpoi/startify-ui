@@ -1,41 +1,57 @@
 import * as React from "react";
 
 import styled from "styled-components";
+import {CommonColors} from "../../styles/colors";
 import {Breakpoints, Spaces} from "../../styles/sizes";
-import {Button, ButtonVariantType, Heading4, Horizontal, StretchSpacer, Text, Vertical, VerticalSpacer} from "../..";
+import {
+  Button,
+  ButtonVariantType,
+  Heading4,
+  Horizontal,
+  StretchSpacer,
+  Text,
+  Vertical,
+  VerticalSpacer
+} from "../..";
 import {useKeyboardEvent, useOnOutsideClick} from "../../hooks/common.hook";
-import {IconButtonContainer, IconClose, IconError} from "../others/icons";
+import {IconClose, IconError} from "../others/icons";
 import {fadeIn} from "../others/animations";
 import {Portal} from "../others/portal";
 
 type BaseModalProps = {
   isOpen?: boolean
-  onStateChange?: (state: { isOpen: boolean }) => void;
+  onClose?: () => void;
   modalWidth?: number;
   padding?: number;
 }
 type ModalProps = {
   title: string
-  onSubmit?: () => any;
-  onSubmitLoading?: boolean;
-  submitBtnType?: "submit" | "button";
-  submitBtnTxt?: string;
-  closeBtnTxt?: string;
-  hasCloseButton?: boolean;
-  hasCloseIcon?: boolean;
+  actions: {
+    primary: {
+      onSubmit: () => any;
+      isLoading?: boolean;
+      text?: string;
+      variant?: ButtonVariantType;
+    }
+    secondary?: {
+      onSubmit: () => any;
+      text?: string;
+      variant?: ButtonVariantType;
+    }
+  }
+  closeIcon?: boolean;
   message?: string;
   children?: React.ReactNode;
 } & BaseModalProps
 
 export const Modal = (props: ModalProps) => {
 
-  const { title, message, modalWidth, padding, isOpen, hasCloseIcon = false, hasCloseButton = false, children } = props;
-  const { onSubmit, submitBtnTxt = "Proceed", onSubmitLoading, submitBtnType, onStateChange, closeBtnTxt = "Cancel" } = props;
-
+  const { title, message, modalWidth, padding, isOpen, closeIcon = true, onClose, children } = props;
+  const { primary, secondary } = props.actions;
   const node = React.useRef<HTMLDivElement>(null);
   const _onClose = () => {
-    if (!onSubmitLoading) {
-      onStateChange?.({ isOpen: false });
+    if (!primary.isLoading) {
+      onClose?.();
     }
   };
 
@@ -47,10 +63,8 @@ export const Modal = (props: ModalProps) => {
       <ModalContainer ref={node} modalWidth={modalWidth} padding={padding}>
         <Horizontal verticalAlign={"center"}>
           <Heading4 fontWeight={"bold"}>{title}</Heading4>
-          {hasCloseIcon && <><StretchSpacer/>
-              <IconButtonContainer onClick={_onClose}>
-                  <IconClose size={24}/>
-              </IconButtonContainer>
+          {closeIcon && <><StretchSpacer/>
+              <ModalCloseButton onClick={_onClose}/>
           </>}
         </Horizontal>
         <VerticalSpacer spacing={24}/>
@@ -58,9 +72,11 @@ export const Modal = (props: ModalProps) => {
         {children}
         <VerticalSpacer spacing={32}/>
         <Horizontal horizontalAlign={"right"} spacing={12}>
-          {hasCloseButton &&
-          <Button onClick={_onClose} variant={"text"} disabled={onSubmitLoading}>{closeBtnTxt}</Button>}
-          <Button onClick={onSubmit} isLoading={onSubmitLoading} type={submitBtnType}>{submitBtnTxt}</Button>
+          {secondary &&
+          <Button onClick={secondary.onSubmit} variant={secondary.variant ?? "text"}
+                  disabled={primary.isLoading}>{secondary.text ?? "Cancel"}</Button>}
+          <Button onClick={primary.onSubmit} variant={primary.variant}
+                  isLoading={primary.isLoading}>{primary.text ?? "Submit"}</Button>
         </Horizontal>
       </ModalContainer>
     </ModalOverlay>
@@ -78,12 +94,12 @@ type ModalError = {
 export const ModalError = (props: ModalError) => {
 
   const { isOpen, title = "Something went wrong", message = "An unexpected error has occurred. Please try again soon!", modalWidth, padding, retryButtonVariant = "text" } = props;
-  const { onRetry, onRetrying, onStateChange } = props;
+  const { onRetry, onRetrying, onClose } = props;
 
   const node = React.useRef<HTMLDivElement>(null);
   const _onClose = () => {
     if (!onRetrying) {
-      onStateChange?.({ isOpen: false });
+      onClose?.();
     }
   };
 
@@ -94,9 +110,7 @@ export const ModalError = (props: ModalError) => {
     <ModalOverlay>
       <ModalContainer ref={node} modalWidth={modalWidth} padding={padding}>
         <Horizontal horizontalAlign={"right"}>
-          <IconButtonContainer onClick={_onClose}>
-            <IconClose size={24}/>
-          </IconButtonContainer>
+          <ModalCloseButton onClick={_onClose}/>
         </Horizontal>
         <VerticalSpacer spacing={12}/>
         <Vertical horizontalAlign={"center"}>
@@ -124,11 +138,11 @@ type BasicModalProps = {
  */
 export const BasicModal = (props: BasicModalProps) => {
 
-  const { isOpen, onStateChange, modalWidth, padding, children } = props;
+  const { isOpen, onClose, modalWidth, padding, children } = props;
   const node = React.useRef<HTMLDivElement>(null);
 
   const _onClose = () => {
-    onStateChange?.({ isOpen: false });
+    onClose?.();
   };
 
   useKeyboardEvent("escape", _onClose);
@@ -169,6 +183,24 @@ export const ModalContainer = styled.div<{ modalWidth?: number, padding?: number
   padding:  ${props => props.padding ?? Spaces.medium}px;
   @media (max-width: ${Breakpoints.small}px) {
      width: 95%;
-     padding: ${Spaces.small}px;
   }
 `;
+
+export const ModalCloseButton = (props: { onClick: () => void }) =>
+    <IconButton onClick={props.onClick}>
+      <IconClose size={24}/>
+    </IconButton>;
+
+const IconButton = styled.button`
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  display: inline-block;
+  &:focus,
+  &:hover,
+  &:active {
+    border-radius: ${({ theme }) => theme.border.radiusxSmall}px;
+    background-color: ${CommonColors.greyLight40};
+  }  
+` as React.FunctionComponent<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>>;

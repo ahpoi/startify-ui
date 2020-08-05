@@ -24,7 +24,7 @@ export const TestHeaderLogo = () => <HeaderLogo
     color={"#FF5050"}
     fontWeight={500}
     onClick={() => (0)}
-    Logo={TestLogo}
+    logo={<TestLogo/>}
 />;
 
 export const TestLogo = () => (<svg viewBox={`0 0 200 200`} width={24} height={24} fill={"#FF5050"}>
