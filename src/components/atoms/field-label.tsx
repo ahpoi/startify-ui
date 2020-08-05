@@ -15,13 +15,13 @@ export const FieldLabel = (props: FieldLabelProps) => {
 };
 
 export const FieldErrorMessage = styled.div`
-  font-size: 14px;
+  font-size: ${({ theme }) => (theme.typography.text.medium)};
   font-weight: 400;
   color: ${({ theme }) => theme.color.error};
 `;
 
 const StyledLabel = styled.label<{ error?: boolean }>`
-  font-size: 15px;
+  font-size: ${({ theme }) => (theme.typography.text.medium)};
   font-weight: 400;
   color: ${({ theme, error }) => (error ? theme.color.error : theme.color.textDark)};
 `;
