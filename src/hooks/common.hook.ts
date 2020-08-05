@@ -12,8 +12,8 @@ export const useScrollToTop = () => React.useEffect(() => {
 
 export const useKeyboardEvent = (key: any, callback: () => void) => {
   React.useEffect(() => {
-    const handler = (event: KeyboardEvent) => {
-      if (event.key.toLowerCase() === key.toLowerCase()) {
+    const handler = (event?: KeyboardEvent) => {
+      if (event?.key?.toLowerCase() === key.toLowerCase()) {
         callback();
       }
     };
