@@ -5,7 +5,7 @@ import {CommonColors} from "../../styles/colors";
 import {Breakpoints, Spaces} from "../../styles/sizes";
 import {
   Button,
-  ButtonVariantType,
+  ButtonVariantType, ConditionalDisplay,
   Heading4,
   Horizontal,
   StretchSpacer,
@@ -27,6 +27,7 @@ type BaseModalProps = {
 type ModalProps = {
   title: string
   actions: {
+    align?: "horizontal" | "vertical"
     primary: {
       onSubmit: () => any;
       isLoading?: boolean;
@@ -47,7 +48,7 @@ type ModalProps = {
 export const Modal = (props: ModalProps) => {
 
   const { title, message, modalWidth, padding, isOpen, closeIcon = true, onClose, children } = props;
-  const { primary, secondary } = props.actions;
+  const { primary, secondary, align = "horizontal" } = props.actions;
   const node = React.useRef<HTMLDivElement>(null);
   const _onClose = () => {
     if (!primary.isLoading) {
@@ -58,6 +59,11 @@ export const Modal = (props: ModalProps) => {
   useKeyboardEvent("escape", _onClose);
   useOnOutsideClick(node, _onClose);
 
+  const PrimaryButton = () => <Button onClick={primary.onSubmit} variant={primary.variant}
+                                      isLoading={primary.isLoading}>{primary.text ?? "Submit"}</Button>;
+
+  const SecondaryButton = () => <Button onClick={secondary?.onSubmit} variant={secondary?.variant ?? "text"}
+                                        disabled={primary.isLoading}>{secondary?.text ?? "Cancel"}</Button>;
   return isOpen ? <Portal>
     <ModalOverlay>
       <ModalContainer ref={node} modalWidth={modalWidth} padding={padding}>
@@ -67,17 +73,29 @@ export const Modal = (props: ModalProps) => {
               <ModalCloseButton onClick={_onClose}/>
           </>}
         </Horizontal>
-        <VerticalSpacer spacing={24}/>
-        {message && <Text>{message}</Text>}
+        {message && <>
+            <VerticalSpacer spacing={16}/>
+            <Text>{message}</Text>
+            <VerticalSpacer spacing={24}/>
+        </>}
         {children}
-        <VerticalSpacer spacing={32}/>
-        <Horizontal horizontalAlign={"right"} spacing={12}>
-          {secondary &&
-          <Button onClick={secondary.onSubmit} variant={secondary.variant ?? "text"}
-                  disabled={primary.isLoading}>{secondary.text ?? "Cancel"}</Button>}
-          <Button onClick={primary.onSubmit} variant={primary.variant}
-                  isLoading={primary.isLoading}>{primary.text ?? "Submit"}</Button>
-        </Horizontal>
+
+        <ConditionalDisplay when={align === "horizontal"}>
+          <Horizontal horizontalAlign={"right"} spacing={12}>
+            {secondary &&
+            <SecondaryButton/>}
+            <PrimaryButton/>
+          </Horizontal>
+        </ConditionalDisplay>
+
+        <ConditionalDisplay when={align === "vertical"}>
+          <Vertical spacing={12}>
+            <PrimaryButton/>
+            {secondary &&
+            <SecondaryButton/>}
+          </Vertical>
+        </ConditionalDisplay>
+
       </ModalContainer>
     </ModalOverlay>
   </Portal> : null;

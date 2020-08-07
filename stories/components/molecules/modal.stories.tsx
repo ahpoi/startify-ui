@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Button, Heading4, HorizontalDivider, Modal, ModalError, VerticalSpacer} from "../../../src";
+import {Button, FieldLabel, Heading4, Modal, ModalError, TextInput, VerticalSpacer} from "../../../src";
 import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 
 // @ts-ignore
@@ -17,7 +17,7 @@ export const modalSimpleMessage = () => {
              isOpen={isModalVisible}
              actions={{
                primary: {
-                 onSubmit: () => console.log("hello"),
+                 onSubmit: () => alert("hello"),
                },
                secondary: {
                  onSubmit: () => setModalVisible(false)
@@ -26,6 +26,33 @@ export const modalSimpleMessage = () => {
              onClose={() => setModalVisible(false)}
              message={"By exiting there is no way to come back"}
       />
+    </div>
+  </StoriesDefaultThemeProvider>;
+};
+
+export const modalVertical = () => {
+  const [isModalVisible, setModalVisible] = React.useState(false);
+  return <StoriesDefaultThemeProvider>
+    <div>
+      <Button onClick={() => setModalVisible(true)}>Show modal</Button>
+      <Modal title={"Forgot Password?"}
+             isOpen={isModalVisible}
+             modalWidth={420}
+             padding={32}
+             actions={{
+               align: "vertical",
+               primary: {
+                 text: "Continue",
+                 onSubmit: () => alert("hello"),
+               }
+             }}
+             message={"An email will be sent to you containing a link!"}
+             onClose={() => setModalVisible(false)}>
+        <FieldLabel>Email</FieldLabel>
+        <VerticalSpacer spacing={8}/>
+        <TextInput onChange={() => (0)} value={""}/>
+        <VerticalSpacer spacing={32}/>
+      </Modal>
     </div>
   </StoriesDefaultThemeProvider>;
 };
@@ -47,10 +74,10 @@ export const modalComplex = () => {
              }}
              onClose={() => setModalVisible(false)}
       >
-        <HorizontalDivider/>
         <VerticalSpacer/>
         <Heading4>This is a children</Heading4>
         <Heading4>This is another children</Heading4>
+        <VerticalSpacer/>
       </Modal>
     </div>
   </StoriesDefaultThemeProvider>;
