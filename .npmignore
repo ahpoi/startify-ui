@@ -1,4 +1,4 @@
-src/tests
+src/**
 lib/tests
 lib.es2015/tests
 

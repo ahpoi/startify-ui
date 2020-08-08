@@ -18,10 +18,12 @@ type DesktopHeaderProps = {
   logo: React.ReactNode,
   leftLinks?: React.ReactNode[]
   rightLinks?: React.ReactNode[]
+  divider?: string;
   padding?: number
 } & BaseWidthProps & BackgroundColorProps
 
-export const DesktopHeader = (props: DesktopHeaderProps) => <Header backgroundColor={props.backgroundColor}>
+export const DesktopHeader = (props: DesktopHeaderProps) => <Header style={{ backgroundColor: props.backgroundColor }}
+                                                                    divider={props.divider}>
   <MaxWidth maxWidth={props.maxWidth} centered
             style={{ paddingTop: calculateUnit(props.padding ?? 12), paddingBottom: calculateUnit(props.padding ?? 12) }}>
     <Horizontal verticalAlign={"center"}>
@@ -47,13 +49,14 @@ export const DesktopHeader = (props: DesktopHeaderProps) => <Header backgroundCo
 type MobileHeaderProps = {
   logo: React.ReactNode,
   padding?: number
+  divider?: string;
   isSidebarOpen: boolean;
   onSidebarStateChange: (state: { isOpen: boolean }) => void;
   sidebarNavigation: React.ReactNode,
 } & BaseWidthProps & BackgroundColorProps
 
 export const MobileHeader = (props: MobileHeaderProps) =>
-    <Header backgroundColor={props.backgroundColor}>
+    <Header style={{ backgroundColor: props.backgroundColor }} divider={props.divider}>
       <MaxWidth centered
                 style={{ paddingTop: calculateUnit(props.padding ?? 12), paddingBottom: calculateUnit(props.padding ?? 12) }}>
         <Horizontal verticalAlign={"center"}>

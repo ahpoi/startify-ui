@@ -28,6 +28,7 @@ export interface TypographyTheme {
     bold: number
   }
   text: {
+    xSmall: string,
     small: string,
     medium: string,
     large: string;

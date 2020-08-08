@@ -29,6 +29,8 @@ export * from "./components/layout/gls/gls"
 
 export * from "./components/others/extras"
 
+export * from "./hooks/common.hook"
+
 export * from "./utils/dom.utils"
 export * from "./utils/common.utils"
 export * from "./utils/storage.utils"

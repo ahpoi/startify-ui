@@ -25,6 +25,7 @@ export const DefaultTypographyTheme: TypographyTheme = {
     bold: 700
   },
   text: {
+    xSmall: "10px",
     small: "12px",
     medium: "14px",
     large: "16px"

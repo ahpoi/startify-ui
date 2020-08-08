@@ -93,7 +93,7 @@ export const Dot = ({ size, color }: DotProps) => <span style={{
 
 export const Ellipsis = ({ rotate = false, size = 4, color = "grey" }: { rotate?: boolean, size?: number, color?: string }) =>
     <div style={{
-      display: "inline-block",
+      display: "block",
       transition: "transform 0.2s ease-out",
       transform: `${rotate ? "rotate(-90deg)" : "rotate(0deg)"}`
     }}>
@@ -106,7 +106,7 @@ export const Ellipsis = ({ rotate = false, size = 4, color = "grey" }: { rotate?
 
 export const Chevron = ({ open = false, size = 24, color = "grey" }: { open?: boolean, size?: number, color?: string }) =>
     <div style={{
-      display: "inline-block",
+      display: "block",
       transition: "transform 0.2s ease-out",
       transform: `${open ? "rotate(-90deg)" : "rotate(0deg)"}`
     }}>

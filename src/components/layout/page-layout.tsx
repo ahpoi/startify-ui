@@ -97,17 +97,22 @@ export const PageBody = styled.main.attrs({
   }
 ` as React.FunctionComponent<PageBodyProps & React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>>;
 
-export const Header = styled.header<BaseWidthProps>`
- ${content}
- ${cssPageResponsiveSideSpace}
- ${cssBackgroundColor}
-` as React.FunctionComponent<BaseWidthProps & BackgroundColorProps & React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>>;
+type HeaderProps = {
+  divider?: string
+}
 
-export const Footer = styled.footer<BaseWidthProps>`
+export const Header = styled.header<HeaderProps>`
  ${content}
  ${cssPageResponsiveSideSpace}
- ${cssBackgroundColor}
-` as React.FunctionComponent<BaseWidthProps & BackgroundColorProps & React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>>;
+ ${({ divider }) => divider && `
+    border-bottom: ${divider};
+ `};
+` as React.FunctionComponent<HeaderProps & React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>>;
+
+export const Footer = styled.footer`
+ ${content}
+ ${cssPageResponsiveSideSpace}
+` as React.FunctionComponent<React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>>;
 
 /**
  * Landing Pages are sometimes have full width images..etc
@@ -122,8 +127,6 @@ export const LandingPageBody = styled.main.attrs({
 
 type LandingPageSectionProps = {
   backgroundColor?: string
-  centered?: boolean;
-  isFullWidth?: boolean;
   verticalPadding?: number;
   children: React.ReactNode;
 } & BaseWidthProps
@@ -140,9 +143,7 @@ const StyledLandingPageSection = styled.section.attrs({
   "data-comment": "page-section"
 })<LandingPageSectionProps>`
  ${cssPageResponsiveSideSpace}
- ${({ centered = true }) => centered && `
-    margin: 0 auto;
- `};
+  margin: 0 auto;
   ${({ verticalPadding }) => verticalPadding && `
     padding-top: ${verticalPadding}px;
     padding-bottom: ${verticalPadding}px;
