@@ -51,7 +51,6 @@ export const modalVertical = () => {
         <FieldLabel>Email</FieldLabel>
         <VerticalSpacer spacing={8}/>
         <TextInput onChange={() => (0)} value={""}/>
-        <VerticalSpacer spacing={32}/>
       </Modal>
     </div>
   </StoriesDefaultThemeProvider>;
@@ -77,7 +76,6 @@ export const modalComplex = () => {
         <VerticalSpacer/>
         <Heading4>This is a children</Heading4>
         <Heading4>This is another children</Heading4>
-        <VerticalSpacer/>
       </Modal>
     </div>
   </StoriesDefaultThemeProvider>;

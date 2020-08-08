@@ -73,12 +73,17 @@ export const Modal = (props: ModalProps) => {
               <ModalCloseButton onClick={_onClose}/>
           </>}
         </Horizontal>
+
         {message && <>
             <VerticalSpacer spacing={16}/>
             <Text>{message}</Text>
             <VerticalSpacer spacing={24}/>
         </>}
-        {children}
+
+        {children && <>
+          {children}
+            <VerticalSpacer spacing={32}/>
+        </>}
 
         <ConditionalDisplay when={align === "horizontal"}>
           <Horizontal horizontalAlign={"right"} spacing={12}>
