@@ -3,16 +3,7 @@ import * as React from "react";
 import styled from "styled-components";
 import {CommonColors} from "../../styles/colors";
 import {Breakpoints, Spaces} from "../../styles/sizes";
-import {
-  Button,
-  ButtonVariantType, ConditionalDisplay,
-  Heading4,
-  Horizontal,
-  StretchSpacer,
-  Text,
-  Vertical,
-  VerticalSpacer
-} from "../..";
+import {Button, ButtonVariantType, Heading4, Horizontal, StretchSpacer, Text, Vertical, VerticalSpacer} from "../..";
 import {useKeyboardEvent, useOnOutsideClick} from "../../hooks/common.hook";
 import {IconClose, IconError} from "../others/icons";
 import {fadeIn} from "../others/animations";
@@ -20,7 +11,7 @@ import {Portal} from "../others/portal";
 
 type BaseModalProps = {
   isOpen?: boolean
-  onClose?: () => void;
+  onClose?: () => any;
   modalWidth?: number;
   padding?: number;
 }
@@ -39,7 +30,8 @@ type ModalProps = {
       text?: string;
       variant?: ButtonVariantType;
     }
-  }
+  },
+  error?: ModalErrorProps | null,
   closeIcon?: boolean;
   message?: string;
   children?: React.ReactNode;
@@ -47,7 +39,7 @@ type ModalProps = {
 
 export const Modal = (props: ModalProps) => {
 
-  const { title, message, modalWidth, padding, isOpen, closeIcon = true, onClose, children } = props;
+  const { title, message, modalWidth, padding, isOpen, closeIcon = true, onClose, error, children } = props;
   const { primary, secondary, align = "horizontal" } = props.actions;
   const node = React.useRef<HTMLDivElement>(null);
   const _onClose = () => {
@@ -67,46 +59,48 @@ export const Modal = (props: ModalProps) => {
   return isOpen ? <Portal>
     <ModalOverlay>
       <ModalContainer ref={node} modalWidth={modalWidth} padding={padding}>
-        <Horizontal verticalAlign={"center"}>
-          <Heading4 fontWeight={"bold"}>{title}</Heading4>
-          {closeIcon && <><StretchSpacer/>
-              <ModalCloseButton onClick={_onClose}/>
+        {!error && <>
+            <Horizontal verticalAlign={"center"}>
+                <Heading4 fontWeight={"bold"}>{title}</Heading4>
+              {closeIcon && <><StretchSpacer/>
+                  <ModalCloseButton onClick={_onClose}/>
+              </>}
+            </Horizontal>
+          {message && <>
+              <VerticalSpacer spacing={16}/>
+              <Text>{message}</Text>
+              <VerticalSpacer spacing={24}/>
           </>}
-        </Horizontal>
-
-        {message && <>
-            <VerticalSpacer spacing={16}/>
-            <Text>{message}</Text>
-            <VerticalSpacer spacing={24}/>
-        </>}
-
-        {children && <>
-          {children}
-            <VerticalSpacer spacing={32}/>
-        </>}
-
-        <ConditionalDisplay when={align === "horizontal"}>
+          {children && <>
+            {children}
+              <VerticalSpacer spacing={32}/>
+          </>}
+          {align === "horizontal" &&
           <Horizontal horizontalAlign={"right"} spacing={12}>
             {secondary &&
             <SecondaryButton/>}
-            <PrimaryButton/>
-          </Horizontal>
-        </ConditionalDisplay>
-
-        <ConditionalDisplay when={align === "vertical"}>
+              <PrimaryButton/>
+          </Horizontal>}
+          {align === "vertical" &&
           <Vertical spacing={12}>
-            <PrimaryButton/>
+              <PrimaryButton/>
             {secondary &&
             <SecondaryButton/>}
-          </Vertical>
-        </ConditionalDisplay>
-
+          </Vertical>}
+        </>}
+        {error &&
+        <ModalErrorContent onClose={_onClose}
+                           title={error.title}
+                           message={error.message}
+                           onRetry={error.onRetry}
+                           onRetrying={error.onRetrying}
+                           retryButtonVariant={error.retryButtonVariant}/>}
       </ModalContainer>
     </ModalOverlay>
   </Portal> : null;
 };
 
-type ModalError = {
+type ModalErrorProps = {
   title?: string;
   message?: string;
   onRetry?: () => any;
@@ -114,9 +108,9 @@ type ModalError = {
   retryButtonVariant?: ButtonVariantType;
 } & BaseModalProps
 
-export const ModalError = (props: ModalError) => {
+export const ModalError = (props: ModalErrorProps) => {
 
-  const { isOpen, title = "Something went wrong", message = "An unexpected error has occurred. Please try again soon!", modalWidth, padding, retryButtonVariant = "text" } = props;
+  const { isOpen, title, message, modalWidth, padding, retryButtonVariant } = props;
   const { onRetry, onRetrying, onClose } = props;
 
   const node = React.useRef<HTMLDivElement>(null);
@@ -132,25 +126,38 @@ export const ModalError = (props: ModalError) => {
   return isOpen ? <Portal>
     <ModalOverlay>
       <ModalContainer ref={node} modalWidth={modalWidth} padding={padding}>
-        <Horizontal horizontalAlign={"right"}>
-          <ModalCloseButton onClick={_onClose}/>
-        </Horizontal>
-        <VerticalSpacer spacing={12}/>
-        <Vertical horizontalAlign={"center"}>
-          <IconError size={48}/>
-          <Vertical horizontalAlign={"center"} spacing={12}>
-            <Heading4>{title}</Heading4>
-            <Text textAlign={"center"}>{message}</Text>
-          </Vertical>
-          {onRetry &&
-          <Button onClick={onRetry} isLoading={onRetrying} variant={retryButtonVariant}>Try Again</Button>}
-        </Vertical>
-        <VerticalSpacer spacing={32}/>
+        <ModalErrorContent onClose={_onClose}
+                           title={title}
+                           message={message}
+                           onRetry={onRetry}
+                           onRetrying={onRetrying}
+                           retryButtonVariant={retryButtonVariant}/>
       </ModalContainer>
     </ModalOverlay>
   </Portal> : null;
 };
 
+const ModalErrorContent = (props: ModalErrorProps) => {
+  const { title = "Something went wrong", message = "An unexpected error has occurred. Please try again soon!", retryButtonVariant = "text" } = props;
+  const { onRetrying, onRetry, onClose } = props;
+  return <>
+    <Horizontal horizontalAlign={"right"}>
+      <ModalCloseButton onClick={onClose}/>
+    </Horizontal>
+    <VerticalSpacer spacing={12}/>
+    <Vertical horizontalAlign={"center"}>
+      <IconError size={48}/>
+      <Vertical horizontalAlign={"center"} spacing={12}>
+        <Heading4>{title}</Heading4>
+        <Text textAlign={"center"}>{message}</Text>
+      </Vertical>
+      {onRetry &&
+      <Button onClick={onRetry} isLoading={onRetrying} variant={retryButtonVariant}>Try
+          Again</Button>}
+    </Vertical>
+    <VerticalSpacer spacing={32}/>
+  </>;
+};
 
 type BasicModalProps = {
   children: React.ReactNode;
@@ -209,7 +216,7 @@ export const ModalContainer = styled.div<{ modalWidth?: number, padding?: number
   }
 `;
 
-export const ModalCloseButton = (props: { onClick: () => void }) =>
+export const ModalCloseButton = (props: { onClick?: () => any }) =>
     <IconButton onClick={props.onClick}>
       <IconClose size={24}/>
     </IconButton>;

@@ -14,6 +14,7 @@ export const modalSimpleMessage = () => {
     <div>
       <Button onClick={() => setModalVisible(true)}>Show modal</Button>
       <Modal title={"Are you sure you want to exit?"}
+             message={"By exiting there is no way to come back"}
              isOpen={isModalVisible}
              actions={{
                primary: {
@@ -23,8 +24,8 @@ export const modalSimpleMessage = () => {
                  onSubmit: () => setModalVisible(false)
                }
              }}
+             error={{}}
              onClose={() => setModalVisible(false)}
-             message={"By exiting there is no way to come back"}
       />
     </div>
   </StoriesDefaultThemeProvider>;
