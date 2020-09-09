@@ -1,4 +1,6 @@
 import * as React from "react";
+import * as CSS from "csstype";
+
 import styled, {css, useTheme} from "styled-components";
 
 interface LinkProps {
@@ -8,22 +10,30 @@ interface LinkProps {
   underline?: boolean;
   children: React.ReactNode
   variant?: "primary" | "secondary" | "text"
+  customVariant?: LinkVariant,
   size?: "small" | "medium" | "large"
 }
 
 export type LinkButtonProps = Omit<LinkProps, "target" | "href">
 
-export const Link = ({ href, onClick, underline = false, children, variant = "secondary", size = "medium", target = "_blank" }: LinkProps) => {
-  const styledProps = { ...useStyleVariant()[variant], ...useSizeVariant()[size] };
+export const Link = ({ href, onClick, underline = false, children, variant = "secondary", customVariant, size = "medium", target = "_blank" }: LinkProps) => {
+  const linkVariant: LinkVariant = customVariant ?? useStyleVariant()[variant];
+  const styledProps = { ...linkVariant, ...useSizeVariant()[size] };
   return <StyledLink href={href} target={target} underline={underline}
                      onClick={onClick} {...styledProps}>{children}</StyledLink>;
 };
 
-export const LinkButton = ({ onClick, children, underline = false, variant = "secondary", size = "medium" }: LinkButtonProps) => {
-  const styledProps = { ...useStyleVariant()[variant], ...useSizeVariant()[size] };
+export const LinkButton = ({ onClick, children, underline = false, variant = "secondary", customVariant, size = "medium" }: LinkButtonProps) => {
+  const linkVariant: LinkVariant = customVariant ?? useStyleVariant()[variant];
+  const styledProps = { ...linkVariant, ...useSizeVariant()[size] };
   return <StyledLinkButton type={"button"} underline={underline}
                            onClick={onClick} {...styledProps}>{children}</StyledLinkButton>;
 };
+
+type LinkVariant = {
+  color: CSS.ColorProperty
+  colorOnHover: CSS.ColorProperty
+}
 
 const useStyleVariant = () => {
   const { primary, primaryDark, secondary, secondaryDark, textMid, textDark } = useTheme().color;

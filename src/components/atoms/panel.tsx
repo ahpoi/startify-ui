@@ -5,6 +5,7 @@ import styled, {css} from "styled-components";
 import {Breakpoints, Spaces} from "../../styles/sizes";
 import {calculateUnit} from "../../components/layout/gls/box";
 import {CommonColors} from "../../styles/colors";
+import {DivPrimitiveProps} from "../others/types";
 
 export interface PanelProps {
   backgroundColor?: CSS.ColorProperty,
@@ -37,5 +38,5 @@ export const Panel = styled.div<PanelProps>`
        `};
      }
   `}
-` as React.FunctionComponent<PanelProps>;
+` as React.FunctionComponent<PanelProps & DivPrimitiveProps>;
 

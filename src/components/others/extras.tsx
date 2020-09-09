@@ -9,17 +9,18 @@ import {IconBackArrow, IconChevronDown} from "./icons";
 interface TextWithLink {
   text: string;
   link: string;
+  linkUnderline?: boolean;
   endText?: string
   onClick?: () => any
   size?: "small" | "medium" | "large"
 }
 
-export const TextWithLink = ({ onClick, text, link, size }: TextWithLink) => {
+export const TextWithLink = ({ onClick, text, link, linkUnderline, size }: TextWithLink) => {
   return (
       <Text size={size}>
         {`${text}`}
         <span>
-          <LinkButton size={size} onClick={onClick}>
+          <LinkButton size={size} onClick={onClick} underline={linkUnderline}>
             {link}
           </LinkButton>
         </span>
