@@ -13,7 +13,7 @@ import {
 import {Button, Horizontal, VerticalSpacer} from "../../../src";
 
 export default {
-  title: "Others|Extras",
+  title: "Extras",
 };
 
 export const backButton = () =>

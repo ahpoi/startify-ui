@@ -92,6 +92,7 @@ Vertical.displayName = "Vertical";
 interface ResponsiveProps {
   vertical?: VerticalAlignProps;
   horizontal?: HorizontalsAlignProps;
+  breakpoint?: number;
 }
 
 /**

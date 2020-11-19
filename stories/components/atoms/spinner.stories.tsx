@@ -3,7 +3,7 @@ import * as React from "react";
 import {DotSpinner, PageSpinner, Spinner} from "../../../src/components/atoms/spinner";
 
 export default {
-  title: "Presentation|Spinner",
+  title: "Spinner",
   component: Spinner
 };
 

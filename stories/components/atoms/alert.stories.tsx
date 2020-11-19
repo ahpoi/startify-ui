@@ -3,7 +3,7 @@ import {ThemeProvider} from "styled-components";
 import {Alert, DefaultAppTheme, Vertical} from "../../../src";
 
 export default {
-  title: "Presentation|Alert",
+  title: "Alert",
   component: Alert
 };
 

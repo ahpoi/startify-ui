@@ -39,7 +39,7 @@ type ModalProps = {
 
 export const Modal = (props: ModalProps) => {
 
-  const { title, message, modalWidth, padding, isOpen, closeIcon = true, onClose, error, children } = props;
+  const { title, message, modalWidth, padding, isOpen, closeIcon = true, onClose, error = null, children } = props;
   const { primary, secondary, align = "horizontal" } = props.actions;
   const node = React.useRef<HTMLDivElement>(null);
   const _onClose = () => {

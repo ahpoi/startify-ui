@@ -13,7 +13,7 @@ import {
 import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 
 export default {
-  title: "Typography|Typography",
+  title: "Typography",
   component: Heading1
 };
 

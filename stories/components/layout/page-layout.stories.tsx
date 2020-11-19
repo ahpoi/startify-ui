@@ -14,7 +14,7 @@ import {
 } from "../../../src";
 
 export default {
-  title: "Layout|Page Layout",
+  title: "Page Layout",
 };
 
 export const pageLayout = () =>

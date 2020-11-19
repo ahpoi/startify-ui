@@ -4,7 +4,7 @@ import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 
 // @ts-ignore
 export default {
-  title: "Presentation|Badge",
+  title: "Badge",
   component: Badge
 };
 
@@ -38,6 +38,16 @@ export const variants = () =>
         <div>
           <Badge variant={"error"}>
             error
+          </Badge>
+        </div>
+        <div>
+          <Badge variant={"primary"} onClick={onClick}>
+            Primary
+          </Badge>
+        </div>
+        <div>
+          <Badge variant={"secondary"} onClick={onClick}>
+            Secondary
           </Badge>
         </div>
       </Vertical>
@@ -91,22 +101,6 @@ export const clickable = () =>
       </Vertical>
     </StoriesDefaultThemeProvider>;
 
-
-export const others = () =>
-    <StoriesDefaultThemeProvider>
-      <Horizontal>
-        <div>
-          <Badge variant={"primary"} onClick={onClick}>
-            Primary
-          </Badge>
-        </div>
-        <div>
-          <Badge variant={"secondary"} onClick={onClick}>
-            Secondary
-          </Badge>
-        </div>
-      </Horizontal>
-    </StoriesDefaultThemeProvider>;
 
 const onClick = () => {
   console.log("clicked");
