@@ -13,6 +13,7 @@ export * from "./components/atoms/skeleton-placeholder"
 
 export * from "./components/molecules/modal"
 export * from "./components/molecules/alert"
+export * from "./components/molecules/input-fields"
 
 export * from "./components/navigation/sidebar"
 export * from "./components/navigation/header"
