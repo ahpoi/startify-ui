@@ -1,23 +1,13 @@
 import * as React from "react";
-import {
-  Heading1,
-  Heading2,
-  Heading3,
-  Heading4,
-  Heading5, ListItem,
-  Paragraph,
-  ParagraphHeading,
-  SmallText,
-  Text, Vertical
-} from "../../../src";
+import {Heading1, Heading2, Heading3, Heading4, Heading5, Paragraph, Vertical} from "../../../src";
 import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 
 export default {
-  title: "Typography",
+  title: "Atoms/Typography/Headings",
   component: Heading1
 };
 
-export const typography = () => (
+export const headings = () => (
     <StoriesDefaultThemeProvider>
       <Vertical>
         <Heading1>Heading 1</Heading1>
@@ -25,17 +15,6 @@ export const typography = () => (
         <Heading3>Heading 3</Heading3>
         <Heading4>Heading 4</Heading4>
         <Heading5>Heading 5</Heading5>
-        <ParagraphHeading>Paragraph Heading</ParagraphHeading>
-        <Paragraph>Paragraph</Paragraph>
-        <Text>Text</Text>
-        <SmallText>Small Text</SmallText>
-        <div>
-          <Text>List:</Text>
-          <ul>
-            <ListItem>List item one</ListItem>
-            <ListItem>List item two</ListItem>
-          </ul>
-        </div>
       </Vertical>
     </StoriesDefaultThemeProvider>
 );
@@ -63,22 +42,6 @@ export const custom = () => (
                   fontSize={{ web: "60px", mobile: "10px" }}>
           Heading 5
         </Heading5>
-        <Paragraph color={"#008DA6"} textAlign={"center"}
-                   size={"small"}>
-          Paragraph Small
-        </Paragraph>
-        <Paragraph  color={"#008DA6"} textAlign={"center"}
-                   size={"medium"}>
-          Paragraph medium
-        </Paragraph>
-        <Paragraph color={"#008DA6"} textAlign={"center"}
-                   size={"large"}>
-          Paragraph large
-        </Paragraph>
-        <Paragraph fontFamily={"sans-serif"} fontWeight={900} color={"#008DA6"} textAlign={"center"}
-                   fontSize={"20px"}>
-          Paragraph
-        </Paragraph>
       </Vertical>
     </StoriesDefaultThemeProvider>
 );

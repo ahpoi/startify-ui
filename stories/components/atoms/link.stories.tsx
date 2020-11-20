@@ -3,7 +3,7 @@ import {Link, LinkButton, Vertical} from "../../../src";
 import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 
 export default {
-  title: "Link",
+  title: "Atoms/Link",
   component: Link
 };
 

@@ -2,8 +2,6 @@ import * as React from "react";
 import styled, {css} from "styled-components";
 import {InputBaseColors} from "../../styles/colors";
 
-
-
 const BaseInputCss = css<InputProps>`
   font-size: 16px;
   font-weight: 400;
@@ -46,5 +44,6 @@ export const TextArea = styled.textarea<TextAreaProps>`
 
 export const Select = styled.select<InputProps>`
   ${BaseInputCss};
+  font-size: 14px;
   text-overflow: ellipsis;
 ` as React.FunctionComponent<React.DetailedHTMLProps<React.SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>  & InputProps>;

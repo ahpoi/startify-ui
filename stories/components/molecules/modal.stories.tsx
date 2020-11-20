@@ -4,7 +4,7 @@ import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 
 // @ts-ignore
 export default {
-  title: "Modal",
+  title: "Molecules/Modal",
   component: Modal
 };
 
@@ -30,7 +30,7 @@ export const modal = () => {
   </StoriesDefaultThemeProvider>;
 };
 
-export const modalError = () => {
+export const errorModal = () => {
   const [isModalVisible, setModalVisible] = React.useState(false);
   return <StoriesDefaultThemeProvider>
     <div>
@@ -43,7 +43,7 @@ export const modalError = () => {
   </StoriesDefaultThemeProvider>;
 };
 
-export const modalErrorTryAgain = () => {
+export const tryAgainModal = () => {
   const [isModalVisible, setModalVisible] = React.useState(false);
   return <StoriesDefaultThemeProvider>
     <div>

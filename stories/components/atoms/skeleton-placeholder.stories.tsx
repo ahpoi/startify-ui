@@ -1,9 +1,10 @@
-import {Horizontal, Panel, SkeletonPlaceholder, Stretch, Vertical} from "../../../src";
+import {Horizontal, SkeletonPlaceholder, Stretch, Vertical} from "../../../src";
 import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 import * as React from "react";
 
 export default {
-  title: "Skeleton Placeholder",
+  title: "Atoms/Skeleton Placeholder",
+  component: SkeletonPlaceholder
 };
 
 export const circlePlaceholder = () =>
@@ -18,7 +19,7 @@ export const textPlaceholder = () =>
 
 export const panelPlaceholder = () =>
     <StoriesDefaultThemeProvider>
-      <Panel>
+      <div>
         <Horizontal verticalAlign={"center"}>
           <SkeletonPlaceholder style={{ width: "50px", height: "50px", borderRadius: "50%" }}/>
           <Stretch>
@@ -29,5 +30,5 @@ export const panelPlaceholder = () =>
             </Vertical>
           </Stretch>
         </Horizontal>
-      </Panel>
+      </div>
     </StoriesDefaultThemeProvider>;

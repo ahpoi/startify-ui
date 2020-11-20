@@ -3,7 +3,7 @@ import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 import * as React from "react";
 
 export default {
-  title: "Divider",
+  title: "Atoms/Divider",
   component: HorizontalDivider
 };
 

@@ -3,7 +3,7 @@ import {Button, Horizontal} from "../../../src";
 import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 
 export default {
-  title: "Button",
+  title: "Atoms/Button",
   component: Button
 };
 

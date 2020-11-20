@@ -22,9 +22,10 @@ export const FieldErrorMessage = styled.div`
   transition: color .2s;
 `;
 
-const Label = styled.label<{ error?: boolean }>`
+export const Label = styled.label<{ error?: boolean }>`
   font-size: ${({ theme }) => (theme.typography.text.medium)};
-  font-weight: 400;
+  font-weight: 500;
   color: ${({ theme, error }) => (error ? theme.color.error : theme.color.textDark)};
-  line-height: 24px;
-`;
+  line-height: 30px;
+  display: block;
+` as React.FunctionComponent<React.DetailedHTMLProps<React.LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement> & FieldLabelProps>;

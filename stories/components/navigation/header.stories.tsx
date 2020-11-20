@@ -11,7 +11,7 @@ import {
 } from "../../../src";
 
 export default {
-  title: "Navigation - Header",
+  title: "Navigation/Header",
   component: DesktopHeader
 };
 

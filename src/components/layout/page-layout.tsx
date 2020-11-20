@@ -115,7 +115,7 @@ export const Footer = styled.footer`
 ` as React.FunctionComponent<React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>>;
 
 /**
- * Landing Pages are sometimes have full width images..etc
+ * Landing Pages sometimes have full width images..etc
  * So we want it to be controlled by the LandingSection component
  */
 export const LandingPageBody = styled.main.attrs({
@@ -131,13 +131,12 @@ type LandingPageSectionProps = {
   children: React.ReactNode;
 } & BaseWidthProps
 
-export const LandingPageSection = (props: LandingPageSectionProps) => {
-  return <Content style={{ width: "100%", backgroundColor: props.backgroundColor }}>
-    <StyledLandingPageSection {...props}>
-      {props.children}
-    </StyledLandingPageSection>
-  </Content>;
-};
+export const LandingPageSection = (props: LandingPageSectionProps) =>
+    <Content style={{ width: "100%", backgroundColor: props.backgroundColor }}>
+      <StyledLandingPageSection {...props}>
+        {props.children}
+      </StyledLandingPageSection>
+    </Content>;
 
 const StyledLandingPageSection = styled.section.attrs({
   "data-comment": "page-section"

@@ -4,7 +4,7 @@ import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 
 // @ts-ignore
 export default {
-  title: "Badge",
+  title: "Atoms/Badge",
   component: Badge
 };
 

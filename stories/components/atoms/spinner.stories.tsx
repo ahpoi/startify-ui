@@ -3,7 +3,7 @@ import * as React from "react";
 import {DotSpinner, PageSpinner, Spinner} from "../../../src/components/atoms/spinner";
 
 export default {
-  title: "Spinner",
+  title: "Atoms/Spinner",
   component: Spinner
 };
 
@@ -26,4 +26,3 @@ export const fullPageDotsSpinner = () =>
     <StoriesDefaultThemeProvider>
       <PageSpinner variant={"dots"}/>
     </StoriesDefaultThemeProvider>;
-
