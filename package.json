@@ -30,6 +30,8 @@
     "@types/react-dom": "^16.9.10",
     "@types/styled-components": "^5.1.5",
     "babel-loader": "^8.2.2",
+    "husky": "^4.3.5",
+    "lint-staged": "^10.5.3",
     "prettier": "2.2.1",
     "react": "^16.14.0",
     "react-docgen-typescript-loader": "^3.7.2",
@@ -42,5 +44,13 @@
     "react": ">=16.13.1",
     "react-dom": ">=16.13.1",
     "styled-components": "^5.1.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
   }
 }
