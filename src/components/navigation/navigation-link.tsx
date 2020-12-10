@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled, {css} from "styled-components";
 import {calculateUnit} from "../..";
-import * as CSS from "csstype";
+import {Property} from "csstype";
 
 type LinkProps = {
   children: React.ReactNode
@@ -35,7 +35,7 @@ export const NavigationLink = styled.a<LinkProps>`
 ` as React.FunctionComponent<LinkProps & AnchorPrimitiveType>;
 
 type SideBarItemProps = {
-  padding?: CSS.PaddingProperty<any>
+  padding?: Property.Padding<any>
 } & LinkProps
 
 export const SidebarItemLink = styled.a<SideBarItemProps>`
@@ -50,7 +50,7 @@ export const SidebarItemLink = styled.a<SideBarItemProps>`
   } 
 ` as React.FunctionComponent<SideBarItemProps & AnchorPrimitiveType>;
 
-export const SidebarItemContainer = (props: { padding?: CSS.PaddingProperty<any>, children: React.ReactNode, onClick?: () => void }) =>
+export const SidebarItemContainer = (props: { padding?: Property.Padding<any>, children: React.ReactNode, onClick?: () => void }) =>
     <div style={{ padding: props.padding ?? "14px 24px" }} onClick={props.onClick}>
       {props.children}
     </div>;

@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as CSS from "csstype";
+import {Property} from "csstype";
 import {Text} from "../atoms/typography";
 import {Horizontal, Vertical} from "../layout/gls/gls";
 import {LinkButton} from "../..";
@@ -48,7 +48,7 @@ export const BackButton = ({ onClick, text }: BackButtonProps) => {
 interface PoweredByProps {
   name: string;
   url: string
-  fontSize?: CSS.FontSizeProperty<any>
+  fontSize?: Property.FontSize<any>
   logo: React.ReactNode
 }
 
@@ -69,8 +69,8 @@ export const PoweredBy = ({ name, url, logo, fontSize = "8px" }: PoweredByProps)
 );
 
 interface DotProps {
-  color: CSS.ColorProperty,
-  size?: CSS.FontSizeProperty<any>
+  color: Property.Color,
+  size?: Property.FontSize<any>
 }
 
 /**
@@ -117,9 +117,9 @@ export const Chevron = ({ open = false, size = 24, color = "grey" }: { open?: bo
 interface HeaderLogoProps {
   name: string;
   logo: React.ReactNode,
-  fontSize?: CSS.FontSizeProperty<any>
-  fontWeight?: CSS.FontWeightProperty
-  color?: CSS.ColorProperty,
+  fontSize?: Property.FontSize<any>
+  fontWeight?: Property.FontWeight
+  color?: Property.Color,
   onClick: () => any;
 }
 

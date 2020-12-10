@@ -2,7 +2,7 @@ import * as React from "react";
 import styled, {useTheme} from "styled-components";
 import {calculateUnit, CommonColors} from "../..";
 import {Spinner} from "./spinner";
-import * as CSS from "csstype";
+import {Property} from "csstype";
 
 export type ButtonVariantType = | "primary" | "primaryOutlined" | "primaryOutlinedFilled"
     | "secondary" | "secondaryOutlined" | "secondaryOutlinedFilled"
@@ -156,10 +156,10 @@ const useButtonVariant = () => {
 };
 
 interface SizeVariant {
-  fontSize: CSS.FontSizeProperty<any>;
-  fontWeight: CSS.FontWeightProperty;
+  fontSize: Property.FontSize<any>;
+  fontWeight: Property.FontWeight;
   padding: string;
-  borderRadius: CSS.BorderRadiusProperty<any>
+  borderRadius: Property.BorderRadius<any>
 }
 
 interface ButtonVariant {
@@ -174,7 +174,7 @@ interface ButtonVariant {
 type StyledButtonProps =
     ButtonVariant
     & SizeVariant
-    & { isLoading?: boolean, borderRadius: CSS.BorderRadiusProperty<any> }
+    & { isLoading?: boolean, borderRadius: Property.BorderRadius<any> }
 
 const StyledButton = styled.button<StyledButtonProps>`
   position: relative;

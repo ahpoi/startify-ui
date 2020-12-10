@@ -1,26 +1,26 @@
 import * as React from "react";
-import * as CSS from "csstype";
+import {Property} from "csstype";
 
 import styled from "styled-components";
 import {calculateUnit} from "../..";
-import {DivPrimitiveProps} from "../others/types";
+import {DivProps} from "../others/types";
 
 interface HorizontalProps {
-  height?: CSS.HeightProperty<any>;
-  color?: CSS.ColorProperty
+  height?: Property.Height<any>;
+  color?: Property.Color
 }
 
 export const HorizontalDivider = styled.div<HorizontalProps>`
   border-bottom: ${({ height }) => calculateUnit(height ?? 1)} solid ${({ color }) => color ?? "#EFF2F7"}};
-` as React.FunctionComponent<HorizontalProps & DivPrimitiveProps>;
+` as React.FunctionComponent<HorizontalProps & DivProps>;
 
 interface VerticalProps {
-  height?: CSS.HeightProperty<any>;
-  width?: CSS.WidthProperty<any>;
-  color?: CSS.ColorProperty
+  height?: Property.Height<any>;
+  width?: Property.Width<any>;
+  color?: Property.Color
 }
 
 export const VerticalDivider = styled.div<VerticalProps>`
   border-left: ${(props) => calculateUnit(props.width ?? 1)} solid ${(props) => props.color ?? "#EFF2F7"};
   height: ${(props) => calculateUnit(props.height ?? "100%")};
-` as React.FunctionComponent<VerticalProps & DivPrimitiveProps>;
+` as React.FunctionComponent<VerticalProps & DivProps>;

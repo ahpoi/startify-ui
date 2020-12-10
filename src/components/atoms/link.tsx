@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as CSS from "csstype";
+import {Property} from "csstype";
 
 import styled, {css, useTheme} from "styled-components";
 
@@ -31,8 +31,8 @@ export const LinkButton = ({ onClick, children, underline = false, variant = "se
 };
 
 type LinkVariant = {
-  color: CSS.ColorProperty
-  colorOnHover: CSS.ColorProperty
+  color: Property.Color
+  colorOnHover: Property.Color
 }
 
 const useStyleVariant = () => {

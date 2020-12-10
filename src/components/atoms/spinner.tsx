@@ -1,13 +1,13 @@
 import * as React from "react";
-import * as CSS from "csstype";
+import {Property} from "csstype";
 
 import styled from "styled-components";
 import {BoxUnit, calculateUnit, Horizontal} from "../..";
-import {DivPrimitiveProps} from "../others/types";
+import {DivProps} from "../others/types";
 
 interface PageSpinner {
   variant?: "circular" | "dots"
-  color?: CSS.ColorProperty
+  color?: Property.Color
   size?: BoxUnit
   borderWidth?: BoxUnit
 }
@@ -34,7 +34,7 @@ const StyledFullScreen = styled.div`
 `;
 
 interface SpinnerProps {
-  color?: CSS.ColorProperty
+  color?: Property.Color
   size?: BoxUnit
   borderWidth?: BoxUnit
 }
@@ -65,7 +65,7 @@ export const Spinner = styled.div<SpinnerProps>`
 
 
 type DotsSpinner = {
-  color?: CSS.ColorProperty
+  color?: Property.Color
   size?: BoxUnit
 }
 
@@ -96,5 +96,5 @@ const Dot = styled.div<DotsSpinner & { animationDelay: string }>`
       transform: scale(1.0);
     }
   }
-` as React.FunctionComponent<DotsSpinner & { animationDelay: string } & DivPrimitiveProps>;
+` as React.FunctionComponent<DotsSpinner & { animationDelay: string } & DivProps>;
 

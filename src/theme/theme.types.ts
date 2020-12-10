@@ -10,6 +10,7 @@ export interface ColorTheme {
   primaryDark: string;
   secondary: string;
   secondaryDark: string;
+
   error: string;
   errorDark: string;
 

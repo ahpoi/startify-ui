@@ -1,9 +1,9 @@
 import * as React from "react";
-import * as CSS from "csstype";
+import {Property} from "csstype";
 
 import styled, {css} from "styled-components";
 import {calculateUnit, content, vertical} from "./gls/box";
-import {DivPrimitiveProps} from "../others/types";
+import {DivProps} from "../others/types";
 import {Breakpoints, MaxWidths, Spaces} from "../../styles/sizes";
 import {Content} from "./gls/gls";
 import {fadeIn} from "../others/animations";
@@ -13,7 +13,7 @@ export type BaseWidthProps = {
 }
 
 export type BackgroundColorProps = {
-  backgroundColor?: CSS.BackgroundColorProperty
+  backgroundColor?: Property.BackgroundColor
 }
 
 const cssFullWH = css`
@@ -57,7 +57,7 @@ export const PageRoot = styled.div.attrs({
  ${cssFullWH}
  ${vertical}
  flex: 1;
-` as React.FunctionComponent<DivPrimitiveProps>;
+` as React.FunctionComponent<DivProps>;
 
 type PageBodyProps = {
   centered?: boolean;

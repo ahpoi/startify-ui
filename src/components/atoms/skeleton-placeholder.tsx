@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import styled from "styled-components";
-import {DivPrimitiveProps} from "../others/types";
+import {DivProps} from "../others/types";
 
 //https://cloudcannon.com/deconstructions/2014/11/15/facebook-content-placeholder-deconstruction.html
 
@@ -27,4 +27,4 @@ export const SkeletonPlaceholder = styled.div`
           background-position: 468px 0
       }
     } 
-` as React.FunctionComponent<DivPrimitiveProps>;
+` as React.FunctionComponent<DivProps>;

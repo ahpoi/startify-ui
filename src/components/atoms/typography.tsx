@@ -1,29 +1,29 @@
 import * as React from "react";
-import * as CSS from "csstype";
+import {Property} from "csstype";
 
 import styled, {css} from "styled-components";
 import {Breakpoints} from "../../styles/sizes";
-import {DivPrimitiveProps} from "../others/types";
+import {DivProps} from "../others/types";
 
 type HeadingPrimitiveType = React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>
 
 interface BaseTypographyProps {
   children: React.ReactNode;
-  fontFamily?: CSS.FontFamilyProperty;
+  fontFamily?: Property.FontFamily;
   fontWeight?: "light" | "normal" | "medium" | "bold"
-  textAlign?: CSS.TextAlignProperty;
-  color?: CSS.Color
+  textAlign?: Property.TextAlign;
+  color?: Property.Color
 }
 
 export interface HeadingProps extends BaseTypographyProps {
   fontSize?: {
-    web?: CSS.FontSizeProperty<any>;
-    mobile?: CSS.FontSizeProperty<any>;
+    web?: Property.FontSize<any>;
+    mobile?: Property.FontSize<any>;
   }
 }
 
 export interface TextProps extends BaseTypographyProps {
-  fontSize?: CSS.FontSizeProperty<any>
+  fontSize?: Property.FontSize<any>
   size?: "small" | "medium" | "large"
 }
 
@@ -32,7 +32,7 @@ const base = css<HeadingProps | TextProps>`
   font-weight: ${(props) => props.theme.typography.fontWeight[props?.fontWeight ?? "normal"]};
   text-align: ${(props) => props.textAlign};
   margin: 0px;
-`
+`;
 export const Heading1 = styled.h1<HeadingProps>`
   ${base}
   font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.one.web};
@@ -103,12 +103,12 @@ export const ListItem = styled.li<TextProps>`
 
 export const Text = styled.div`
   ${textCss}
-` as React.FunctionComponent<TextProps & DivPrimitiveProps>;
+` as React.FunctionComponent<TextProps & DivProps>;
 
 export const SmallText = styled.div`
   ${textCss}
   font-size: ${(props) => props.theme.typography.text.small};
-` as React.FunctionComponent<TextProps & DivPrimitiveProps>;
+` as React.FunctionComponent<TextProps & DivProps>;
 
 const TypographyVariants = {
   heading: {
