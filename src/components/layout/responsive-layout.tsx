@@ -1,19 +1,21 @@
 import * as React from "react";
-import {debounce} from "../../utils/common.utils";
+import { debounce } from "../../utils/common.utils";
 
 export interface Props {
-  renderMobile?: () => React.ReactElement<any>,
-  renderDesktop?: () => React.ReactElement<any>,
-  breakpoint?: number
+  renderMobile?: () => React.ReactElement<any>;
+  renderDesktop?: () => React.ReactElement<any>;
+  breakpoint?: number;
 }
 
 export class ResponsiveLayout extends React.Component<Props> {
   dispose: Function = () => null;
 
   componentDidMount() {
-    this.dispose = optimizedResize.on(debounce(() => {
-      this.forceUpdate();
-    }, 100)).dispose;
+    this.dispose = optimizedResize.on(
+      debounce(() => {
+        this.forceUpdate();
+      }, 100)
+    ).dispose;
   }
 
   componentWillUnmount() {
@@ -34,7 +36,7 @@ export class ResponsiveLayout extends React.Component<Props> {
 
 const optimizedResize = (function () {
   var callbacks: any[] = [],
-      running = false;
+    running = false;
   var addedFirst = false;
 
   function resize() {
@@ -79,8 +81,6 @@ const optimizedResize = (function () {
     },
     off: (callback: any) => {
       removeCallback(callback);
-    }
+    },
   };
-}());
-
-
+})();

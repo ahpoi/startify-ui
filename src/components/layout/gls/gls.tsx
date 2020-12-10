@@ -3,15 +3,16 @@ import * as React from "react";
 import styled from "styled-components";
 import {
   BoxUnit,
-  calculateUnit, content,
+  calculateUnit,
+  content,
   contentHorizontal,
   contentVertical,
   defaultSpace,
   horizontallySpaced,
-  verticallySpaced
+  verticallySpaced,
 } from "./box";
-import {DivProps} from "../../others/types";
-import {Breakpoints} from "../../../styles/sizes";
+import { DivProps } from "../../others/types";
+import { Breakpoints } from "../../../styles/sizes";
 
 /**
  * Minimised version of gls https://github.com/basarat/gls as its just too good! 🌹
@@ -19,75 +20,98 @@ import {Breakpoints} from "../../../styles/sizes";
  */
 export interface SpacingProps {
   /** Spacing between each child */
-  spacing?: BoxUnit,
+  spacing?: BoxUnit;
 }
 
 export interface StretchProps {
-  sizing?: number,
+  sizing?: number;
 }
 
 export interface HorizontalsAlignProps extends SpacingProps {
-  verticalAlign?: "top" | "center" | "bottom" | "baseline",
-  horizontalAlign?: "left" | "center" | "right",
+  verticalAlign?: "top" | "center" | "bottom" | "baseline";
+  horizontalAlign?: "left" | "center" | "right";
 }
 
 export const Horizontal = styled.div.attrs({
-  "data-comment": "Horizontal"
+  "data-comment": "Horizontal",
 })<HorizontalsAlignProps>`
- ${horizontallySpaced}
- ${contentHorizontal}
- ${({ horizontalAlign }) => horizontalAlign === "left" && `
+  ${horizontallySpaced}
+  ${contentHorizontal}
+ ${({ horizontalAlign }) =>
+    horizontalAlign === "left" &&
+    `
     justify-content: flex-start;
  `};
- ${({ horizontalAlign }) => horizontalAlign === "center" && `
+  ${({ horizontalAlign }) =>
+    horizontalAlign === "center" &&
+    `
     justify-content: center;
  `};
- ${({ horizontalAlign }) => horizontalAlign === "right" && `
+  ${({ horizontalAlign }) =>
+    horizontalAlign === "right" &&
+    `
     justify-content: flex-end;
  `};
- ${({ verticalAlign }) => verticalAlign === "top" && `
+  ${({ verticalAlign }) =>
+    verticalAlign === "top" &&
+    `
     align-items: flex-start;
  `};
- ${({ verticalAlign }) => verticalAlign === "center" && `
+  ${({ verticalAlign }) =>
+    verticalAlign === "center" &&
+    `
     align-items: center;
  `};
- ${({ verticalAlign }) => verticalAlign === "bottom" && `
+  ${({ verticalAlign }) =>
+    verticalAlign === "bottom" &&
+    `
     align-items: flex-end;
  `};
- ${({ verticalAlign }) => verticalAlign === "baseline" && `
+  ${({ verticalAlign }) =>
+    verticalAlign === "baseline" &&
+    `
     align-items: baseline;
  `};
 ` as React.FunctionComponent<HorizontalsAlignProps & DivProps>;
 Horizontal.displayName = "Horizontal";
 
 export interface VerticalAlignProps extends SpacingProps {
-  verticalAlign?: "center" | "bottom",
-  horizontalAlign?: "left" | "center" | "right",
+  verticalAlign?: "center" | "bottom";
+  horizontalAlign?: "left" | "center" | "right";
 }
 
 export const Vertical = styled.div.attrs({
-  "data-comment": "Vertical"
+  "data-comment": "Vertical",
 })<VerticalAlignProps>`
- ${verticallySpaced}
- ${contentVertical}
- ${({ verticalAlign }) => verticalAlign === "center" && `
+  ${verticallySpaced}
+  ${contentVertical}
+ ${({ verticalAlign }) =>
+    verticalAlign === "center" &&
+    `
     justify-content: center;
  `};
- ${({ verticalAlign }) => verticalAlign === "bottom" && `
+  ${({ verticalAlign }) =>
+    verticalAlign === "bottom" &&
+    `
     justify-content: flex-end;
  `};
- ${({ horizontalAlign }) => horizontalAlign === "left" && `
+  ${({ horizontalAlign }) =>
+    horizontalAlign === "left" &&
+    `
     align-items: flex-start;
  `};
- ${({ horizontalAlign }) => horizontalAlign === "center" && `
+  ${({ horizontalAlign }) =>
+    horizontalAlign === "center" &&
+    `
     align-items: center;
  `};
- ${({ horizontalAlign }) => horizontalAlign === "right" && `
+  ${({ horizontalAlign }) =>
+    horizontalAlign === "right" &&
+    `
     align-items: flex-end;
  `};
 ` as React.FunctionComponent<VerticalAlignProps & DivProps>;
 Vertical.displayName = "Vertical";
-
 
 interface ResponsiveProps {
   vertical?: VerticalAlignProps;
@@ -99,49 +123,73 @@ interface ResponsiveProps {
  * Improvement: Reuse CSS from Horizontal and Vertical layout
  */
 export const Responsive = styled.div.attrs({
-  "data-comment": "Responsive"
+  "data-comment": "Responsive",
 })<ResponsiveProps>`
   @media (max-width: ${Breakpoints.small}px) {
-     ${verticallySpaced}
-     ${contentVertical}
-     ${({ vertical }) => vertical?.verticalAlign === "center" && `
+    ${verticallySpaced}
+    ${contentVertical}
+     ${({ vertical }) =>
+      vertical?.verticalAlign === "center" &&
+      `
         justify-content: center;
      `};
-     ${({ vertical }) => vertical?.verticalAlign === "bottom" && `
+    ${({ vertical }) =>
+      vertical?.verticalAlign === "bottom" &&
+      `
         justify-content: flex-end;
      `};
-     ${({ vertical }) => vertical?.horizontalAlign === "left" && `
+    ${({ vertical }) =>
+      vertical?.horizontalAlign === "left" &&
+      `
         align-items: flex-start;
      `};
-     ${({ vertical }) => vertical?.horizontalAlign === "center" && `
+    ${({ vertical }) =>
+      vertical?.horizontalAlign === "center" &&
+      `
         align-items: center;
      `};
-     ${({ vertical }) => vertical?.horizontalAlign === "right" && `
+    ${({ vertical }) =>
+      vertical?.horizontalAlign === "right" &&
+      `
         align-items: flex-end;
      `};
   }
   @media (min-width: ${Breakpoints.small + 1}px) {
-     ${horizontallySpaced}
-     ${contentHorizontal}
-     ${({ horizontal }) => horizontal?.horizontalAlign === "left" && `
+    ${horizontallySpaced}
+    ${contentHorizontal}
+     ${({ horizontal }) =>
+      horizontal?.horizontalAlign === "left" &&
+      `
         justify-content: flex-start;
      `};
-     ${({ horizontal }) => horizontal?.horizontalAlign === "center" && `
+    ${({ horizontal }) =>
+      horizontal?.horizontalAlign === "center" &&
+      `
         justify-content: center;
      `};
-     ${({ horizontal }) => horizontal?.horizontalAlign === "right" && `
+    ${({ horizontal }) =>
+      horizontal?.horizontalAlign === "right" &&
+      `
         justify-content: flex-end;
      `};
-     ${({ horizontal }) => horizontal?.verticalAlign === "top" && `
+    ${({ horizontal }) =>
+      horizontal?.verticalAlign === "top" &&
+      `
         align-items: flex-start;
      `};
-     ${({ horizontal }) => horizontal?.verticalAlign === "center" && `
+    ${({ horizontal }) =>
+      horizontal?.verticalAlign === "center" &&
+      `
         align-items: center;
      `};
-     ${({ horizontal }) => horizontal?.verticalAlign === "bottom" && `
+    ${({ horizontal }) =>
+      horizontal?.verticalAlign === "bottom" &&
+      `
         align-items: flex-end;
      `};
-     ${({ horizontal }) => horizontal?.verticalAlign === "baseline" && `
+    ${({ horizontal }) =>
+      horizontal?.verticalAlign === "baseline" &&
+      `
         align-items: baseline;
      `};
   }
@@ -152,14 +200,14 @@ Vertical.displayName = "Responsive";
  * Spacers
  */
 export const StretchSpacer = styled.div.attrs({
-  "data-comment": "StretchSpacer"
+  "data-comment": "StretchSpacer",
 })<StretchProps>`
   flex: ${(props) => props.sizing || 1};
 ` as React.FunctionComponent<StretchProps & DivProps>;
 StretchSpacer.displayName = "StretchSpacer";
 
 export const HorizontalSpacer = styled.div.attrs({
-  "data-comment": "HorizontalSpacer"
+  "data-comment": "HorizontalSpacer",
 })<SpacingProps>`
   display: inline-block;
   width: ${(props) => calculateUnit(props.spacing ?? defaultSpace)}};
@@ -167,7 +215,7 @@ export const HorizontalSpacer = styled.div.attrs({
 HorizontalSpacer.displayName = "HorizontalSpacer";
 
 export const VerticalSpacer = styled.div.attrs({
-  "data-comment": "VerticalSpacer"
+  "data-comment": "VerticalSpacer",
 })<SpacingProps>`
   height: ${(props) => calculateUnit(props.spacing ?? defaultSpace)}};
 ` as React.FunctionComponent<SpacingProps & DivProps>;
@@ -180,13 +228,13 @@ VerticalSpacer.displayName = "VerticalSpacer";
  Stretch into the parent container.
  */
 export const Content = styled.div.attrs({
-  "data-comment": "Content"
+  "data-comment": "Content",
 })`
- ${content}
+  ${content}
 ` as React.FunctionComponent<DivProps>;
 
 export const Stretch = styled.div.attrs({
-  "data-comment": "Stretch"
+  "data-comment": "Stretch",
 })<{ sizing?: number }>`
   flex: ${(props) => props.sizing || 1};
 ` as React.FunctionComponent<StretchProps & DivProps>;

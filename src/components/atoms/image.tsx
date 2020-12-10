@@ -7,5 +7,5 @@ export interface ImageProps {
 }
 
 export const Image = ({ imgSrc, imgAlt = "", className }: ImageProps) => (
-    <img src={imgSrc} alt={imgAlt} className={className}/>
+  <img src={imgSrc} alt={imgAlt} className={className} />
 );

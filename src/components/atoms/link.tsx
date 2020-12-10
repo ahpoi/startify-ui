@@ -1,39 +1,61 @@
 import * as React from "react";
-import {Property} from "csstype";
+import { Property } from "csstype";
 
-import styled, {css, useTheme} from "styled-components";
+import styled, { css, useTheme } from "styled-components";
 
 interface LinkProps {
   href: string;
-  target?: string
+  target?: string;
   onClick?: () => any;
   underline?: boolean;
-  children: React.ReactNode
-  variant?: "primary" | "secondary" | "text"
-  customVariant?: LinkVariant,
-  size?: "small" | "medium" | "large"
+  children: React.ReactNode;
+  variant?: "primary" | "secondary" | "text";
+  customVariant?: LinkVariant;
+  size?: "small" | "medium" | "large";
 }
 
-export type LinkButtonProps = Omit<LinkProps, "target" | "href">
+export type LinkButtonProps = Omit<LinkProps, "target" | "href">;
 
-export const Link = ({ href, onClick, underline = false, children, variant = "secondary", customVariant, size = "medium", target = "_blank" }: LinkProps) => {
+export const Link = ({
+  href,
+  onClick,
+  underline = false,
+  children,
+  variant = "secondary",
+  customVariant,
+  size = "medium",
+  target = "_blank",
+}: LinkProps) => {
   const linkVariant: LinkVariant = customVariant ?? useStyleVariant()[variant];
   const styledProps = { ...linkVariant, ...useSizeVariant()[size] };
-  return <StyledLink href={href} target={target} underline={underline}
-                     onClick={onClick} {...styledProps}>{children}</StyledLink>;
+  return (
+    <StyledLink href={href} target={target} underline={underline} onClick={onClick} {...styledProps}>
+      {children}
+    </StyledLink>
+  );
 };
 
-export const LinkButton = ({ onClick, children, underline = false, variant = "secondary", customVariant, size = "medium" }: LinkButtonProps) => {
+export const LinkButton = ({
+  onClick,
+  children,
+  underline = false,
+  variant = "secondary",
+  customVariant,
+  size = "medium",
+}: LinkButtonProps) => {
   const linkVariant: LinkVariant = customVariant ?? useStyleVariant()[variant];
   const styledProps = { ...linkVariant, ...useSizeVariant()[size] };
-  return <StyledLinkButton type={"button"} underline={underline}
-                           onClick={onClick} {...styledProps}>{children}</StyledLinkButton>;
+  return (
+    <StyledLinkButton type={"button"} underline={underline} onClick={onClick} {...styledProps}>
+      {children}
+    </StyledLinkButton>
+  );
 };
 
 type LinkVariant = {
-  color: Property.Color
-  colorOnHover: Property.Color
-}
+  color: Property.Color;
+  colorOnHover: Property.Color;
+};
 
 const useStyleVariant = () => {
   const { primary, primaryDark, secondary, secondaryDark, textMid, textDark } = useTheme().color;
@@ -49,7 +71,7 @@ const useStyleVariant = () => {
     secondary: {
       color: secondary,
       colorOnHover: secondaryDark,
-    }
+    },
   };
 };
 
@@ -67,7 +89,7 @@ const useSizeVariant = () => {
     large: {
       fontSize: typography.text.large,
       fontWeight: "normal",
-    }
+    },
   };
 };
 
@@ -89,7 +111,7 @@ const StyledLinkBasedCss = css<StyledLinkProps>`
    color: ${(props) => props.color};
    font-size: ${(props) => props.fontSize};
    font-weight: ${(props) => props.fontWeight};
-   text-decoration: ${(props) => props.underline ? "underline" : "none!important"};
+   text-decoration: ${(props) => (props.underline ? "underline" : "none!important")};
    &:hover,
    &:focus,
    &:active {
@@ -98,9 +120,9 @@ const StyledLinkBasedCss = css<StyledLinkProps>`
 `;
 
 const StyledLink = styled.a<StyledLinkProps>`
-   ${StyledLinkBasedCss}
+  ${StyledLinkBasedCss}
 `;
 
 const StyledLinkButton = styled.button<StyledLinkProps>`
-   ${StyledLinkBasedCss}
+  ${StyledLinkBasedCss}
 `;

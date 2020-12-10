@@ -8,8 +8,7 @@ export const MaxWidths = {
   header: 1140,
   footer: 1140,
 
-  pageContent: 960
-
+  pageContent: 960,
 };
 
 export const Spaces = {
@@ -30,5 +29,5 @@ export const Breakpoints = {
   small: 576,
   medium: 768,
   large: 970,
-  xLarge: 1200
+  xLarge: 1200,
 };

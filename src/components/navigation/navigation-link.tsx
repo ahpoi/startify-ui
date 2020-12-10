@@ -1,27 +1,27 @@
 import * as React from "react";
-import styled, {css} from "styled-components";
-import {calculateUnit} from "../..";
-import {Property} from "csstype";
+import styled, { css } from "styled-components";
+import { calculateUnit } from "../..";
+import { Property } from "csstype";
 
 type LinkProps = {
-  children: React.ReactNode
+  children: React.ReactNode;
   color?: string;
   fontSize?: string;
   fontWeight?: number;
-}
+};
 
 const cssBaseLink = css<LinkProps>`
-   background: transparent;
-   border: none;
-   outline: none;
-   cursor: pointer;
-   text-decoration: none!important;
-   color: ${(props) => props?.color ?? props.theme.color.textMid};
-   font-size: ${(props) => calculateUnit(props?.fontSize ?? props.theme.typography.text.medium)};
-   font-weight: ${(props) => props?.fontWeight ?? props.theme.typography.fontWeight.medium};
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none !important;
+  color: ${(props) => props?.color ?? props.theme.color.textMid};
+  font-size: ${(props) => calculateUnit(props?.fontSize ?? props.theme.typography.text.medium)};
+  font-weight: ${(props) => props?.fontWeight ?? props.theme.typography.fontWeight.medium};
 `;
 
-type AnchorPrimitiveType = React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>
+type AnchorPrimitiveType = React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>;
 
 export const NavigationLink = styled.a<LinkProps>`
    ${cssBaseLink}
@@ -35,13 +35,13 @@ export const NavigationLink = styled.a<LinkProps>`
 ` as React.FunctionComponent<LinkProps & AnchorPrimitiveType>;
 
 type SideBarItemProps = {
-  padding?: Property.Padding<any>
-} & LinkProps
+  padding?: Property.Padding<any>;
+} & LinkProps;
 
 export const SidebarItemLink = styled.a<SideBarItemProps>`
    ${cssBaseLink}
    display: block;
-   padding ${props => props.padding ?? "14px 24px"};
+   padding ${(props) => props.padding ?? "14px 24px"};
    text-align: left;
    &:hover,
    &:focus,
@@ -50,7 +50,12 @@ export const SidebarItemLink = styled.a<SideBarItemProps>`
   } 
 ` as React.FunctionComponent<SideBarItemProps & AnchorPrimitiveType>;
 
-export const SidebarItemContainer = (props: { padding?: Property.Padding<any>, children: React.ReactNode, onClick?: () => void }) =>
-    <div style={{ padding: props.padding ?? "14px 24px" }} onClick={props.onClick}>
-      {props.children}
-    </div>;
+export const SidebarItemContainer = (props: {
+  padding?: Property.Padding<any>;
+  children: React.ReactNode;
+  onClick?: () => void;
+}) => (
+  <div style={{ padding: props.padding ?? "14px 24px" }} onClick={props.onClick}>
+    {props.children}
+  </div>
+);

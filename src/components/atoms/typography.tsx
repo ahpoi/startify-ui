@@ -1,30 +1,30 @@
 import * as React from "react";
-import {Property} from "csstype";
+import { Property } from "csstype";
 
-import styled, {css} from "styled-components";
-import {Breakpoints} from "../../styles/sizes";
-import {DivProps} from "../others/types";
+import styled, { css } from "styled-components";
+import { Breakpoints } from "../../styles/sizes";
+import { DivProps } from "../others/types";
 
-type HeadingPrimitiveType = React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>
+type HeadingPrimitiveType = React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
 interface BaseTypographyProps {
   children: React.ReactNode;
   fontFamily?: Property.FontFamily;
-  fontWeight?: "light" | "normal" | "medium" | "bold"
+  fontWeight?: "light" | "normal" | "medium" | "bold";
   textAlign?: Property.TextAlign;
-  color?: Property.Color
+  color?: Property.Color;
 }
 
 export interface HeadingProps extends BaseTypographyProps {
   fontSize?: {
     web?: Property.FontSize<any>;
     mobile?: Property.FontSize<any>;
-  }
+  };
 }
 
 export interface TextProps extends BaseTypographyProps {
-  fontSize?: Property.FontSize<any>
-  size?: "small" | "medium" | "large"
+  fontSize?: Property.FontSize<any>;
+  size?: "small" | "medium" | "large";
 }
 
 const base = css<HeadingProps | TextProps>`
@@ -85,7 +85,7 @@ const textCss = css<TextProps>`
   hyphens: manual;
 `;
 
-type ParagraphPrimitive = React.DetailedHTMLProps<React.LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>
+type ParagraphPrimitive = React.DetailedHTMLProps<React.LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>;
 
 export const Paragraph = styled.p<TextProps>`
   ${textCss}
@@ -114,23 +114,23 @@ const TypographyVariants = {
   heading: {
     one: {
       web: "36px",
-      mobile: "28px"
+      mobile: "28px",
     },
     two: {
       web: "30px",
-      mobile: "24px"
+      mobile: "24px",
     },
     three: {
       web: "26px",
-      mobile: "20px"
+      mobile: "20px",
     },
     four: {
       web: "20px",
-      mobile: "16px"
+      mobile: "16px",
     },
     five: {
       web: "16px",
-      mobile: "14px"
+      mobile: "14px",
     },
-  }
+  },
 };

@@ -52,7 +52,7 @@ export const InputBaseColors = {
   borderColor: "#EBEBEB",
   backgroundColor: "#ffffff",
   backgroundColorDisabled: "#f6f6f6",
-}
+};
 
 export const Shadow = {
   shadow1: "0px 1px 2px rgba(0, 0, 0, 0.1)",

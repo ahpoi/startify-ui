@@ -1,4 +1,4 @@
-import {css} from "styled-components";
+import { css } from "styled-components";
 
 /**
  * Minimised version of csstips (https://github.com/typestyle/csstips)
@@ -9,10 +9,10 @@ export const defaultSpace = 24;
 
 export type BoxUnit = number | string;
 
-export const calculateUnit = (value: BoxUnit): string => typeof value === "number" ? value.toString() + "px" : value;
+export const calculateUnit = (value: BoxUnit): string => (typeof value === "number" ? value.toString() + "px" : value);
 
 export const flexRoot = css`
- display: flex;
+  display: flex;
 `;
 
 /**
@@ -21,45 +21,44 @@ export const flexRoot = css`
  * Specifically bug 1 : https://github.com/philipwalton/flexbugs#1-minimum-content-sizing-of-flex-items-not-honored
  */
 export const content = css`
- flex-basis: auto;
- flex-shrink: 0;
+  flex-basis: auto;
+  flex-shrink: 0;
 `;
 
 export const vertical = css`
- ${flexRoot}
- flex-direction: column;
+  ${flexRoot}
+  flex-direction: column;
 `;
 
 export const horizontal = css`
- ${flexRoot}
- flex-direction: row;
+  ${flexRoot}
+  flex-direction: row;
 `;
 
 export const contentHorizontal = css`
- ${content}
- ${horizontal}
+  ${content}
+  ${horizontal}
 `;
 
 export const contentVertical = css`
- ${content}
- ${vertical}
+  ${content}
+  ${vertical}
 `;
 
 export const horizontallySpaced = css<{ spacing?: BoxUnit }>`
- & > * {
-   margin-right: ${props => calculateUnit(props.spacing ?? defaultSpace)} !important
- }
- & > *: last-child {
-   margin-right: 0px !important
- }
+  & > * {
+    margin-right: ${(props) => calculateUnit(props.spacing ?? defaultSpace)} !important;
+  }
+  &>*: last-child {
+    margin-right: 0px !important;
+  }
 `;
 
 export const verticallySpaced = css<{ spacing?: BoxUnit }>`
- & > * {
-   margin-bottom: ${props => calculateUnit(props.spacing ?? defaultSpace)} !important
- }
- & > *: last-child {
-   margin-bottom: 0px !important
- }
+  & > * {
+    margin-bottom: ${(props) => calculateUnit(props.spacing ?? defaultSpace)} !important;
+  }
+  &>*: last-child {
+    margin-bottom: 0px !important;
+  }
 `;
-

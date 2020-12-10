@@ -1,5 +1,4 @@
 export namespace FocusUtils {
-
   export function focusFirst(selector: string) {
     const element = document.querySelectorAll(selector);
     if (element.length) {
@@ -7,10 +6,9 @@ export namespace FocusUtils {
     }
   }
 
-  export const focusFirstErrorInput = (className: string) =>
-    focusFirst("." + className);
+  export const focusFirstErrorInput = (className: string) => focusFirst("." + className);
 }
 
 export function scrollToTop() {
-  typeof window !== 'undefined' && window.scrollTo(0, 0);
+  typeof window !== "undefined" && window.scrollTo(0, 0);
 }

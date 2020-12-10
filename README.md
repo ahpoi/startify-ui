@@ -1,13 +1,13 @@
 # startify-ui
 
-React components for faster and easier web development. 
+React components for faster and easier web development.
 
-This is a very simple component library where it provides the minimum, but enough to build beautiful UI by only proving the primary and secondary color. 
-Used by lots of my internal projects. 
+This is a very simple component library where it provides the minimum, but enough to build beautiful UI by only proving the primary and secondary color.
+Used by lots of my internal projects.
 
 Demo of the components can be found [here!](https://ahpoi.github.io/startify-ui/?path=/docs/inputs-button--button-styles)
 
-### Theme 
+### Theme
 
 We make use of styled-components theming support by exporting a <ThemeProvider> wrapper component. This component provides a theme to all React components underneath itself via the context API.
 
@@ -64,5 +64,5 @@ export const DefaultAppTheme: AppTheme = {
 <ThemeProvider theme={MainTheme}>
   <Button>Themed</Button>
 </ThemeProvider>
-    
+
 ```

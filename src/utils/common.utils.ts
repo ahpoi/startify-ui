@@ -39,21 +39,19 @@ export function debounce<T extends Function>(func: T, milliseconds: number, imme
   };
 }
 
-export const toTitleCase = (str: string) => str.replace(
-    /\w\S*/g,
-    function (txt) {
-      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-    }
-) ;
+export const toTitleCase = (str: string) =>
+  str.replace(/\w\S*/g, function (txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
 
-export const truncate = (input: string) => input?.length > 5 ? `${input.substring(0, 5)}...` : input;
+export const truncate = (input: string) => (input?.length > 5 ? `${input.substring(0, 5)}...` : input);
 
 export const getParameterByName = (name: string, url?: string) => {
   if (!url) url = window.location.href;
   /*eslint no-useless-escape: 0*/
   name = name.replace(/[\[\]]/g, "\\$&");
   var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-      results = regex.exec(url);
+    results = regex.exec(url);
   if (!results) return null;
   if (!results[2]) return "";
   return decodeURIComponent(results[2].replace(/\+/g, " "));

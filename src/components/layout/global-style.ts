@@ -1,6 +1,6 @@
-import {createGlobalStyle} from "styled-components";
-import {normalize} from "./normalise";
-import {Property} from "csstype";
+import { createGlobalStyle } from "styled-components";
+import { normalize } from "./normalise";
+import { Property } from "csstype";
 
 /**
  * Setups:
@@ -12,9 +12,9 @@ import {Property} from "csstype";
  */
 
 interface Props {
-  backgroundColor?: Property.Color
+  backgroundColor?: Property.Color;
   fontFamily?: string;
-  rootId?: string
+  rootId?: string;
 }
 
 export const GlobalStyle = createGlobalStyle<Props>`
@@ -41,12 +41,13 @@ export const GlobalStyle = createGlobalStyle<Props>`
     box-sizing: inherit;
   }
   
-  ${({ rootId }) => rootId && `
+  ${({ rootId }) =>
+    rootId &&
+    `
     #${rootId} {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    }`
-}
+    }`}
 `;

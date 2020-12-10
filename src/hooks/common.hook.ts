@@ -1,14 +1,15 @@
 import * as React from "react";
-import {scrollToTop} from "../utils/dom.utils";
+import { scrollToTop } from "../utils/dom.utils";
 
 /**
  * Run code only once on mount.: https://stackoverflow.com/a/56767883/2443005
  */
 export const useMountEffect = (fn: () => void) => React.useEffect(fn, []);
 
-export const useScrollToTop = () => React.useEffect(() => {
-  scrollToTop();
-}, []);
+export const useScrollToTop = () =>
+  React.useEffect(() => {
+    scrollToTop();
+  }, []);
 
 export const useKeyboardEvent = (key: any, callback: () => void) => {
   React.useEffect(() => {

@@ -1,13 +1,13 @@
 import * as React from "react";
-import {Property} from "csstype";
+import { Property } from "csstype";
 
 import styled from "styled-components";
-import {calculateUnit} from "../..";
-import {DivProps} from "../others/types";
+import { calculateUnit } from "../..";
+import { DivProps } from "../others/types";
 
 interface HorizontalProps {
   height?: Property.Height<any>;
-  color?: Property.Color
+  color?: Property.Color;
 }
 
 export const HorizontalDivider = styled.div<HorizontalProps>`
@@ -17,7 +17,7 @@ export const HorizontalDivider = styled.div<HorizontalProps>`
 interface VerticalProps {
   height?: Property.Height<any>;
   width?: Property.Width<any>;
-  color?: Property.Color
+  color?: Property.Color;
 }
 
 export const VerticalDivider = styled.div<VerticalProps>`

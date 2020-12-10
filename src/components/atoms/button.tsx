@@ -1,18 +1,23 @@
 import * as React from "react";
-import styled, {useTheme} from "styled-components";
-import {calculateUnit, CommonColors} from "../..";
-import {Spinner} from "./spinner";
-import {Property} from "csstype";
+import styled, { useTheme } from "styled-components";
+import { calculateUnit, CommonColors } from "../..";
+import { Spinner } from "./spinner";
+import { Property } from "csstype";
 
-export type ButtonVariantType = | "primary" | "primaryOutlined" | "primaryOutlinedFilled"
-    | "secondary" | "secondaryOutlined" | "secondaryOutlinedFilled"
-    | "text"
+export type ButtonVariantType =
+  | "primary"
+  | "primaryOutlined"
+  | "primaryOutlinedFilled"
+  | "secondary"
+  | "secondaryOutlined"
+  | "secondaryOutlinedFilled"
+  | "text";
 
 export interface ButtonProps {
   id?: string;
-  variant?: ButtonVariantType
+  variant?: ButtonVariantType;
   type?: "submit" | "button";
-  size?: "small" | "medium" | "large"
+  size?: "small" | "medium" | "large";
   customVariant?: ButtonVariant;
   customSize?: SizeVariant;
   children: React.ReactNode;
@@ -22,19 +27,34 @@ export interface ButtonProps {
   isLoading?: boolean;
 }
 
-export const Button = ({ id, children, variant = "primary", size = "medium", onClick, type = "button", width = "auto", customVariant, customSize, isLoading, disabled }: ButtonProps) => {
+export const Button = ({
+  id,
+  children,
+  variant = "primary",
+  size = "medium",
+  onClick,
+  type = "button",
+  width = "auto",
+  customVariant,
+  customSize,
+  isLoading,
+  disabled,
+}: ButtonProps) => {
   const buttonVariant: ButtonVariant = customVariant ?? useButtonVariant()[variant];
   const sizeVariant = customSize ?? useButtonSizeVariant()[size];
   const styledBtnProps: StyledButtonProps = { ...buttonVariant, ...sizeVariant, isLoading: isLoading };
-  return (!isLoading ?
-      <StyledButton {...styledBtnProps} id={id} type={type} onClick={onClick} style={{ width }} disabled={disabled}>
-        <div children={children}/>
-      </StyledButton> : <StyledButton  {...styledBtnProps} id={id} type={"button"} style={{ width }}>
-        <div style={{ color: "transparent" }} children={children}/>
-        <div style={{ position: "absolute", left: "50%", top: "52%", transform: "translate(-50%, -50%)" }}>
-          <Spinner color={"currentColor"} size={16} borderWidth={"2px"}/>
-        </div>
-      </StyledButton>);
+  return !isLoading ? (
+    <StyledButton {...styledBtnProps} id={id} type={type} onClick={onClick} style={{ width }} disabled={disabled}>
+      <div children={children} />
+    </StyledButton>
+  ) : (
+    <StyledButton {...styledBtnProps} id={id} type={"button"} style={{ width }}>
+      <div style={{ color: "transparent" }} children={children} />
+      <div style={{ position: "absolute", left: "50%", top: "52%", transform: "translate(-50%, -50%)" }}>
+        <Spinner color={"currentColor"} size={16} borderWidth={"2px"} />
+      </div>
+    </StyledButton>
+  );
 };
 
 export const useButtonSizeVariant = () => {
@@ -44,20 +64,20 @@ export const useButtonSizeVariant = () => {
       fontSize: "12px",
       fontWeight: 400,
       padding: "8px 18px 8px",
-      borderRadius: radiusSmall
+      borderRadius: radiusSmall,
     },
     medium: {
       fontSize: "14px",
       fontWeight: 400,
       padding: "12px 30px 12px",
-      borderRadius: radiusSmall
+      borderRadius: radiusSmall,
     },
     large: {
       fontSize: "16px",
       fontWeight: 400,
       padding: "16px 32px 16px",
-      borderRadius: radiusSmall
-    }
+      borderRadius: radiusSmall,
+    },
   };
 };
 
@@ -151,7 +171,7 @@ const useButtonVariant = () => {
       colorOnHover: "white",
       backgroundOnHoverColor: secondary,
       borderOnHoverColor: "transparent",
-    }
+    },
   };
 };
 
@@ -159,7 +179,7 @@ interface SizeVariant {
   fontSize: Property.FontSize<any>;
   fontWeight: Property.FontWeight;
   padding: string;
-  borderRadius: Property.BorderRadius<any>
+  borderRadius: Property.BorderRadius<any>;
 }
 
 interface ButtonVariant {
@@ -171,10 +191,8 @@ interface ButtonVariant {
   backgroundOnHoverColor: string;
 }
 
-type StyledButtonProps =
-    ButtonVariant
-    & SizeVariant
-    & { isLoading?: boolean, borderRadius: Property.BorderRadius<any> }
+type StyledButtonProps = ButtonVariant &
+  SizeVariant & { isLoading?: boolean; borderRadius: Property.BorderRadius<any> };
 
 const StyledButton = styled.button<StyledButtonProps>`
   position: relative;
@@ -188,15 +206,17 @@ const StyledButton = styled.button<StyledButtonProps>`
   outline: none;
   line-height: 1em;
   border-radius: ${({ borderRadius }) => calculateUnit(borderRadius)};
-  ${({ isLoading }) => isLoading && `
+  ${({ isLoading }) =>
+    isLoading &&
+    `
     cursor: not-allowed;
   `};
   &:disabled {
     cursor: not-allowed;
-    color: rgba(0,0,0,.25);
+    color: rgba(0, 0, 0, 0.25);
     background-color: #f5f5f5;
     border-color: #f5f5f5;
-  };
+  }
   color: ${(props) => props.color};
   background-color: ${(props) => props.backgroundColor};
   border: 1px solid ${(props) => props.borderColor};
@@ -207,6 +227,6 @@ const StyledButton = styled.button<StyledButtonProps>`
     color: ${(props) => props.colorOnHover};
     background-color: ${(props) => props.backgroundOnHoverColor};
     border-color: ${(props) => props.borderOnHoverColor};
-    box-shadow:inset 0px 0px 0px 1px ${(props) => props.borderOnHoverColor};
-  }  
+    box-shadow: inset 0px 0px 0px 1px ${(props) => props.borderOnHoverColor};
+  }
 `;

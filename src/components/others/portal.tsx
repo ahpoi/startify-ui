@@ -1,8 +1,7 @@
 import * as React from "react";
-import {createPortal} from "react-dom";
+import { createPortal } from "react-dom";
 
 export class Portal extends React.Component {
-
   private container: HTMLDivElement;
 
   constructor(props?: any) {

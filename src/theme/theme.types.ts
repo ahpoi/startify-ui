@@ -1,8 +1,8 @@
 export interface AppTheme {
-  typography: TypographyTheme,
-  color: ColorTheme
-  border: BorderTheme
-  shadow: ShadowTheme
+  typography: TypographyTheme;
+  color: ColorTheme;
+  border: BorderTheme;
+  shadow: ShadowTheme;
 }
 
 export interface ColorTheme {
@@ -23,17 +23,17 @@ export interface ColorTheme {
 
 export interface TypographyTheme {
   fontWeight: {
-    light: number,
-    normal: number,
-    medium: number,
-    bold: number
-  }
+    light: number;
+    normal: number;
+    medium: number;
+    bold: number;
+  };
   text: {
-    xSmall: string,
-    small: string,
-    medium: string,
+    xSmall: string;
+    small: string;
+    medium: string;
     large: string;
-  }
+  };
 }
 
 export interface ShadowTheme {
@@ -43,8 +43,8 @@ export interface ShadowTheme {
 }
 
 export interface BorderTheme {
-  radiusxSmall: number
-  radiusSmall: number
-  radiusMedium: number
-  radiusLarge: number
+  radiusxSmall: number;
+  radiusSmall: number;
+  radiusMedium: number;
+  radiusLarge: number;
 }
