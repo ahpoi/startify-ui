@@ -4,9 +4,8 @@ import { FieldErrorMessage, FieldLabel, Input, Label, Select, TextArea, TextArea
 
 type Props = {
   label: string;
-  star?: boolean
-
-  error?: string | null
+  star?: boolean;
+  error?: string | null;
 };
 
 type TextInputFieldProps = Props &
