@@ -3,14 +3,11 @@ import * as React from "react";
 import { FieldErrorMessage, FieldLabel, Input, Label, Select, TextArea, TextAreaProps } from "../..";
 
 type Props = {
+
   label: string;
   star?: boolean
 
   error?: string | null
-
-
-
-
 };
 
 type TextInputFieldProps = Props &
