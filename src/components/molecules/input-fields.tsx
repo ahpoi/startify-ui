@@ -6,6 +6,8 @@ type Props = {
   label: string;
   star?: boolean
   error?: string | null
+
+
 };
 
 type TextInputFieldProps = Props &
