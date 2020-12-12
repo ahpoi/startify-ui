@@ -11,7 +11,7 @@ export * from "./components/atoms/skeleton-placeholder";
 
 export * from "./components/molecules/modal";
 export * from "./components/molecules/alert";
-export * from "./components/molecules/input-fields";
+export * from "./components/molecules/fields/input-field";
 
 export * from "./components/navigation/sidebar";
 export * from "./components/navigation/header";
@@ -38,3 +38,6 @@ export * from "./theme/theme.types";
 
 export * from "./styles/colors";
 export * from "./styles/sizes";
+export { SelectField } from "./components/molecules/fields/select-field";
+export { SelectFieldProps } from "./components/molecules/fields/select-field";
+export { FieldOption } from "./components/molecules/fields/select-field";
