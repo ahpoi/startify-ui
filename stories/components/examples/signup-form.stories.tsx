@@ -69,7 +69,6 @@ export const signUpForm = () => {
 
             <CheckboxField name={"isTermsAndConditionsAccepted"}
                            ref={register}
-                           error={errors.gender?.message}
                            label={
                              <Paragraph>
                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus convallis rhoncus odio
