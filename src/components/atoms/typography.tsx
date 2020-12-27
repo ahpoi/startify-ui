@@ -33,6 +33,7 @@ const base = css<HeadingProps | TextProps>`
   text-align: ${(props) => props.textAlign};
   margin: 0px;
 `;
+
 export const Heading1 = styled.h1<HeadingProps>`
   ${base}
   font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.one.web};

@@ -1,20 +1,11 @@
-import { ThemeProvider } from "styled-components";
-import {
-  GlobalStyle,
-  DefaultAppTheme,
-  HeaderLogo,
-  DesktopHeader,
-  CommonColors,
-  NavigationLink,
-  DefaultAppColorTheme,
-} from "../../src";
+import {CommonColors, DesktopHeader, GlobalStyle, HeaderLogo, NavigationLink, StartifyThemeProvider,} from "../../src";
 import * as React from "react";
 
 export const StoriesDefaultThemeProvider = (props: { children: React.ReactNode }) => {
   return (
     <>
-      <GlobalStyle fontFamily={"Montserrat,Helvetica Neue,HelveticaNeue,Helvetica,Arial,sans-serif"} />
-      <ThemeProvider theme={DefaultAppTheme}>{props.children}</ThemeProvider>
+      <GlobalStyle rootId={'root'} fontFamily={"Montserrat,Helvetica Neue,HelveticaNeue,Helvetica,Arial,sans-serif"}/>
+      <StartifyThemeProvider>{props.children}</StartifyThemeProvider>
     </>
   );
 };
@@ -101,7 +92,7 @@ export const TestDesktopHeader = () => (
       <NavigationLink
         key={it.text}
         href={it.href}
-        color={DefaultAppColorTheme.secondary}
+        color={"#008DA6"}
         onClick={() => alert(it.text)}
       >
         {it.text}

@@ -35,6 +35,7 @@ export * from "./utils/storage.utils";
 
 export * from "./theme/theme.default";
 export * from "./theme/theme.types";
+export * from "./theme/startify-theme.provider";
 
 export * from "./styles/colors";
 export * from "./styles/sizes";

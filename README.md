@@ -9,8 +9,6 @@ Demo of the components can be found [here!](https://ahpoi.github.io/startify-ui/
 
 ### Theme
 
-We make use of styled-components theming support by exporting a <ThemeProvider> wrapper component. This component provides a theme to all React components underneath itself via the context API.
-
 Example our Theme and properties that are themeable:
 
 ```
@@ -60,9 +58,10 @@ export const DefaultAppTheme: AppTheme = {
 ### How to use Theme
 
 ```
-
-<ThemeProvider theme={MainTheme}>
-  <Button>Themed</Button>
-</ThemeProvider>
-
+<>
+    <GlobalStyle rootId={'root'} fontFamily={"Montserrat,Helvetica Neue,HelveticaNeue,Helvetica,Arial,sans-serif"}/>
+    <StartifyThemeProvider theme={MainTheme}>
+      <Button>Themed</Button>
+    </StartifyThemeProvider>
+</>
 ```
