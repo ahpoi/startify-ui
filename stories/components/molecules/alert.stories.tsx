@@ -1,22 +1,22 @@
 import * as React from "react";
-import { ThemeProvider } from "styled-components";
-import { Alert, DefaultAppTheme, Vertical } from "../../../src";
+import {Alert, Vertical} from "../../../src";
+import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 
 export default {
-  title: "Atoms/Alert",
-  component: Alert,
+  title: "Molecules/Alert",
+  component: Alert
 };
 
 export const alert = () => (
-  <ThemeProvider theme={DefaultAppTheme}>
+  <StoriesDefaultThemeProvider>
     <Vertical>
       <Alert variant={"success"}>This is a success alert—check it out!</Alert>
     </Vertical>
-  </ThemeProvider>
+  </StoriesDefaultThemeProvider>
 );
 
 export const variants = () => (
-  <ThemeProvider theme={DefaultAppTheme}>
+  <StoriesDefaultThemeProvider>
     <Vertical>
       <Alert variant={"success"}>This is a success alert—check it out!</Alert>
       <Alert variant={"info"}>This is a info alert—check it out!</Alert>
@@ -27,11 +27,11 @@ export const variants = () => (
         This is a custom alert—check it out!
       </Alert>
     </Vertical>
-  </ThemeProvider>
+  </StoriesDefaultThemeProvider>
 );
 
 export const close = () => (
-  <ThemeProvider theme={DefaultAppTheme}>
+  <StoriesDefaultThemeProvider>
     <Vertical>
       <Alert variant={"success"} onClose={() => console.log("clicked")}>
         This is a success alert—check it out!
@@ -52,5 +52,5 @@ export const close = () => (
         This is a custom alert—check it out!
       </Alert>
     </Vertical>
-  </ThemeProvider>
+  </StoriesDefaultThemeProvider>
 );

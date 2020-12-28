@@ -11,7 +11,12 @@ export * from "./components/atoms/skeleton-placeholder";
 
 export * from "./components/molecules/modal";
 export * from "./components/molecules/alert";
+export * from "./components/molecules/tabs";
 export * from "./components/molecules/fields/input-field";
+export * from "./components/molecules/fields/select-field";
+export * from "./components/molecules/fields/radio-field";
+export * from "./components/molecules/fields/checkbox-field";
+export * from "./components/molecules/fields/field.types";
 
 export * from "./components/navigation/sidebar";
 export * from "./components/navigation/header";
@@ -39,6 +44,3 @@ export * from "./theme/startify-theme.provider";
 
 export * from "./styles/colors";
 export * from "./styles/sizes";
-export { SelectField } from "./components/molecules/fields/select-field";
-export { SelectFieldProps } from "./components/molecules/fields/select-field";
-export { FieldOption } from "./components/molecules/fields/select-field";

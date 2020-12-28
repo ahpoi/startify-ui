@@ -15,6 +15,7 @@ type BaseModalProps = {
   modalWidth?: number;
   padding?: number;
 };
+
 type ModalProps = {
   title: string;
   actions: {
