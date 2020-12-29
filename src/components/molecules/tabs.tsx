@@ -53,6 +53,8 @@ const TabButtonsContainer = styled.div`
 const TabButton = styled.button<TabButtonProps>`
   cursor: pointer;
   height: auto;
+  font-size: ${(props) => props.theme.typography.text.medium};
+  font-weight: ${(props) => props.theme.typography.fontWeight.medium};
   padding: 0px 0px 4px 0;
   text-decoration: none;
   outline: none;
@@ -64,7 +66,7 @@ const TabButton = styled.button<TabButtonProps>`
     isActive &&
     `
     color: ${theme.color.secondary};
-    border-bottom: 1px solid ${theme.color.secondary};
+    border-bottom: 2px solid ${theme.color.secondary};
   `};
   &:hover:enabled,
   &:focus:enabled,
