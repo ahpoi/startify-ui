@@ -1,16 +1,10 @@
 import * as React from "react";
 import styled from "styled-components";
+import { fadeIn } from "../others/animations";
 
 type TabsProps = {
   activeKey?: number;
   children: React.ReactElement<TabContentProp> | React.ReactElement<TabContentProp>[];
-  config?: {
-    mode?: "rerender-view" | "hide-view";
-    style: {
-      tabColor: string;
-      tabColorActive: string;
-    };
-  };
 };
 
 export const Tabs = (props: TabsProps) => {
@@ -18,7 +12,7 @@ export const Tabs = (props: TabsProps) => {
   const children: React.ReactElement<TabContentProp>[] = React.Children.toArray(props.children).filter(
     (c) => !!c
   ) as any;
-  const activeTabContent = children[activeTab];
+  const activeTabContent: React.ReactElement<TabContentProp> = children[activeTab];
   return (
     <div>
       <TabButtonsContainer>
@@ -28,7 +22,7 @@ export const Tabs = (props: TabsProps) => {
           </TabButton>
         ))}
       </TabButtonsContainer>
-      <div>{activeTabContent.props.children}</div>
+      <TabContentContainer>{activeTabContent.props.children}</TabContentContainer>
     </div>
   );
 };
@@ -57,13 +51,29 @@ const TabButtonsContainer = styled.div`
 `;
 
 const TabButton = styled.button<TabButtonProps>`
-  display: inline-block;
   cursor: pointer;
   height: auto;
-  padding: 0px;
+  padding: 0px 0px 4px 0;
   text-decoration: none;
   outline: none;
   line-height: 1em;
   background: none;
   border: none;
+  color: ${({ theme }) => theme.color.textDark};
+  ${({ isActive, theme }) =>
+    isActive &&
+    `
+    color: ${theme.color.secondary};
+    border-bottom: 1px solid ${theme.color.secondary};
+  `};
+  &:hover:enabled,
+  &:focus:enabled,
+  &:active:enabled {
+    color: ${({ theme }) => theme.color.secondary};
+  }
+`;
+
+const TabContentContainer = styled.div`
+  margin-top: 16px;
+  ${fadeIn}
 `;
