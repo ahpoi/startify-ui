@@ -14,10 +14,10 @@ export type SelectFieldProps = {
   React.DetailedHTMLProps<React.SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>;
 
 export const SelectField = React.forwardRef((props: SelectFieldProps, ref: React.LegacyRef<HTMLSelectElement>) => {
-  const { label, star, error, options, defaultOption } = props;
+  const { label, star, error, tooltip, options, defaultOption } = props;
   return (
     <div>
-      <FieldLabel id={props.id} htmlFor={props.id} star={star} children={label} />
+      <FieldLabel id={props.id} htmlFor={props.id} star={star} tooltip={tooltip} children={label} />
       {error && <FieldErrorMessage>{error}</FieldErrorMessage>}
       <Select error={error} {...props} ref={ref}>
         {defaultOption && <option value={defaultOption.value}>{defaultOption.label}</option>}

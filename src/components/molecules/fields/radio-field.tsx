@@ -10,7 +10,7 @@ export const RadioFieldGroup = (
   } & FieldProps
 ) => (
   <FieldSet id={props.id}>
-    <FieldLegend id={props.id} htmlFor={props.id} star={props.star} children={props.label} />
+    <FieldLegend id={props.id} htmlFor={props.id} star={props.star} tooltip={props.tooltip} children={props.label} />
     {props.error && <FieldErrorMessage>{props.error}</FieldErrorMessage>}
     {props.children}
   </FieldSet>

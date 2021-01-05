@@ -80,7 +80,7 @@ const SideBarContent = styled.div<{ isOpen: boolean }>`
   transform: ${({ isOpen }) => (isOpen ? "translateX(0%)" : "translateX(-100%)")};
 `;
 
-const OverlayClosedButton = styled(IconButtonContainer)`
+const OverlayClosedButton = styled.div`
   position: absolute;
   top: 20px;
   left: ${width + 5}px;

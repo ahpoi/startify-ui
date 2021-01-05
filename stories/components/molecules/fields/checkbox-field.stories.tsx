@@ -4,7 +4,7 @@ import {StoriesDefaultThemeProvider} from "../../../utils/stories-container";
 import {CheckboxField} from "../../../../src/components/molecules/fields/checkbox-field";
 
 export default {
-  title: "Molecules/Fields",
+  title: "Molecules/Fields/CheckboxField",
   component: CheckboxField,
 };
 

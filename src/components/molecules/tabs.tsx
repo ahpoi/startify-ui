@@ -4,7 +4,7 @@ import { fadeIn } from "../others/animations";
 
 type TabsProps = {
   activeKey?: number;
-  children: React.ReactElement<TabContentProp> | React.ReactElement<TabContentProp>[];
+  children: React.ReactElement<typeof TabContent> | React.ReactElement<typeof TabContent>[];
 };
 
 export const Tabs = (props: TabsProps) => {

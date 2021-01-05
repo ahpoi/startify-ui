@@ -1,20 +1,23 @@
 import * as React from "react";
 import styled from "styled-components";
+import { addTooltipIfAny, Tooltip } from "./tooltip";
 
-interface FieldProps {
+type FieldProps = {
   id?: string;
   htmlFor?: string;
   star?: boolean;
   error?: boolean;
+  tooltip?: React.ReactElement<typeof Tooltip>;
   children: React.ReactNode;
-}
+};
 
 export const FieldLabel = (props: FieldProps) => {
   const star = props.star && <span style={{ color: "red", marginLeft: "1px", fontWeight: 200 }}>*</span>;
-  return (
+  return addTooltipIfAny(
     <Label id={props.id} htmlFor={props.htmlFor} error={props.error}>
       {props.children} {star}
-    </Label>
+    </Label>,
+    props.tooltip
   );
 };
 
@@ -26,10 +29,11 @@ export const FieldSet = (props: { id?: string; children: React.ReactNode }) => (
 
 export const FieldLegend = (props: FieldProps) => {
   const star = props.star && <span style={{ color: "red", marginLeft: "1px", fontWeight: 200 }}>*</span>;
-  return (
+  return addTooltipIfAny(
     <Legend id={props.id} htmlFor={props.htmlFor} error={props.error}>
       {props.children} {star}
-    </Legend>
+    </Legend>,
+    props.tooltip
   );
 };
 

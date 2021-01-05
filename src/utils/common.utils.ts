@@ -44,7 +44,8 @@ export const toTitleCase = (str: string) =>
     return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
   });
 
-export const truncate = (input: string) => (input?.length > 5 ? `${input.substring(0, 5)}...` : input);
+export const truncate = (input: string, maxLength: number = 5) =>
+  input?.length > maxLength ? `${input.substring(0, maxLength)}...` : input;
 
 export const getParameterByName = (name: string, url?: string) => {
   if (!url) url = window.location.href;

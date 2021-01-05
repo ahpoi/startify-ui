@@ -8,10 +8,10 @@ type TextInputFieldProps = FieldProps &
   React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
 export const TextInputField = React.forwardRef((props: TextInputFieldProps, ref: React.LegacyRef<HTMLInputElement>) => {
-  const { label, star, error } = props;
+  const { label, star, tooltip, error } = props;
   return (
     <div>
-      <FieldLabel id={props.id} htmlFor={props.id} star={star} children={label} />
+      <FieldLabel id={props.id} htmlFor={props.id} star={star} tooltip={tooltip} children={label} />
       {error && <FieldErrorMessage>{error}</FieldErrorMessage>}
       <Input {...props} ref={ref} />
     </div>
@@ -23,10 +23,10 @@ type TextAreaFieldProps = FieldProps &
   React.DetailedHTMLProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>;
 
 export const TextAreaField = (props: TextAreaFieldProps) => {
-  const { label, star, error } = props;
+  const { label, star, tooltip, error } = props;
   return (
     <div>
-      <FieldLabel id={props.id} htmlFor={props.id} star={star} children={label} />
+      <FieldLabel id={props.id} htmlFor={props.id} star={star} tooltip={tooltip} children={label} />
       {error && <FieldErrorMessage>{error}</FieldErrorMessage>}
       <TextArea {...props} />
     </div>

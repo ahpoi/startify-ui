@@ -14,7 +14,7 @@ export const IconClose = (props: IconProps) => {
   const color = props.color || CommonColors.grey70;
   const size = props.size || defaultSize;
   return (
-    <svg width={size} height={size} viewBox="0 0 22 18">
+    <svg width={size} height={size} viewBox="0 0 22 22">
       <path
         d="M11.894 10.834l4.773-4.773L15.607 5l-4.773 4.773L6.06 5 5 6.06l4.773 4.774L5 15.607l1.06 1.06 4.774-4.773 4.773 4.773 1.06-1.06-4.773-4.773z"
         fill={color}
@@ -124,18 +124,36 @@ export const IconUser = (props: IconProps) => {
   );
 };
 
+export const IconQuestionMark = (props: IconProps) => {
+  const color = props.color || CommonColors.grey70;
+  const size = props.size || defaultSize;
+  return (
+    <svg width={size} height={size} viewBox="0 0 512 512">
+      <path
+        d="M256 0C114.836 0 0 114.836 0 256s114.836 256 256 256 256-114.836 256-256S397.164 0 256 0zm0 0"
+        fill={color}
+      />
+      <path
+        d="M277.332 384c0 11.781-9.55 21.332-21.332 21.332s-21.332-9.55-21.332-21.332 9.55-21.332 21.332-21.332 21.332 9.55 21.332 21.332zm0 0"
+        fill="#fafafa"
+      />
+      <path
+        d="M289.77 269.695c-7.551 3.477-12.438 11.094-12.438 19.395v9.578c0 11.773-9.535 21.332-21.332 21.332s-21.332-9.559-21.332-21.332v-9.578c0-24.899 14.633-47.723 37.227-58.156 21.738-10.004 37.437-36.567 37.437-49.602C309.332 151.937 285.418 128 256 128s-53.332 23.937-53.332 53.332c0 11.777-9.54 21.336-21.336 21.336S160 193.109 160 181.332c0-52.926 43.07-96 96-96s96 43.074 96 96c0 28.824-25.004 71.191-62.23 88.363zm0 0"
+        fill="#fafafa"
+      />
+    </svg>
+  );
+};
+
 /**
  * Provides border around icons for accesability
  */
 export const IconButtonContainer = styled.button`
   border: none;
+  padding: 2px;
   background-color: transparent;
-  outline: none;
   cursor: pointer;
-  display: inline-block;
-  &:focus,
-  &:hover,
-  &:active {
-    outline: 1px dashed grey;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 ` as React.FunctionComponent<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>>;

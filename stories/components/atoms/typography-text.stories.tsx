@@ -37,7 +37,7 @@ export const custom = () => (
       <Paragraph color={"#008DA6"} textAlign={"center"} size={"large"}>
         Paragraph large
       </Paragraph>
-      <Paragraph fontFamily={"sans-serif"} fontWeight={900} color={"#008DA6"} textAlign={"center"} fontSize={"20px"}>
+      <Paragraph fontFamily={"sans-serif"} fontWeight={"bold"} color={"#008DA6"} textAlign={"center"} fontSize={"20px"}>
         Paragraph
       </Paragraph>
     </Vertical>
