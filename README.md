@@ -62,3 +62,9 @@ export const AppTheme: AppTheme = {
     </StartifyThemeProvider>
 </>
 ```
+
+### Improvements
+
+- More focus on accessibility
+- Remove react-tether dependency and create own Tooltip component
+- Example integrations
