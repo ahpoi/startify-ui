@@ -2,7 +2,6 @@ export interface AppTheme {
   typography: TypographyTheme;
   color: ColorTheme;
   border: BorderTheme;
-  shadow: ShadowTheme;
 }
 
 export interface ColorTheme {

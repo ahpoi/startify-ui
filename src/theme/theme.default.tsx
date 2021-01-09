@@ -39,15 +39,8 @@ export const DefaultAppBorderTheme = {
   radiusLarge: 12,
 };
 
-export const DefaultShadowTheme = {
-  small: "0px 1px 2px rgba(0, 0, 0, 0.1)",
-  medium: "0px -1px 25px rgba(0, 0, 0, 0.12)",
-  large: "0px 9px 40px rgba(0, 0, 0, 0.16)",
-};
-
 export const DefaultAppTheme: AppTheme = {
   typography: DefaultTypographyTheme,
   color: DefaultAppColorTheme,
   border: DefaultAppBorderTheme,
-  shadow: DefaultShadowTheme,
 };

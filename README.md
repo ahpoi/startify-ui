@@ -3,7 +3,6 @@
 React components for faster and easier web development.
 
 This is a very simple component library where it provides the minimum, but enough to build beautiful UI by only proving the primary and secondary color.
-Used by lots of my internal projects.
 
 Demo of the components can be found [here!](https://ahpoi.github.io/startify-ui/?path=/docs/inputs-button--button-styles)
 
@@ -12,7 +11,7 @@ Demo of the components can be found [here!](https://ahpoi.github.io/startify-ui/
 Example our Theme and properties that are themeable:
 
 ```
-export const DefaultAppColorTheme: ColorTheme = {
+export const AppColorTheme: ColorTheme = {
   primary: "#172B4D",
   primaryDark: "#051632",
 
@@ -29,7 +28,7 @@ export const DefaultAppColorTheme: ColorTheme = {
   textLight: "#bdbdbd",
 };
 
-export const DefaultTypographyTheme: TypographyTheme = {
+export const AppTypographyTheme: TypographyTheme = {
   fontWeight: {
     light: 400,
     medium: 500,
@@ -42,25 +41,23 @@ export const DefaultTypographyTheme: TypographyTheme = {
   }
 };
 
-export const DefaultAppBorderTheme = {
+export const AppBorderTheme = {
   radiusSmall: 4,
   radiusMedium: 8,
   radiusLarge: 12
 }
 
-export const DefaultAppTheme: AppTheme = {
+export const AppTheme: AppTheme = {
   typography: DefaultTypographyTheme,
   color: DefaultAppColorTheme,
   border: DefaultAppBorderTheme
 };
 ```
 
-### How to use Theme
-
 ```
 <>
     <GlobalStyle rootId={'root'} fontFamily={"Montserrat,Helvetica Neue,HelveticaNeue,Helvetica,Arial,sans-serif"}/>
-    <StartifyThemeProvider theme={MainTheme}>
+    <StartifyThemeProvider theme={AppTheme}>
       <Button>Themed</Button>
     </StartifyThemeProvider>
 </>

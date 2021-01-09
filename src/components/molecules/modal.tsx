@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { Breakpoints, Spaces } from "../../styles/sizes";
 import { Button, ButtonVariantType, Heading4, Horizontal, StretchSpacer, Text, Vertical, VerticalSpacer } from "../..";
 import { useKeyboardEvent, useOnOutsideClick } from "../../hooks/common.hook";
@@ -166,6 +166,7 @@ const ModalErrorContent = (props: ModalErrorProps) => {
     retryButtonVariant = "text",
   } = props;
   const { onRetrying, onRetry, onClose } = props;
+  const error = useTheme().color.error;
   return (
     <>
       <Horizontal horizontalAlign={"right"}>
@@ -174,7 +175,7 @@ const ModalErrorContent = (props: ModalErrorProps) => {
       <VerticalSpacer spacing={8} />
       <Vertical horizontalAlign={"center"}>
         <Vertical horizontalAlign={"center"} spacing={12}>
-          <IconError size={48} />
+          <IconError size={48} color={error} />
           <Heading4>{title}</Heading4>
           <Text textAlign={"center"}>{message}</Text>
         </Vertical>
@@ -240,7 +241,7 @@ export const ModalContainer = styled.div<{ modalWidth?: number; padding?: number
   left: 50%;
   transform: translate(-50%, -25%);
   border-radius: ${(props) => props.theme.border.radiusSmall}px;
-  box-shadow: ${(props) => props.theme.shadow.large}px;
+  box-shadow: 0px 9px 40px rgba(0, 0, 0, 0.16);
   padding: ${(props) => props.padding ?? Spaces.medium}px;
   @media (max-width: ${Breakpoints.small}px) {
     width: 95%;
