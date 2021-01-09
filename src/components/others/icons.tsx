@@ -135,14 +135,14 @@ export const IconUserAvatarCircle = (props: IconProps) => {
   const color = props.color || CommonColors.grey70;
   const size = props.size || defaultSize;
   return (
-    <svg width={size} height={size} viewBox={`0 0 24 24`} style={{ fill: color }}>
+    <svg width={size} height={size} viewBox={`0 0 24 24`}>
       <g fillRule="evenodd">
-        <circle fill="currentColor" cx={12} cy={12} r={10} />
-        <circle fill="inherit" cx={12} cy={9} r={3} />
+        <circle fill={color} cx={12} cy={12} r={10} />
+        <circle fill="white" cx={12} cy={9} r={3} />
         <path
           d="M7 18.245A7.966 7.966 0 0012 20c1.892 0 3.63-.657 5-1.755V15c0-1.115-.895-2-2-2H9c-1.113 0-2 .895-2 2v3.245z"
-          fill="inherit"
           fillRule="nonzero"
+          fill={"white"}
         />
       </g>
     </svg>

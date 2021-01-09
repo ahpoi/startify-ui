@@ -1,7 +1,8 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
-import { calculateUnit } from "../..";
 import { Property } from "csstype";
+import { CommonColors } from "../../styles/colors";
+import { calculateUnit } from "../layout/gls/box";
 
 type LinkProps = {
   children: React.ReactNode;
@@ -34,23 +35,24 @@ export const NavigationLink = styled.a<LinkProps>`
   } 
 ` as React.FunctionComponent<LinkProps & AnchorPrimitiveType>;
 
-type SideBarItemProps = {
+type MenuItemProps = {
   padding?: Property.Padding<any>;
 } & LinkProps;
 
-export const SidebarItemLink = styled.a<SideBarItemProps>`
+export const MenuItemLink = styled.a<MenuItemProps>`
    ${cssBaseLink}
    display: block;
    padding ${(props) => props.padding ?? "14px 24px"};
    text-align: left;
+   
    &:hover,
    &:focus,
    &:active {
-     filter: brightness(75%);
+     background-color: ${CommonColors.greyLight50} !important;
   } 
-` as React.FunctionComponent<SideBarItemProps & AnchorPrimitiveType>;
+` as React.FunctionComponent<MenuItemProps & AnchorPrimitiveType>;
 
-export const SidebarItemContainer = (props: {
+export const MenuItemContainer = (props: {
   padding?: Property.Padding<any>;
   children: React.ReactNode;
   onClick?: () => void;

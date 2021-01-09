@@ -42,3 +42,17 @@ export const useOnOutsideClick = (node: React.RefObject<any>, handler: (e: Event
     };
   }, [node, handler]);
 };
+
+export const useOnInsideClick = (node: React.RefObject<any>, handler: (e: Event) => any) => {
+  React.useEffect(() => {
+    const listener = (e: Event) => {
+      if (node.current?.contains(e.target as Node)) {
+        handler(e);
+      }
+    };
+    document.addEventListener("click", listener);
+    return () => {
+      document.removeEventListener("click", listener);
+    };
+  }, [node, handler]);
+};

@@ -4,8 +4,8 @@ import {
   DefaultAppColorTheme,
   HorizontalDivider,
   Sidebar,
-  SidebarItemLink,
-  SidebarItemContainer,
+  MenuItemLink,
+  MenuItemContainer,
   SidebarNavigation,
   SidebarToggle,
 } from "../../../src";
@@ -44,9 +44,9 @@ const SecondaryLinks = [
 const SidebarItemsLinks = () => (
   <>
     {Links.map((it) => (
-      <SidebarItemLink key={it.text} onClick={() => alert(it.text)}>
+      <MenuItemLink key={it.text} onClick={() => alert(it.text)}>
         {it.text}
-      </SidebarItemLink>
+      </MenuItemLink>
     ))}
   </>
 );
@@ -54,9 +54,9 @@ const SidebarItemsLinks = () => (
 const SidebarItemSecondaryLinks = () => (
   <>
     {SecondaryLinks.map((it) => (
-      <SidebarItemLink color={DefaultAppColorTheme.secondary} key={it.text} onClick={() => alert(it.text)}>
+      <MenuItemLink color={DefaultAppColorTheme.secondary} key={it.text} onClick={() => alert(it.text)}>
         {it.text}
-      </SidebarItemLink>
+      </MenuItemLink>
     ))}
   </>
 );
@@ -66,16 +66,16 @@ export const sidebar = () => {
   return (
     <StoriesDefaultThemeProvider>
       <div>
-        <SidebarToggle onClick={() => setOpen(true)} />
-        <Sidebar isOpen={isOpen} onStateChange={() => setOpen(false)}>
+        <SidebarToggle onClick={() => setOpen(!isOpen)} />
+        <Sidebar isOpen={isOpen} onStateChange={({isOpen}) => setOpen(isOpen)}>
           <SidebarNavigation>
-            <SidebarItemContainer>
+            <MenuItemContainer>
               <TestHeaderLogo />
-            </SidebarItemContainer>
+            </MenuItemContainer>
             <SidebarItemsLinks />
-            <SidebarItemContainer>
+            <MenuItemContainer>
               <HorizontalDivider />
-            </SidebarItemContainer>
+            </MenuItemContainer>
             <SidebarItemSecondaryLinks />
           </SidebarNavigation>
         </Sidebar>

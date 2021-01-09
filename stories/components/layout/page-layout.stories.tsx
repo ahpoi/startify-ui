@@ -42,7 +42,7 @@ export const pageLayout = () => (
         </Vertical>
       </PageBody>
       <HorizontalDivider />
-      <Footer backgroundColor={CommonColors.greyLight80}>
+      <Footer>
         <VerticalSpacer spacing={12} />
         <SmallText textAlign={"center"}>Build in Melbourne</SmallText>
         <VerticalSpacer spacing={12} />
@@ -58,7 +58,7 @@ export const pageLandingLayout = () => (
         <VerticalSpacer spacing={6} />
         <MaxWidth centered>
           <Horizontal spacing={0}>
-            <HeaderLogo name={"Birdies"} Logo={TestLogo} color={"#FF5050"} onClick={() => 9} />
+            <HeaderLogo name={"Birdies"} logo={<TestLogo/>} color={"#FF5050"} onClick={() => 9} />
             <StretchSpacer />
             <Button variant={"text"} size={"small"}>
               Login

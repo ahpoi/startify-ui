@@ -45,7 +45,7 @@ export const errorModal = () => {
   );
 };
 
-export const errorModalWithRetry = () => {
+export const errorModalRetry = () => {
   const [isModalVisible, setModalVisible] = React.useState(false);
   return (
     <StoriesDefaultThemeProvider>

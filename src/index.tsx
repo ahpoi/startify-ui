@@ -21,6 +21,7 @@ export * from "./components/molecules/fields/field.types";
 
 export * from "./components/navigation/sidebar";
 export * from "./components/navigation/header";
+export * from "./components/navigation/header-user-menu";
 export * from "./components/navigation/navigation-link";
 
 export * from "./components/layout/layout";

@@ -1,14 +1,15 @@
-import { StoriesDefaultThemeProvider, TestHeaderLogo } from "../../utils/stories-container";
+import {StoriesDefaultThemeProvider, TestHeaderLogo, TestLogo} from "../../utils/stories-container";
 import * as React from "react";
 import {
   CommonColors,
   DefaultAppColorTheme,
-  DesktopHeader,
+  DesktopHeader, HeaderUserMenu,
   MobileHeader,
   NavigationLink,
   ResponsiveLayout,
-  SidebarItemLink,
+  MenuItemLink,
   SidebarNavigation,
+  Vertical,
 } from "../../../src";
 
 export default {
@@ -16,33 +17,34 @@ export default {
   component: DesktopHeader,
 };
 
-const Links = [
-  {
-    href: "",
-    text: "How it works",
-  },
-  {
-    href: "",
-    text: "Pricing",
-  },
-  {
-    href: "",
-    text: "Contact us",
-  },
-];
-
-const RightLinks = [
-  {
-    href: "",
-    text: "Sign up",
-  },
-  {
-    href: "",
-    text: "Login",
-  },
-];
-
 export const header = () => {
+
+  const Links = [
+    {
+      href: "",
+      text: "How it works",
+    },
+    {
+      href: "",
+      text: "Pricing",
+    },
+    {
+      href: "",
+      text: "Contact us",
+    },
+  ];
+
+  const RightLinks = [
+    {
+      href: "",
+      text: "Sign up",
+    },
+    {
+      href: "",
+      text: "Login",
+    },
+  ];
+
   const [isSidebarOpen, setIsSideBarOpen] = React.useState(false);
   return (
     <StoriesDefaultThemeProvider>
@@ -56,7 +58,7 @@ export const header = () => {
             sidebarNavigation={
               <SidebarNavigation>
                 {Links.map((it) => (
-                  <SidebarItemLink
+                  <MenuItemLink
                     key={it.text}
                     onClick={() => {
                       setIsSideBarOpen(false);
@@ -64,7 +66,7 @@ export const header = () => {
                     }}
                   >
                     {it.text}
-                  </SidebarItemLink>
+                  </MenuItemLink>
                 ))}
               </SidebarNavigation>
             }
@@ -95,3 +97,57 @@ export const header = () => {
     </StoriesDefaultThemeProvider>
   );
 };
+
+
+export const headerUserMenu = () => {
+  const HeaderLinks = [
+    {
+      href: "",
+      text: "Orders",
+    },
+    {
+      href: "",
+      text: "Customers",
+    },
+    {
+      href: "",
+      text: "Products",
+    },
+  ];
+  const MenuLinks = [
+    {
+      href: "",
+      text: "Messages",
+    },
+    {
+      href: "",
+      text: "Trip",
+    },
+    {
+      href: "",
+      text: "Sign out",
+    },
+  ];
+
+  return <StoriesDefaultThemeProvider>
+    <DesktopHeader
+        logo={<TestLogo/>}
+        leftLinks={HeaderLinks.map((it) => (
+            <NavigationLink key={it.text} href={it.href} onClick={() => alert(it.text)}>
+              {it.text}
+            </NavigationLink>
+        ))}
+        rightLinks={[
+          <HeaderUserMenu key={1}>
+            <Vertical spacing={2}>
+              {MenuLinks.map((it) => (
+                  <MenuItemLink key={it.text} href={it.href} onClick={() => alert(it.text)}>
+                    {it.text}
+                  </MenuItemLink>
+              ))}
+            </Vertical>
+          </HeaderUserMenu>
+        ]}
+    />
+  </StoriesDefaultThemeProvider>
+}
