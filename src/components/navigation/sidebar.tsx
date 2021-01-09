@@ -21,7 +21,7 @@ export const Sidebar = ({ isOpen, onStateChange, children }: SidebarProps) => {
       <SideBarContent data-comment="sidebar-content" ref={node} isOpen={isOpen} children={children} />
       <SideBarOverlay role="presentation" data-comment="sidebar-overlay" isOpen={isOpen}>
         <OverlayClosedButton aria-label={"close sidebar"}>
-          <IconClose size={32} color={"white"} />
+          <IconClose color={"white"} />
         </OverlayClosedButton>
       </SideBarOverlay>
     </SidebarRoot>

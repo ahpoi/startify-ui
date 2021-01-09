@@ -4,7 +4,7 @@ import { Text } from "../atoms/typography";
 import { Horizontal, Vertical } from "../layout/gls/gls";
 import { LinkButton } from "../..";
 import { useTheme } from "styled-components";
-import { IconBackArrow, IconChevronDown } from "./icons";
+import { IconArrowLeft, IconChevronDown } from "./icons";
 
 interface TextWithLink {
   text: string;
@@ -37,7 +37,7 @@ export const BackButton = ({ onClick, text }: BackButtonProps) => {
   const color = useTheme().color.secondary;
   return (
     <Horizontal spacing={4} verticalAlign={"center"}>
-      <IconBackArrow size={10} color={color} />
+      <IconArrowLeft size={16} color={color} />
       <LinkButton underline={false} onClick={onClick ? onClick() : () => window.history.back()}>
         {text ?? "Back"}
       </LinkButton>
@@ -54,7 +54,7 @@ interface PoweredByProps {
 
 export const PoweredBy = ({ name, url, logo, fontSize = "8px" }: PoweredByProps) => (
   <div style={{ cursor: "pointer" }} onClick={() => window.open(url, "_blank")}>
-    <Horizontal spacing={2} verticalAlign={"center"}>
+    <Horizontal spacing={4} verticalAlign={"center"}>
       <Vertical spacing={0} horizontalAlign={"right"}>
         <Text fontWeight={"light"} fontSize={fontSize}>
           powered by

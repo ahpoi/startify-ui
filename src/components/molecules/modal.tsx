@@ -1,11 +1,10 @@
 import * as React from "react";
 
 import styled from "styled-components";
-import { CommonColors } from "../../styles/colors";
 import { Breakpoints, Spaces } from "../../styles/sizes";
 import { Button, ButtonVariantType, Heading4, Horizontal, StretchSpacer, Text, Vertical, VerticalSpacer } from "../..";
 import { useKeyboardEvent, useOnOutsideClick } from "../../hooks/common.hook";
-import { IconClose, IconError } from "../others/icons";
+import { IconClose, IconError, IconButtonContainer } from "../others/icons";
 import { fadeIn } from "../others/animations";
 import { Portal } from "../others/portal";
 
@@ -172,10 +171,10 @@ const ModalErrorContent = (props: ModalErrorProps) => {
       <Horizontal horizontalAlign={"right"}>
         <ModalCloseButton onClick={onClose} />
       </Horizontal>
-      <VerticalSpacer spacing={12} />
+      <VerticalSpacer spacing={8} />
       <Vertical horizontalAlign={"center"}>
-        <IconError size={48} />
         <Vertical horizontalAlign={"center"} spacing={12}>
+          <IconError size={48} />
           <Heading4>{title}</Heading4>
           <Text textAlign={"center"}>{message}</Text>
         </Vertical>
@@ -249,21 +248,7 @@ export const ModalContainer = styled.div<{ modalWidth?: number; padding?: number
 `;
 
 export const ModalCloseButton = (props: { onClick?: () => any }) => (
-  <IconButton onClick={props.onClick}>
+  <IconButtonContainer onClick={props.onClick} type={"button"}>
     <IconClose size={24} />
-  </IconButton>
+  </IconButtonContainer>
 );
-
-const IconButton = styled.button`
-  border: none;
-  background-color: transparent;
-  outline: none;
-  cursor: pointer;
-  display: inline-block;
-  &:focus,
-  &:hover,
-  &:active {
-    border-radius: ${({ theme }) => theme.border.radiusxSmall}px;
-    background-color: ${CommonColors.greyLight40};
-  }
-` as React.FunctionComponent<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>>;

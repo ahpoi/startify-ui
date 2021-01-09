@@ -14,9 +14,9 @@ export const IconClose = (props: IconProps) => {
   const color = props.color || CommonColors.grey70;
   const size = props.size || defaultSize;
   return (
-    <svg width={size} height={size} viewBox="0 0 22 22">
+    <svg width={size} height={size} viewBox="0 0 24 24">
       <path
-        d="M11.894 10.834l4.773-4.773L15.607 5l-4.773 4.773L6.06 5 5 6.06l4.773 4.774L5 15.607l1.06 1.06 4.774-4.773 4.773 4.773 1.06-1.06-4.773-4.773z"
+        d="M12 10.586L6.707 5.293a1 1 0 0 0-1.414 1.414L10.586 12l-5.293 5.293a1 1 0 0 0 1.414 1.414L12 13.414l5.293 5.293a1 1 0 0 0 1.414-1.414L13.414 12l5.293-5.293a1 1 0 1 0-1.414-1.414L12 10.586z"
         fill={color}
       />
     </svg>
@@ -24,18 +24,16 @@ export const IconClose = (props: IconProps) => {
 };
 
 export const IconError = (props: IconProps) => {
-  const color = props.color || "ca3332";
+  const color = props.color || CommonColors.grey70;
   const size = props.size || defaultSize;
   return (
-    <svg viewBox={`0 0 450 450`} width={size} height={size} style={{ fill: color }}>
-      <path
-        d="M446.324 367.381L262.857 41.692c-15.644-28.444-58.311-28.444-73.956 0L5.435 367.381c-15.644 28.444 4.267 64 36.978 64h365.511c34.133-1.422 54.044-35.556 38.4-64z"
-        fill={color}
-      />
-      <path d="M225.879 63.025l183.467 325.689H42.413L225.879 63.025z" fill="#fff" />
-      <g fill="#3f4448">
-        <path d="M196.013 212.359l11.378 75.378c1.422 8.533 8.533 15.644 18.489 15.644 8.533 0 17.067-7.111 18.489-15.644l11.378-75.378c2.844-18.489-11.378-34.133-29.867-34.133-18.49-.001-31.29 15.644-29.867 34.133z" />
-        <circle cx={225.879} cy={336.092} r={17.067} />
+    <svg width={size} height={size} viewBox="0 0 24 24">
+      <g>
+        <path
+          d="M13.416 4.417a2.002 2.002 0 00-2.832 0l-6.168 6.167a2.002 2.002 0 000 2.833l6.168 6.167a2.002 2.002 0 002.832 0l6.168-6.167a2.002 2.002 0 000-2.833l-6.168-6.167z"
+          fill={color}
+        />
+        <path d="M12 14a1 1 0 01-1-1V8a1 1 0 012 0v5a1 1 0 01-1 1m0 3a1 1 0 010-2 1 1 0 010 2" fill="white" />
       </g>
     </svg>
   );
@@ -48,8 +46,11 @@ export const IconChevronRight = (props: IconProps) => {
   const color = props.color || CommonColors.grey70;
   const size = props.size || defaultSize;
   return (
-    <svg width={size} height={size} viewBox="0 0 256 256" style={{ fill: color }}>
-      <path d="M79.093 0L48.907 30.187 146.72 128l-97.813 97.813L79.093 256l128-128z" />
+    <svg width={size} height={size} viewBox="0 0 24 24" style={{ fill: color }}>
+      <path
+        fillRule="evenodd"
+        d="M14.995 10.995a1 1 0 010 1.414l-4.593 4.593a.99.99 0 01-1.4-1.4l3.9-3.9-3.9-3.9a.99.99 0 011.4-1.4l4.593 4.593z"
+      />
     </svg>
   );
 };
@@ -58,8 +59,11 @@ export const IconChevronLeft = (props: IconProps) => {
   const color = props.color || CommonColors.grey70;
   const size = props.size || defaultSize;
   return (
-    <svg width={size} height={size} viewBox="0 0 256 256" style={{ fill: color }}>
-      <path d="M128 48.907l-128 128 30.187 30.186L128 109.28l97.813 97.813L256 176.907z" />
+    <svg width={size} height={size} viewBox="0 0 24 24" style={{ fill: color }}>
+      <path
+        fillRule="evenodd"
+        d="M9.005 10.995l4.593-4.593a.99.99 0 111.4 1.4l-3.9 3.9 3.9 3.9a.99.99 0 01-1.4 1.4L9.005 12.41a1 1 0 010-1.414z"
+      />
     </svg>
   );
 };
@@ -68,8 +72,12 @@ export const IconChevronUp = (props: IconProps) => {
   const color = props.color || CommonColors.grey70;
   const size = props.size || defaultSize;
   return (
-    <svg width={size} height={size} viewBox="0 0 256 256" style={{ fill: color }}>
-      <path d="M207.093 30.187L176.907 0l-128 128 128 128 30.186-30.187L109.28 128z" />
+    <svg width={size} height={size} viewBox="0 0 24 24" style={{ fill: color }}>
+      <path
+        d="M11.294 8.708l-.001.001-4.549 4.559a1.051 1.051 0 101.486 1.488l.001-.001 3.77-3.776 3.768 3.776a1.05 1.05 0 001.486.001h.001a1.054 1.054 0 00.001-1.489l-4.548-4.558a1 1 0 00-1.415-.001z"
+        fill="currentColor"
+        fillRule="evenodd"
+      />
     </svg>
   );
 };
@@ -78,28 +86,37 @@ export const IconChevronDown = (props: IconProps) => {
   const color = props.color || CommonColors.grey70;
   const size = props.size || defaultSize;
   return (
-    <svg width={size} height={size} viewBox="0 0 256 256" style={{ fill: color }}>
-      <path d="M225.813 48.907L128 146.72 30.187 48.907 0 79.093l128 128 128-128z" />
+    <svg width={size} height={size} viewBox="0 0 24 24" style={{ fill: color }}>
+      <path
+        d="M6.744 8.744a1.053 1.053 0 000 1.49l4.547 4.557a1 1 0 001.416 0l4.55-4.558a1.051 1.051 0 10-1.488-1.488l-3.77 3.776-3.768-3.776a1.051 1.051 0 00-1.487 0z"
+        fill="currentColor"
+      />
     </svg>
   );
 };
 
-export const IconBackArrow = (props: IconProps) => {
+export const IconArrowRight = (props: IconProps) => {
   const color = props.color || CommonColors.grey70;
   const size = props.size || defaultSize;
   return (
-    <svg viewBox={`0 0 341 341`} width={size} height={size} style={{ fill: color }}>
-      <path d="M341.333 149.333H81.707L200.853 30.187 170.667 0 0 170.667l170.667 170.666 30.186-30.186L81.707 192h259.626z" />
+    <svg width={size} height={size} viewBox={`0 0 24 24`} style={{ fill: color }}>
+      <path
+        d="M11.793 5.793a.999.999 0 000 1.414L15.586 11H6a1 1 0 000 2h9.586l-3.793 3.793a.999.999 0 000 1.414c.39.39 1.024.39 1.415 0l5.499-5.5a.997.997 0 00.293-.679v-.057a.996.996 0 00-.293-.678l-5.499-5.5a1 1 0 00-1.415 0z"
+        fillRule="evenodd"
+      />
     </svg>
   );
 };
 
-export const IconNextArrow = (props: IconProps) => {
+export const IconArrowLeft = (props: IconProps) => {
   const color = props.color || CommonColors.grey70;
   const size = props.size || defaultSize;
   return (
-    <svg viewBox={`0 0 341 341`} width={size} height={size} style={{ fill: color }}>
-      <path d="M170.667 0L140.48 30.187l119.147 119.146H0V192h259.627L140.48 311.147l30.187 30.186 170.666-170.666z" />
+    <svg width={size} height={size} viewBox={`0 0 24 24`} style={{ fill: color }}>
+      <path
+        d="M8.414 11.5H18a1 1 0 010 2H8.414l3.793 3.793a1 1 0 01-1.414 1.414l-5.5-5.5a1 1 0 010-1.414l5.5-5.5a1 1 0 011.414 1.414L8.414 11.5z"
+        fillRule="evenodd"
+      />
     </svg>
   );
 };
@@ -108,52 +125,64 @@ export const IconMenu = (props: IconProps) => {
   const color = props.color || CommonColors.grey70;
   const size = props.size || defaultSize;
   return (
-    <svg viewBox={`0 0 384 384`} width={size} height={size} style={{ fill: color }}>
-      <path d="M0 277.333h384V320H0zM0 170.667h384v42.667H0zM0 64h384v42.667H0z" />
+    <svg width={size} height={size} viewBox={`0 0 24 24`} style={{ fill: color }}>
+      <path d="M5 15h14v2H5zm0-8h14v2H5zm0 4h14v2H5z" fillRule="evenodd" />
     </svg>
   );
 };
 
-export const IconUser = (props: IconProps) => {
+export const IconUserAvatarCircle = (props: IconProps) => {
   const color = props.color || CommonColors.grey70;
   const size = props.size || defaultSize;
   return (
-    <svg viewBox={`0 0 512 512`} width={size} height={size} style={{ fill: color }}>
-      <path d="M255.999 0c-74.443 0-135 60.557-135 135s60.557 135 135 135 135-60.557 135-135-60.557-135-135-135zM478.48 398.68C438.124 338.138 370.579 302 297.835 302h-83.672c-72.744 0-140.288 36.138-180.644 96.68l-2.52 3.779V512H481V402.459l-2.52-3.779z" />
+    <svg width={size} height={size} viewBox={`0 0 24 24`} style={{ fill: color }}>
+      <g fillRule="evenodd">
+        <circle fill="currentColor" cx={12} cy={12} r={10} />
+        <circle fill="inherit" cx={12} cy={9} r={3} />
+        <path
+          d="M7 18.245A7.966 7.966 0 0012 20c1.892 0 3.63-.657 5-1.755V15c0-1.115-.895-2-2-2H9c-1.113 0-2 .895-2 2v3.245z"
+          fill="inherit"
+          fillRule="nonzero"
+        />
+      </g>
     </svg>
   );
 };
 
-export const IconQuestionMark = (props: IconProps) => {
+export const IconQuestionCircle = (props: IconProps) => {
   const color = props.color || CommonColors.grey70;
   const size = props.size || defaultSize;
   return (
-    <svg width={size} height={size} viewBox="0 0 512 512">
-      <path
-        d="M256 0C114.836 0 0 114.836 0 256s114.836 256 256 256 256-114.836 256-256S397.164 0 256 0zm0 0"
-        fill={color}
-      />
-      <path
-        d="M277.332 384c0 11.781-9.55 21.332-21.332 21.332s-21.332-9.55-21.332-21.332 9.55-21.332 21.332-21.332 21.332 9.55 21.332 21.332zm0 0"
-        fill="#fafafa"
-      />
-      <path
-        d="M289.77 269.695c-7.551 3.477-12.438 11.094-12.438 19.395v9.578c0 11.773-9.535 21.332-21.332 21.332s-21.332-9.559-21.332-21.332v-9.578c0-24.899 14.633-47.723 37.227-58.156 21.738-10.004 37.437-36.567 37.437-49.602C309.332 151.937 285.418 128 256 128s-53.332 23.937-53.332 53.332c0 11.777-9.54 21.336-21.336 21.336S160 193.109 160 181.332c0-52.926 43.07-96 96-96s96 43.074 96 96c0 28.824-25.004 71.191-62.23 88.363zm0 0"
-        fill="#fafafa"
-      />
+    <svg width={size} height={size} viewBox={`0 0 24 24`} style={{ fill: color }}>
+      <g fillRule="evenodd">
+        <circle fill="currentColor" cx={12} cy={12} r={10} />
+        <circle fill="white" cx={12} cy={18} r={1} />
+        <path
+          d="M15.89 9.05a3.975 3.975 0 00-2.957-2.942C10.321 5.514 8.017 7.446 8 9.95l.005.147a.992.992 0 00.982.904c.552 0 1-.447 1.002-.998a2.004 2.004 0 014.007-.002c0 1.102-.898 2-2.003 2H12a1 1 0 00-1 .987v2.014a1.001 1.001 0 002.004 0v-.782c0-.217.145-.399.35-.472A3.99 3.99 0 0015.89 9.05"
+          fill="white"
+        />
+      </g>
     </svg>
   );
 };
 
-/**
- * Provides border around icons for accesability
- */
 export const IconButtonContainer = styled.button`
-  border: none;
   padding: 2px;
+  border-radius: 2px;
+
+  border: none;
   background-color: transparent;
+  outline: none;
   cursor: pointer;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &:focus,
+  &:hover,
+  &:active {
+    border-radius: ${({ theme }) => theme.border.radiusxSmall}px;
+    background-color: ${CommonColors.greyLight40};
+  }
 ` as React.FunctionComponent<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>>;

@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import styled from "styled-components";
-import { IconButtonContainer, IconClose, IconQuestionMark } from "../others/icons";
+import { IconClose, IconQuestionCircle, IconButtonContainer } from "../others/icons";
 import { Horizontal, useOnOutsideClick } from "../..";
 import TetherComponent from "react-tether";
 
@@ -27,15 +27,15 @@ export const Tooltip = (props: TooltipProps) => {
           },
         ]}
         renderTarget={(ref) => (
-          <IconButtonContainer
+          <TooltipIconButton
             id={props.id}
             ref={ref as any}
             type={"button"}
             aria-label="tooltip"
             onClick={() => setIsOpen(!isOpen)}
           >
-            <IconQuestionMark size={12} />
-          </IconButtonContainer>
+            <IconQuestionCircle size={14} />
+          </TooltipIconButton>
         )}
         renderElement={(ref) =>
           isOpen && (
@@ -61,13 +61,23 @@ export const Tooltip = (props: TooltipProps) => {
 
 export const addTooltipIfAny = (content: React.ReactElement<any>, tooltip?: React.ReactElement<typeof Tooltip>) =>
   tooltip ? (
-    <Horizontal spacing={6} verticalAlign={"center"}>
+    <Horizontal spacing={4} verticalAlign={"center"}>
       {content}
       {tooltip}
     </Horizontal>
   ) : (
     content
   );
+
+const TooltipIconButton = styled.button`
+  border: none;
+  padding: 2px;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+` as React.FunctionComponent<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>>;
 
 const Root = styled.div`
   display: inline-block;
