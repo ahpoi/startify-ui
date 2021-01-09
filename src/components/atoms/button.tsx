@@ -58,25 +58,25 @@ export const Button = ({
 };
 
 export const useButtonSizeVariant = () => {
-  const { radiusSmall } = useTheme().border;
+  const { radiusxSmall } = useTheme().border;
   return {
     small: {
       fontSize: "12px",
       fontWeight: 400,
       padding: "8px 18px 8px",
-      borderRadius: radiusSmall,
+      borderRadius: radiusxSmall,
     },
     medium: {
       fontSize: "14px",
       fontWeight: 400,
       padding: "12px 30px 12px",
-      borderRadius: radiusSmall,
+      borderRadius: radiusxSmall,
     },
     large: {
       fontSize: "16px",
       fontWeight: 400,
       padding: "16px 32px 16px",
-      borderRadius: radiusSmall,
+      borderRadius: radiusxSmall,
     },
   };
 };

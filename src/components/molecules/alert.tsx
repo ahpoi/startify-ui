@@ -32,7 +32,7 @@ const StyledAlert = styled.div<AlertVariant>`
   padding-bottom: 12px;
   padding-left: 12px;
   padding-right: 24px;
-  border-radius: ${({ theme }) => theme.border.radiusSmall}px;
+  border-radius: ${({ theme }) => theme.border.radiusxSmall}px;
   border-width: 1px;
   border-style: solid;
   word-wrap: break-word;

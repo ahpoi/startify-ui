@@ -68,3 +68,5 @@ export const AppTheme: AppTheme = {
 - More focus on accessibility
 - Remove react-tether dependency and create own Tooltip component
 - Example integrations
+
+### How to release

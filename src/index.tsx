@@ -1,7 +1,6 @@
 export * from "./components/atoms/button";
 export * from "./components/atoms/typography";
 export * from "./components/atoms/badge";
-export * from "./components/atoms/field-label";
 export * from "./components/atoms/input";
 export * from "./components/atoms/link";
 export * from "./components/atoms/image";
@@ -13,6 +12,7 @@ export * from "./components/atoms/skeleton-placeholder";
 export * from "./components/molecules/modal";
 export * from "./components/molecules/alert";
 export * from "./components/molecules/tabs";
+export * from "./components/molecules/fields/field-label";
 export * from "./components/molecules/fields/input-field";
 export * from "./components/molecules/fields/select-field";
 export * from "./components/molecules/fields/radio-field";

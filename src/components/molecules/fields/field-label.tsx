@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import { addTooltipIfAny, Tooltip } from "./tooltip";
+import { addTooltipIfAny, Tooltip } from "../../atoms/tooltip";
 
 type FieldProps = {
   id?: string;
