@@ -153,7 +153,7 @@ export const IconQuestionCircle = (props: IconProps) => {
   const color = props.color || CommonColors.grey70;
   const size = props.size || defaultSize;
   return (
-    <svg width={size} height={size} viewBox={`0 0 24 24`} >
+    <svg width={size} height={size} viewBox={`0 0 24 24`}>
       <g fillRule="evenodd">
         <circle fill={color} cx={12} cy={12} r={10} />
         <circle fill="white" cx={12} cy={18} r={1} />

@@ -18,6 +18,9 @@ export const DefaultAppColorTheme: ColorTheme = {
 };
 
 export const DefaultTypographyTheme: TypographyTheme = {
+  fontFamily: {
+    base: "Helvetica,Arial,sans-serif",
+  },
   fontWeight: {
     light: 300,
     normal: 400,

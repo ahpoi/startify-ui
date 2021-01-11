@@ -21,6 +21,9 @@ export interface ColorTheme {
 }
 
 export interface TypographyTheme {
+  fontFamily: {
+    base: string;
+  };
   fontWeight: {
     light: number;
     normal: number;
@@ -33,12 +36,6 @@ export interface TypographyTheme {
     medium: string;
     large: string;
   };
-}
-
-export interface ShadowTheme {
-  small: string;
-  medium: string;
-  large: string;
 }
 
 export interface BorderTheme {
