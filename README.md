@@ -79,10 +79,10 @@ const appTheme: AppTheme = {
           },
         },
     radius: {
-        xs: 2,
-        sm: 4,
-        md: 8,
-        lg: 12
+      xs: "3px",
+      sm: "6px",
+      md: "8px",
+      lg: "12px",
     }
 }}
 ```

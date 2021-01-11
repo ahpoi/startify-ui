@@ -240,7 +240,7 @@ export const ModalContainer = styled.div<{ modalWidth?: number; padding?: number
   top: 25%;
   left: 50%;
   transform: translate(-50%, -25%);
-  border-radius: ${(props) => props.theme.radius.sm}px;
+  border-radius: ${(props) => props.theme.radius.sm};
   box-shadow: 0px 9px 40px rgba(0, 0, 0, 0.16);
   padding: ${(props) => props.padding ?? Spaces.medium}px;
   @media (max-width: ${Breakpoints.small}px) {

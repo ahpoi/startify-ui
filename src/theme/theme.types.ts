@@ -43,8 +43,8 @@ export interface TypographyTheme {
 }
 
 export interface RadiusTheme {
-  xs: number;
-  sm: number;
-  md: number;
-  lg: number;
+  xs: string;
+  sm: string;
+  md: string;
+  lg: string;
 }

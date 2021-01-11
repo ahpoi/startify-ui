@@ -108,7 +108,7 @@ const StyledBadge = styled.div<StyledBadgeProps>`
   text-decoration: none;
   white-space: nowrap;
   padding: ${(props) => props.padding};
-  border-radius: ${({ theme }) => theme.radius.xs}px;
+  border-radius: ${({ theme }) => theme.radius.xs};
   min-width: ${(props) => props.minWidth};
   font-size: ${(props) => props.fontSize};
   font-weight: 400;

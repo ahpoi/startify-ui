@@ -182,7 +182,7 @@ export const IconButtonContainer = styled.button`
   &:focus,
   &:hover,
   &:active {
-    border-radius: ${({ theme }) => theme.radius.xs}px;
+    border-radius: ${({ theme }) => theme.radius.xs};
     background-color: ${CommonColors.greyLight40};
   }
 ` as React.FunctionComponent<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>>;

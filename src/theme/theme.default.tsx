@@ -39,10 +39,10 @@ export const DefaultTypographyTheme: TypographyTheme = {
 };
 
 export const DefaultAppRadiusTheme = {
-  xs: 3,
-  sm: 6,
-  md: 8,
-  lg: 12,
+  xs: "3px",
+  sm: "6px",
+  md: "8px",
+  lg: "12px",
 };
 
 export const DefaultAppTheme: AppTheme = {

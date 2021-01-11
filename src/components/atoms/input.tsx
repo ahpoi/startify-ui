@@ -9,7 +9,7 @@ const BaseInputCss = css<InputProps>`
   width: 100%;
   height: 40px;
   line-height: normal;
-  border-radius: ${({ theme }) => theme.radius.xs}px;
+  border-radius: ${({ theme }) => theme.radius.xs};
   border: 1px solid
     ${({ error, disabled, theme }) => (error && !disabled ? theme.color.error : InputBaseColors.borderColor)};
   background-color: ${InputBaseColors.backgroundColor};
