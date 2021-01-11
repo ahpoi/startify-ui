@@ -92,8 +92,8 @@ const appTheme: AppTheme = {
 We considered other options before creating our own. Here is our opinion:
 
 - Written in typescript
-- Focus on startup developments, components such as `Page`, PageBody`, `Error Modal`, `Error Modal with retry`, `
-  Skeleton PlaceHolder`, `Header`, `HeaderUserMenu` make it much faster to build beautiful yet filled with your business
+- Focus on startup developments, components such as `Page, PageBody, TextInputField (Label, Error), Error Modal, Error Modal (Retry),
+  Skeleton PlaceHolder` make it much faster to build beautiful yet filled with your business
   logic.
 - Do not pull thousands of other dependencies [(70% self)](https://bundlephobia.com/result?p=startify-ui)
 
@@ -101,4 +101,4 @@ We considered other options before creating our own. Here is our opinion:
 
 - More focus on accessibility with WAI-ARIA guidelines specifications
 - Remove react-tether as a dependency
-- Created an `extendTheme` function to only override specified property
+- Create an `extendTheme` function to only override specified property
