@@ -18,7 +18,7 @@ export const SkeletonPlaceholder = styled.div`
   height: 16px;
   position: relative;
   overflow: hidden;
-  border-radius: ${(props) => props.theme.border.radiusxSmall}px;
+  border-radius: ${(props) => props.theme.radius.xs}px;
   @keyframes placeHolderShimmer {
     0% {
       background-position: -468px 0;

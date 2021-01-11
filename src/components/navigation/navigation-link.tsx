@@ -17,8 +17,8 @@ const cssBaseLink = css<LinkProps>`
   outline: none;
   cursor: pointer;
   text-decoration: none !important;
-  color: ${(props) => props?.color ?? props.theme.color.textMid};
-  font-size: ${(props) => calculateUnit(props?.fontSize ?? props.theme.typography.text.medium)};
+  color: ${(props) => props?.color ?? props.theme.typography.color.body.mid};
+  font-size: ${(props) => calculateUnit(props?.fontSize ?? props.theme.typography.size.md)};
   font-weight: ${(props) => props?.fontWeight ?? props.theme.typography.fontWeight.medium};
 `;
 

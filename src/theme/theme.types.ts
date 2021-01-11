@@ -1,28 +1,24 @@
 export interface AppTheme {
   typography: TypographyTheme;
   color: ColorTheme;
-  border: BorderTheme;
+  radius: RadiusTheme;
 }
 
 export interface ColorTheme {
   primary: string;
   primaryDark: string;
+
   secondary: string;
   secondaryDark: string;
 
   error: string;
   errorDark: string;
-
-  heading: string;
-
-  textDark: string;
-  textMid: string;
-  textLight: string;
 }
 
 export interface TypographyTheme {
   fontFamily: {
-    base: string;
+    heading: string;
+    body: string;
   };
   fontWeight: {
     light: number;
@@ -30,17 +26,25 @@ export interface TypographyTheme {
     medium: number;
     bold: number;
   };
-  text: {
-    xSmall: string;
-    small: string;
-    medium: string;
-    large: string;
+  size: {
+    xs: string;
+    sm: string;
+    md: string;
+    lg: string;
+  };
+  color: {
+    heading: string;
+    body: {
+      dark: string;
+      mid: string;
+      light: string;
+    };
   };
 }
 
-export interface BorderTheme {
-  radiusxSmall: number;
-  radiusSmall: number;
-  radiusMedium: number;
-  radiusLarge: number;
+export interface RadiusTheme {
+  xs: number;
+  sm: number;
+  md: number;
+  lg: number;
 }

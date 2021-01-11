@@ -24,56 +24,57 @@ export interface HeadingProps extends BaseTypographyProps {
 
 export interface TextProps extends BaseTypographyProps {
   fontSize?: Property.FontSize<any>;
-  size?: "small" | "medium" | "large";
+  size?: "sm" | "md" | "lg";
 }
 
 const base = css<HeadingProps | TextProps>`
-  font-family: ${(props) => props.fontFamily};
   font-weight: ${(props) => props.theme.typography.fontWeight[props?.fontWeight ?? "normal"]};
   text-align: ${(props) => props.textAlign};
   margin: 0px;
 `;
 
-export const Heading1 = styled.h1<HeadingProps>`
+const baseHeading = css<HeadingProps>`
   ${base}
+  font-family: ${(props) => props.fontFamily ?? props.theme.typography.fontFamily.heading};
+  color: ${(props) => props.color ?? props.theme.typography.color.heading};
+`;
+
+export const Heading1 = styled.h1<HeadingProps>`
+  ${baseHeading}
   font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.one.web};
-  color: ${(props) => props.color ?? props.theme.color.heading};
   @media (max-width: ${Breakpoints.small}px) {
     font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.one.mobile};
   }
 ` as React.FunctionComponent<HeadingProps & HeadingPrimitiveType>;
 
 export const Heading2 = styled.h2<HeadingProps>`
-  ${base}
+  ${baseHeading}
   font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.two.web};
-  color: ${(props) => props.color ?? props.theme.color.heading};
   @media (max-width: ${Breakpoints.small}px) {
     font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.two.mobile};
   }
 ` as React.FunctionComponent<HeadingProps & HeadingPrimitiveType>;
 
 export const Heading3 = styled.h3<HeadingProps>`
-  ${base}
+  ${baseHeading}
   font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.three.web};
-  color: ${(props) => props.color ?? props.theme.color.heading};
   @media (max-width: ${Breakpoints.small}px) {
     font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.three.mobile};
   }
 ` as React.FunctionComponent<HeadingProps & HeadingPrimitiveType>;
 
 export const Heading4 = styled.h4<HeadingProps>`
-  ${base}
+  ${baseHeading}
   font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.four.web};
-  color: ${(props) => props.color ?? props.theme.color.heading};
+  color: ${(props) => props.color ?? props.theme.typography.color.heading};
   @media (max-width: ${Breakpoints.small}px) {
     font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.four.mobile};
   }
 ` as React.FunctionComponent<HeadingProps & HeadingPrimitiveType>;
 
 export const Heading5 = styled.h5<HeadingProps>`
-  ${base}
+  ${baseHeading}
   font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.five.web};
-  color: ${(props) => props.color ?? props.theme.color.heading};
   @media (max-width: ${Breakpoints.small}px) {
     font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.five.mobile};
   }
@@ -81,8 +82,9 @@ export const Heading5 = styled.h5<HeadingProps>`
 
 const textCss = css<TextProps>`
   ${base}
-  font-size: ${({ theme, size, fontSize }) => fontSize ?? theme.typography.text[size ?? "medium"]};
-  color: ${(props) => props.color ?? props.theme.color.textMid};
+  font-family: ${(props) => props.fontFamily ?? props.theme.typography.fontFamily.body};
+  font-size: ${({ theme, size, fontSize }) => fontSize ?? theme.typography.size[size ?? "md"]};
+  color: ${(props) => props.color ?? props.theme.typography.color.body.mid};
   hyphens: manual;
 `;
 
@@ -94,7 +96,7 @@ export const Paragraph = styled.p<TextProps>`
 
 export const ParagraphHeading = styled.p<TextProps>`
   ${textCss}
-  color: ${({ color, theme }) => color ?? theme.color.heading};
+  color: ${({ color, theme }) => color ?? theme.typography.color.heading};
 ` as React.FunctionComponent<TextProps & ParagraphPrimitive>;
 
 export const ListItem = styled.li<TextProps>`
@@ -108,7 +110,7 @@ export const Text = styled.div`
 
 export const SmallText = styled.div`
   ${textCss}
-  font-size: ${(props) => props.theme.typography.text.small};
+  font-size: ${(props) => props.theme.typography.size.sm};
 ` as React.FunctionComponent<TextProps & DivProps>;
 
 const TypographyVariants = {

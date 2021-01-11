@@ -12,7 +12,7 @@ import * as React from "react";
 export const StoriesDefaultThemeProvider = (props: { children: React.ReactNode }) => {
     const theme = {
         ...DefaultAppTheme,
-        typography: {...DefaultTypographyTheme, fontFamily: {base: "Montserrat,Helvetica Neue"}}
+        typography: {...DefaultTypographyTheme, fontFamily: {body: "Montserrat,Helvetica Neue", heading: "Montserrat"}}
     }
     return <StartifyProvider rootId={'root'} theme={theme}>{props.children}</StartifyProvider>
 };

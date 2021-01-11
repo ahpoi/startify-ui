@@ -12,7 +12,7 @@ interface TextWithLink {
   linkUnderline?: boolean;
   endText?: string;
   onClick?: () => any;
-  size?: "small" | "medium" | "large";
+  size?: "sm" | "md" | "lg";
 }
 
 export const TextWithLink = ({ onClick, text, link, linkUnderline, size }: TextWithLink) => {

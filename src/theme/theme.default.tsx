@@ -9,17 +9,12 @@ export const DefaultAppColorTheme: ColorTheme = {
 
   error: "#D61834",
   errorDark: "#BD152E",
-
-  heading: "#2A2A2A",
-
-  textDark: "#2A2A2A",
-  textMid: "#585858",
-  textLight: "#bdbdbd",
 };
 
 export const DefaultTypographyTheme: TypographyTheme = {
   fontFamily: {
-    base: "Helvetica,Arial,sans-serif",
+    heading: "Helvetica,Arial,sans-serif",
+    body: "Helvetica,Arial,sans-serif",
   },
   fontWeight: {
     light: 300,
@@ -27,23 +22,31 @@ export const DefaultTypographyTheme: TypographyTheme = {
     medium: 500,
     bold: 700,
   },
-  text: {
-    xSmall: "10px",
-    small: "12px",
-    medium: "14px",
-    large: "16px",
+  color: {
+    heading: "#2A2A2A",
+    body: {
+      dark: "#2A2A2A",
+      mid: "#585858",
+      light: "#bdbdbd",
+    },
+  },
+  size: {
+    xs: "10px",
+    sm: "12px",
+    md: "14px",
+    lg: "16px",
   },
 };
 
-export const DefaultAppBorderTheme = {
-  radiusxSmall: 3,
-  radiusSmall: 6,
-  radiusMedium: 8,
-  radiusLarge: 12,
+export const DefaultAppRadiusTheme = {
+  xs: 3,
+  sm: 6,
+  md: 8,
+  lg: 12,
 };
 
 export const DefaultAppTheme: AppTheme = {
-  typography: DefaultTypographyTheme,
   color: DefaultAppColorTheme,
-  border: DefaultAppBorderTheme,
+  typography: DefaultTypographyTheme,
+  radius: DefaultAppRadiusTheme,
 };

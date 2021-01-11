@@ -15,7 +15,7 @@ export const StartifyProvider = (props: Props) => {
   const { theme = DefaultAppTheme, children } = props;
   return (
     <>
-      <GlobalStyle rootId={props.rootId} fontFamily={theme.typography.fontFamily.base} />
+      <GlobalStyle rootId={props.rootId} fontFamily={theme.typography.fontFamily.body} />
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </>
   );

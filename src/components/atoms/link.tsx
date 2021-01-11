@@ -11,7 +11,7 @@ interface LinkProps {
   children: React.ReactNode;
   variant?: "primary" | "secondary" | "text";
   customVariant?: LinkVariant;
-  size?: "small" | "medium" | "large";
+  size?: "sm" | "md" | "lg";
 }
 
 export type LinkButtonProps = Omit<LinkProps, "target" | "href">;
@@ -23,7 +23,7 @@ export const Link = ({
   children,
   variant = "secondary",
   customVariant,
-  size = "medium",
+  size = "md",
   target = "_blank",
 }: LinkProps) => {
   const linkVariant: LinkVariant = customVariant ?? useStyleVariant()[variant];
@@ -41,7 +41,7 @@ export const LinkButton = ({
   underline = false,
   variant = "secondary",
   customVariant,
-  size = "medium",
+  size = "md",
 }: LinkButtonProps) => {
   const linkVariant: LinkVariant = customVariant ?? useStyleVariant()[variant];
   const styledProps = { ...linkVariant, ...useSizeVariant()[size] };
@@ -58,11 +58,12 @@ type LinkVariant = {
 };
 
 const useStyleVariant = () => {
-  const { primary, primaryDark, secondary, secondaryDark, textMid, textDark } = useTheme().color;
+  const { primary, primaryDark, secondary, secondaryDark } = useTheme().color;
+  const { mid, dark } = useTheme().typography.color.body;
   return {
     text: {
-      color: textMid,
-      colorOnHover: textDark,
+      color: mid,
+      colorOnHover: dark,
     },
     primary: {
       color: primary,
@@ -78,16 +79,16 @@ const useStyleVariant = () => {
 const useSizeVariant = () => {
   const { typography } = useTheme();
   return {
-    small: {
-      fontSize: typography.text.small,
+    sm: {
+      fontSize: typography.size.sm,
       fontWeight: "normal",
     },
-    medium: {
-      fontSize: typography.text.medium,
+    md: {
+      fontSize: typography.size.md,
       fontWeight: "normal",
     },
-    large: {
-      fontSize: typography.text.large,
+    lg: {
+      fontSize: typography.size.lg,
       fontWeight: "normal",
     },
   };

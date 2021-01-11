@@ -5,11 +5,11 @@ import { InputBaseColors } from "../../styles/colors";
 const BaseInputCss = css<InputProps>`
   font-size: 16px;
   font-weight: 400;
-  color: ${({ theme }) => theme.color.textDark};
+  color: ${({ theme }) => theme.typography.color.body.dark};
   width: 100%;
   height: 40px;
   line-height: normal;
-  border-radius: ${({ theme }) => theme.border.radiusxSmall}px;
+  border-radius: ${({ theme }) => theme.radius.xs}px;
   border: 1px solid
     ${({ error, disabled, theme }) => (error && !disabled ? theme.color.error : InputBaseColors.borderColor)};
   background-color: ${InputBaseColors.backgroundColor};

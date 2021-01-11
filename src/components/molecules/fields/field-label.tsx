@@ -41,7 +41,7 @@ export const FieldErrorMessage = styled.div.attrs({
   "aria-live": "assertive",
   "aria-atomic": "true",
 })`
-  font-size: ${({ theme }) => theme.typography.text.medium};
+  font-size: ${({ theme }) => theme.typography.size.md};
   font-weight: 400;
   color: ${({ theme }) => theme.color.error};
   line-height: 24px;
@@ -49,17 +49,17 @@ export const FieldErrorMessage = styled.div.attrs({
 `;
 
 export const Label = styled.label<{ error?: boolean }>`
-  font-size: ${({ theme }) => theme.typography.text.medium};
+  font-size: ${({ theme }) => theme.typography.size.md};
   font-weight: 500;
-  color: ${({ theme, error }) => (error ? theme.color.error : theme.color.textDark)};
+  color: ${({ theme, error }) => (error ? theme.color.error : theme.typography.color.body.dark)};
   line-height: 30px;
 ` as React.FunctionComponent<
   React.DetailedHTMLProps<React.LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement> & FieldProps
 >;
 
 export const Legend = styled.legend<{ error?: boolean }>`
-  font-size: ${({ theme }) => theme.typography.text.medium};
+  font-size: ${({ theme }) => theme.typography.size.md};
   font-weight: 500;
-  color: ${({ theme, error }) => (error ? theme.color.error : theme.color.textDark)};
+  color: ${({ theme, error }) => (error ? theme.color.error : theme.typography.color.body.dark)};
   line-height: 30px;
 ` as React.FunctionComponent<FieldProps>;

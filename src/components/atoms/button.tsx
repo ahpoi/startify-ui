@@ -58,38 +58,40 @@ export const Button = ({
 };
 
 export const useButtonSizeVariant = () => {
-  const { radiusxSmall } = useTheme().border;
+  const { xs: borderRadius } = useTheme().radius;
   const { medium } = useTheme().typography.fontWeight;
   return {
     small: {
       fontSize: "12px",
       fontWeight: medium,
       padding: "8px 18px 8px",
-      borderRadius: radiusxSmall,
+      borderRadius: borderRadius,
     },
     medium: {
       fontSize: "14px",
       fontWeight: medium,
       padding: "12px 30px 12px",
-      borderRadius: radiusxSmall,
+      borderRadius: borderRadius,
     },
     large: {
       fontSize: "16px",
       fontWeight: medium,
       padding: "16px 32px 16px",
-      borderRadius: radiusxSmall,
+      borderRadius: borderRadius,
     },
   };
 };
 
 const useButtonVariant = () => {
-  const { primary, primaryDark, secondary, secondaryDark, textMid, textDark } = useTheme().color;
+  const { primary, primaryDark, secondary, secondaryDark } = useTheme().color;
+  const { mid, dark } = useTheme().typography.color.body;
+
   return {
     text: {
-      color: textMid,
+      color: mid,
       backgroundColor: CommonColors.greyLight40,
       borderColor: "transparent",
-      colorOnHover: textDark,
+      colorOnHover: dark,
       backgroundOnHoverColor: CommonColors.greyLight70,
       borderOnHoverColor: CommonColors.greyLight70,
     },
@@ -221,9 +223,9 @@ const StyledButton = styled.button<StyledButtonProps>`
   color: ${(props) => props.color};
   background-color: ${(props) => props.backgroundColor};
   border: 1px solid ${(props) => props.borderColor};
-  
+
   transition: all 300ms ease 0s;
-  
+
   &:hover:enabled,
   &:focus:enabled,
   &:active:enabled {

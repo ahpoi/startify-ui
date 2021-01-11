@@ -53,7 +53,7 @@ const TabButtonsContainer = styled.div`
 const TabButton = styled.button<TabButtonProps>`
   cursor: pointer;
   height: auto;
-  font-size: ${(props) => props.theme.typography.text.medium};
+  font-size: ${(props) => props.theme.typography.size.md};
   font-weight: ${(props) => props.theme.typography.fontWeight.medium};
   padding: 0px 0px 4px 0;
   text-decoration: none;
@@ -61,7 +61,7 @@ const TabButton = styled.button<TabButtonProps>`
   line-height: 1em;
   background: none;
   border: none;
-  color: ${({ theme }) => theme.color.textDark};
+  color: ${({ theme }) => theme.typography.color.body.dark};
   ${({ isActive, theme }) =>
     isActive &&
     `
