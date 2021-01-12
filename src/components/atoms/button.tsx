@@ -3,6 +3,9 @@ import styled, { useTheme } from "styled-components";
 import { calculateUnit, CommonColors } from "../..";
 import { Spinner } from "./spinner";
 import { Property } from "csstype";
+import { SizeType } from "../others/types";
+
+type ButtonSizeType = Exclude<SizeType, "xs">;
 
 export type ButtonVariantType =
   | "primary"
@@ -17,7 +20,7 @@ export interface ButtonProps {
   id?: string;
   variant?: ButtonVariantType;
   type?: "submit" | "button";
-  size?: "small" | "medium" | "large";
+  size?: ButtonSizeType;
   customVariant?: ButtonVariant;
   customSize?: SizeVariant;
   children: React.ReactNode;
@@ -31,7 +34,7 @@ export const Button = ({
   id,
   children,
   variant = "primary",
-  size = "medium",
+  size = "md",
   onClick,
   type = "button",
   width = "auto",
@@ -57,23 +60,23 @@ export const Button = ({
   );
 };
 
-export const useButtonSizeVariant = () => {
+export const useButtonSizeVariant = (): Record<ButtonSizeType, SizeVariant> => {
   const { xs: borderRadius } = useTheme().radius;
   const { medium } = useTheme().typography.fontWeight;
   return {
-    small: {
+    sm: {
       fontSize: "12px",
       fontWeight: medium,
       padding: "8px 18px 8px",
       borderRadius: borderRadius,
     },
-    medium: {
+    md: {
       fontSize: "14px",
       fontWeight: medium,
       padding: "12px 30px 12px",
       borderRadius: borderRadius,
     },
-    large: {
+    lg: {
       fontSize: "16px",
       fontWeight: medium,
       padding: "16px 32px 16px",
@@ -85,7 +88,6 @@ export const useButtonSizeVariant = () => {
 const useButtonVariant = () => {
   const { primary, primaryDark, secondary, secondaryDark } = useTheme().color;
   const { mid, dark } = useTheme().typography.color.body;
-
   return {
     text: {
       color: mid,

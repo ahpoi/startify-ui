@@ -70,17 +70,17 @@ export const sizeVariants = () => (
   <StoriesDefaultThemeProvider>
     <Horizontal verticalAlign={"center"}>
       <div>
-        <Button size={"small"} onClick={onClick}>
+        <Button size={"sm"} onClick={onClick}>
           Small Button
         </Button>
       </div>
       <div>
-        <Button size={"medium"} onClick={onClick}>
+        <Button size={"md"} onClick={onClick}>
           Medium Button
         </Button>
       </div>
       <div>
-        <Button size={"large"} onClick={onClick}>
+        <Button size={"lg"} onClick={onClick}>
           Large Button
         </Button>
       </div>
@@ -92,17 +92,17 @@ export const sizeVariantsLoading = () => (
   <StoriesDefaultThemeProvider>
     <Horizontal verticalAlign={"center"}>
       <div>
-        <Button size={"small"} onClick={onClick} isLoading>
+        <Button size={"sm"} onClick={onClick} isLoading>
           Small Button
         </Button>
       </div>
       <div>
-        <Button size={"medium"} onClick={onClick} isLoading>
+        <Button size={"md"} onClick={onClick} isLoading>
           Medium Button
         </Button>
       </div>
       <div>
-        <Button size={"large"} onClick={onClick} isLoading>
+        <Button size={"lg"} onClick={onClick} isLoading>
           Large Button
         </Button>
       </div>

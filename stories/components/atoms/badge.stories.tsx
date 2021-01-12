@@ -49,17 +49,17 @@ export const sizes = () => (
   <StoriesDefaultThemeProvider>
     <Horizontal>
       <div>
-        <Badge variant={"success"} size={"small"}>
+        <Badge variant={"success"} size={"sm"}>
           small
         </Badge>
       </div>
       <div>
-        <Badge variant={"success"} size={"medium"}>
+        <Badge variant={"success"} size={"md"}>
           medium
         </Badge>
       </div>
       <div>
-        <Badge variant={"success"} size={"large"}>
+        <Badge variant={"success"} size={"lg"}>
           large
         </Badge>
       </div>

@@ -97,6 +97,12 @@ We considered other options before creating our own. Here is our opinion:
   logic.
 - Do not pull thousands of other dependencies [(70% self)](https://bundlephobia.com/result?p=startify-ui)
 
+### Upcoming Components
+
+- Transitions
+- Form Stepper
+- Drag/Drop Upload
+
 ### Improvements
 
 - More focus on accessibility with WAI-ARIA guidelines specifications

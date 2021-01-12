@@ -1,9 +1,12 @@
 import * as React from "react";
 import styled, { useTheme } from "styled-components";
+import { SizeType } from "../others/types";
+
+type BadgeSizeType = Exclude<SizeType, "xs">;
 
 interface BadgeProps {
   variant?: "primary" | "secondary" | "success" | "info" | "warning" | "error";
-  size?: "small" | "medium" | "large";
+  size?: BadgeSizeType;
   customStyle?: BadgeVariant;
   children: React.ReactNode;
   onClick?: () => any;
@@ -14,7 +17,7 @@ export const Badge = ({
   children,
   customStyle,
   variant = "info",
-  size = "medium",
+  size = "md",
   minWidth = "auto",
   onClick = undefined,
 }: BadgeProps) => {
@@ -73,16 +76,16 @@ interface SizeVariant {
   padding: string;
 }
 
-const SizeVariants = {
-  small: {
+const SizeVariants: Record<BadgeSizeType, SizeVariant> = {
+  sm: {
     fontSize: "10px",
     padding: "6px",
   },
-  medium: {
+  md: {
     fontSize: "12px",
     padding: "8px",
   },
-  large: {
+  lg: {
     fontSize: "14px",
     padding: "8px 10px 8px",
   },
