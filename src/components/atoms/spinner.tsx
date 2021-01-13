@@ -80,7 +80,7 @@ export const DotSpinner = ({ color, size }: DotsSpinner) => (
 const Dot = styled.div<DotsSpinner & { animationDelay: string }>`
   width: ${({ size }) => calculateUnit(size ?? 12)};
   height: ${({ size }) => calculateUnit(size ?? 12)};
-  color: ${(props) => props.color ?? props.theme.colors.secondary["500"]};
+  background-color: ${(props) => props.color ?? props.theme.colors.primary["500"]};
 
   border-radius: 100%;
   display: inline-block;
