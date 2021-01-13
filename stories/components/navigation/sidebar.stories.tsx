@@ -1,13 +1,12 @@
 import * as React from "react";
 import { StoriesDefaultThemeProvider, TestHeaderLogo } from "../../utils/stories-container";
 import {
-  DefaultAppColorTheme,
   HorizontalDivider,
   Sidebar,
   MenuItemLink,
   MenuItemContainer,
   SidebarNavigation,
-  SidebarToggle,
+  SidebarToggle, colors,
 } from "../../../src";
 
 export default {
@@ -54,7 +53,7 @@ const SidebarItemsLinks = () => (
 const SidebarItemSecondaryLinks = () => (
   <>
     {SecondaryLinks.map((it) => (
-      <MenuItemLink color={DefaultAppColorTheme.secondary} key={it.text} onClick={() => alert(it.text)}>
+      <MenuItemLink color={colors.secondary} key={it.text} onClick={() => alert(it.text)}>
         {it.text}
       </MenuItemLink>
     ))}

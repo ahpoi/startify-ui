@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled, { useTheme } from "styled-components";
-import { calculateUnit, CommonColors } from "../..";
+import { calculateUnit } from "../..";
 import { Spinner } from "./spinner";
 import { Property } from "csstype";
 import { SizeType } from "../others/types";
@@ -8,13 +8,15 @@ import { SizeType } from "../others/types";
 type ButtonSizeType = Exclude<SizeType, "xs">;
 
 export type ButtonVariantType =
+  | "text"
   | "primary"
   | "primaryOutlined"
   | "primaryOutlinedFilled"
   | "secondary"
   | "secondaryOutlined"
   | "secondaryOutlinedFilled"
-  | "text";
+  | "linkPrimary"
+  | "linkSecondary";
 
 export interface ButtonProps {
   id?: string;
@@ -86,95 +88,79 @@ export const useButtonSizeVariant = (): Record<ButtonSizeType, SizeVariant> => {
 };
 
 const useButtonVariant = () => {
-  const { primary, primaryDark, secondary, secondaryDark } = useTheme().colors;
+  const { primary, secondary, grey } = useTheme().colors;
   const { mid, dark } = useTheme().typography.color.body;
   return {
     text: {
       color: mid,
-      backgroundColor: CommonColors.greyLight40,
+      backgroundColor: grey["100"],
       borderColor: "transparent",
       colorOnHover: dark,
-      backgroundOnHoverColor: CommonColors.greyLight70,
-      borderOnHoverColor: CommonColors.greyLight70,
+      backgroundOnHoverColor: grey["200"],
+      borderOnHoverColor: grey["200"],
     },
     primary: {
       color: "white",
-      backgroundColor: primary,
-      borderColor: primary,
+      backgroundColor: primary["500"],
+      borderColor: primary["500"],
       colorOnHover: "white",
-      borderOnHoverColor: primaryDark,
-      backgroundOnHoverColor: primaryDark,
+      borderOnHoverColor: primary["700"],
+      backgroundOnHoverColor: primary["700"],
     },
     primaryOutlined: {
-      color: primary,
+      color: primary["500"],
       backgroundColor: "transparent",
-      borderColor: primary,
-      colorOnHover: primary,
+      borderColor: primary["500"],
+      colorOnHover: primary["500"],
       backgroundOnHoverColor: "transparent",
-      borderOnHoverColor: primary,
+      borderOnHoverColor: primary["500"],
     },
     primaryOutlinedFilled: {
-      color: primary,
+      color: primary["500"],
       backgroundColor: "transparent",
-      borderColor: primary,
+      borderColor: primary["500"],
       colorOnHover: "white",
-      backgroundOnHoverColor: primary,
-      borderOnHoverColor: primary,
-    },
-    textPrimary: {
-      color: primary,
-      backgroundColor: "transparent",
-      borderColor: "transparent",
-      colorOnHover: primary,
-      backgroundOnHoverColor: CommonColors.greyLight30,
-      borderOnHoverColor: "transparent",
-    },
-    textPrimaryFilled: {
-      color: primary,
-      backgroundColor: "transparent",
-      borderColor: "transparent",
-      colorOnHover: "white",
-      backgroundOnHoverColor: primary,
-      borderOnHoverColor: "transparent",
+      backgroundOnHoverColor: primary["500"],
+      borderOnHoverColor: primary["500"],
     },
     secondary: {
       color: "white",
-      backgroundColor: secondary,
-      borderColor: secondary,
+      backgroundColor: secondary["500"],
+      borderColor: secondary["500"],
       colorOnHover: "white",
-      backgroundOnHoverColor: secondaryDark,
-      borderOnHoverColor: secondary,
+      backgroundOnHoverColor: secondary["700"],
+      borderOnHoverColor: secondary["500"],
     },
     secondaryOutlined: {
-      color: secondary,
+      color: secondary["500"],
       backgroundColor: "transparent",
-      borderColor: secondary,
-      colorOnHover: secondary,
+      borderColor: secondary["500"],
+      colorOnHover: secondary["500"],
       backgroundOnHoverColor: "transparent",
-      borderOnHoverColor: secondaryDark,
+      borderOnHoverColor: secondary["700"],
     },
     secondaryOutlinedFilled: {
-      color: secondary,
+      color: secondary["500"],
       backgroundColor: "transparent",
-      borderColor: secondary,
+      borderColor: secondary["500"],
       colorOnHover: "white",
-      backgroundOnHoverColor: secondary,
-      borderOnHoverColor: secondary,
+      backgroundOnHoverColor: secondary["500"],
+      borderOnHoverColor: secondary["500"],
     },
-    textSecondary: {
-      color: secondary,
+    linkPrimary: {
+      color: primary["500"],
       backgroundColor: "transparent",
       borderColor: "transparent",
-      colorOnHover: secondary,
-      backgroundOnHoverColor: CommonColors.greyLight30,
+      colorOnHover: primary["700"],
+      backgroundOnHoverColor: "transparent",
       borderOnHoverColor: "transparent",
     },
-    textSecondaryFilled: {
-      color: secondary,
+    linkSecondary: {
+      color: secondary["500"],
       backgroundColor: "transparent",
       borderColor: "transparent",
-      colorOnHover: "white",
-      backgroundOnHoverColor: secondary,
+      colorOnHover: secondary["700"],
+      backgroundOnHoverColor: "transparent",
       borderOnHoverColor: "transparent",
     },
   };
@@ -219,8 +205,8 @@ const StyledButton = styled.button<StyledButtonProps>`
   &:disabled {
     cursor: not-allowed;
     color: rgba(0, 0, 0, 0.25);
-    background-color: #f5f5f5;
-    border-color: #f5f5f5;
+    background-color: ${(props) => props.theme.colors.grey["100"]};
+    border-color: ${(props) => props.theme.colors.grey["100"]};
   }
   color: ${(props) => props.color};
   background-color: ${(props) => props.backgroundColor};

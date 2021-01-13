@@ -37,7 +37,7 @@ export const BackButton = ({ onClick, text }: BackButtonProps) => {
   const color = useTheme().colors.secondary;
   return (
     <Horizontal spacing={4} verticalAlign={"center"}>
-      <IconArrowLeft size={16} color={color} />
+      <IconArrowLeft size={16} color={color["500"]} />
       <LinkButton underline={false} onClick={onClick ? onClick() : () => window.history.back()}>
         {text ?? "Back"}
       </LinkButton>

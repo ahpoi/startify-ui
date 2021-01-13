@@ -48,7 +48,7 @@ export const chevronAndEllipsis = () => {
     <StoriesDefaultThemeProvider>
       <VerticalSpacer />
       <Horizontal verticalAlign={"center"}>
-        <Button size={"small"} onClick={() => setOnRotate(!rotate)}>
+        <Button size={"sm"} onClick={() => setOnRotate(!rotate)}>
           Rotate
         </Button>
         <Ellipsis rotate={rotate} size={16} />

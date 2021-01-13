@@ -75,7 +75,6 @@ const SideBarContent = styled.div<{ isOpen: boolean }>`
   bottom: 0;
   transition: transform 0.3s ease-out;
   overflow-y: auto;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
   width: ${width}px;
   transform: ${({ isOpen }) => (isOpen ? "translateX(0%)" : "translateX(-100%)")};
 `;

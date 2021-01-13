@@ -58,7 +58,7 @@ type LinkVariant = {
 };
 
 const useStyleVariant = () => {
-  const { primary, primaryDark, secondary, secondaryDark } = useTheme().colors;
+  const { primary, secondary } = useTheme().colors;
   const { mid, dark } = useTheme().typography.color.body;
   return {
     text: {
@@ -66,12 +66,12 @@ const useStyleVariant = () => {
       colorOnHover: dark,
     },
     primary: {
-      color: primary,
-      colorOnHover: primaryDark,
+      color: primary["500"],
+      colorOnHover: primary["700"],
     },
     secondary: {
-      color: secondary,
-      colorOnHover: secondaryDark,
+      color: secondary["500"],
+      colorOnHover: secondary["700"],
     },
   };
 };

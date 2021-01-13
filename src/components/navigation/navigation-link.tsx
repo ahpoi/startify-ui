@@ -1,8 +1,8 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
 import { Property } from "csstype";
-import { CommonColors } from "../../styles/colors";
 import { calculateUnit } from "../layout/gls/box";
+import { colors } from "../../styles/colors";
 
 type LinkProps = {
   children: React.ReactNode;
@@ -48,7 +48,7 @@ export const MenuItemLink = styled.a<MenuItemProps>`
    &:hover,
    &:focus,
    &:active {
-     background-color: ${CommonColors.greyLight50} !important;
+     background-color: ${colors.grey["50"]} !important;
   } 
 ` as React.FunctionComponent<MenuItemProps & AnchorPrimitiveType>;
 

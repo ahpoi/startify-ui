@@ -1,6 +1,5 @@
 import {
     appTheme,
-    CommonColors,
     DesktopHeader,
     HeaderLogo,
     NavigationLink,
@@ -89,7 +88,6 @@ const RightLinks = [
 
 export const TestDesktopHeader = () => (
     <DesktopHeader
-        backgroundColor={CommonColors.greyLight40}
         logo={<TestHeaderLogo/>}
         leftLinks={LeftLinks.map((it) => (
             <NavigationLink key={it.text} href={it.href} onClick={() => alert(it.text)}>

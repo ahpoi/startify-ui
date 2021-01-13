@@ -1,17 +1,16 @@
 import * as React from "react";
 
-import { CommonColors } from "../../styles/colors";
 import styled from "styled-components";
 
 const defaultSize = 24;
-
+const defaultIconColor = "rgba(128,128,128,0.7)";
 export interface IconProps {
   color?: string;
   size?: number;
 }
 
 export const IconClose = (props: IconProps) => {
-  const color = props.color || CommonColors.grey70;
+  const color = props.color || defaultIconColor;
   const size = props.size || defaultSize;
   return (
     <svg width={size} height={size} viewBox="0 0 24 24">
@@ -24,7 +23,7 @@ export const IconClose = (props: IconProps) => {
 };
 
 export const IconError = (props: IconProps) => {
-  const color = props.color || CommonColors.grey70;
+  const color = props.color || defaultIconColor;
   const size = props.size || defaultSize;
   return (
     <svg width={size} height={size} viewBox="0 0 24 24">
@@ -43,7 +42,7 @@ export const IconError = (props: IconProps) => {
  * https://www.flaticon.com/packs/navigation-5
  */
 export const IconChevronRight = (props: IconProps) => {
-  const color = props.color || CommonColors.grey70;
+  const color = props.color || defaultIconColor;
   const size = props.size || defaultSize;
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" style={{ fill: color }}>
@@ -56,7 +55,7 @@ export const IconChevronRight = (props: IconProps) => {
 };
 
 export const IconChevronLeft = (props: IconProps) => {
-  const color = props.color || CommonColors.grey70;
+  const color = props.color || defaultIconColor;
   const size = props.size || defaultSize;
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" style={{ fill: color }}>
@@ -69,7 +68,7 @@ export const IconChevronLeft = (props: IconProps) => {
 };
 
 export const IconChevronUp = (props: IconProps) => {
-  const color = props.color || CommonColors.grey70;
+  const color = props.color || defaultIconColor;
   const size = props.size || defaultSize;
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" style={{ fill: color }}>
@@ -83,7 +82,7 @@ export const IconChevronUp = (props: IconProps) => {
 };
 
 export const IconChevronDown = (props: IconProps) => {
-  const color = props.color || CommonColors.grey70;
+  const color = props.color || defaultIconColor;
   const size = props.size || defaultSize;
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" style={{ fill: color }}>
@@ -96,7 +95,7 @@ export const IconChevronDown = (props: IconProps) => {
 };
 
 export const IconArrowRight = (props: IconProps) => {
-  const color = props.color || CommonColors.grey70;
+  const color = props.color || defaultIconColor;
   const size = props.size || defaultSize;
   return (
     <svg width={size} height={size} viewBox={`0 0 24 24`} style={{ fill: color }}>
@@ -109,7 +108,7 @@ export const IconArrowRight = (props: IconProps) => {
 };
 
 export const IconArrowLeft = (props: IconProps) => {
-  const color = props.color || CommonColors.grey70;
+  const color = props.color || defaultIconColor;
   const size = props.size || defaultSize;
   return (
     <svg width={size} height={size} viewBox={`0 0 24 24`} style={{ fill: color }}>
@@ -122,7 +121,7 @@ export const IconArrowLeft = (props: IconProps) => {
 };
 
 export const IconMenu = (props: IconProps) => {
-  const color = props.color || CommonColors.grey70;
+  const color = props.color || defaultIconColor;
   const size = props.size || defaultSize;
   return (
     <svg width={size} height={size} viewBox={`0 0 24 24`} style={{ fill: color }}>
@@ -132,7 +131,7 @@ export const IconMenu = (props: IconProps) => {
 };
 
 export const IconUserAvatarCircle = (props: IconProps) => {
-  const color = props.color || CommonColors.grey70;
+  const color = props.color || defaultIconColor;
   const size = props.size || defaultSize;
   return (
     <svg width={size} height={size} viewBox={`0 0 24 24`}>
@@ -150,7 +149,7 @@ export const IconUserAvatarCircle = (props: IconProps) => {
 };
 
 export const IconQuestionCircle = (props: IconProps) => {
-  const color = props.color || CommonColors.grey70;
+  const color = props.color || defaultIconColor;
   const size = props.size || defaultSize;
   return (
     <svg width={size} height={size} viewBox={`0 0 24 24`}>
@@ -183,6 +182,6 @@ export const IconButtonContainer = styled.button`
   &:hover,
   &:active {
     border-radius: ${({ theme }) => theme.radius.xs};
-    background-color: ${CommonColors.greyLight40};
+    background-color: rgb(238, 238, 238, 0.7);
   }
 ` as React.FunctionComponent<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>>;

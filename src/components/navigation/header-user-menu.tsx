@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { IconMenu, IconUserAvatarCircle } from "../others/icons";
 import { Horizontal } from "../layout/gls/gls";
 import { useOnInsideClick, useOnOutsideClick } from "../../hooks/common.hook";
+import { shadows } from "../../styles/shadows";
 
 type Props = {
   children: React.ReactNode;
@@ -34,7 +35,7 @@ const HeaderUserMenuContainer = styled.div`
 `;
 const UserProfileButton = styled.button`
   appearance: none;
-  background: rgb(255, 255, 255);
+  background: white;
   border: 1px solid rgb(221, 221, 221);
   color: rgb(34, 34, 34);
   cursor: pointer;
@@ -45,12 +46,12 @@ const UserProfileButton = styled.button`
   border-radius: 18px;
   height: 42px;
   transition: box-shadow 0.2s ease 0s;
-  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  box-shadow: ${shadows.md};
 
   &:focus,
   &:hover,
   &:active {
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 4px;
+    box-shadow: ${shadows.lg};
   }
 `;
 
@@ -67,7 +68,7 @@ const MenuContainer = styled.div`
   display: block;
 
   background: white;
-  border-radius: 12px;
+  border-radius: ${(props) => props.theme.radius.md};
   box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 16px;
   color: rgb(34, 34, 34);
   padding: 8px 0px;

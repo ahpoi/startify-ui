@@ -28,13 +28,13 @@ export const texts = () => (
 export const custom = () => (
   <StoriesDefaultThemeProvider>
     <Vertical>
-      <Paragraph color={"#008DA6"} textAlign={"center"} size={"small"}>
+      <Paragraph color={"#008DA6"} textAlign={"center"} size={"sm"}>
         Paragraph Small
       </Paragraph>
-      <Paragraph color={"#008DA6"} textAlign={"center"} size={"medium"}>
+      <Paragraph color={"#008DA6"} textAlign={"center"} size={"md"}>
         Paragraph medium
       </Paragraph>
-      <Paragraph color={"#008DA6"} textAlign={"center"} size={"large"}>
+      <Paragraph color={"#008DA6"} textAlign={"center"} size={"lg"}>
         Paragraph large
       </Paragraph>
       <Paragraph fontFamily={"sans-serif"} fontWeight={"bold"} color={"#008DA6"} textAlign={"center"} fontSize={"20px"}>

@@ -1,76 +1,76 @@
 export const colors = {
-  primary: "#172B4D",
-  primaryDark: "#051632",
-
-  secondary: "#008DA6",
-  secondaryDark: "#027187",
-
-  error: "#D61834",
-  errorDark: "#BD152E",
+  primary: {
+    50: "#E8EAF6",
+    100: "#C5CAE9",
+    200: "#9FA8DA",
+    300: "#7986CB",
+    400: "#5C6BC0",
+    500: "#3F51B5",
+    600: "#3949AB",
+    700: "#303F9F",
+    800: "#283593",
+    900: "#1A237E",
+  },
+  secondary: {
+    50: "#E0F2F1",
+    100: "#B2DFDB",
+    200: "#80CBC4",
+    300: "#4DB6AC",
+    400: "#26A69A",
+    500: "#009688",
+    600: "#00897B",
+    700: "#00796B",
+    800: "#00695C",
+    900: "#004D40",
+  },
+  white: {
+    50: "rgba(255, 255, 255, 0.04)",
+    100: "rgba(255, 255, 255, 0.06)",
+    200: "rgba(255, 255, 255, 0.08)",
+    300: "rgba(255, 255, 255, 0.16)",
+    400: "rgba(255, 255, 255, 0.24)",
+    500: "rgba(255, 255, 255, 0.36)",
+    600: "rgba(255, 255, 255, 0.48)",
+    700: "rgba(255, 255, 255, 0.64)",
+    800: "rgba(255, 255, 255, 0.80)",
+    900: "rgba(255, 255, 255, 0.92)",
+  },
+  black: {
+    50: "rgba(0, 0, 0, 0.04)",
+    100: "rgba(0, 0, 0, 0.06)",
+    200: "rgba(0, 0, 0, 0.08)",
+    300: "rgba(0, 0, 0, 0.16)",
+    400: "rgba(0, 0, 0, 0.24)",
+    500: "rgba(0, 0, 0, 0.36)",
+    600: "rgba(0, 0, 0, 0.48)",
+    700: "rgba(0, 0, 0, 0.64)",
+    800: "rgba(0, 0, 0, 0.80)",
+    900: "rgba(0, 0, 0, 0.92)",
+  },
+  grey: {
+    50: "#FAFAFA",
+    100: "#F5F5F5",
+    200: "#EEEEEE",
+    300: "#E0E0E0",
+    400: "#BDBDBD",
+    500: "#9E9E9E",
+    600: "#757575",
+    700: "#616161",
+    800: "#424242",
+    900: "#212121",
+  },
+  red: {
+    50: "#FFF5F5",
+    100: "#FED7D7",
+    200: "#FEB2B2",
+    300: "#FC8181",
+    400: "#F56565",
+    500: "#e53e3e",
+    600: "#C53030",
+    700: "#9B2C2C",
+    800: "#822727",
+    900: "#63171B",
+  },
 };
 
 export type Colors = typeof colors;
-
-export const CommonColors = {
-  // Commons
-  white: "#fff",
-  white10: "rgba(255,255,255,0.1)",
-  white20: "rgba(255, 255, 255, 0.2)",
-  white30: "rgba(255, 255, 255, 0.3)",
-  white40: "rgba(255, 255, 255, 0.4)",
-  white50: "rgba(255, 255, 255, 0.5)",
-  white60: "rgba(255, 255, 255, 0.6)",
-  white70: "rgba(255, 255, 255, 0.7)",
-  white80: "rgba(255, 255, 255, 0.8)",
-  white90: "rgba(255, 255, 255, 0.9)",
-
-  black: "#000",
-  black10: "rgba(0,0,0,0.1)",
-  black20: "rgba(0,0,0,0.2)",
-  black30: "rgba(0,0,0,0.3)",
-  black40: "rgba(0,0,0,0.4)",
-  black50: "rgba(0,0,0,0.5)",
-  black60: "rgba(0,0,0,0.6)",
-  black70: "rgba(0,0,0,0.7)",
-  black80: "rgba(0,0,0,0.8)",
-  black90: "rgba(0,0,0,0.9)",
-
-  grey: "rgba(128,128,128)",
-  grey10: "rgba(128,128,128,0.1)",
-  grey20: "rgba(128,128,128,0.2)",
-  grey30: "rgba(128,128,128,0.3)",
-  grey40: "rgba(128,128,128,0.4)",
-  grey50: "rgba(128,128,128,0.5)",
-  grey60: "rgba(128,128,128,0.6)",
-  grey70: "rgba(128,128,128,0.7)",
-  grey80: "rgba(128,128,128,0.8)",
-  grey90: "rgba(128,128,128,0.9)",
-
-  greyLight: "rgb(238,238,238)",
-  greyLight10: "rgb(238,238,238, 0.1)",
-  greyLight20: "rgb(238,238,238, 0.2)",
-  greyLight30: "rgb(238,238,238, 0.3)",
-  greyLight40: "rgb(238,238,238, 0.4)",
-  greyLight50: "rgb(238,238,238, 0.5)",
-  greyLight60: "rgb(238,238,238, 0.6)",
-  greyLight70: "rgb(238,238,238, 0.7)",
-  greyLight80: "rgb(238,238,238, 0.8)",
-  greyLight90: "rgb(238,238,238, 0.9)",
-};
-
-/**
- * If needed later will move to Theme
- */
-export const InputBaseColors = {
-  borderColor: "#EBEBEB",
-  backgroundColor: "#ffffff",
-  backgroundColorDisabled: "#f6f6f6",
-};
-
-export const Shadow = {
-  shadow1: "0px 1px 2px rgba(0, 0, 0, 0.1)",
-  shadow2: "0px -1px 25px rgba(0, 0, 0, 0.12)",
-  shadow3: "0px 9px 40px rgba(0, 0, 0, 0.16)",
-  shadow4: "0px 10px 15px rgba(0, 0, 0, 0.1)",
-  shadow5: "0px 10px 30px rgba(0, 0, 0, 0.3)",
-};

@@ -1,13 +1,13 @@
 import {StoriesDefaultThemeProvider, TestHeaderLogo, TestLogo} from "../../utils/stories-container";
 import * as React from "react";
 import {
-  CommonColors,
-  DefaultAppColorTheme,
-  DesktopHeader, HeaderUserMenu,
+  colors,
+  DesktopHeader,
+  HeaderUserMenu,
+  MenuItemLink,
   MobileHeader,
   NavigationLink,
   ResponsiveLayout,
-  MenuItemLink,
   SidebarNavigation,
   Vertical,
 } from "../../../src";
@@ -51,7 +51,6 @@ export const header = () => {
       <ResponsiveLayout
         renderMobile={() => (
           <MobileHeader
-            backgroundColor={CommonColors.greyLight40}
             logo={<TestHeaderLogo />}
             isSidebarOpen={isSidebarOpen}
             onSidebarStateChange={({ isOpen }) => setIsSideBarOpen(isOpen)}
@@ -74,7 +73,6 @@ export const header = () => {
         )}
         renderDesktop={() => (
           <DesktopHeader
-            backgroundColor={CommonColors.greyLight40}
             logo={<TestHeaderLogo />}
             leftLinks={Links.map((it) => (
               <NavigationLink key={it.text} href={it.href} onClick={() => alert(it.text)}>
@@ -85,7 +83,6 @@ export const header = () => {
               <NavigationLink
                 key={it.text}
                 href={it.href}
-                color={DefaultAppColorTheme.secondary}
                 onClick={() => alert(it.text)}
               >
                 {it.text}

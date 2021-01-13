@@ -43,7 +43,7 @@ export const FieldErrorMessage = styled.div.attrs({
 })`
   font-size: ${({ theme }) => theme.typography.size.md};
   font-weight: 400;
-  color: ${({ theme }) => theme.colors.error};
+  color: ${({ theme }) => theme.colors.red["500"]};
   line-height: 24px;
   transition: color 0.2s;
 `;
@@ -51,7 +51,7 @@ export const FieldErrorMessage = styled.div.attrs({
 export const Label = styled.label<{ error?: boolean }>`
   font-size: ${({ theme }) => theme.typography.size.md};
   font-weight: 500;
-  color: ${({ theme, error }) => (error ? theme.colors.error : theme.typography.color.body.dark)};
+  color: ${({ theme, error }) => (error ? theme.colors.red["500"] : theme.typography.color.body.dark)};
   line-height: 30px;
 ` as React.FunctionComponent<
   React.DetailedHTMLProps<React.LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement> & FieldProps
@@ -60,6 +60,6 @@ export const Label = styled.label<{ error?: boolean }>`
 export const Legend = styled.legend<{ error?: boolean }>`
   font-size: ${({ theme }) => theme.typography.size.md};
   font-weight: 500;
-  color: ${({ theme, error }) => (error ? theme.colors.error : theme.typography.color.body.dark)};
+  color: ${({ theme, error }) => (error ? theme.colors.red["500"] : theme.typography.color.body.dark)};
   line-height: 30px;
 ` as React.FunctionComponent<FieldProps>;

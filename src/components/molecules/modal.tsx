@@ -5,6 +5,7 @@ import { Button, ButtonVariantType, Heading4, Horizontal, StretchSpacer, Text, V
 import { breakpoints } from "../../styles/breakpoints";
 import { spaces } from "../../styles/spaces";
 import { zIndices } from "../../styles/z-index";
+import { shadows } from "../../styles/shadows";
 import { useKeyboardEvent, useOnOutsideClick } from "../../hooks/common.hook";
 import { IconButtonContainer, IconClose, IconError } from "../others/icons";
 import { fadeIn } from "../others/animations";
@@ -168,7 +169,7 @@ const ModalErrorContent = (props: ModalErrorProps) => {
     retryButtonVariant = "text",
   } = props;
   const { onRetrying, onRetry, onClose } = props;
-  const error = useTheme().colors.error;
+  const error = useTheme().colors.red["500"];
   return (
     <>
       <Horizontal horizontalAlign={"right"}>
@@ -243,7 +244,7 @@ export const ModalContainer = styled.div<{ modalWidth?: number; padding?: number
   left: 50%;
   transform: translate(-50%, -25%);
   border-radius: ${(props) => props.theme.radius.sm};
-  box-shadow: 0px 9px 40px rgba(0, 0, 0, 0.16);
+  box-shadow: ${shadows.xl};
   padding: ${(props) => props.padding ?? spaces.md}px;
   @media (max-width: ${breakpoints.sm}px) {
     width: 95%;

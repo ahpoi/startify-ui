@@ -49,4 +49,5 @@ export * from "./styles/spaces";
 export * from "./styles/containers";
 export * from "./styles/breakpoints";
 export * from "./styles/typography";
+export * from "./styles/shadows";
 export * from "./styles/z-index";

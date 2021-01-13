@@ -1,6 +1,5 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
-import { InputBaseColors } from "../../styles/colors";
 
 const BaseInputCss = css<InputProps>`
   font-size: 16px;
@@ -11,17 +10,17 @@ const BaseInputCss = css<InputProps>`
   line-height: normal;
   border-radius: ${({ theme }) => theme.radius.xs};
   border: 1px solid
-    ${({ error, disabled, theme }) => (error && !disabled ? theme.colors.error : InputBaseColors.borderColor)};
-  background-color: ${InputBaseColors.backgroundColor};
+    ${({ error, disabled, theme }) => (error && !disabled ? theme.colors.red["500"] : theme.colors.grey["300"])};
+  background-color: ${({ theme }) => theme.colors.white["900"]};
   padding: 8px 10px;
   outline: none;
   &:disabled {
     cursor: not-allowed;
-    background-color: ${InputBaseColors.backgroundColorDisabled};
+    background-color: ${({ theme }) => theme.colors.grey["200"]};
   }
   &:hover:enabled,
   &:focus:enabled {
-    border-color: ${({ theme }) => theme.colors.secondary};
+    border-color: ${({ theme }) => theme.colors.secondary[500]};
   }
 `;
 

@@ -2,7 +2,6 @@ import { StoriesDefaultThemeProvider, TestDesktopHeader, TestLogo } from "../../
 import * as React from "react";
 import {
   Button,
-  CommonColors,
   Footer,
   Header,
   HeaderLogo,
@@ -60,10 +59,10 @@ export const pageLandingLayout = () => (
           <Horizontal spacing={0}>
             <HeaderLogo name={"Birdies"} logo={<TestLogo/>} color={"#FF5050"} onClick={() => 9} />
             <StretchSpacer />
-            <Button variant={"text"} size={"small"}>
+            <Button variant={"linkSecondary"} size={"sm"}>
               Login
             </Button>
-            <Button variant={"text"} size={"small"}>
+            <Button variant={"linkSecondary"} size={"sm"}>
               Sign up
             </Button>
           </Horizontal>
@@ -76,7 +75,7 @@ export const pageLandingLayout = () => (
           <LandingPageSection>
             <Heading1>Welcome to my Landing PageWebsite</Heading1>
           </LandingPageSection>
-          <LandingPageSection backgroundColor={CommonColors.grey30} verticalPadding={24}>
+          <LandingPageSection verticalPadding={24}>
             <Vertical spacing={12}>
               <Paragraph>Lorum Ipsume - Hello I am Ian</Paragraph>
               <Paragraph>Lorum Ipsume - Hello I am Ian</Paragraph>

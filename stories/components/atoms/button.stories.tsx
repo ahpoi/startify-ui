@@ -47,6 +47,19 @@ export const secondaryVariants = () => (
   </StoriesDefaultThemeProvider>
 );
 
+export const linkVariants = () => (
+    <StoriesDefaultThemeProvider>
+      <Horizontal>
+        <Button variant={"linkPrimary"} onClick={onClick}>
+          Link
+        </Button>
+        <Button variant={"linkSecondary"} onClick={onClick}>
+          Secondary
+        </Button>
+      </Horizontal>
+    </StoriesDefaultThemeProvider>
+);
+
 export const loading = () => (
   <StoriesDefaultThemeProvider>
     <Horizontal>

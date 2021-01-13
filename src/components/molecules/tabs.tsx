@@ -65,13 +65,13 @@ const TabButton = styled.button<TabButtonProps>`
   ${({ isActive, theme }) =>
     isActive &&
     `
-    color: ${theme.colors.secondary};
-    border-bottom: 2px solid ${theme.colors.secondary};
+    color: ${theme.colors.secondary[500]};
+    border-bottom: 2px solid ${theme.colors.secondary[500]};
   `};
   &:hover:enabled,
   &:focus:enabled,
   &:active:enabled {
-    color: ${({ theme }) => theme.colors.secondary};
+    color: ${({ theme }) => theme.colors.secondary[500]};
   }
 `;
 
