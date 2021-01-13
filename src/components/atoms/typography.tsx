@@ -31,6 +31,7 @@ const base = css<HeadingProps | TextProps>`
   font-weight: ${(props) => props.theme.typography.fontWeight[props?.fontWeight ?? "normal"]};
   text-align: ${(props) => props.textAlign};
   margin: 0px;
+  padding: 0px;
 `;
 
 const baseHeading = css<HeadingProps>`
@@ -101,7 +102,14 @@ export const ParagraphHeading = styled.p<TextProps>`
 
 export const ListItem = styled.li<TextProps>`
   ${textCss}
-  margin: 0 0 6px 0;
+` as React.FunctionComponent<TextProps & React.DetailedHTMLProps<React.LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>>;
+
+export const UnorderedList = styled.ul<TextProps>`
+  ${textCss}
+` as React.FunctionComponent<TextProps & React.DetailedHTMLProps<React.LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>>;
+
+export const OrderedList = styled.ol<TextProps>`
+  ${textCss}
 ` as React.FunctionComponent<TextProps & React.DetailedHTMLProps<React.LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>>;
 
 export const Text = styled.div`

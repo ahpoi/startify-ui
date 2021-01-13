@@ -4,6 +4,7 @@ import { calculateUnit } from "../..";
 import { Spinner } from "./spinner";
 import { Property } from "csstype";
 import { SizeType } from "../others/types";
+import { baseColors } from "../../styles/colors";
 
 type ButtonSizeType = Exclude<SizeType, "xs">;
 
@@ -88,16 +89,16 @@ export const useButtonSizeVariant = (): Record<ButtonSizeType, SizeVariant> => {
 };
 
 const useButtonVariant = () => {
-  const { primary, secondary, grey } = useTheme().colors;
+  const { primary, secondary } = useTheme().colors;
   const { mid, dark } = useTheme().typography.color.body;
   return {
     text: {
       color: mid,
-      backgroundColor: grey["100"],
+      backgroundColor: baseColors.grey["100"],
       borderColor: "transparent",
       colorOnHover: dark,
-      backgroundOnHoverColor: grey["200"],
-      borderOnHoverColor: grey["200"],
+      backgroundOnHoverColor: baseColors.grey["200"],
+      borderOnHoverColor: baseColors.grey["200"],
     },
     primary: {
       color: "white",
@@ -205,8 +206,8 @@ const StyledButton = styled.button<StyledButtonProps>`
   &:disabled {
     cursor: not-allowed;
     color: rgba(0, 0, 0, 0.25);
-    background-color: ${(props) => props.theme.colors.grey["100"]};
-    border-color: ${(props) => props.theme.colors.grey["100"]};
+    background-color: ${baseColors.grey["100"]};
+    border-color: ${baseColors.grey["100"]};
   }
   color: ${(props) => props.color};
   background-color: ${(props) => props.backgroundColor};
