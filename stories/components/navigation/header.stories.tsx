@@ -1,10 +1,9 @@
 import {StoriesDefaultThemeProvider, TestHeaderLogo, TestLogo} from "../../utils/stories-container";
 import * as React from "react";
 import {
-  colors,
   DesktopHeader,
   HeaderUserMenu,
-  MenuItemLink,
+  NavigationMenuItemLink,
   MobileHeader,
   NavigationLink,
   ResponsiveLayout,
@@ -57,7 +56,7 @@ export const header = () => {
             sidebarNavigation={
               <SidebarNavigation>
                 {Links.map((it) => (
-                  <MenuItemLink
+                  <NavigationMenuItemLink
                     key={it.text}
                     onClick={() => {
                       setIsSideBarOpen(false);
@@ -65,7 +64,7 @@ export const header = () => {
                     }}
                   >
                     {it.text}
-                  </MenuItemLink>
+                  </NavigationMenuItemLink>
                 ))}
               </SidebarNavigation>
             }
@@ -138,9 +137,9 @@ export const headerUserMenu = () => {
           <HeaderUserMenu key={1}>
             <Vertical spacing={2}>
               {MenuLinks.map((it) => (
-                  <MenuItemLink key={it.text} href={it.href} onClick={() => alert(it.text)}>
+                  <NavigationMenuItemLink key={it.text} href={it.href} onClick={() => alert(it.text)}>
                     {it.text}
-                  </MenuItemLink>
+                  </NavigationMenuItemLink>
               ))}
             </Vertical>
           </HeaderUserMenu>

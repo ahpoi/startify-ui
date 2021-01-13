@@ -3,8 +3,8 @@ import { StoriesDefaultThemeProvider, TestHeaderLogo } from "../../utils/stories
 import {
   HorizontalDivider,
   Sidebar,
-  MenuItemLink,
-  MenuItemContainer,
+  NavigationMenuItemLink,
+  MenuItem,
   SidebarNavigation,
   SidebarToggle, colors,
 } from "../../../src";
@@ -43,9 +43,9 @@ const SecondaryLinks = [
 const SidebarItemsLinks = () => (
   <>
     {Links.map((it) => (
-      <MenuItemLink key={it.text} onClick={() => alert(it.text)}>
+      <NavigationMenuItemLink key={it.text} onClick={() => alert(it.text)}>
         {it.text}
-      </MenuItemLink>
+      </NavigationMenuItemLink>
     ))}
   </>
 );
@@ -53,9 +53,9 @@ const SidebarItemsLinks = () => (
 const SidebarItemSecondaryLinks = () => (
   <>
     {SecondaryLinks.map((it) => (
-      <MenuItemLink color={colors.secondary} key={it.text} onClick={() => alert(it.text)}>
+      <NavigationMenuItemLink color={colors.secondary} key={it.text} onClick={() => alert(it.text)}>
         {it.text}
-      </MenuItemLink>
+      </NavigationMenuItemLink>
     ))}
   </>
 );
@@ -68,13 +68,13 @@ export const sidebar = () => {
         <SidebarToggle onClick={() => setOpen(!isOpen)} />
         <Sidebar isOpen={isOpen} onStateChange={({isOpen}) => setOpen(isOpen)}>
           <SidebarNavigation>
-            <MenuItemContainer>
+            <MenuItem>
               <TestHeaderLogo />
-            </MenuItemContainer>
+            </MenuItem>
             <SidebarItemsLinks />
-            <MenuItemContainer>
+            <MenuItem>
               <HorizontalDivider />
-            </MenuItemContainer>
+            </MenuItem>
             <SidebarItemSecondaryLinks />
           </SidebarNavigation>
         </Sidebar>

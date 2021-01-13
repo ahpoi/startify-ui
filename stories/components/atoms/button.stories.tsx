@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Button, Horizontal } from "../../../src";
-import { StoriesDefaultThemeProvider } from "../../utils/stories-container";
+import {Button, Horizontal} from "../../../src";
+import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 
 export default {
   title: "Atoms/Button",

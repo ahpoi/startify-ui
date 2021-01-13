@@ -39,7 +39,7 @@ type MenuItemProps = {
   padding?: Property.Padding<any>;
 } & LinkProps;
 
-export const MenuItemLink = styled.a<MenuItemProps>`
+export const NavigationMenuItemLink = styled.a<MenuItemProps>`
    ${cssBaseLink}
    display: block;
    padding ${(props) => props.padding ?? "14px 24px"};
@@ -48,11 +48,11 @@ export const MenuItemLink = styled.a<MenuItemProps>`
    &:hover,
    &:focus,
    &:active {
-     background-color: ${baseColors.grey["50"]} !important;
+     background-color: ${baseColors.grey["100"]} !important;
   } 
 ` as React.FunctionComponent<MenuItemProps & AnchorPrimitiveType>;
 
-export const MenuItemContainer = (props: {
+export const MenuItem = (props: {
   padding?: Property.Padding<any>;
   children: React.ReactNode;
   onClick?: () => void;
