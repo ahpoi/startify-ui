@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { fadeIn } from "../others/animations";
+import { baseColors } from "../../styles/colors";
 
 type TabsProps = {
   activeKey?: number;
@@ -8,20 +9,20 @@ type TabsProps = {
 };
 
 export const Tabs = (props: TabsProps) => {
-  const [activeTab, setActiveTab] = React.useState(props.activeKey ?? 0);
+  const [activeTab, setActiveTab] = React.useState(props.activeKey ?? 1);
   const children: React.ReactElement<TabContentProp>[] = React.Children.toArray(props.children).filter(
     (c) => !!c
   ) as any;
   const activeTabContent: React.ReactElement<TabContentProp> = children[activeTab];
   return (
     <div>
-      <TabButtonsContainer>
+      <TabLists role={"tablist"}>
         {children.map((tabContentComponent, i) => (
-          <TabButton type={"button"} key={i} onClick={() => setActiveTab(i)} isActive={activeTab === i}>
+          <TabButton type={"button"} role={"tab"} key={i} onClick={() => setActiveTab(i)} isActive={activeTab === i}>
             {tabContentComponent.props.label}
           </TabButton>
         ))}
-      </TabButtonsContainer>
+      </TabLists>
       <TabContentContainer>{activeTabContent.props.children}</TabContentContainer>
     </div>
   );
@@ -39,9 +40,12 @@ type TabButtonProps = {
   isActive?: boolean;
 };
 
-const TabButtonsContainer = styled.div`
+const TabLists = styled.div`
   display: flex;
   flex-direction: row;
+  border-color: ${baseColors.grey["200"]};
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
   & > * {
     margin-right: 24px !important;
   }
@@ -55,12 +59,13 @@ const TabButton = styled.button<TabButtonProps>`
   height: auto;
   font-size: ${(props) => props.theme.typography.size.md};
   font-weight: ${(props) => props.theme.typography.fontWeight.medium};
-  padding: 0px 0px 4px 0;
+  padding: 0 10px 12px 10px;
+  margin-bottom: -2px;
   text-decoration: none;
   outline: none;
-  line-height: 1em;
   background: none;
   border: none;
+  transition: color 0.2s ease 0s;
   color: ${({ theme }) => theme.typography.color.body.dark};
   ${({ isActive, theme }) =>
     isActive &&
@@ -76,6 +81,6 @@ const TabButton = styled.button<TabButtonProps>`
 `;
 
 const TabContentContainer = styled.div`
-  margin-top: 16px;
+  margin-top: 20px;
   ${fadeIn}
 `;
