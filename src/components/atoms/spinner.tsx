@@ -41,7 +41,7 @@ export const Spinner = styled.div<SpinnerProps>`
   border-width: ${({ borderWidth }) => calculateUnit(borderWidth ?? 2)};
   width: ${({ size }) => calculateUnit(size ?? 24)};
   height: ${({ size }) => calculateUnit(size ?? 24)};
-  color: ${(props) => props.color ?? props.theme.color.secondary};
+  color: ${(props) => props.color ?? props.theme.colors.secondary};
   display: inline-block;
   background: transparent;
   border-style: solid;
@@ -80,7 +80,7 @@ export const DotSpinner = ({ color, size }: DotsSpinner) => (
 const Dot = styled.div<DotsSpinner & { animationDelay: string }>`
   width: ${({ size }) => calculateUnit(size ?? 12)};
   height: ${({ size }) => calculateUnit(size ?? 12)};
-  background-color: ${(props) => props.color ?? props.theme.color.secondary};
+  background-color: ${(props) => props.color ?? props.theme.colors.secondary};
 
   border-radius: 100%;
   display: inline-block;

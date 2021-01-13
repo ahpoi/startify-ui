@@ -34,7 +34,7 @@ interface BackButtonProps {
 }
 
 export const BackButton = ({ onClick, text }: BackButtonProps) => {
-  const color = useTheme().color.secondary;
+  const color = useTheme().colors.secondary;
   return (
     <Horizontal spacing={4} verticalAlign={"center"}>
       <IconArrowLeft size={16} color={color} />

@@ -40,9 +40,13 @@ export * from "./utils/dom.utils";
 export * from "./utils/common.utils";
 export * from "./utils/storage.utils";
 
-export * from "./theme/theme.default";
-export * from "./theme/theme.types";
 export * from "./theme/startify.provider";
 
+export * from "./styles/theme";
 export * from "./styles/colors";
-export * from "./styles/sizes";
+export * from "./styles/radius";
+export * from "./styles/spaces";
+export * from "./styles/containers";
+export * from "./styles/breakpoints";
+export * from "./styles/typography";
+export * from "./styles/z-index";

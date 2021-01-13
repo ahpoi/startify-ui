@@ -1,3 +1,16 @@
+export const colors = {
+  primary: "#172B4D",
+  primaryDark: "#051632",
+
+  secondary: "#008DA6",
+  secondaryDark: "#027187",
+
+  error: "#D61834",
+  errorDark: "#BD152E",
+};
+
+export type Colors = typeof colors;
+
 export const CommonColors = {
   // Commons
   white: "#fff",

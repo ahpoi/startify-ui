@@ -1,8 +1,9 @@
 import * as React from "react";
 
 import styled from "styled-components";
-import { IconClose, IconQuestionCircle, IconButtonContainer } from "../others/icons";
+import { IconButtonContainer, IconClose, IconQuestionCircle } from "../others/icons";
 import { Horizontal, useOnOutsideClick } from "../..";
+import { zIndices } from "../../styles/z-index";
 import TetherComponent from "react-tether";
 
 export type TooltipProps = {
@@ -91,5 +92,5 @@ const ChildrenContainer = styled.div`
   color: ${(props) => props.theme.typography.color.body};
   padding: 20px 30px 20px 20px;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
-  z-index: 100;
+  z-index: ${zIndices.tooltip};
 `;

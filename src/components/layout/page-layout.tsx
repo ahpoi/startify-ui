@@ -4,9 +4,11 @@ import { Property } from "csstype";
 import styled, { css } from "styled-components";
 import { calculateUnit, content, vertical } from "./gls/box";
 import { DivProps } from "../others/types";
-import { Breakpoints, MaxWidths, Spaces } from "../../styles/sizes";
+import { spaces } from "../../styles/spaces";
 import { Content } from "./gls/gls";
 import { fadeIn } from "../others/animations";
+import { pageContainers } from "../../styles/containers";
+import { breakpoints } from "../../styles/breakpoints";
 
 export type BaseWidthProps = {
   maxWidth?: number;
@@ -34,9 +36,9 @@ export const cssBackgroundColor = css<BackgroundColorProps>`
  * Usually on Desktop we have a MaxWidth so no need for padding
  */
 export const cssPageResponsiveSideSpace = css`
-  @media (max-width: ${Breakpoints.large}px) {
-    padding-left: ${Spaces.small}px;
-    padding-right: ${Spaces.small}px;
+  @media (max-width: ${breakpoints.lg}px) {
+    padding-left: ${spaces.sm}px;
+    padding-right: ${spaces.sm}px;
   }
 `;
 
@@ -91,10 +93,10 @@ export const PageBody = styled.main.attrs({
  ${cssPageBody}
   margin: 0 auto;
   width: 100%;
-  max-width: ${(props: PageBodyProps) => calculateUnit(props.maxWidth ?? MaxWidths.pageContent)};
-  padding-top: ${(props) => calculateUnit(props.space?.web?.top ?? Spaces.medium)};
-  padding-bottom: ${(props) => calculateUnit(props.space?.web?.bottom ?? Spaces.medium)};
-  @media (max-width: ${Breakpoints.small}px) {
+  max-width: ${(props: PageBodyProps) => calculateUnit(props.maxWidth ?? pageContainers.content)};
+  padding-top: ${(props) => calculateUnit(props.space?.web?.top ?? spaces.md)};
+  padding-bottom: ${(props) => calculateUnit(props.space?.web?.bottom ?? spaces.md)};
+  @media (max-width: ${breakpoints.sm}px) {
     padding-top: ${(props: PageBodyProps) => calculateUnit(props.space?.mobile?.top ?? 20)};
     padding-bottom: ${(props: PageBodyProps) => calculateUnit(props.space?.mobile?.bottom ?? 20)};
   }
@@ -153,7 +155,7 @@ const StyledLandingPageSection = styled.section.attrs({
     padding-top: ${verticalPadding}px;
     padding-bottom: ${verticalPadding}px;
  `};
-  max-width: ${(props: LandingPageSectionProps) => calculateUnit(props.maxWidth ?? MaxWidths.pageContent)};
+  max-width: ${(props: LandingPageSectionProps) => calculateUnit(props.maxWidth ?? pageContainers.content)};
 ` as React.FunctionComponent<
   LandingPageSectionProps & React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>
 >;

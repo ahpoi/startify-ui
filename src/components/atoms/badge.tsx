@@ -42,7 +42,7 @@ interface BadgeVariant {
 }
 
 const useBadgeVariant = () => {
-  const { primary, secondary } = useTheme().color;
+  const { primary, secondary } = useTheme().colors;
   return {
     primary: {
       color: "white",

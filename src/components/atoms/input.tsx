@@ -11,7 +11,7 @@ const BaseInputCss = css<InputProps>`
   line-height: normal;
   border-radius: ${({ theme }) => theme.radius.xs};
   border: 1px solid
-    ${({ error, disabled, theme }) => (error && !disabled ? theme.color.error : InputBaseColors.borderColor)};
+    ${({ error, disabled, theme }) => (error && !disabled ? theme.colors.error : InputBaseColors.borderColor)};
   background-color: ${InputBaseColors.backgroundColor};
   padding: 8px 10px;
   outline: none;
@@ -21,7 +21,7 @@ const BaseInputCss = css<InputProps>`
   }
   &:hover:enabled,
   &:focus:enabled {
-    border-color: ${({ theme }) => theme.color.secondary};
+    border-color: ${({ theme }) => theme.colors.secondary};
   }
 `;
 

@@ -1,18 +1,18 @@
 import {
+    appTheme,
     CommonColors,
     DesktopHeader,
     HeaderLogo,
     NavigationLink,
     StartifyProvider,
-    DefaultAppTheme,
-    DefaultTypographyTheme
+    typography
 } from "../../src";
 import * as React from "react";
 
 export const StoriesDefaultThemeProvider = (props: { children: React.ReactNode }) => {
     const theme = {
-        ...DefaultAppTheme,
-        typography: {...DefaultTypographyTheme, fontFamily: {body: "Montserrat,Helvetica Neue", heading: "Montserrat"}}
+        ...appTheme,
+        typography: {...typography, fontFamily: {body: "Montserrat,Helvetica Neue", heading: "Montserrat"}}
     }
     return <StartifyProvider rootId={'root'} theme={theme}>{props.children}</StartifyProvider>
 };

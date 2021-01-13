@@ -86,7 +86,7 @@ export const useButtonSizeVariant = (): Record<ButtonSizeType, SizeVariant> => {
 };
 
 const useButtonVariant = () => {
-  const { primary, primaryDark, secondary, secondaryDark } = useTheme().color;
+  const { primary, primaryDark, secondary, secondaryDark } = useTheme().colors;
   const { mid, dark } = useTheme().typography.color.body;
   return {
     text: {

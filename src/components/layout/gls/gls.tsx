@@ -12,7 +12,7 @@ import {
   verticallySpaced,
 } from "./box";
 import { DivProps } from "../../others/types";
-import { Breakpoints } from "../../../styles/sizes";
+import { breakpoints } from "../../../styles/breakpoints";
 
 /**
  * Minimised version of gls https://github.com/basarat/gls as its just too good! 🌹
@@ -125,7 +125,7 @@ interface ResponsiveProps {
 export const Responsive = styled.div.attrs({
   "data-comment": "Responsive",
 })<ResponsiveProps>`
-  @media (max-width: ${Breakpoints.small}px) {
+  @media (max-width: ${breakpoints.sm}px) {
     ${verticallySpaced}
     ${contentVertical}
      ${({ vertical }) =>
@@ -154,7 +154,7 @@ export const Responsive = styled.div.attrs({
         align-items: flex-end;
      `};
   }
-  @media (min-width: ${Breakpoints.small + 1}px) {
+  @media (min-width: ${breakpoints.sm + 1}px) {
     ${horizontallySpaced}
     ${contentHorizontal}
      ${({ horizontal }) =>

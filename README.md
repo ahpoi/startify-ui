@@ -53,38 +53,39 @@ const appTheme: AppTheme = {
     },
     typography: {
         fontFamily: {
-          fontFamily: {
-            heading: "Helvetica,Arial,sans-serif",
-            body: "Helvetica,Arial,sans-serif",
-          },
-          fontWeight: {
-            light: 300,
-            normal: 400,
-            medium: 500,
-            bold: 700,
-          },
-          color: {
-            heading: "#2A2A2A",
-            body: {
-              dark: "#2A2A2A",
-              light: "#585858",
-              mid: "#bdbdbd",
+            fontFamily: {
+                heading: "Helvetica,Arial,sans-serif",
+                body: "Helvetica,Arial,sans-serif",
             },
-          },
-          size: {
-            xs: "10px",
-            sm: "12px",
-            md: "14px",
-            lg: "16px",
-          },
+            fontWeight: {
+                light: 300,
+                normal: 400,
+                md: 500,
+                bold: 700,
+            },
+            color: {
+                heading: "#2A2A2A",
+                body: {
+                    dark: "#2A2A2A",
+                    light: "#585858",
+                    mid: "#bdbdbd",
+                },
+            },
+            size: {
+                xs: "10px",
+                sm: "12px",
+                md: "14px",
+                lg: "16px",
+            },
         },
-    radius: {
-      xs: "3px",
-      sm: "6px",
-      md: "8px",
-      lg: "12px",
+        radius: {
+            xs: "3px",
+            sm: "6px",
+            md: "8px",
+            lg: "12px",
+        }
     }
-}}
+}
 ```
 
 ### Why

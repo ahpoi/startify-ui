@@ -1,8 +1,7 @@
 import * as React from "react";
 
 import { ThemeProvider } from "styled-components";
-import { AppTheme } from "./theme.types";
-import { DefaultAppTheme } from "./theme.default";
+import { appTheme, AppTheme } from "../styles/theme";
 import { GlobalStyle } from "..";
 
 type Props = {
@@ -12,7 +11,7 @@ type Props = {
 };
 
 export const StartifyProvider = (props: Props) => {
-  const { theme = DefaultAppTheme, children } = props;
+  const { theme = appTheme, children } = props;
   return (
     <>
       <GlobalStyle rootId={props.rootId} fontFamily={theme.typography.fontFamily.body} />

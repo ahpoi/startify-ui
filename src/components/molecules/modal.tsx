@@ -1,10 +1,12 @@
 import * as React from "react";
 
 import styled, { useTheme } from "styled-components";
-import { Breakpoints, Spaces } from "../../styles/sizes";
 import { Button, ButtonVariantType, Heading4, Horizontal, StretchSpacer, Text, Vertical, VerticalSpacer } from "../..";
+import { breakpoints } from "../../styles/breakpoints";
+import { spaces } from "../../styles/spaces";
+import { zIndices } from "../../styles/z-index";
 import { useKeyboardEvent, useOnOutsideClick } from "../../hooks/common.hook";
-import { IconClose, IconError, IconButtonContainer } from "../others/icons";
+import { IconButtonContainer, IconClose, IconError } from "../others/icons";
 import { fadeIn } from "../others/animations";
 import { Portal } from "../others/portal";
 
@@ -166,7 +168,7 @@ const ModalErrorContent = (props: ModalErrorProps) => {
     retryButtonVariant = "text",
   } = props;
   const { onRetrying, onRetry, onClose } = props;
-  const error = useTheme().color.error;
+  const error = useTheme().colors.error;
   return (
     <>
       <Horizontal horizontalAlign={"right"}>
@@ -224,7 +226,7 @@ export const ModalOverlay = styled.div`
   position: fixed;
   width: 100%;
   height: 100%;
-  z-index: 99;
+  z-index: ${zIndices.overlay};
   top: 0;
   left: 0;
   ${fadeIn}
@@ -232,7 +234,7 @@ export const ModalOverlay = styled.div`
 
 export const ModalContainer = styled.div<{ modalWidth?: number; padding?: number }>`
   background: white;
-  z-index: 100;
+  z-index: ${zIndices.modal};
   max-width: ${(props) => props.modalWidth ?? 500}px;
   width: 100%;
   height: auto;
@@ -242,8 +244,8 @@ export const ModalContainer = styled.div<{ modalWidth?: number; padding?: number
   transform: translate(-50%, -25%);
   border-radius: ${(props) => props.theme.radius.sm};
   box-shadow: 0px 9px 40px rgba(0, 0, 0, 0.16);
-  padding: ${(props) => props.padding ?? Spaces.medium}px;
-  @media (max-width: ${Breakpoints.small}px) {
+  padding: ${(props) => props.padding ?? spaces.md}px;
+  @media (max-width: ${breakpoints.sm}px) {
     width: 95%;
   }
 `;

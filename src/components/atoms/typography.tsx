@@ -2,8 +2,8 @@ import * as React from "react";
 import { Property } from "csstype";
 
 import styled, { css } from "styled-components";
-import { Breakpoints } from "../../styles/sizes";
 import { DivProps } from "../others/types";
+import { breakpoints } from "../../styles/breakpoints";
 
 type HeadingPrimitiveType = React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
@@ -42,7 +42,7 @@ const baseHeading = css<HeadingProps>`
 export const Heading1 = styled.h1<HeadingProps>`
   ${baseHeading}
   font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.one.web};
-  @media (max-width: ${Breakpoints.small}px) {
+  @media (max-width: ${breakpoints.sm}px) {
     font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.one.mobile};
   }
 ` as React.FunctionComponent<HeadingProps & HeadingPrimitiveType>;
@@ -50,7 +50,7 @@ export const Heading1 = styled.h1<HeadingProps>`
 export const Heading2 = styled.h2<HeadingProps>`
   ${baseHeading}
   font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.two.web};
-  @media (max-width: ${Breakpoints.small}px) {
+  @media (max-width: ${breakpoints.sm}px) {
     font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.two.mobile};
   }
 ` as React.FunctionComponent<HeadingProps & HeadingPrimitiveType>;
@@ -58,7 +58,7 @@ export const Heading2 = styled.h2<HeadingProps>`
 export const Heading3 = styled.h3<HeadingProps>`
   ${baseHeading}
   font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.three.web};
-  @media (max-width: ${Breakpoints.small}px) {
+  @media (max-width: ${breakpoints.sm}px) {
     font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.three.mobile};
   }
 ` as React.FunctionComponent<HeadingProps & HeadingPrimitiveType>;
@@ -67,7 +67,7 @@ export const Heading4 = styled.h4<HeadingProps>`
   ${baseHeading}
   font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.four.web};
   color: ${(props) => props.color ?? props.theme.typography.color.heading};
-  @media (max-width: ${Breakpoints.small}px) {
+  @media (max-width: ${breakpoints.sm}px) {
     font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.four.mobile};
   }
 ` as React.FunctionComponent<HeadingProps & HeadingPrimitiveType>;
@@ -75,7 +75,7 @@ export const Heading4 = styled.h4<HeadingProps>`
 export const Heading5 = styled.h5<HeadingProps>`
   ${baseHeading}
   font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.five.web};
-  @media (max-width: ${Breakpoints.small}px) {
+  @media (max-width: ${breakpoints.sm}px) {
     font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.five.mobile};
   }
 ` as React.FunctionComponent<HeadingProps>;
