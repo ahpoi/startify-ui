@@ -8,7 +8,6 @@ import {
   Ellipsis,
   HeaderLogo,
   PoweredBy,
-  TextWithLink,
 } from "../../../src/components/others/extras";
 import { Button, Horizontal, VerticalSpacer } from "../../../src";
 
@@ -19,12 +18,6 @@ export default {
 export const backButton = () => (
   <StoriesDefaultThemeProvider>
     <BackButton />
-  </StoriesDefaultThemeProvider>
-);
-
-export const textWithLink = () => (
-  <StoriesDefaultThemeProvider>
-    <TextWithLink text={"Don't have an account? "} link={"Sign up"} onClick={() => 0} />
   </StoriesDefaultThemeProvider>
 );
 

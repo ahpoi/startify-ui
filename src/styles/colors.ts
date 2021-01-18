@@ -77,3 +77,4 @@ export const baseColors = {
 };
 
 export type Colors = typeof colors;
+export type ColorScheme = keyof Colors;

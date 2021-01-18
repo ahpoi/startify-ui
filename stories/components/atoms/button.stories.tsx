@@ -3,171 +3,157 @@ import {Button, Horizontal} from "../../../src";
 import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 
 export default {
-  title: "Atoms/Button",
-  component: Button,
+    title: "Atoms/Button",
+    component: Button,
 };
 
 export const button = () => (
-  <StoriesDefaultThemeProvider>
-    <Button variant={"primary"} onClick={onClick}>
-      Click me
-    </Button>
-  </StoriesDefaultThemeProvider>
-);
-
-export const primaryVariants = () => (
-  <StoriesDefaultThemeProvider>
-    <Horizontal>
-      <Button variant={"primary"} onClick={onClick}>
-        Primary
-      </Button>
-      <Button variant={"primaryOutlined"} onClick={onClick}>
-        Primary Outline
-      </Button>
-      <Button variant={"primaryOutlinedFilled"} onClick={onClick}>
-        Primary Outline Filled
-      </Button>
-    </Horizontal>
-  </StoriesDefaultThemeProvider>
-);
-
-export const secondaryVariants = () => (
-  <StoriesDefaultThemeProvider>
-    <Horizontal>
-      <Button variant={"secondary"} onClick={onClick}>
-        Secondary
-      </Button>
-      <Button variant={"secondaryOutlined"} onClick={onClick}>
-        Secondary Outline
-      </Button>
-      <Button variant={"secondaryOutlinedFilled"} onClick={onClick}>
-        Secondary Outline Filled
-      </Button>
-    </Horizontal>
-  </StoriesDefaultThemeProvider>
-);
-
-export const linkVariants = () => (
     <StoriesDefaultThemeProvider>
-      <Horizontal>
-        <Button variant={"linkPrimary"} onClick={onClick}>
-          Link
+        <Button variant={"solid"} colorScheme={"primary"} onClick={onClick}>
+            Click me
         </Button>
-        <Button variant={"linkSecondary"} onClick={onClick}>
-          Secondary
-        </Button>
-      </Horizontal>
+    </StoriesDefaultThemeProvider>
+);
+
+export const variant = () => (
+    <StoriesDefaultThemeProvider>
+        <Horizontal>
+            <Button variant={"solid"} onClick={onClick}>
+                Solid
+            </Button>
+            <Button variant={"outlined"} onClick={onClick}>
+                Outlined
+            </Button>
+            <Button variant={"outlined-filled"} onClick={onClick}>
+                Outline Filled
+            </Button>
+            <Button variant={"ghost"} onClick={onClick}>
+                Ghost
+            </Button>
+            <Button variant={"link"} onClick={onClick}>
+                Link
+            </Button>
+        </Horizontal>
+    </StoriesDefaultThemeProvider>
+);
+
+export const colorScheme = () => (
+    <StoriesDefaultThemeProvider>
+        <Horizontal>
+            <Button variant={"link"} onClick={onClick}>
+                Link
+            </Button>
+        </Horizontal>
     </StoriesDefaultThemeProvider>
 );
 
 export const loading = () => (
-  <StoriesDefaultThemeProvider>
-    <Horizontal>
-      <Button variant={"primary"} width={"200px"} isLoading onClick={onClick}>
-        Primary
-      </Button>
-      <Button variant={"primaryOutlined"} width={"200px"} isLoading onClick={onClick}>
-        Primary Outline
-      </Button>
-      <Button variant={"secondary"} width={"200px"} isLoading onClick={onClick}>
-        Secondary
-      </Button>
-      <Button variant={"secondaryOutlined"} width={"200px"} isLoading onClick={onClick}>
-        Secondary Outline
-      </Button>
-    </Horizontal>
-  </StoriesDefaultThemeProvider>
+    <StoriesDefaultThemeProvider>
+        <Horizontal>
+            <Button variant={"solid"} width={"200px"} isLoading onClick={onClick}>
+                Primary
+            </Button>
+            <Button variant={"outlined"} width={"200px"} isLoading onClick={onClick}>
+                Primary Outline
+            </Button>
+            <Button variant={"outlined-filled"} width={"200px"} isLoading onClick={onClick}>
+                Secondary
+            </Button>
+            <Button variant={"ghost"} width={"200px"} isLoading onClick={onClick}>
+                Secondary Outline
+            </Button>
+        </Horizontal>
+    </StoriesDefaultThemeProvider>
 );
 
 export const sizeVariants = () => (
-  <StoriesDefaultThemeProvider>
-    <Horizontal verticalAlign={"center"}>
-      <div>
-        <Button size={"sm"} onClick={onClick}>
-          Small Button
-        </Button>
-      </div>
-      <div>
-        <Button size={"md"} onClick={onClick}>
-          Medium Button
-        </Button>
-      </div>
-      <div>
-        <Button size={"lg"} onClick={onClick}>
-          Large Button
-        </Button>
-      </div>
-    </Horizontal>
-  </StoriesDefaultThemeProvider>
+    <StoriesDefaultThemeProvider>
+        <Horizontal verticalAlign={"center"}>
+            <div>
+                <Button size={"sm"} onClick={onClick}>
+                    Small Button
+                </Button>
+            </div>
+            <div>
+                <Button size={"md"} onClick={onClick}>
+                    Medium Button
+                </Button>
+            </div>
+            <div>
+                <Button size={"lg"} onClick={onClick}>
+                    Large Button
+                </Button>
+            </div>
+        </Horizontal>
+    </StoriesDefaultThemeProvider>
 );
 
 export const sizeVariantsLoading = () => (
-  <StoriesDefaultThemeProvider>
-    <Horizontal verticalAlign={"center"}>
-      <div>
-        <Button size={"sm"} onClick={onClick} isLoading>
-          Small Button
-        </Button>
-      </div>
-      <div>
-        <Button size={"md"} onClick={onClick} isLoading>
-          Medium Button
-        </Button>
-      </div>
-      <div>
-        <Button size={"lg"} onClick={onClick} isLoading>
-          Large Button
-        </Button>
-      </div>
-    </Horizontal>
-  </StoriesDefaultThemeProvider>
+    <StoriesDefaultThemeProvider>
+        <Horizontal verticalAlign={"center"}>
+            <div>
+                <Button size={"sm"} onClick={onClick} isLoading>
+                    Small Button
+                </Button>
+            </div>
+            <div>
+                <Button size={"md"} onClick={onClick} isLoading>
+                    Medium Button
+                </Button>
+            </div>
+            <div>
+                <Button size={"lg"} onClick={onClick} isLoading>
+                    Large Button
+                </Button>
+            </div>
+        </Horizontal>
+    </StoriesDefaultThemeProvider>
 );
 
 export const disabled = () => (
-  <StoriesDefaultThemeProvider>
-    <Horizontal>
-      <Button variant={"secondary"} disabled onClick={onClick}>
-        Disabled
-      </Button>
-      <Button variant={"secondaryOutlined"} disabled onClick={onClick}>
-        Disabled
-      </Button>
-      <Button variant={"secondaryOutlinedFilled"} disabled onClick={onClick}>
-        Disabled
-      </Button>
-    </Horizontal>
-  </StoriesDefaultThemeProvider>
+    <StoriesDefaultThemeProvider>
+        <Horizontal>
+            <Button variant={"solid"} disabled onClick={onClick}>
+                Disabled
+            </Button>
+            <Button variant={"outlined"} disabled onClick={onClick}>
+                Disabled
+            </Button>
+            <Button variant={"outlined-filled"} disabled onClick={onClick}>
+                Disabled
+            </Button>
+        </Horizontal>
+    </StoriesDefaultThemeProvider>
 );
 
 export const others = () => (
-  <StoriesDefaultThemeProvider>
-    <Horizontal>
-      <Button variant={"text"} onClick={onClick}>
-        Text
-      </Button>
-      <Button
-        onClick={onClick}
-        customSize={{
-          fontSize: "14px",
-          fontWeight: 700,
-          padding: "12px 30px 12px",
-          borderRadius: "2px",
-        }}
-        customVariant={{
-          backgroundColor: "#3D96EF",
-          backgroundOnHoverColor: "#3592ef",
-          borderColor: "#3D96EF",
-          borderOnHoverColor: "#3D96EF",
-          color: "white",
-          colorOnHover: "white",
-        }}
-      >
-        Custom Styled
-      </Button>
-    </Horizontal>
-  </StoriesDefaultThemeProvider>
+    <StoriesDefaultThemeProvider>
+        <Horizontal>
+            <Button
+                onClick={onClick}
+                override={{
+                    variant: {
+                        color: "white",
+                        colorOnHover: "white",
+                        backgroundColor: "#3D96EF",
+                        backgroundOnHoverColor: "#3592ef",
+                        borderColor: "#3D96EF",
+                        borderOnHoverColor: "#3D96EF",
+                    },
+                    size: {
+                        fontSize: "14px",
+                        fontWeight: 700,
+                        padding: "12px 30px 12px",
+                        borderRadius: "2px",
+                    }
+                }}
+            >
+                Custom Styled
+            </Button>
+        </Horizontal>
+    </StoriesDefaultThemeProvider>
 );
 
 const onClick = () => {
-  console.log("clicked");
+    console.log("clicked");
 };

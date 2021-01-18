@@ -72,22 +72,22 @@ export const clickable = () => (
     <Vertical>
       <div>
         <Badge variant={"success"} onClick={onClick}>
-          success
+          Success
         </Badge>
       </div>
       <div>
         <Badge variant={"info"} onClick={onClick}>
-          info
+          Info
         </Badge>
       </div>
       <div>
         <Badge variant={"warning"} onClick={onClick}>
-          warning
+          Warning
         </Badge>
       </div>
       <div>
         <Badge variant={"error"} onClick={onClick}>
-          error
+          Error
         </Badge>
       </div>
     </Vertical>

@@ -60,7 +60,11 @@ export const Modal = (props: ModalProps) => {
   );
 
   const SecondaryButton = () => (
-    <Button onClick={secondary?.onSubmit} variant={secondary?.variant ?? "text"} disabled={primary.isLoading}>
+    <Button
+      onClick={secondary?.onSubmit}
+      variant={secondary?.variant ?? "outlined-filled"}
+      disabled={primary.isLoading}
+    >
       {secondary?.text ?? "Cancel"}
     </Button>
   );
@@ -166,7 +170,7 @@ const ModalErrorContent = (props: ModalErrorProps) => {
   const {
     title = "Something went wrong",
     message = "An unexpected error has occurred. Please try again soon!",
-    retryButtonVariant = "text",
+    retryButtonVariant = "outlined-filled",
   } = props;
   const { onRetrying, onRetry, onClose } = props;
   const error = useTheme().colors.red["500"];

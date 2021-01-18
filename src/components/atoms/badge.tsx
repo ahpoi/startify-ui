@@ -5,23 +5,25 @@ import { SizeType } from "../others/types";
 type BadgeSizeType = Exclude<SizeType, "xs">;
 
 interface BadgeProps {
+  children: React.ReactNode;
   variant?: "primary" | "secondary" | "success" | "info" | "warning" | "error";
   size?: BadgeSizeType;
-  customStyle?: BadgeVariant;
-  children: React.ReactNode;
   onClick?: () => any;
   minWidth?: string;
+  override?: {
+    variant?: BadgeVariant;
+  };
 }
 
 export const Badge = ({
   children,
-  customStyle,
   variant = "info",
   size = "md",
   minWidth = "auto",
   onClick = undefined,
+  override,
 }: BadgeProps) => {
-  const badgeVariant: BadgeVariant = customStyle ?? useBadgeVariant()[variant as never];
+  const badgeVariant: BadgeVariant = override?.variant ?? useBadgeVariant()[variant as never];
   const sizeVariant = SizeVariants[size];
   const styledBadgeProps: StyledBadgeProps = {
     ...badgeVariant,

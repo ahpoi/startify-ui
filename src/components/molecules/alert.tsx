@@ -3,13 +3,15 @@ import styled from "styled-components";
 
 interface AlertProps {
   variant?: "success" | "info" | "light" | "warning" | "error";
-  customStyle?: AlertVariant;
   children: React.ReactNode;
   onClose?: () => any;
+  override?: {
+    variant?: AlertVariant;
+  };
 }
 
-export const Alert = ({ children, variant = "success", customStyle, onClose }: AlertProps) => {
-  const styledProps: AlertVariant = customStyle ?? AlertVariants[variant as never];
+export const Alert = ({ children, variant = "success", onClose, override }: AlertProps) => {
+  const styledProps: AlertVariant = override?.variant ?? AlertVariants[variant as never];
   return onClose ? (
     <StyledAlert {...styledProps}>
       <div style={{ display: "inline-block" }}>{children}</div>

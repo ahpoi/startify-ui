@@ -2,43 +2,23 @@ import * as React from "react";
 import { Property } from "csstype";
 import { Text } from "../atoms/typography";
 import { Horizontal, Vertical } from "../layout/gls/gls";
-import { LinkButton } from "../..";
 import { useTheme } from "styled-components";
 import { IconArrowLeft, IconChevronDown } from "./icons";
-
-interface TextWithLink {
-  text: string;
-  link: string;
-  linkUnderline?: boolean;
-  endText?: string;
-  onClick?: () => any;
-  size?: "sm" | "md" | "lg";
-}
-
-export const TextWithLink = ({ onClick, text, link, linkUnderline, size }: TextWithLink) => {
-  return (
-    <Text size={size}>
-      {`${text}`}
-      <span>
-        <LinkButton size={size} onClick={onClick} underline={linkUnderline}>
-          {link}
-        </LinkButton>
-      </span>
-    </Text>
-  );
-};
+import { LinkButton } from "../atoms/link";
+import { ColorScheme } from "../../styles/colors";
 
 interface BackButtonProps {
   onClick?: () => any;
+  colorScheme?: ColorScheme;
   text?: string;
 }
 
-export const BackButton = ({ onClick, text }: BackButtonProps) => {
-  const color = useTheme().colors.secondary;
+export const BackButton = ({ onClick, text, colorScheme = "secondary" }: BackButtonProps) => {
+  const color = useTheme().colors[colorScheme];
   return (
     <Horizontal spacing={4} verticalAlign={"center"}>
       <IconArrowLeft size={16} color={color["500"]} />
-      <LinkButton underline={false} onClick={onClick ? onClick() : () => window.history.back()}>
+      <LinkButton colorScheme={colorScheme} onClick={onClick ? onClick() : () => window.history.back()}>
         {text ?? "Back"}
       </LinkButton>
     </Horizontal>

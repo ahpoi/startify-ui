@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled, { useTheme } from "styled-components";
-import { calculateUnit } from "../..";
+import { calculateUnit, ColorScheme } from "../..";
 import { Spinner } from "./spinner";
 import { Property } from "csstype";
 import { SizeType } from "../others/types";
@@ -8,46 +8,40 @@ import { baseColors } from "../../styles/colors";
 
 type ButtonSizeType = Exclude<SizeType, "xs">;
 
-export type ButtonVariantType =
-  | "text"
-  | "primary"
-  | "primaryOutlined"
-  | "primaryOutlinedFilled"
-  | "secondary"
-  | "secondaryOutlined"
-  | "secondaryOutlinedFilled"
-  | "linkPrimary"
-  | "linkSecondary";
+export type ButtonVariantType = "solid" | "ghost" | "outlined" | "outlined-filled" | "link";
 
-export interface ButtonProps {
+export type ButtonProps = {
   id?: string;
   variant?: ButtonVariantType;
   type?: "submit" | "button";
   size?: ButtonSizeType;
-  customVariant?: ButtonVariant;
-  customSize?: SizeVariant;
+  colorScheme?: ColorScheme;
   children: React.ReactNode;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => any;
   disabled?: boolean;
   width?: string;
   isLoading?: boolean;
-}
+  override?: {
+    variant?: ButtonVariant;
+    size?: SizeVariant;
+  };
+};
 
 export const Button = ({
   id,
   children,
-  variant = "primary",
+  colorScheme = "primary",
+  variant = "solid",
   size = "md",
   onClick,
   type = "button",
   width = "auto",
-  customVariant,
-  customSize,
   isLoading,
   disabled,
+  override,
 }: ButtonProps) => {
-  const buttonVariant: ButtonVariant = customVariant ?? useButtonVariant()[variant];
-  const sizeVariant = customSize ?? useButtonSizeVariant()[size];
+  const buttonVariant = override?.variant ?? useVariantColorScheme(variant, colorScheme);
+  const sizeVariant = override?.size ?? useButtonSizeVariant()[size];
   const styledBtnProps: StyledButtonProps = { ...buttonVariant, ...sizeVariant, isLoading: isLoading };
   return !isLoading ? (
     <StyledButton {...styledBtnProps} id={id} type={type} onClick={onClick} style={{ width }} disabled={disabled}>
@@ -88,100 +82,77 @@ export const useButtonSizeVariant = (): Record<ButtonSizeType, SizeVariant> => {
   };
 };
 
-const useButtonVariant = () => {
-  const { primary, secondary } = useTheme().colors;
-  const { mid, dark } = useTheme().typography.color.body;
-  return {
-    text: {
-      color: mid,
-      backgroundColor: baseColors.grey["100"],
-      borderColor: "transparent",
-      colorOnHover: dark,
-      backgroundOnHoverColor: baseColors.grey["200"],
-      borderOnHoverColor: baseColors.grey["200"],
-    },
-    primary: {
-      color: "white",
-      backgroundColor: primary["500"],
-      borderColor: primary["500"],
-      colorOnHover: "white",
-      borderOnHoverColor: primary["700"],
-      backgroundOnHoverColor: primary["700"],
-    },
-    primaryOutlined: {
-      color: primary["500"],
-      backgroundColor: "transparent",
-      borderColor: primary["500"],
-      colorOnHover: primary["500"],
-      backgroundOnHoverColor: "transparent",
-      borderOnHoverColor: primary["500"],
-    },
-    primaryOutlinedFilled: {
-      color: primary["500"],
-      backgroundColor: "transparent",
-      borderColor: primary["500"],
-      colorOnHover: "white",
-      backgroundOnHoverColor: primary["500"],
-      borderOnHoverColor: primary["500"],
-    },
-    secondary: {
-      color: "white",
-      backgroundColor: secondary["500"],
-      borderColor: secondary["500"],
-      colorOnHover: "white",
-      backgroundOnHoverColor: secondary["700"],
-      borderOnHoverColor: secondary["500"],
-    },
-    secondaryOutlined: {
-      color: secondary["500"],
-      backgroundColor: "transparent",
-      borderColor: secondary["500"],
-      colorOnHover: secondary["500"],
-      backgroundOnHoverColor: "transparent",
-      borderOnHoverColor: secondary["700"],
-    },
-    secondaryOutlinedFilled: {
-      color: secondary["500"],
-      backgroundColor: "transparent",
-      borderColor: secondary["500"],
-      colorOnHover: "white",
-      backgroundOnHoverColor: secondary["500"],
-      borderOnHoverColor: secondary["500"],
-    },
-    linkPrimary: {
-      color: primary["500"],
-      backgroundColor: "transparent",
-      borderColor: "transparent",
-      colorOnHover: primary["700"],
-      backgroundOnHoverColor: "transparent",
-      borderOnHoverColor: "transparent",
-    },
-    linkSecondary: {
-      color: secondary["500"],
-      backgroundColor: "transparent",
-      borderColor: "transparent",
-      colorOnHover: secondary["700"],
-      backgroundOnHoverColor: "transparent",
-      borderOnHoverColor: "transparent",
-    },
-  };
+const useVariantColorScheme = (variant: ButtonVariantType, scheme: ColorScheme): ButtonVariant => {
+  const color = useTheme().colors[scheme];
+  const colorLight = color[300];
+  const colorMid = color[500];
+  const colorDark = color[700];
+  switch (variant) {
+    case "solid":
+      return {
+        color: "white",
+        backgroundColor: colorMid,
+        borderColor: colorMid,
+        colorOnHover: "white",
+        borderOnHoverColor: colorDark,
+        backgroundOnHoverColor: colorDark,
+      };
+    case "outlined":
+      return {
+        color: colorMid,
+        backgroundColor: "transparent",
+        borderColor: colorMid,
+        colorOnHover: colorMid,
+        backgroundOnHoverColor: "transparent",
+        borderOnHoverColor: colorMid,
+      };
+    case "outlined-filled":
+      return {
+        color: colorMid,
+        backgroundColor: "transparent",
+        borderColor: colorMid,
+        colorOnHover: "white",
+        backgroundOnHoverColor: colorMid,
+        borderOnHoverColor: colorMid,
+      };
+    case "ghost": {
+      return {
+        color: colorMid,
+        backgroundColor: "transparent",
+        borderColor: "transparent",
+        colorOnHover: "white",
+        backgroundOnHoverColor: colorMid,
+        borderOnHoverColor: "transparent",
+      };
+    }
+    case "link": {
+      return {
+        color: colorMid,
+        backgroundColor: "transparent",
+        borderColor: "transparent",
+        colorOnHover: colorLight,
+        backgroundOnHoverColor: "transparent",
+        borderOnHoverColor: "transparent",
+      };
+    }
+  }
 };
 
-interface SizeVariant {
+type SizeVariant = {
   fontSize: Property.FontSize<any>;
   fontWeight: Property.FontWeight;
-  padding: string;
+  padding: Property.Padding;
   borderRadius: Property.BorderRadius<any>;
-}
+};
 
-interface ButtonVariant {
+type ButtonVariant = {
   color: string;
   borderColor: string;
   backgroundColor: string;
   colorOnHover: string;
   borderOnHoverColor: string;
   backgroundOnHoverColor: string;
-}
+};
 
 type StyledButtonProps = ButtonVariant &
   SizeVariant & { isLoading?: boolean; borderRadius: Property.BorderRadius<any> };

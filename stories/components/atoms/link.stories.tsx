@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link, LinkButton, Vertical } from "../../../src";
+import { Link, Vertical } from "../../../src";
 import { StoriesDefaultThemeProvider } from "../../utils/stories-container";
 
 export default {
@@ -15,22 +15,12 @@ export const link = () => (
   </StoriesDefaultThemeProvider>
 );
 
-export const linkVariant = () => (
+export const linkColorScheme = () => (
   <StoriesDefaultThemeProvider>
     <Vertical>
-      <Link href={"/hello"} underline={false} variant={"text"}>
+      <Link href={"/hello"} underline={false} colorScheme={"primary"}>
         Link
       </Link>
-    </Vertical>
-  </StoriesDefaultThemeProvider>
-);
-
-export const linkButton = () => (
-  <StoriesDefaultThemeProvider>
-    <Vertical>
-      <div>
-        <LinkButton onClick={() => console.log("submitted")}>Link</LinkButton>
-      </div>
     </Vertical>
   </StoriesDefaultThemeProvider>
 );
