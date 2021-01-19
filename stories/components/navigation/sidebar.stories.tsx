@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StoriesDefaultThemeProvider, TestHeaderLogo } from "../../utils/stories-container";
+import {  TestHeaderLogo } from "../../utils/stories-container";
 import {
   HorizontalDivider,
   Sidebar,
@@ -53,7 +53,7 @@ const SidebarItemsLinks = () => (
 const SidebarItemSecondaryLinks = () => (
   <>
     {SecondaryLinks.map((it) => (
-      <NavigationMenuItemLink color={colors.secondary} key={it.text} onClick={() => alert(it.text)}>
+      <NavigationMenuItemLink color={colors.secondary["700"]} key={it.text} onClick={() => alert(it.text)}>
         {it.text}
       </NavigationMenuItemLink>
     ))}
@@ -63,7 +63,7 @@ const SidebarItemSecondaryLinks = () => (
 export const sidebar = () => {
   const [isOpen, setOpen] = React.useState(false);
   return (
-    <StoriesDefaultThemeProvider>
+
       <div>
         <SidebarToggle onClick={() => setOpen(!isOpen)} />
         <Sidebar isOpen={isOpen} onStateChange={({isOpen}) => setOpen(isOpen)}>
@@ -79,6 +79,6 @@ export const sidebar = () => {
           </SidebarNavigation>
         </Sidebar>
       </div>
-    </StoriesDefaultThemeProvider>
+
   );
 };

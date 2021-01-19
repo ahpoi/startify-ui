@@ -1,4 +1,4 @@
-import {StoriesDefaultThemeProvider, TestDesktopHeader} from "../../utils/stories-container";
+import { TestDesktopHeader} from "../../utils/stories-container";
 import * as React from "react";
 import {
   Footer,
@@ -19,7 +19,7 @@ export default {
 };
 
 export const pageLayout = () => (
-  <StoriesDefaultThemeProvider>
+
     <PageRoot>
       <TestDesktopHeader />
       <PageBody>
@@ -41,10 +41,9 @@ export const pageLayout = () => (
         <VerticalSpacer spacing={12} />
       </Footer>
     </PageRoot>
-  </StoriesDefaultThemeProvider>
+
 );
 export const pageLandingLayout = () => (
-  <StoriesDefaultThemeProvider>
     <PageRoot>
       <TestDesktopHeader />
       <VerticalSpacer spacing={48} />
@@ -69,5 +68,4 @@ export const pageLandingLayout = () => (
         <SmallText textAlign={"center"}>Build in Melbourne</SmallText>
       </Footer>
     </PageRoot>
-  </StoriesDefaultThemeProvider>
 );

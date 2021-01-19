@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Heading1, Heading2, Heading3, Heading4, Heading5, Vertical } from "../../../src";
-import { StoriesDefaultThemeProvider } from "../../utils/stories-container";
+
 
 export default {
   title: "Atoms/Typography/Headings",
@@ -8,7 +8,6 @@ export default {
 };
 
 export const headings = () => (
-  <StoriesDefaultThemeProvider>
     <Vertical>
       <Heading1>Heading 1</Heading1>
       <Heading2>Heading 2</Heading2>
@@ -16,11 +15,9 @@ export const headings = () => (
       <Heading4>Heading 4</Heading4>
       <Heading5>Heading 5</Heading5>
     </Vertical>
-  </StoriesDefaultThemeProvider>
 );
 
 export const custom = () => (
-  <StoriesDefaultThemeProvider>
     <Vertical>
       <Heading1
         fontFamily={"sans-serif"}
@@ -68,5 +65,4 @@ export const custom = () => (
         Heading 5
       </Heading5>
     </Vertical>
-  </StoriesDefaultThemeProvider>
 );

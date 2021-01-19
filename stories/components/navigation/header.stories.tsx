@@ -1,4 +1,4 @@
-import {StoriesDefaultThemeProvider, TestHeaderLogo, TestLogo} from "../../utils/stories-container";
+import { TestHeaderLogo, TestLogo} from "../../utils/stories-container";
 import * as React from "react";
 import {
   DesktopHeader,
@@ -17,7 +17,6 @@ export default {
 };
 
 export const header = () => {
-
   const Links = [
     {
       href: "",
@@ -46,7 +45,6 @@ export const header = () => {
 
   const [isSidebarOpen, setIsSideBarOpen] = React.useState(false);
   return (
-    <StoriesDefaultThemeProvider>
       <ResponsiveLayout
         renderMobile={() => (
           <MobileHeader
@@ -90,10 +88,9 @@ export const header = () => {
           />
         )}
       />
-    </StoriesDefaultThemeProvider>
+
   );
 };
-
 
 export const headerUserMenu = () => {
   const HeaderLinks = [
@@ -125,8 +122,7 @@ export const headerUserMenu = () => {
     },
   ];
 
-  return <StoriesDefaultThemeProvider>
-    <DesktopHeader
+  return <DesktopHeader
         logo={<TestLogo/>}
         leftLinks={HeaderLinks.map((it) => (
             <NavigationLink key={it.text} href={it.href} onClick={() => alert(it.text)}>
@@ -145,5 +141,4 @@ export const headerUserMenu = () => {
           </HeaderUserMenu>
         ]}
     />
-  </StoriesDefaultThemeProvider>
 }

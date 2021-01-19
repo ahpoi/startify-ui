@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Button, Paragraph, SelectField, Text, TextInputField, Tooltip, Vertical} from "../../../src";
 import {useForm} from "react-hook-form";
-import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
+
 import {zodResolver} from "@hookform/resolvers/zod";
 
 import * as z from "zod";
@@ -40,7 +40,6 @@ export const signUpForm = () => {
     const onSubmit = (data: FormValues) => console.log(data);
 
     return (
-        <StoriesDefaultThemeProvider>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Vertical>
                     <TextInputField name="firstName"
@@ -101,6 +100,5 @@ export const signUpForm = () => {
                     <Button type={"submit"}>Login</Button>
                 </Vertical>
             </form>
-        </StoriesDefaultThemeProvider>
     );
 };

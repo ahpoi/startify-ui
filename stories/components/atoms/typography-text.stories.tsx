@@ -1,6 +1,5 @@
 import * as React from "react";
 import { ListItem, Paragraph, ParagraphHeading, SmallText, Text, Vertical } from "../../../src";
-import { StoriesDefaultThemeProvider } from "../../utils/stories-container";
 
 export default {
   title: "Atoms/Typography/Text",
@@ -8,7 +7,6 @@ export default {
 };
 
 export const texts = () => (
-  <StoriesDefaultThemeProvider>
     <Vertical>
       <ParagraphHeading>Paragraph Heading</ParagraphHeading>
       <Paragraph>Paragraph</Paragraph>
@@ -22,11 +20,9 @@ export const texts = () => (
         </ul>
       </div>
     </Vertical>
-  </StoriesDefaultThemeProvider>
 );
 
 export const custom = () => (
-  <StoriesDefaultThemeProvider>
     <Vertical>
       <Paragraph color={"#008DA6"} textAlign={"center"} size={"sm"}>
         Paragraph Small
@@ -41,5 +37,4 @@ export const custom = () => (
         Paragraph
       </Paragraph>
     </Vertical>
-  </StoriesDefaultThemeProvider>
 );

@@ -6,6 +6,7 @@ import {
 } from "../../src";
 import * as React from "react";
 
+
 export const StoriesDefaultThemeProvider = (props: { children: React.ReactNode }) => {
     const theme = {
         typography: { fontFamily: {body: "Montserrat,Helvetica Neue", heading: "Montserrat, Helvetica"}}

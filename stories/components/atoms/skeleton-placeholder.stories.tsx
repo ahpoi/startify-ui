@@ -1,5 +1,5 @@
 import { Horizontal, SkeletonPlaceholder, Stretch, Vertical } from "../../../src";
-import { StoriesDefaultThemeProvider } from "../../utils/stories-container";
+
 import * as React from "react";
 
 export default {
@@ -8,20 +8,14 @@ export default {
 };
 
 export const circlePlaceholder = () => (
-  <StoriesDefaultThemeProvider>
     <SkeletonPlaceholder style={{ width: "50px", height: "50px", borderRadius: "50%" }} />
-  </StoriesDefaultThemeProvider>
 );
 
 export const textPlaceholder = () => (
-  <StoriesDefaultThemeProvider>
     <SkeletonPlaceholder style={{ width: "100px", height: "10px" }} />
-  </StoriesDefaultThemeProvider>
 );
 
 export const panelPlaceholder = () => (
-  <StoriesDefaultThemeProvider>
-    <div>
       <Horizontal verticalAlign={"center"}>
         <SkeletonPlaceholder style={{ width: "50px", height: "50px", borderRadius: "50%" }} />
         <Stretch>
@@ -32,6 +26,4 @@ export const panelPlaceholder = () => (
           </Vertical>
         </Stretch>
       </Horizontal>
-    </div>
-  </StoriesDefaultThemeProvider>
 );

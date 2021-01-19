@@ -28,7 +28,9 @@ export const Alert = ({ children, colorScheme = "primary", onClose, override }: 
       />
     </StyledAlert>
   ) : (
-    <StyledAlert role={"alert"} {...styledProps}>{children}</StyledAlert>
+    <StyledAlert role={"alert"} {...styledProps}>
+      {children}
+    </StyledAlert>
   );
 };
 

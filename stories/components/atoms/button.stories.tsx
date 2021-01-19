@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Button, Horizontal} from "../../../src";
-import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
+
 
 export default {
     title: "Atoms/Button",
@@ -8,15 +8,15 @@ export default {
 };
 
 export const button = () => (
-    <StoriesDefaultThemeProvider>
+
         <Button variant={"solid"} colorScheme={"primary"} onClick={onClick}>
             Click me
         </Button>
-    </StoriesDefaultThemeProvider>
+
 );
 
 export const variant = () => (
-    <StoriesDefaultThemeProvider>
+
         <Horizontal>
             <Button variant={"solid"} onClick={onClick}>
                 Solid
@@ -34,11 +34,11 @@ export const variant = () => (
                 Link
             </Button>
         </Horizontal>
-    </StoriesDefaultThemeProvider>
+
 );
 
 export const loading = () => (
-    <StoriesDefaultThemeProvider>
+
         <Horizontal>
             <Button variant={"solid"} width={"200px"} isLoading onClick={onClick}>
                 Primary
@@ -53,11 +53,11 @@ export const loading = () => (
                 Secondary Outline
             </Button>
         </Horizontal>
-    </StoriesDefaultThemeProvider>
+
 );
 
 export const sizeVariants = () => (
-    <StoriesDefaultThemeProvider>
+
         <Horizontal verticalAlign={"center"}>
             <div>
                 <Button size={"sm"} onClick={onClick}>
@@ -75,11 +75,11 @@ export const sizeVariants = () => (
                 </Button>
             </div>
         </Horizontal>
-    </StoriesDefaultThemeProvider>
+
 );
 
 export const sizeVariantsLoading = () => (
-    <StoriesDefaultThemeProvider>
+
         <Horizontal verticalAlign={"center"}>
             <div>
                 <Button size={"sm"} onClick={onClick} isLoading>
@@ -97,11 +97,11 @@ export const sizeVariantsLoading = () => (
                 </Button>
             </div>
         </Horizontal>
-    </StoriesDefaultThemeProvider>
+
 );
 
 export const disabled = () => (
-    <StoriesDefaultThemeProvider>
+
         <Horizontal>
             <Button variant={"solid"} disabled onClick={onClick}>
                 Disabled
@@ -113,11 +113,11 @@ export const disabled = () => (
                 Disabled
             </Button>
         </Horizontal>
-    </StoriesDefaultThemeProvider>
+
 );
 
 export const others = () => (
-    <StoriesDefaultThemeProvider>
+
         <Horizontal>
             <Button
                 onClick={onClick}
@@ -141,7 +141,7 @@ export const others = () => (
                 Custom Styled
             </Button>
         </Horizontal>
-    </StoriesDefaultThemeProvider>
+
 );
 
 const onClick = () => {

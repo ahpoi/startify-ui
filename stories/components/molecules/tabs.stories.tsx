@@ -1,6 +1,5 @@
 import * as React from "react";
 import {TabContent, Tabs, Vertical} from "../../../src";
-import {StoriesDefaultThemeProvider} from "../../utils/stories-container";
 
 export default {
     title: "Molecules/Tabs",
@@ -8,7 +7,6 @@ export default {
 };
 
 export const tabs = () => (
-    <StoriesDefaultThemeProvider>
         <Vertical>
             <Tabs>
                 <TabContent label={"Tab 1"}>
@@ -19,5 +17,4 @@ export const tabs = () => (
                 </TabContent>
             </Tabs>
         </Vertical>
-    </StoriesDefaultThemeProvider>
 );
