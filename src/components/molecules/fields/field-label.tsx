@@ -41,7 +41,7 @@ export const FieldErrorMessage = styled.div.attrs({
   "aria-live": "assertive",
   "aria-atomic": "true",
 })`
-  font-size: ${({ theme }) => theme.typography.size.md};
+  font-size: ${({ theme }) => theme.typography.size.body.md};
   font-weight: 400;
   color: ${({ theme }) => theme.colors.red["500"]};
   line-height: 24px;
@@ -49,7 +49,7 @@ export const FieldErrorMessage = styled.div.attrs({
 `;
 
 export const Label = styled.label<{ error?: boolean }>`
-  font-size: ${({ theme }) => theme.typography.size.md};
+  font-size: ${({ theme }) => theme.typography.size.body.md};
   font-weight: 500;
   color: ${({ theme, error }) => (error ? theme.colors.red["500"] : theme.typography.color.body.dark)};
   line-height: 30px;
@@ -58,7 +58,7 @@ export const Label = styled.label<{ error?: boolean }>`
 >;
 
 export const Legend = styled.legend<{ error?: boolean }>`
-  font-size: ${({ theme }) => theme.typography.size.md};
+  font-size: ${({ theme }) => theme.typography.size.body.md};
   font-weight: 500;
   color: ${({ theme, error }) => (error ? theme.colors.red["500"] : theme.typography.color.body.dark)};
   line-height: 30px;

@@ -37,16 +37,6 @@ export const variant = () => (
     </StoriesDefaultThemeProvider>
 );
 
-export const colorScheme = () => (
-    <StoriesDefaultThemeProvider>
-        <Horizontal>
-            <Button variant={"link"} onClick={onClick}>
-                Link
-            </Button>
-        </Horizontal>
-    </StoriesDefaultThemeProvider>
-);
-
 export const loading = () => (
     <StoriesDefaultThemeProvider>
         <Horizontal>

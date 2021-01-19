@@ -57,7 +57,7 @@ const TabLists = styled.div`
 const TabButton = styled.button<TabButtonProps>`
   cursor: pointer;
   height: auto;
-  font-size: ${(props) => props.theme.typography.size.md};
+  font-size: ${(props) => props.theme.typography.size.body.md};
   font-weight: ${(props) => props.theme.typography.fontWeight.medium};
   padding: 0 10px 12px 10px;
   margin-bottom: -2px;

@@ -2,8 +2,8 @@ import * as React from "react";
 import { Property } from "csstype";
 
 import styled, { css } from "styled-components";
-import { DivProps } from "../others/types";
 import { breakpoints } from "../../styles/breakpoints";
+import { DivProps } from "../others/types";
 
 type HeadingPrimitiveType = React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
@@ -42,49 +42,49 @@ const baseHeading = css<HeadingProps>`
 
 export const Heading1 = styled.h1<HeadingProps>`
   ${baseHeading}
-  font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.one.web};
+  font-size: ${(props) => props.fontSize?.web ?? props.theme.typography.size.heading["1"].web};
   @media (max-width: ${breakpoints.sm}px) {
-    font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.one.mobile};
+    font-size: ${(props) => props.fontSize?.mobile ?? props.theme.typography.size.heading["1"].mobile};
   }
 ` as React.FunctionComponent<HeadingProps & HeadingPrimitiveType>;
 
 export const Heading2 = styled.h2<HeadingProps>`
   ${baseHeading}
-  font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.two.web};
+  font-size: ${(props) => props.fontSize?.web ?? props.theme.typography.size.heading["2"].web};
   @media (max-width: ${breakpoints.sm}px) {
-    font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.two.mobile};
+    font-size: ${(props) => props.fontSize?.mobile ?? props.theme.typography.size.heading["2"].mobile};
   }
 ` as React.FunctionComponent<HeadingProps & HeadingPrimitiveType>;
 
 export const Heading3 = styled.h3<HeadingProps>`
   ${baseHeading}
-  font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.three.web};
+  font-size: ${(props) => props.fontSize?.web ?? props.theme.typography.size.heading["3"].web};
   @media (max-width: ${breakpoints.sm}px) {
-    font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.three.mobile};
+    font-size: ${(props) => props.fontSize?.mobile ?? props.theme.typography.size.heading["3"].mobile};
   }
 ` as React.FunctionComponent<HeadingProps & HeadingPrimitiveType>;
 
 export const Heading4 = styled.h4<HeadingProps>`
   ${baseHeading}
-  font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.four.web};
+  font-size: ${(props) => props.fontSize?.web ?? props.theme.typography.size.heading["4"].web};
   color: ${(props) => props.color ?? props.theme.typography.color.heading};
   @media (max-width: ${breakpoints.sm}px) {
-    font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.four.mobile};
+    font-size: ${(props) => props.fontSize?.mobile ?? props.theme.typography.size.heading["4"].mobile};
   }
 ` as React.FunctionComponent<HeadingProps & HeadingPrimitiveType>;
 
 export const Heading5 = styled.h5<HeadingProps>`
   ${baseHeading}
-  font-size: ${(props) => props.fontSize?.web ?? TypographyVariants.heading.five.web};
+  font-size: ${(props) => props.fontSize?.web ?? props.theme.typography.size.heading["5"].web};
   @media (max-width: ${breakpoints.sm}px) {
-    font-size: ${(props) => props.fontSize?.mobile ?? TypographyVariants.heading.five.mobile};
+    font-size: ${(props) => props.fontSize?.mobile ?? props.theme.typography.size.heading["5"].mobile};
   }
 ` as React.FunctionComponent<HeadingProps>;
 
 const textCss = css<TextProps>`
   ${base}
   font-family: ${(props) => props.fontFamily ?? props.theme.typography.fontFamily.body};
-  font-size: ${({ theme, size, fontSize }) => fontSize ?? theme.typography.size[size ?? "md"]};
+  font-size: ${({ theme, size, fontSize }) => fontSize ?? theme.typography.size.body[size ?? "md"]};
   color: ${(props) => props.color ?? props.theme.typography.color.body.mid};
   hyphens: manual;
 `;
@@ -118,30 +118,5 @@ export const Text = styled.div`
 
 export const SmallText = styled.div`
   ${textCss}
-  font-size: ${(props) => props.theme.typography.size.sm};
+  font-size: ${(props) => props.theme.typography.size.body.sm};
 ` as React.FunctionComponent<TextProps & DivProps>;
-
-const TypographyVariants = {
-  heading: {
-    one: {
-      web: "36px",
-      mobile: "28px",
-    },
-    two: {
-      web: "30px",
-      mobile: "24px",
-    },
-    three: {
-      web: "26px",
-      mobile: "20px",
-    },
-    four: {
-      web: "20px",
-      mobile: "16px",
-    },
-    five: {
-      web: "16px",
-      mobile: "14px",
-    },
-  },
-};

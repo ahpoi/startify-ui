@@ -67,15 +67,15 @@ const useSizeVariant = () => {
   const { typography } = useTheme();
   return {
     sm: {
-      fontSize: typography.size.sm,
+      fontSize: typography.size.body.sm,
       fontWeight: "normal",
     },
     md: {
-      fontSize: typography.size.md,
+      fontSize: typography.size.body.md,
       fontWeight: "normal",
     },
     lg: {
-      fontSize: typography.size.lg,
+      fontSize: typography.size.body.lg,
       fontWeight: "normal",
     },
   };

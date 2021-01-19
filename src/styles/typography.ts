@@ -18,10 +18,34 @@ export const typography = {
     },
   },
   size: {
-    xs: "10px",
-    sm: "12px",
-    md: "14px",
-    lg: "16px",
+    heading: {
+      1: {
+        web: "36px",
+        mobile: "28px",
+      },
+      2: {
+        web: "30px",
+        mobile: "24px",
+      },
+      3: {
+        web: "26px",
+        mobile: "20px",
+      },
+      4: {
+        web: "20px",
+        mobile: "16px",
+      },
+      5: {
+        web: "16px",
+        mobile: "14px",
+      },
+    },
+    body: {
+      xs: "10px",
+      sm: "12px",
+      md: "14px",
+      lg: "16px",
+    },
   },
 };
 
