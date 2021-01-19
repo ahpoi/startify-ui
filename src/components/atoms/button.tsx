@@ -4,7 +4,7 @@ import { calculateUnit, ColorScheme } from "../..";
 import { Spinner } from "./spinner";
 import { Property } from "csstype";
 import { SizeType } from "../others/types";
-import { baseColors } from "../../styles/colors";
+import { colors } from "../../styles/colors";
 
 type ButtonSizeType = Exclude<SizeType, "xs">;
 
@@ -177,8 +177,8 @@ const StyledButton = styled.button<StyledButtonProps>`
   &:disabled {
     cursor: not-allowed;
     color: rgba(0, 0, 0, 0.25);
-    background-color: ${baseColors.grey["100"]};
-    border-color: ${baseColors.grey["100"]};
+    background-color: ${colors.grey["100"]};
+    border-color: ${colors.grey["100"]};
   }
   color: ${(props) => props.color};
   background-color: ${(props) => props.backgroundColor};

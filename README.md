@@ -136,6 +136,6 @@ We considered other options before creating our own. Here is our opinion:
 
 ### Improvements
 
-- More focus on accessibility with WAI-ARIA guidelines specifications
+- More focus on accessibility with WAI-ARIA guidelines specifications 
 - Remove react-tether as a dependency
-- Create an `extendTheme` function to only override specified property
+- More themeable properties (Spaces, Breakpoints...etc instead of constant)

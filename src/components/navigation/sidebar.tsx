@@ -2,13 +2,19 @@ import * as React from "react";
 import styled from "styled-components";
 import { useOnOutsideClick } from "../../hooks/common.hook";
 import { Vertical } from "../../components/layout/gls/gls";
-import { IconButtonContainer, IconClose, IconMenu } from "../others/icons";
+import { IconButtonContainer, IconMenu } from "../others/icons";
+import { CloseButton } from "../internal/close-button";
 
 interface SidebarProps {
   isOpen: boolean;
   onStateChange?: (state: { isOpen: boolean }) => void;
   children: React.ReactNode;
 }
+
+const width = 250;
+const zIndexOverlay = 1;
+const zIndexRoot = 2;
+const zIndexContent = 2;
 
 export const Sidebar = ({ isOpen, onStateChange, children }: SidebarProps) => {
   const node = React.useRef<HTMLDivElement>(null);
@@ -20,9 +26,15 @@ export const Sidebar = ({ isOpen, onStateChange, children }: SidebarProps) => {
     <SidebarRoot data-comment="sidebar-root" isOpen={isOpen}>
       <SideBarContent data-comment="sidebar-content" ref={node} isOpen={isOpen} children={children} />
       <SideBarOverlay role="presentation" data-comment="sidebar-overlay" isOpen={isOpen}>
-        <OverlayClosedButton aria-label={"close sidebar"}>
-          <IconClose color={"white"} />
-        </OverlayClosedButton>
+        <CloseButton
+          style={{
+            position: "absolute",
+            top: "20px",
+            left: `${width + 5}px`,
+          }}
+          color={"white"}
+          size={"md"}
+        />
       </SideBarOverlay>
     </SidebarRoot>
   );
@@ -37,11 +49,6 @@ export const SidebarToggle = (props: { onClick: () => any }) => (
     <IconMenu />
   </IconButtonContainer>
 );
-
-const width = 250;
-const zIndexOverlay = 1;
-const zIndexRoot = 2;
-const zIndexContent = 2;
 
 const SidebarRoot = styled.div<{ isOpen: boolean }>`
   z-index: ${zIndexRoot};
@@ -77,10 +84,4 @@ const SideBarContent = styled.div<{ isOpen: boolean }>`
   overflow-y: auto;
   width: ${width}px;
   transform: ${({ isOpen }) => (isOpen ? "translateX(0%)" : "translateX(-100%)")};
-`;
-
-const OverlayClosedButton = styled.div`
-  position: absolute;
-  top: 20px;
-  left: ${width + 5}px;
 `;

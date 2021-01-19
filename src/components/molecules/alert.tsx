@@ -1,30 +1,39 @@
 import * as React from "react";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
+import { ColorScheme } from "../../styles/colors";
+import { CloseButton } from "../internal/close-button";
 
 interface AlertProps {
-  variant?: "success" | "info" | "light" | "warning" | "error";
   children: React.ReactNode;
+  colorScheme?: ColorScheme;
   onClose?: () => any;
   override?: {
-    variant?: AlertVariant;
+    colorScheme?: AlertColorScheme;
   };
 }
 
-export const Alert = ({ children, variant = "success", onClose, override }: AlertProps) => {
-  const styledProps: AlertVariant = override?.variant ?? AlertVariants[variant as never];
+export const Alert = ({ children, colorScheme = "primary", onClose, override }: AlertProps) => {
+  const styledProps: AlertColorScheme = override?.colorScheme ?? useColorScheme(colorScheme);
   return onClose ? (
-    <StyledAlert {...styledProps}>
+    <StyledAlert {...styledProps} role={"alert"}>
       <div style={{ display: "inline-block" }}>{children}</div>
-      <CloseButton aria-label="close" type={"button"} onClick={onClose}>
-        <CloseIcon color={styledProps.color} />
-      </CloseButton>
+      <CloseButton
+        aria-label="close"
+        size={"sm"}
+        style={{
+          position: "absolute",
+          top: "9px",
+          right: "10px",
+        }}
+        onClick={onClose}
+      />
     </StyledAlert>
   ) : (
     <StyledAlert {...styledProps}>{children}</StyledAlert>
   );
 };
 
-const StyledAlert = styled.div<AlertVariant>`
+const StyledAlert = styled.div<AlertColorScheme>`
   position: relative;
   font-size: 14px;
   color: ${(props) => props.color};
@@ -40,58 +49,19 @@ const StyledAlert = styled.div<AlertVariant>`
   word-wrap: break-word;
 `;
 
-const CloseButton = styled.button`
-  position: absolute;
-  top: 9px;
-  right: 10px;
-  background: transparent;
-  cursor: pointer;
-  outline: none;
-  border: none;
-  padding: 0px;
-`;
-
-interface AlertVariant {
+type AlertColorScheme = {
   color: string;
   borderColor: string;
   backgroundColor: string;
-}
-
-const AlertVariants = {
-  success: {
-    color: "#067A3D",
-    backgroundColor: "#DFF0D8",
-    borderColor: "#C3E6CB",
-  },
-  light: {
-    color: "#818182",
-    backgroundColor: "#fafafa",
-    borderColor: "#FDFDFE",
-  },
-  info: {
-    color: "#0D72A8",
-    backgroundColor: "#E6EFF5",
-    borderColor: "#BEE5EB",
-  },
-  warning: {
-    color: "#8A6D3B",
-    backgroundColor: "#FCF8E2",
-    borderColor: "#FFEEBA",
-  },
-  error: {
-    color: "#BC111E",
-    backgroundColor: "#F2DEDE",
-    borderColor: "#F5C6CB",
-  },
 };
 
-const CloseIcon = ({ color }: { color: string }) => (
-  <svg width={20} height={20} viewBox="0 0 22 18">
-    <path
-      d="M11.894 10.834l4.773-4.773L15.607 5l-4.773 4.773L6.06 5 5 6.06l4.773 4.774L5 15.607l1.06 1.06 4.774-4.773 4.773 4.773 1.06-1.06-4.773-4.773z"
-      fill={color}
-    />
-  </svg>
-);
+const useColorScheme = (scheme: ColorScheme) => {
+  const color = useTheme().colors[scheme];
+  return {
+    color: color["700"],
+    backgroundColor: color["100"],
+    borderColor: color["300"],
+  };
+};
 
 StyledAlert.displayName = "Styled Alert";

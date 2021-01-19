@@ -47,13 +47,22 @@ export const toTitleCase = (str: string) =>
 export const truncate = (input: string, maxLength: number = 5) =>
   input?.length > maxLength ? `${input.substring(0, maxLength)}...` : input;
 
-export const getParameterByName = (name: string, url?: string) => {
-  if (!url) url = window.location.href;
-  /*eslint no-useless-escape: 0*/
-  name = name.replace(/[\[\]]/g, "\\$&");
-  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-    results = regex.exec(url);
-  if (!results) return null;
-  if (!results[2]) return "";
-  return decodeURIComponent(results[2].replace(/\+/g, " "));
+const isObject = (item: any) => item && typeof item === "object" && !Array.isArray(item);
+
+/**
+ * https://stackoverflow.com/questions/27936772/how-to-deep-merge-instead-of-shallow-merge
+ */
+export const mergeDeep = (target: any, source: any) => {
+  let output = Object.assign({}, target);
+  if (isObject(target) && isObject(source)) {
+    Object.keys(source).forEach((key) => {
+      if (isObject(source[key])) {
+        if (!(key in target)) Object.assign(output, { [key]: source[key] });
+        else output[key] = mergeDeep(target[key], source[key]);
+      } else {
+        Object.assign(output, { [key]: source[key] });
+      }
+    });
+  }
+  return output;
 };

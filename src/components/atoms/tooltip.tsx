@@ -1,8 +1,8 @@
 import * as React from "react";
 
 import styled from "styled-components";
-import { IconButtonContainer, IconClose, IconQuestionCircle } from "../others/icons";
-import { Horizontal, useOnOutsideClick } from "../..";
+import { IconQuestionCircle } from "../others/icons";
+import { CloseButton, Horizontal, useOnOutsideClick } from "../..";
 import { zIndices } from "../../styles/z-index";
 import { shadows } from "../../styles/shadows";
 import TetherComponent from "react-tether";
@@ -44,14 +44,11 @@ export const Tooltip = (props: TooltipProps) => {
             <div ref={ref as any} role="tooltip">
               <ChildrenContainer ref={node}>
                 {props.children}
-                <IconButtonContainer
-                  autoFocus={true}
-                  type={"button"}
+                <CloseButton
+                  size={"xs"}
                   style={{ position: "absolute", right: "4px", top: "4px" }}
                   onClick={() => setIsOpen(false)}
-                >
-                  <IconClose size={14} />
-                </IconButtonContainer>
+                />
               </ChildrenContainer>
             </div>
           )

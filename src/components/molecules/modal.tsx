@@ -1,13 +1,23 @@
 import * as React from "react";
 
 import styled, { useTheme } from "styled-components";
-import { Button, ButtonVariantType, Heading4, Horizontal, StretchSpacer, Text, Vertical, VerticalSpacer } from "../..";
+import {
+  Button,
+  ButtonVariantType,
+  CloseButton,
+  Heading4,
+  Horizontal,
+  StretchSpacer,
+  Text,
+  Vertical,
+  VerticalSpacer,
+} from "../..";
 import { breakpoints } from "../../styles/breakpoints";
 import { spaces } from "../../styles/spaces";
 import { zIndices } from "../../styles/z-index";
 import { shadows } from "../../styles/shadows";
 import { useKeyboardEvent, useOnOutsideClick } from "../../hooks/common.hook";
-import { IconButtonContainer, IconClose, IconError } from "../others/icons";
+import { IconError } from "../others/icons";
 import { fadeIn } from "../others/animations";
 import { Portal } from "../others/portal";
 
@@ -79,7 +89,7 @@ export const Modal = (props: ModalProps) => {
                 {closeIcon && (
                   <>
                     <StretchSpacer />
-                    <ModalCloseButton onClick={_onClose} />
+                    <CloseButton onClick={_onClose} />
                   </>
                 )}
               </Horizontal>
@@ -177,7 +187,7 @@ const ModalErrorContent = (props: ModalErrorProps) => {
   return (
     <>
       <Horizontal horizontalAlign={"right"}>
-        <ModalCloseButton onClick={onClose} />
+        <CloseButton onClick={onClose} />
       </Horizontal>
       <VerticalSpacer spacing={8} />
       <Vertical horizontalAlign={"center"}>
@@ -254,9 +264,3 @@ export const ModalContainer = styled.div<{ modalWidth?: number; padding?: number
     width: 95%;
   }
 `;
-
-export const ModalCloseButton = (props: { onClick?: () => any }) => (
-  <IconButtonContainer onClick={props.onClick} type={"button"}>
-    <IconClose size={24} />
-  </IconButtonContainer>
-);

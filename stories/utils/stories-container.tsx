@@ -1,17 +1,14 @@
 import {
-    appTheme,
     DesktopHeader,
     HeaderLogo,
     NavigationLink,
     StartifyProvider,
-    typography
 } from "../../src";
 import * as React from "react";
 
 export const StoriesDefaultThemeProvider = (props: { children: React.ReactNode }) => {
     const theme = {
-        ...appTheme,
-        typography: {...typography, fontFamily: {body: "Montserrat,Helvetica Neue", heading: "Montserrat"}}
+        typography: { fontFamily: {body: "Montserrat,Helvetica Neue", heading: "Montserrat, Helvetica"}}
     }
     return <StartifyProvider rootId={'root'} theme={theme}>{props.children}</StartifyProvider>
 };
@@ -19,6 +16,10 @@ export const StoriesDefaultThemeProvider = (props: { children: React.ReactNode }
 export const TestHeaderLogo = () => (
     <HeaderLogo name={"Dog House"} color={"#FF5050"} fontWeight={500} onClick={() => 0} logo={<TestLogo/>}/>
 );
+
+export const onClickComponent = () => {
+    alert("I have clicked")
+}
 
 export const TestLogo = () => (
     <svg height={24} width={24} viewBox="0 0 512 512">

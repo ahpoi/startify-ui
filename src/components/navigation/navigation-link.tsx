@@ -2,7 +2,7 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import { Property } from "csstype";
 import { calculateUnit } from "../layout/gls/box";
-import { baseColors } from "../../styles/colors";
+import { colors } from "../../styles/colors";
 
 type LinkProps = {
   children: React.ReactNode;
@@ -48,7 +48,7 @@ export const NavigationMenuItemLink = styled.a<MenuItemProps>`
    &:hover,
    &:focus,
    &:active {
-     background-color: ${baseColors.grey["100"]} !important;
+     background-color: ${colors.grey["100"]} !important;
   } 
 ` as React.FunctionComponent<MenuItemProps & AnchorPrimitiveType>;
 

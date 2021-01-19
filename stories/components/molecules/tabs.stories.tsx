@@ -17,9 +17,6 @@ export const tabs = () => (
                 <TabContent label={"Tab 2"}>
                     Content of Tab 2
                 </TabContent>
-                <div>
-
-                </div>
             </Tabs>
         </Vertical>
     </StoriesDefaultThemeProvider>

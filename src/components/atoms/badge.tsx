@@ -1,29 +1,30 @@
 import * as React from "react";
 import styled, { useTheme } from "styled-components";
 import { SizeType } from "../others/types";
+import { ColorScheme } from "../../styles/colors";
 
 type BadgeSizeType = Exclude<SizeType, "xs">;
 
 interface BadgeProps {
   children: React.ReactNode;
-  variant?: "primary" | "secondary" | "success" | "info" | "warning" | "error";
+  colorScheme?: ColorScheme;
   size?: BadgeSizeType;
   onClick?: () => any;
   minWidth?: string;
   override?: {
-    variant?: BadgeVariant;
+    colorScheme?: BadgeColorScheme;
   };
 }
 
 export const Badge = ({
   children,
-  variant = "info",
+  colorScheme = "primary",
   size = "md",
   minWidth = "auto",
   onClick = undefined,
   override,
 }: BadgeProps) => {
-  const badgeVariant: BadgeVariant = override?.variant ?? useBadgeVariant()[variant as never];
+  const badgeVariant: BadgeColorScheme = override?.colorScheme ?? useColorScheme(colorScheme);
   const sizeVariant = SizeVariants[size];
   const styledBadgeProps: StyledBadgeProps = {
     ...badgeVariant,
@@ -38,45 +39,23 @@ export const Badge = ({
   );
 };
 
-interface BadgeVariant {
-  color: string;
-  backgroundColor: string;
-}
-
-const useBadgeVariant = () => {
-  const { primary, secondary } = useTheme().colors;
+const useColorScheme = (scheme: ColorScheme) => {
+  const color = useTheme().colors[scheme];
   return {
-    primary: {
-      color: "white",
-      backgroundColor: primary,
-    },
-    secondary: {
-      color: "white",
-      backgroundColor: secondary,
-    },
-    success: {
-      color: "#067A3D",
-      backgroundColor: "#DFF0D8",
-    },
-    info: {
-      color: "#0D72A8",
-      backgroundColor: "#E6EFF5",
-    },
-    warning: {
-      color: "#8A6D3B",
-      backgroundColor: "#FCF8E2",
-    },
-    error: {
-      color: "#BC111E",
-      backgroundColor: "#F2DEDE",
-    },
+    color: "white",
+    backgroundColor: color[500],
   };
 };
 
-interface SizeVariant {
+type BadgeColorScheme = {
+  color: string;
+  backgroundColor: string;
+};
+
+type SizeVariant = {
   fontSize: string;
   padding: string;
-}
+};
 
 const SizeVariants: Record<BadgeSizeType, SizeVariant> = {
   sm: {
@@ -93,7 +72,7 @@ const SizeVariants: Record<BadgeSizeType, SizeVariant> = {
   },
 };
 
-type StyledBadgeProps = BadgeVariant & SizeVariant & { minWidth: string; isClickable: boolean };
+type StyledBadgeProps = BadgeColorScheme & SizeVariant & { minWidth: string; isClickable: boolean };
 
 const StyledBadge = styled.div<StyledBadgeProps>`
   display: inline-block;

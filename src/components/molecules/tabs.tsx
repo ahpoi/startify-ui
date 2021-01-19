@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { fadeIn } from "../others/animations";
-import { baseColors } from "../../styles/colors";
+import { colors } from "../../styles/colors";
 
 type TabsProps = {
   activeKey?: number;
@@ -43,7 +43,7 @@ type TabButtonProps = {
 const TabLists = styled.div`
   display: flex;
   flex-direction: row;
-  border-color: ${baseColors.grey["200"]};
+  border-color: ${colors.grey["200"]};
   border-bottom-width: 2px;
   border-bottom-style: solid;
   & > * {

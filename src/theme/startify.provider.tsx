@@ -2,20 +2,22 @@ import * as React from "react";
 
 import { ThemeProvider } from "styled-components";
 import { appTheme, AppTheme } from "../styles/theme";
-import { GlobalStyle } from "..";
+import { GlobalStyle, mergeDeep } from "..";
+import { RecursivePartial } from "../components/others/types";
 
 type Props = {
   rootId?: string;
-  theme?: AppTheme;
+  theme?: RecursivePartial<AppTheme>;
   children?: React.ReactNode;
 };
 
 export const StartifyProvider = (props: Props) => {
-  const { theme = appTheme, children } = props;
+  const { theme, children } = props;
+  const updatedTheme: AppTheme = mergeDeep(appTheme, theme);
   return (
     <>
-      <GlobalStyle rootId={props.rootId} fontFamily={theme.typography.fontFamily.body} />
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      <GlobalStyle rootId={props.rootId} fontFamily={updatedTheme.typography.fontFamily.body} />
+      <ThemeProvider theme={updatedTheme}>{children}</ThemeProvider>
     </>
   );
 };

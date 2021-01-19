@@ -33,6 +33,11 @@ export * from "./components/layout/gls/box";
 export * from "./components/layout/gls/gls";
 
 export * from "./components/others/extras";
+export * from "./components/others/types";
+export * from "./components/others/icons";
+export * from "./components/others/portal";
+
+export * from "./components/internal/close-button";
 
 export * from "./hooks/common.hook";
 
