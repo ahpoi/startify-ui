@@ -18,7 +18,7 @@ export const Alert = ({ children, colorScheme = "primary", onClose, override }: 
     <StyledAlert {...styledProps} role={"alert"}>
       <div style={{ display: "inline-block" }}>{children}</div>
       <CloseButton
-        size={"md"}
+        size={"sm"}
         style={{
           position: "absolute",
           top: "6px",

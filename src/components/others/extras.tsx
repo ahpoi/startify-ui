@@ -18,7 +18,7 @@ export const BackButton = ({ onClick, text, colorScheme = "secondary" }: BackBut
   return (
     <Horizontal spacing={4} verticalAlign={"center"}>
       <IconArrowLeft size={16} color={color["500"]} />
-      <LinkButton colorScheme={colorScheme} onClick={onClick ? onClick() : () => window.history.back()}>
+      <LinkButton colorScheme={colorScheme} onClick={onClick ? onClick : () => window.history.back()}>
         {text ?? "Back"}
       </LinkButton>
     </Horizontal>
