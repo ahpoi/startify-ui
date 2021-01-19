@@ -1,13 +1,7 @@
 import * as React from "react";
-import {  TestHeaderLogo } from "../../utils/stories-container";
-import {
-  HorizontalDivider,
-  Sidebar,
-  NavigationMenuItemLink,
-  MenuItem,
-  SidebarNavigation,
-  SidebarToggle, colors,
-} from "../../../src";
+import {TestHeaderLogo} from "../../utils/stories-container";
+import {colors, MenuList, Sidebar, SidebarToggle,} from "../../../src";
+import {MenuDivider, MenuItemContainer, MenuItemButton} from "../../../src/components/molecules/menu";
 
 export default {
   title: "Navigation/Sidebar",
@@ -43,42 +37,38 @@ const SecondaryLinks = [
 const SidebarItemsLinks = () => (
   <>
     {Links.map((it) => (
-      <NavigationMenuItemLink key={it.text} onClick={() => alert(it.text)}>
+      <MenuItemButton key={it.text} onClick={() => alert(it.text)}>
         {it.text}
-      </NavigationMenuItemLink>
+      </MenuItemButton>
     ))}
   </>
 );
 
-const SidebarItemSecondaryLinks = () => (
-  <>
-    {SecondaryLinks.map((it) => (
-      <NavigationMenuItemLink color={colors.secondary["700"]} key={it.text} onClick={() => alert(it.text)}>
-        {it.text}
-      </NavigationMenuItemLink>
-    ))}
-  </>
-);
 
 export const sidebar = () => {
   const [isOpen, setOpen] = React.useState(false);
+  const MenuItems = () => (
+      <>
+        {SecondaryLinks.map((it) => (
+            <MenuItemButton color={colors.secondary["700"]} key={it.text} onClick={() => alert(it.text)}>
+              {it.text}
+            </MenuItemButton>
+        ))}
+      </>
+  );
   return (
-
       <div>
         <SidebarToggle onClick={() => setOpen(!isOpen)} />
         <Sidebar isOpen={isOpen} onStateChange={({isOpen}) => setOpen(isOpen)}>
-          <SidebarNavigation>
-            <MenuItem>
+          <MenuList>
+            <MenuItemContainer>
               <TestHeaderLogo />
-            </MenuItem>
+            </MenuItemContainer>
             <SidebarItemsLinks />
-            <MenuItem>
-              <HorizontalDivider />
-            </MenuItem>
-            <SidebarItemSecondaryLinks />
-          </SidebarNavigation>
+            <MenuDivider/>
+            <MenuItems />
+          </MenuList>
         </Sidebar>
       </div>
-
   );
 };

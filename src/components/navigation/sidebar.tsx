@@ -1,7 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
 import { useOnOutsideClick } from "../../hooks/common.hook";
-import { Vertical } from "../../components/layout/gls/gls";
 import { IconButtonContainer, IconMenu } from "../others/icons";
 import { CloseButton } from "../internal/close-button";
 
@@ -30,19 +29,15 @@ export const Sidebar = ({ isOpen, onStateChange, children }: SidebarProps) => {
           style={{
             position: "absolute",
             top: "20px",
-            left: `${width + 5}px`,
+            left: `${width + 10}px`,
           }}
           color={"white"}
-          size={"md"}
+          size={"sm"}
         />
       </SideBarOverlay>
     </SidebarRoot>
   );
 };
-
-export const SidebarNavigation = (props: { children: React.ReactNode }) => (
-  <Vertical spacing={0} children={props.children} />
-);
 
 export const SidebarToggle = (props: { onClick: () => any }) => (
   <IconButtonContainer onClick={props.onClick}>
@@ -50,7 +45,7 @@ export const SidebarToggle = (props: { onClick: () => any }) => (
   </IconButtonContainer>
 );
 
-const SidebarRoot = styled.div<{ isOpen: boolean }>`
+export const SidebarRoot = styled.div<{ isOpen: boolean }>`
   z-index: ${zIndexRoot};
   position: fixed;
   top: 0;
@@ -61,7 +56,7 @@ const SidebarRoot = styled.div<{ isOpen: boolean }>`
   pointer-events: ${({ isOpen }) => (isOpen ? "all" : "none")};
 `;
 
-const SideBarOverlay = styled.div<{ isOpen: boolean }>`
+export const SideBarOverlay = styled.div<{ isOpen: boolean }>`
   z-index: ${zIndexOverlay};
   position: fixed;
   top: 0;
@@ -73,7 +68,7 @@ const SideBarOverlay = styled.div<{ isOpen: boolean }>`
   background-color: rgba(0, 0, 0, 0.8);
 `;
 
-const SideBarContent = styled.div<{ isOpen: boolean }>`
+export const SideBarContent = styled.div<{ isOpen: boolean }>`
   background: white;
   z-index: ${zIndexContent};
   position: absolute;

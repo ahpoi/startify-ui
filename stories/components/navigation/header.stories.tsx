@@ -3,12 +3,12 @@ import * as React from "react";
 import {
   DesktopHeader,
   HeaderUserMenu,
-  NavigationMenuItemLink,
   MobileHeader,
-  NavigationLink,
+  HeaderLink,
   ResponsiveLayout,
-  SidebarNavigation,
   Vertical,
+  MenuItemButton,
+  MenuList,
 } from "../../../src";
 
 export default {
@@ -52,9 +52,9 @@ export const header = () => {
             isSidebarOpen={isSidebarOpen}
             onSidebarStateChange={({ isOpen }) => setIsSideBarOpen(isOpen)}
             sidebarNavigation={
-              <SidebarNavigation>
+              <MenuList>
                 {Links.map((it) => (
-                  <NavigationMenuItemLink
+                  <MenuItemButton
                     key={it.text}
                     onClick={() => {
                       setIsSideBarOpen(false);
@@ -62,9 +62,9 @@ export const header = () => {
                     }}
                   >
                     {it.text}
-                  </NavigationMenuItemLink>
+                  </MenuItemButton>
                 ))}
-              </SidebarNavigation>
+              </MenuList>
             }
           />
         )}
@@ -72,18 +72,18 @@ export const header = () => {
           <DesktopHeader
             logo={<TestHeaderLogo />}
             leftLinks={Links.map((it) => (
-              <NavigationLink key={it.text} href={it.href} onClick={() => alert(it.text)}>
+              <HeaderLink key={it.text} href={it.href} onClick={() => alert(it.text)}>
                 {it.text}
-              </NavigationLink>
+              </HeaderLink>
             ))}
             rightLinks={RightLinks.map((it) => (
-              <NavigationLink
+              <HeaderLink
                 key={it.text}
                 href={it.href}
                 onClick={() => alert(it.text)}
               >
                 {it.text}
-              </NavigationLink>
+              </HeaderLink>
             ))}
           />
         )}
@@ -125,17 +125,17 @@ export const headerUserMenu = () => {
   return <DesktopHeader
         logo={<TestLogo/>}
         leftLinks={HeaderLinks.map((it) => (
-            <NavigationLink key={it.text} href={it.href} onClick={() => alert(it.text)}>
+            <HeaderLink key={it.text} href={it.href} onClick={() => alert(it.text)}>
               {it.text}
-            </NavigationLink>
+            </HeaderLink>
         ))}
         rightLinks={[
           <HeaderUserMenu key={1}>
             <Vertical spacing={2}>
               {MenuLinks.map((it) => (
-                  <NavigationMenuItemLink key={it.text} href={it.href} onClick={() => alert(it.text)}>
+                  <MenuItemButton key={it.text} onClick={() => alert(it.text)}>
                     {it.text}
-                  </NavigationMenuItemLink>
+                  </MenuItemButton>
               ))}
             </Vertical>
           </HeaderUserMenu>

@@ -10,6 +10,7 @@ import {
   SidebarToggle,
   StretchSpacer,
 } from "../..";
+import styled from "styled-components";
 
 /**
  * Links are passed as Component as we want to let the consumer provides their own style
@@ -80,3 +81,30 @@ export const MobileHeader = (props: MobileHeaderProps) => (
     </Sidebar>
   </Header>
 );
+
+type LinkProps = {
+  children: React.ReactNode;
+  color?: string;
+  fontSize?: string;
+  fontWeight?: number;
+};
+
+export const HeaderLink = styled.a<LinkProps>`
+   background: transparent;
+   border: none;
+   outline: none;
+   cursor: pointer;
+   text-decoration: none !important;
+   color: ${(props) => props?.color ?? props.theme.typography.color.body.mid};
+   font-size: ${(props) => calculateUnit(props?.fontSize ?? props.theme.typography.size.body.md)};
+   font-weight: ${(props) => props?.fontWeight ?? props.theme.typography.fontWeight.medium};
+   display: inline-block;
+   padding 0;
+   &:hover,
+   &:focus,
+   &:active {
+     filter: brightness(50%);
+  } 
+` as React.FunctionComponent<
+  LinkProps & React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>
+>;
