@@ -2,7 +2,7 @@ import * as React from "react";
 import { Property } from "csstype";
 
 import styled, { css, useTheme } from "styled-components";
-import { ColorScheme } from "../../styles/colors";
+import { ColorScheme } from "../../theme/styles/colors";
 
 interface LinkProps {
   href: string;

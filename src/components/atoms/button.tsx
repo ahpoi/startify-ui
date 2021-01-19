@@ -4,7 +4,7 @@ import { calculateUnit, ColorScheme } from "../..";
 import { Spinner } from "./spinner";
 import { Property } from "csstype";
 import { SizeType } from "../others/types";
-import { colors } from "../../styles/colors";
+import { colors } from "../../theme/styles/colors";
 
 type ButtonSizeType = Exclude<SizeType, "xs">;
 

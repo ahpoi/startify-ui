@@ -12,10 +12,10 @@ import {
   Vertical,
   VerticalSpacer,
 } from "../..";
-import { breakpoints } from "../../styles/breakpoints";
-import { spaces } from "../../styles/spaces";
-import { zIndices } from "../../styles/z-index";
-import { shadows } from "../../styles/shadows";
+import { breakpoints } from "../../theme/styles/breakpoints";
+import { spaces } from "../../theme/styles/spaces";
+import { zIndices } from "../../theme/styles/z-index";
+import { shadows } from "../../theme/styles/shadows";
 import { useKeyboardEvent, useOnOutsideClick } from "../../hooks/common.hook";
 import { IconError } from "../others/icons";
 import { fadeIn } from "../others/animations";
@@ -44,7 +44,7 @@ type ModalProps = {
       variant?: ButtonVariantType;
     };
   };
-  error?: ModalErrorProps | null;
+  error?: ModalErrorProps;
   closeIcon?: boolean;
   message?: string;
   children?: React.ReactNode;

@@ -4,11 +4,11 @@ import { Property } from "csstype";
 import styled, { css } from "styled-components";
 import { calculateUnit, content, vertical } from "./gls/box";
 import { DivProps } from "../others/types";
-import { spaces } from "../../styles/spaces";
+import { spaces } from "../../theme/styles/spaces";
 import { Content } from "./gls/gls";
 import { fadeIn } from "../others/animations";
-import { pageContainers } from "../../styles/containers";
-import { breakpoints } from "../../styles/breakpoints";
+import { pageContainers } from "../../theme/styles/containers";
+import { breakpoints } from "../../theme/styles/breakpoints";
 
 export type BaseWidthProps = {
   maxWidth?: number;

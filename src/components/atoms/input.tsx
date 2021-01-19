@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
-import { colors } from "../../styles/colors";
+import { colors } from "../../theme/styles/colors";
 
 const BaseInputCss = css<InputProps>`
   font-size: 16px;

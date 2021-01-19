@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled, { useTheme } from "styled-components";
 import { SizeType } from "../others/types";
-import { ColorScheme } from "../../styles/colors";
+import { ColorScheme } from "../../theme/styles/colors";
 
 type BadgeSizeType = Exclude<SizeType, "xs">;
 

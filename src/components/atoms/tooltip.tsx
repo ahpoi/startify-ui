@@ -3,8 +3,8 @@ import * as React from "react";
 import styled from "styled-components";
 import { IconQuestionCircle } from "../others/icons";
 import { CloseButton, Horizontal, useOnOutsideClick } from "../..";
-import { zIndices } from "../../styles/z-index";
-import { shadows } from "../../styles/shadows";
+import { zIndices } from "../../theme/styles/z-index";
+import { shadows } from "../../theme/styles/shadows";
 import TetherComponent from "react-tether";
 
 export type TooltipProps = {

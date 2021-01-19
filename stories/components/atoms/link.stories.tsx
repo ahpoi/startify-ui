@@ -14,13 +14,3 @@ export const link = () => (
     </Vertical>
   </StoriesDefaultThemeProvider>
 );
-
-export const linkColorScheme = () => (
-  <StoriesDefaultThemeProvider>
-    <Vertical>
-      <Link href={"/hello"} underline={false} colorScheme={"primary"}>
-        Link
-      </Link>
-    </Vertical>
-  </StoriesDefaultThemeProvider>
-);

@@ -2,7 +2,7 @@ import * as React from "react";
 import { Property } from "csstype";
 
 import styled, { css } from "styled-components";
-import { breakpoints } from "../../styles/breakpoints";
+import { breakpoints } from "../../theme/styles/breakpoints";
 import { DivProps } from "../others/types";
 
 type HeadingPrimitiveType = React.DetailedHTMLProps<React.HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;

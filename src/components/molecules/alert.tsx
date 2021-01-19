@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled, { useTheme } from "styled-components";
-import { ColorScheme } from "../../styles/colors";
+import { ColorScheme } from "../../theme/styles/colors";
 import { CloseButton } from "../internal/close-button";
 
 interface AlertProps {
@@ -18,18 +18,17 @@ export const Alert = ({ children, colorScheme = "primary", onClose, override }: 
     <StyledAlert {...styledProps} role={"alert"}>
       <div style={{ display: "inline-block" }}>{children}</div>
       <CloseButton
-        aria-label="close"
-        size={"sm"}
+        size={"md"}
         style={{
           position: "absolute",
-          top: "9px",
+          top: "6px",
           right: "10px",
         }}
         onClick={onClose}
       />
     </StyledAlert>
   ) : (
-    <StyledAlert {...styledProps}>{children}</StyledAlert>
+    <StyledAlert role={"alert"} {...styledProps}>{children}</StyledAlert>
   );
 };
 

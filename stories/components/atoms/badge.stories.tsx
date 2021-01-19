@@ -11,11 +11,11 @@ export default {
 export const badge = () => (
     <StoriesDefaultThemeProvider>
         <Horizontal>
-            <Badge colorScheme={"primary"}>primary</Badge>
-            <Badge colorScheme={"secondary"}>secondary</Badge>
-            <Badge colorScheme={"green"}>success</Badge>
-            <Badge colorScheme={"yellow"}>warning</Badge>
-            <Badge colorScheme={"red"}>error</Badge>
+            <Badge colorScheme={"primary"}>Primary</Badge>
+            <Badge colorScheme={"secondary"}>Secondary</Badge>
+            <Badge colorScheme={"green"}>Success</Badge>
+            <Badge colorScheme={"yellow"}>Warning</Badge>
+            <Badge colorScheme={"red"}>Error</Badge>
         </Horizontal>
     </StoriesDefaultThemeProvider>
 );
@@ -30,7 +30,7 @@ export const sizes = () => (
     </StoriesDefaultThemeProvider>
 );
 
-export const clickable = () => (
+export const actionable = () => (
     <StoriesDefaultThemeProvider>
         <Vertical horizontalAlign={"left"}>
             <Badge colorScheme={"green"} onClick={onClick}>

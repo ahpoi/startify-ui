@@ -12,7 +12,7 @@ import {
   verticallySpaced,
 } from "./box";
 import { DivProps } from "../../others/types";
-import { breakpoints } from "../../../styles/breakpoints";
+import { breakpoints } from "../../../theme/styles/breakpoints";
 
 /**
  * Minimised version of gls https://github.com/basarat/gls as its just too good! 🌹

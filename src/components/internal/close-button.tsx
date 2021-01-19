@@ -18,7 +18,7 @@ export const CloseButton = ({
   color?: string;
   size?: SizeType;
 }) => (
-  <StyledButton style={style} onClick={onClick} role={"close"} type={"button"}>
+  <StyledButton style={style} onClick={onClick} aria-label="close" role={"close"} type={"button"}>
     <IconClose color={color} size={sizes[size ?? "sm"]} />
   </StyledButton>
 );

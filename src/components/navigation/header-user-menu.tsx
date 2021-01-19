@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { IconMenu, IconUserAvatarCircle } from "../others/icons";
 import { Horizontal } from "../layout/gls/gls";
 import { useOnInsideClick, useOnOutsideClick } from "../../hooks/common.hook";
-import { shadows } from "../../styles/shadows";
+import { shadows } from "../../theme/styles/shadows";
 
 type Props = {
   children: React.ReactNode;

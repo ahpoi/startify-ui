@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { ThemeProvider } from "styled-components";
-import { appTheme, AppTheme } from "../styles/theme";
+import { appTheme, AppTheme } from "./styles/theme";
 import { GlobalStyle, mergeDeep } from "..";
 import { RecursivePartial } from "../components/others/types";
 

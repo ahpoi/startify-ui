@@ -47,12 +47,12 @@ export * from "./utils/storage.utils";
 
 export * from "./theme/startify.provider";
 
-export * from "./styles/theme";
-export * from "./styles/colors";
-export * from "./styles/radius";
-export * from "./styles/spaces";
-export * from "./styles/containers";
-export * from "./styles/breakpoints";
-export * from "./styles/typography";
-export * from "./styles/shadows";
-export * from "./styles/z-index";
+export * from "./theme/styles/theme";
+export * from "./theme/styles/colors";
+export * from "./theme/styles/radius";
+export * from "./theme/styles/spaces";
+export * from "./theme/styles/containers";
+export * from "./theme/styles/breakpoints";
+export * from "./theme/styles/typography";
+export * from "./theme/styles/shadows";
+export * from "./theme/styles/z-index";

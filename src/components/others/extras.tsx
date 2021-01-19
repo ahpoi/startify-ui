@@ -5,7 +5,7 @@ import { Horizontal, Vertical } from "../layout/gls/gls";
 import { useTheme } from "styled-components";
 import { IconArrowLeft, IconChevronDown } from "./icons";
 import { LinkButton } from "../atoms/link";
-import { ColorScheme } from "../../styles/colors";
+import { ColorScheme } from "../../theme/styles/colors";
 
 interface BackButtonProps {
   onClick?: () => any;

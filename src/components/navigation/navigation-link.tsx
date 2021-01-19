@@ -2,7 +2,7 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 import { Property } from "csstype";
 import { calculateUnit } from "../layout/gls/box";
-import { colors } from "../../styles/colors";
+import { colors } from "../../theme/styles/colors";
 
 type LinkProps = {
   children: React.ReactNode;

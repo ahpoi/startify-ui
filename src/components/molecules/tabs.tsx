@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import { fadeIn } from "../others/animations";
-import { colors } from "../../styles/colors";
+import { colors } from "../../theme/styles/colors";
 
 type TabsProps = {
   activeKey?: number;
