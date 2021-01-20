@@ -56,7 +56,7 @@ type LinkVariant = {
 };
 
 const useColorScheme = (scheme: ColorScheme) => {
-  const color = useTheme().colors[scheme];
+  const color = useTheme().colors[scheme as never];
   return {
     color: color[500],
     colorOnHover: color[300],

@@ -1,4 +1,4 @@
-import { TestHeaderLogo, TestLogo} from "../../utils/stories-container";
+import { TestHeaderLogo, TestLogo} from "../../../utils/stories-container";
 import * as React from "react";
 import {
   DesktopHeader,
@@ -9,10 +9,10 @@ import {
   Vertical,
   MenuItemButton,
   MenuList,
-} from "../../../src";
+} from "../../../../src";
 
 export default {
-  title: "Navigation/Header",
+  title: "Molecules/Header",
   component: DesktopHeader,
 };
 
@@ -92,7 +92,7 @@ export const header = () => {
   );
 };
 
-export const headerUserMenu = () => {
+export const userMenu = () => {
   const HeaderLinks = [
     {
       href: "",

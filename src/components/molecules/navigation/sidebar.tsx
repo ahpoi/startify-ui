@@ -1,8 +1,8 @@
 import * as React from "react";
 import styled from "styled-components";
-import { useOnOutsideClick } from "../../hooks/common.hook";
-import { IconButtonContainer, IconMenu } from "../others/icons";
-import { CloseButton } from "../internal/close-button";
+import { useOnOutsideClick } from "../../../hooks/common.hook";
+import { IconButtonContainer, IconMenu } from "../../others/icons";
+import { CloseButton } from "../../internal/close-button";
 
 interface SidebarProps {
   isOpen: boolean;

@@ -1,10 +1,10 @@
 import * as React from "react";
-import {TestHeaderLogo} from "../../utils/stories-container";
-import {colors, MenuList, Sidebar, SidebarToggle,} from "../../../src";
-import {MenuDivider, MenuItemContainer, MenuItemButton} from "../../../src/components/molecules/menu";
+import {TestHeaderLogo} from "../../../utils/stories-container";
+import {colors, MenuList, Sidebar, SidebarToggle,} from "../../../../src";
+import {MenuDivider, MenuItemContainer, MenuItemButton} from "../../../../src/components/molecules/menu";
 
 export default {
-  title: "Navigation/Sidebar",
+  title: "Molecules/Sidebar",
   component: Sidebar,
 };
 

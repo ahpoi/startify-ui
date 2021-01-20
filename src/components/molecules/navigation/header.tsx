@@ -9,7 +9,7 @@ import {
   Sidebar,
   SidebarToggle,
   StretchSpacer,
-} from "../..";
+} from "../../../index";
 import styled from "styled-components";
 
 /**

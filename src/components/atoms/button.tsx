@@ -83,7 +83,7 @@ export const useButtonSizeVariant = (): Record<ButtonSizeType, SizeVariant> => {
 };
 
 const useVariantColorScheme = (variant: ButtonVariantType, scheme: ColorScheme): ButtonVariant => {
-  const color = useTheme().colors[scheme];
+  const color = useTheme().colors[scheme as never];
   const colorLight = color[300];
   const colorMid = color[500];
   const colorDark = color[700];

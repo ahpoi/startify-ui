@@ -40,7 +40,7 @@ export const Badge = ({
 };
 
 const useColorScheme = (scheme: ColorScheme) => {
-  const color = useTheme().colors[scheme];
+  const color = useTheme().colors[scheme as never];
   return {
     color: "white",
     backgroundColor: color[500],

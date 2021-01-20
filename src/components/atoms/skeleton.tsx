@@ -5,7 +5,7 @@ import { DivProps } from "../others/types";
 
 //https://cloudcannon.com/deconstructions/2014/11/15/facebook-content-placeholder-deconstruction.html
 
-export const SkeletonPlaceholder = styled.div`
+export const Skeleton = styled.div`
   animation-duration: 1s;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
