@@ -8,15 +8,12 @@ export default {
 };
 
 export const button = () => (
-
         <Button variant={"solid"} colorScheme={"primary"} onClick={onClick}>
             Click me
         </Button>
-
 );
 
 export const variant = () => (
-
         <Horizontal>
             <Button variant={"solid"} onClick={onClick}>
                 Solid
@@ -34,11 +31,9 @@ export const variant = () => (
                 Link
             </Button>
         </Horizontal>
-
 );
 
 export const loading = () => (
-
         <Horizontal>
             <Button variant={"solid"} width={"200px"} isLoading onClick={onClick}>
                 Primary
@@ -53,11 +48,9 @@ export const loading = () => (
                 Secondary Outline
             </Button>
         </Horizontal>
-
 );
 
 export const sizeVariants = () => (
-
         <Horizontal verticalAlign={"center"}>
             <div>
                 <Button size={"sm"} onClick={onClick}>
@@ -79,7 +72,6 @@ export const sizeVariants = () => (
 );
 
 export const sizeVariantsLoading = () => (
-
         <Horizontal verticalAlign={"center"}>
             <div>
                 <Button size={"sm"} onClick={onClick} isLoading>
@@ -97,11 +89,9 @@ export const sizeVariantsLoading = () => (
                 </Button>
             </div>
         </Horizontal>
-
 );
 
 export const disabled = () => (
-
         <Horizontal>
             <Button variant={"solid"} disabled onClick={onClick}>
                 Disabled
@@ -117,7 +107,6 @@ export const disabled = () => (
 );
 
 export const others = () => (
-
         <Horizontal>
             <Button
                 onClick={onClick}
@@ -141,7 +130,6 @@ export const others = () => (
                 Custom Styled
             </Button>
         </Horizontal>
-
 );
 
 const onClick = () => {

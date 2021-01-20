@@ -103,7 +103,6 @@ We considered other options before creating our own. Here is our opinion:
 - Remove react-tether as a dependency
 - More themeable properties (Spaces, Breakpoints...etc instead of constant)
 
-
 ## Default Theme
 
 ```javascript

@@ -5,6 +5,7 @@ import {
   Button,
   ButtonVariantType,
   CloseButton,
+  ColorScheme,
   Heading4,
   Horizontal,
   StretchSpacer,
@@ -36,22 +37,23 @@ type ModalProps = {
       onSubmit: () => any;
       isLoading?: boolean;
       text?: string;
+      colorScheme?: ColorScheme;
       variant?: ButtonVariantType;
     };
     secondary?: {
       onSubmit: () => any;
       text?: string;
+      colorScheme?: ColorScheme;
       variant?: ButtonVariantType;
     };
   };
   error?: ModalErrorProps;
   closeIcon?: boolean;
-  message?: string;
-  children?: React.ReactNode;
+  children: React.ReactNode;
 } & BaseModalProps;
 
 export const Modal = (props: ModalProps) => {
-  const { title, message, modalWidth, padding, isOpen, closeIcon = true, onClose, error = null, children } = props;
+  const { title, modalWidth, padding, isOpen, closeIcon = true, onClose, error = null, children } = props;
   const { primary, secondary, align = "horizontal" } = props.actions;
   const node = React.useRef<HTMLDivElement>(null);
   const _onClose = () => {
@@ -64,7 +66,12 @@ export const Modal = (props: ModalProps) => {
   useOnOutsideClick(node, _onClose);
 
   const PrimaryButton = () => (
-    <Button onClick={primary.onSubmit} variant={primary.variant} isLoading={primary.isLoading}>
+    <Button
+      onClick={primary.onSubmit}
+      variant={primary.variant}
+      colorScheme={primary.colorScheme}
+      isLoading={primary.isLoading}
+    >
       {primary.text ?? "Submit"}
     </Button>
   );
@@ -73,6 +80,7 @@ export const Modal = (props: ModalProps) => {
     <Button
       onClick={secondary?.onSubmit}
       variant={secondary?.variant ?? "outlined-filled"}
+      colorScheme={secondary?.colorScheme}
       disabled={primary.isLoading}
     >
       {secondary?.text ?? "Cancel"}
@@ -93,19 +101,8 @@ export const Modal = (props: ModalProps) => {
                   </>
                 )}
               </Horizontal>
-              {message && (
-                <>
-                  <VerticalSpacer spacing={16} />
-                  <Text>{message}</Text>
-                  <VerticalSpacer spacing={24} />
-                </>
-              )}
-              {children && (
-                <>
-                  {children}
-                  <VerticalSpacer spacing={32} />
-                </>
-              )}
+              <ModalContent>{children}</ModalContent>
+              <VerticalSpacer spacing={16} />
               {align === "horizontal" && (
                 <Horizontal horizontalAlign={"right"} spacing={12}>
                   {secondary && <SecondaryButton />}
@@ -141,6 +138,7 @@ type ModalErrorProps = {
   message?: string;
   onRetry?: () => any;
   onRetrying?: boolean;
+  retryButtonColorScheme?: ColorScheme;
   retryButtonVariant?: ButtonVariantType;
 } & BaseModalProps;
 
@@ -181,6 +179,7 @@ const ModalErrorContent = (props: ModalErrorProps) => {
     title = "Something went wrong",
     message = "An unexpected error has occurred. Please try again soon!",
     retryButtonVariant = "outlined-filled",
+    retryButtonColorScheme,
   } = props;
   const { onRetrying, onRetry, onClose } = props;
   const error = useTheme().colors.red["500"];
@@ -197,7 +196,12 @@ const ModalErrorContent = (props: ModalErrorProps) => {
           <Text textAlign={"center"}>{message}</Text>
         </Vertical>
         {onRetry && (
-          <Button onClick={onRetry} isLoading={onRetrying} variant={retryButtonVariant}>
+          <Button
+            onClick={onRetry}
+            isLoading={onRetrying}
+            colorScheme={retryButtonColorScheme}
+            variant={retryButtonVariant}
+          >
             Try Again
           </Button>
         )}
@@ -264,3 +268,7 @@ export const ModalContainer = styled.div<{ modalWidth?: number; padding?: number
     width: 95%;
   }
 `;
+
+export const ModalContent = (props: { children: React.ReactNode }) => (
+  <div style={{ paddingTop: "16px", paddingBottom: "16px" }}>{props.children}</div>
+);
