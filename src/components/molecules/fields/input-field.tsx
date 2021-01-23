@@ -2,6 +2,7 @@ import * as React from "react";
 
 import { FieldErrorMessage, FieldLabel, Input, TextArea, TextAreaProps } from "../../../index";
 import { FieldProps } from "./field.types";
+import { FieldContentContainer } from "./base-fields";
 
 type TextInputFieldProps = FieldProps &
   TextAreaProps &
@@ -10,11 +11,11 @@ type TextInputFieldProps = FieldProps &
 export const TextInputField = React.forwardRef((props: TextInputFieldProps, ref: React.LegacyRef<HTMLInputElement>) => {
   const { label, star, tooltip, error } = props;
   return (
-    <div>
+    <FieldContentContainer>
       <FieldLabel id={props.id} htmlFor={props.id} star={star} tooltip={tooltip} children={label} />
-      {error && <FieldErrorMessage>{error}</FieldErrorMessage>}
       <Input {...props} ref={ref} />
-    </div>
+      {error && <FieldErrorMessage>{error}</FieldErrorMessage>}
+    </FieldContentContainer>
   );
 });
 
@@ -25,10 +26,10 @@ type TextAreaFieldProps = FieldProps &
 export const TextAreaField = (props: TextAreaFieldProps) => {
   const { label, star, tooltip, error } = props;
   return (
-    <div>
+    <FieldContentContainer>
       <FieldLabel id={props.id} htmlFor={props.id} star={star} tooltip={tooltip} children={label} />
-      {error && <FieldErrorMessage>{error}</FieldErrorMessage>}
       <TextArea {...props} />
-    </div>
+      {error && <FieldErrorMessage>{error}</FieldErrorMessage>}
+    </FieldContentContainer>
   );
 };

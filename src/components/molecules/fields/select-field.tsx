@@ -1,6 +1,7 @@
 import { FieldProps } from "./field.types";
 import * as React from "react";
 import { FieldErrorMessage, FieldLabel, Select } from "../../..";
+import { FieldContentContainer } from "./base-fields";
 
 export type FieldOption = {
   label: string;
@@ -16,9 +17,8 @@ export type SelectFieldProps = {
 export const SelectField = React.forwardRef((props: SelectFieldProps, ref: React.LegacyRef<HTMLSelectElement>) => {
   const { label, star, error, tooltip, options, defaultOption } = props;
   return (
-    <div>
+    <FieldContentContainer>
       <FieldLabel id={props.id} htmlFor={props.id} star={star} tooltip={tooltip} children={label} />
-      {error && <FieldErrorMessage>{error}</FieldErrorMessage>}
       <Select error={error} {...props} ref={ref}>
         {defaultOption && <option value={defaultOption.value}>{defaultOption.label}</option>}
         {options.map((v) => (
@@ -27,6 +27,7 @@ export const SelectField = React.forwardRef((props: SelectFieldProps, ref: React
           </option>
         ))}
       </Select>
-    </div>
+      {error && <FieldErrorMessage>{error}</FieldErrorMessage>}
+    </FieldContentContainer>
   );
 });

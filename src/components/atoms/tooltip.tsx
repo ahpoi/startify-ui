@@ -76,6 +76,10 @@ const TooltipIconButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  outline: none;
+  &:focus:enabled {
+    outline: dotted thin;
+  }
 ` as React.FunctionComponent<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>>;
 
 const Root = styled.div`
