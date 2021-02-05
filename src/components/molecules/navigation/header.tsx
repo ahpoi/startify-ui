@@ -106,5 +106,5 @@ export const HeaderLink = styled.a<LinkProps>`
      filter: brightness(50%);
   } 
 ` as React.FunctionComponent<
-  LinkProps & React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>
+  LinkProps & { as?: any } & React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>
 >;

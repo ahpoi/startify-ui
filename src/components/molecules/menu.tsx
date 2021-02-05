@@ -37,7 +37,10 @@ export const MenuItemButton = styled.button<MenuItemButtonProps>`
      background-color: ${(props) => props.theme.colors.grey["100"]} !important;
   } 
 ` as React.FunctionComponent<
-  MenuItemButtonProps & React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
+  MenuItemButtonProps & { as?: any } & React.DetailedHTMLProps<
+      React.ButtonHTMLAttributes<HTMLButtonElement>,
+      HTMLButtonElement
+    >
 >;
 
 export const MenuDivider = ({ padding = defaultPadding }: BaseMenuProps) => (

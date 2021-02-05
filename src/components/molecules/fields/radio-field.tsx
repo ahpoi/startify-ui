@@ -23,12 +23,18 @@ export const RadioField = React.forwardRef(
   (
     props: { label: string } & React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
     ref: React.LegacyRef<HTMLInputElement>
-  ) => (
-    <RadioLabel id={props.id}>
-      <RadioInput type={"radio"} {...props} ref={ref} />
-      {props.label}
-    </RadioLabel>
-  )
+  ) => {
+    const getForwardProps = () => {
+      const { label, ...propsToForward } = props;
+      return propsToForward;
+    };
+    return (
+      <RadioLabel id={props.id}>
+        <RadioInput type={"radio"} {...getForwardProps()} ref={ref} />
+        {props.label}
+      </RadioLabel>
+    );
+  }
 );
 
 const RadioInput = styled(Input)`

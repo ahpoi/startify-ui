@@ -10,10 +10,14 @@ type TextInputFieldProps = FieldProps &
 
 export const TextInputField = React.forwardRef((props: TextInputFieldProps, ref: React.LegacyRef<HTMLInputElement>) => {
   const { label, star, tooltip, error } = props;
+  const getForwardProps = () => {
+    const { label, star, tooltip, ...propsToForward } = props;
+    return propsToForward;
+  };
   return (
     <FieldContentContainer>
-      <FieldLabel id={props.id} htmlFor={props.id} star={star} tooltip={tooltip} children={label} />
-      <Input {...props} ref={ref} />
+      <FieldLabel htmlFor={props.id} star={star} tooltip={tooltip} children={label} />
+      <Input {...getForwardProps()} ref={ref} />
       {error && <FieldErrorMessage>{error}</FieldErrorMessage>}
     </FieldContentContainer>
   );
@@ -25,10 +29,14 @@ type TextAreaFieldProps = FieldProps &
 
 export const TextAreaField = (props: TextAreaFieldProps) => {
   const { label, star, tooltip, error } = props;
+  const getForwardProps = () => {
+    const { label, star, tooltip, ...propsToForward } = props;
+    return propsToForward;
+  };
   return (
     <FieldContentContainer>
-      <FieldLabel id={props.id} htmlFor={props.id} star={star} tooltip={tooltip} children={label} />
-      <TextArea {...props} />
+      <FieldLabel htmlFor={props.id} star={star} tooltip={tooltip} children={label} />
+      <TextArea {...getForwardProps()} />
       {error && <FieldErrorMessage>{error}</FieldErrorMessage>}
     </FieldContentContainer>
   );

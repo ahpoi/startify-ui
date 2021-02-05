@@ -7,12 +7,18 @@ type Props = { label: React.ReactNode } & React.DetailedHTMLProps<
   HTMLInputElement
 >;
 
-export const CheckboxField = React.forwardRef((props: Props, ref: React.LegacyRef<HTMLInputElement>) => (
-  <CheckboxLabel id={props.id}>
-    <CheckboxInput type={"checkbox"} {...props} ref={ref} />
-    <div>{props.label}</div>
-  </CheckboxLabel>
-));
+export const CheckboxField = React.forwardRef((props: Props, ref: React.LegacyRef<HTMLInputElement>) => {
+  const getForwardProps = () => {
+    const { label, ...propsToForward } = props;
+    return propsToForward;
+  };
+  return (
+    <CheckboxLabel htmlFor={props.id}>
+      <CheckboxInput type={"checkbox"} {...getForwardProps()} ref={ref} />
+      <div>{props.label}</div>
+    </CheckboxLabel>
+  );
+});
 
 const CheckboxInput = styled(Input)`
   width: auto;
