@@ -114,4 +114,4 @@ export const colors = {
 };
 
 export type Colors = typeof colors;
-export type ColorScheme = keyof Colors;
+export type ColorScheme = keyof Colors | string;

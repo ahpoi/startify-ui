@@ -34,15 +34,16 @@ export const Badge = ({
 };
 
 export const useBadgeBase = (scheme: ColorScheme): BadgeThemeBase => {
-  const baseTheme = useTheme().components.badge.base;
+  const badgeTheme = useTheme().components.badge.base;
   const colorSchemes = useTheme().colors[scheme as never];
   return {
-    backgroundColor: useColorScheme(baseTheme.backgroundColor, colorSchemes),
-    borderRadius: baseTheme.borderRadius,
-    color: useColorScheme(baseTheme.color, colorSchemes),
-    fontWeight: baseTheme.fontWeight,
+    backgroundColor: useColorScheme(badgeTheme.backgroundColor, colorSchemes),
+    borderRadius: badgeTheme.borderRadius,
+    color: useColorScheme(badgeTheme.color, colorSchemes),
+    fontWeight: badgeTheme.fontWeight,
   };
 };
+
 export const useBadgeSize = (size: BadgeSizeType) => {
   return useTheme().components.badge.sizes[size];
 };
