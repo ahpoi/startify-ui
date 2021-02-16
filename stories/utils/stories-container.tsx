@@ -6,12 +6,10 @@ import {
 } from "../../src";
 import * as React from "react";
 
-
 export const StoriesDefaultThemeProvider = (props: { children: React.ReactNode }) => {
-    const theme = {
+    return <StartifyProvider rootId={'root'} theme={{
         typography: { fontFamily: {body: "Montserrat,Helvetica Neue", heading: "Montserrat, Helvetica"}}
-    }
-    return <StartifyProvider rootId={'root'} theme={theme}>{props.children}</StartifyProvider>
+    }}>{props.children}</StartifyProvider>
 };
 
 export const TestHeaderLogo = () => (

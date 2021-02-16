@@ -106,24 +106,24 @@ export const disabled = () => (
 
 );
 
-export const others = () => (
+export const override = () => (
         <Horizontal>
             <Button
                 onClick={onClick}
                 override={{
                     variant: {
                         color: "white",
-                        colorOnHover: "white",
                         backgroundColor: "#3D96EF",
-                        backgroundOnHoverColor: "#3592ef",
                         borderColor: "#3D96EF",
-                        borderOnHoverColor: "#3D96EF",
+                        onHover: {
+                            color: "white",
+                            backgroundColor: "yellow",
+                            borderColor: "red",
+                        }
                     },
                     size: {
                         fontSize: "14px",
-                        fontWeight: 700,
                         padding: "12px 30px 12px",
-                        borderRadius: "2px",
                     }
                 }}
             >

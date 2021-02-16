@@ -46,7 +46,7 @@ ReactDOM.render(
 
 ## Theme Override
 
-We have a default theme which can be found at the end of this document. However any properties can be overriden. 
+We have a default theme which can be found at the end of this document. However any properties can be overridden. 
 Also we provide the concept of `colorScheme` where you can extend the color palette as per below we added the color `violet`. 
 Then in our Button component we just pass the `colorScheme` property. 
 
@@ -69,6 +69,22 @@ const appTheme = {
         sm: "10px",
         md: "16px",
         lg: "20px"
+    },
+    components: {
+        button: {
+            variants: {
+              solid: {
+                color: "white",
+                backgroundColor: "500",
+                borderColor: "500",
+                onHover: {
+                  backgroundColor: "700",
+                  borderColor: "700",
+                  color: "white",
+                },
+              }
+            }
+        }
     }
 }
 

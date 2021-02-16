@@ -1,4 +1,5 @@
 export * from "./components/atoms/button";
+export * from "./components/atoms/button.theme";
 export * from "./components/atoms/typography";
 export * from "./components/atoms/badge";
 export * from "./components/atoms/input";

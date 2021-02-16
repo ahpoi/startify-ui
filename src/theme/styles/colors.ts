@@ -1,6 +1,7 @@
 /**
  * https://github.com/chakra-ui/chakra-ui/blob/master/packages/theme/src/foundations/colors.ts
  */
+
 export const colors = {
   primary: {
     50: "#E8EAF6",
@@ -113,4 +114,4 @@ export const colors = {
 };
 
 export type Colors = typeof colors;
-export type ColorScheme = keyof Colors | string;
+export type ColorScheme = keyof Colors;

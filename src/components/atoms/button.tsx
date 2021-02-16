@@ -1,14 +1,10 @@
 import * as React from "react";
 import styled, { useTheme } from "styled-components";
-import { calculateUnit, ColorScheme } from "../..";
+import { ButtonThemeBase, ButtonThemeSize, ButtonThemeVariant, ColorScheme } from "../..";
 import { Spinner } from "./spinner";
-import { Property } from "csstype";
-import { SizeType } from "../others/types";
 import { colors } from "../../theme/styles/colors";
-
-type ButtonSizeType = Exclude<SizeType, "xs">;
-
-export type ButtonVariantType = "solid" | "ghost" | "outlined" | "outlined-filled" | "link";
+import { useColorScheme } from "../../theme/styles/hooks";
+import { ButtonSizeType, ButtonVariantType } from "./button.theme";
 
 export type ButtonProps = {
   id?: string;
@@ -22,8 +18,9 @@ export type ButtonProps = {
   width?: string;
   isLoading?: boolean;
   override?: {
-    variant?: ButtonVariant;
-    size?: SizeVariant;
+    base?: ButtonThemeBase;
+    variant?: ButtonThemeVariant;
+    size?: ButtonThemeSize;
   };
 };
 
@@ -40,9 +37,10 @@ export const Button = ({
   disabled,
   override,
 }: ButtonProps) => {
-  const buttonVariant = override?.variant ?? useVariantColorScheme(variant, colorScheme);
-  const sizeVariant = override?.size ?? useButtonSizeVariant()[size];
-  const styledBtnProps: StyledButtonProps = { ...buttonVariant, ...sizeVariant, isLoading: isLoading };
+  const buttonBase = override?.base ?? useButtonBase();
+  const buttonVariant = override?.variant ?? useButtonVariant(variant, colorScheme);
+  const buttonSize = override?.size ?? useButtonSize(size);
+  const styledBtnProps: StyledButtonProps = { ...buttonBase, ...buttonVariant, ...buttonSize, isLoading: isLoading };
   return !isLoading ? (
     <StyledButton {...styledBtnProps} id={id} type={type} onClick={onClick} style={{ width }} disabled={disabled}>
       <div children={children} />
@@ -57,105 +55,35 @@ export const Button = ({
   );
 };
 
-export const useButtonSizeVariant = (): Record<ButtonSizeType, SizeVariant> => {
-  const { xs: borderRadius } = useTheme().radius;
-  const { medium } = useTheme().typography.fontWeight;
+export const useButtonBase = () => {
+  return useTheme().components.button.base;
+};
+
+export const useButtonVariant = (variant: ButtonVariantType, scheme: ColorScheme) => {
+  const variants = useTheme().components.button.variants;
+  const colorSchemes = useTheme().colors[scheme as never];
+  const theme = variants[variant];
   return {
-    sm: {
-      fontSize: "12px",
-      fontWeight: medium,
-      padding: "8px 18px 8px",
-      borderRadius: borderRadius,
-    },
-    md: {
-      fontSize: "14px",
-      fontWeight: medium,
-      padding: "12px 30px 12px",
-      borderRadius: borderRadius,
-    },
-    lg: {
-      fontSize: "16px",
-      fontWeight: medium,
-      padding: "16px 32px 16px",
-      borderRadius: borderRadius,
+    color: useColorScheme(theme.color, colorSchemes),
+    backgroundColor: useColorScheme(theme.backgroundColor, colorSchemes),
+    borderColor: useColorScheme(theme.borderColor, colorSchemes),
+    onHover: {
+      color: useColorScheme(theme.onHover.color, colorSchemes),
+      backgroundColor: useColorScheme(theme.onHover.backgroundColor, colorSchemes),
+      borderColor: useColorScheme(theme.onHover.borderColor, colorSchemes),
     },
   };
 };
 
-const useVariantColorScheme = (variant: ButtonVariantType, scheme: ColorScheme): ButtonVariant => {
-  const color = useTheme().colors[scheme as never];
-  const colorLight = color[300];
-  const colorMid = color[500];
-  const colorDark = color[700];
-  switch (variant) {
-    case "solid":
-      return {
-        color: "white",
-        backgroundColor: colorMid,
-        borderColor: colorMid,
-        colorOnHover: "white",
-        borderOnHoverColor: colorDark,
-        backgroundOnHoverColor: colorDark,
-      };
-    case "outlined":
-      return {
-        color: colorMid,
-        backgroundColor: "transparent",
-        borderColor: colorMid,
-        colorOnHover: colorMid,
-        backgroundOnHoverColor: "transparent",
-        borderOnHoverColor: colorMid,
-      };
-    case "outlined-filled":
-      return {
-        color: colorMid,
-        backgroundColor: "transparent",
-        borderColor: colorMid,
-        colorOnHover: "white",
-        backgroundOnHoverColor: colorMid,
-        borderOnHoverColor: colorMid,
-      };
-    case "ghost": {
-      return {
-        color: colorMid,
-        backgroundColor: "transparent",
-        borderColor: "transparent",
-        colorOnHover: "white",
-        backgroundOnHoverColor: colorMid,
-        borderOnHoverColor: "transparent",
-      };
-    }
-    case "link": {
-      return {
-        color: colorMid,
-        backgroundColor: "transparent",
-        borderColor: "transparent",
-        colorOnHover: colorLight,
-        backgroundOnHoverColor: "transparent",
-        borderOnHoverColor: "transparent",
-      };
-    }
-  }
+export const useButtonSize = (size: ButtonSizeType) => {
+  return useTheme().components.button.sizes[size];
 };
 
-type SizeVariant = {
-  fontSize: Property.FontSize<any>;
-  fontWeight: Property.FontWeight;
-  padding: Property.Padding;
-  borderRadius: Property.BorderRadius<any>;
-};
-
-type ButtonVariant = {
-  color: string;
-  borderColor: string;
-  backgroundColor: string;
-  colorOnHover: string;
-  borderOnHoverColor: string;
-  backgroundOnHoverColor: string;
-};
-
-type StyledButtonProps = ButtonVariant &
-  SizeVariant & { isLoading?: boolean; borderRadius: Property.BorderRadius<any> };
+type StyledButtonProps = {
+  isLoading?: boolean;
+} & ButtonThemeBase &
+  ButtonThemeVariant &
+  ButtonThemeSize;
 
 const StyledButton = styled.button<StyledButtonProps>`
   position: relative;
@@ -168,7 +96,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   text-decoration: none;
   outline: none;
   line-height: 1em;
-  border-radius: ${({ borderRadius }) => calculateUnit(borderRadius)};
+  border-radius: ${(props) => props.borderRadius};
   ${({ isLoading }) =>
     isLoading &&
     `
@@ -189,9 +117,9 @@ const StyledButton = styled.button<StyledButtonProps>`
   &:hover:enabled,
   &:focus:enabled,
   &:active:enabled {
-    color: ${(props) => props.colorOnHover};
-    background-color: ${(props) => props.backgroundOnHoverColor};
-    border-color: ${(props) => props.borderOnHoverColor};
-    box-shadow: inset 0px 0px 0px 1px ${(props) => props.borderOnHoverColor};
+    color: ${(props) => props.onHover.color};
+    background-color: ${(props) => props.onHover.backgroundColor};
+    border-color: ${(props) => props.onHover.borderColor};
+    box-shadow: inset 0px 0px 0px 1px ${(props) => props.onHover.borderColor};
   }
 `;
