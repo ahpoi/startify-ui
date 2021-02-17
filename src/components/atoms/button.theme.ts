@@ -24,6 +24,7 @@ export type ButtonThemeVariant = {
     color: string;
     borderColor: string;
     backgroundColor: string;
+    textDecoration?: string;
   };
 };
 
@@ -73,7 +74,12 @@ export const buttonTheme: ButtonTheme = {
       color: "500",
       backgroundColor: "transparent",
       borderColor: "transparent",
-      onHover: { backgroundColor: "transparent", borderColor: "transparent", color: "300" },
+      onHover: {
+        backgroundColor: "transparent",
+        borderColor: "transparent",
+        color: "500",
+        textDecoration: "underline",
+      },
     },
   },
 };

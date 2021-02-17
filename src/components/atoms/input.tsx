@@ -16,7 +16,10 @@ const BaseInputCss = css<InputProps>`
     props.error && !props.disabled
       ? useColorScheme(props.theme.components.input.base.borderColorError)
       : useColorScheme(props.theme.components.input.base.borderColor)};
-  background-color: ${({ theme }) => useColorScheme(theme.components.input.base.backgroundColor)};
+  background-color: ${({ theme, error }) =>
+    error
+      ? useColorScheme(theme.components.input.base.backgroundColorError)
+      : useColorScheme(theme.components.input.base.backgroundColor)};
   padding: ${({ theme }) => theme.components.input.base.padding};
   outline: none;
   &:disabled {
@@ -26,7 +29,10 @@ const BaseInputCss = css<InputProps>`
   &:hover:enabled,
   &:focus:enabled {
     border-width: ${({ theme }) => theme.components.input.base.borderWidthOnHover};
-    border-color: ${({ theme }) => useColorScheme(theme.components.input.base.borderColorOnHover)};
+    border-color: ${({ theme, error }) =>
+      error
+        ? useColorScheme(theme.components.input.base.borderColorError)
+        : useColorScheme(theme.components.input.base.borderColorOnHover)};
   }
 `;
 

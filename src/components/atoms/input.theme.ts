@@ -10,6 +10,7 @@ export const inputTheme = {
     padding: "8px 10px",
     color: typography.color.body.dark,
     backgroundColor: "whiteAlpha.900",
+    backgroundColorError: "red.50",
     backgroundColorDisabled: "grey.200",
     borderColor: "grey.300",
     borderColorError: "red.500",

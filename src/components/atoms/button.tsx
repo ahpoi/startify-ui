@@ -71,6 +71,7 @@ export const useButtonVariant = (variant: ButtonVariantType, scheme: ColorScheme
       color: useColorScheme(theme.onHover.color, colorSchemes),
       backgroundColor: useColorScheme(theme.onHover.backgroundColor, colorSchemes),
       borderColor: useColorScheme(theme.onHover.borderColor, colorSchemes),
+      textDecoration: theme.onHover.textDecoration,
     },
   };
 };
@@ -121,5 +122,6 @@ const StyledButton = styled.button<StyledButtonProps>`
     background-color: ${(props) => props.onHover.backgroundColor};
     border-color: ${(props) => props.onHover.borderColor};
     box-shadow: inset 0px 0px 0px 1px ${(props) => props.onHover.borderColor};
+    ${(props) => props.onHover.textDecoration && `text-decoration: ${props.onHover.textDecoration}`};
   }
 `;
