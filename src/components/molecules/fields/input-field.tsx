@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { FieldErrorMessage, FieldLabel, Input, TextArea, TextAreaProps } from "../../../index";
 import { FieldProps } from "./field.types";
-import { FieldContentContainer } from "./base-fields";
+import { FieldContentContainer } from "./base";
 
 type TextInputFieldProps = FieldProps &
   TextAreaProps &

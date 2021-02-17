@@ -2,7 +2,7 @@ import * as React from "react";
 import { FieldErrorMessage, FieldLegend, FieldSet, Input, InputProps, Label } from "../../../index";
 import { FieldProps } from "./field.types";
 import styled from "styled-components";
-import { Vertical } from "../../../../lib";
+import { FieldContentContainer } from "./base";
 
 export const RadioFieldGroup = (
   props: {
@@ -11,11 +11,11 @@ export const RadioFieldGroup = (
   } & FieldProps
 ) => (
   <FieldSet id={props.id}>
-    <Vertical spacing={4}>
+    <FieldContentContainer>
       <FieldLegend id={props.id} htmlFor={props.id} star={props.star} tooltip={props.tooltip} children={props.label} />
       <div>{props.children}</div>
       {props.error && <FieldErrorMessage>{props.error}</FieldErrorMessage>}
-    </Vertical>
+    </FieldContentContainer>
   </FieldSet>
 );
 
@@ -29,7 +29,7 @@ export const RadioField = React.forwardRef(
       return propsToForward;
     };
     return (
-      <RadioLabel id={props.id}>
+      <RadioLabel htmlFor={props.id}>
         <RadioInput type={"radio"} {...getForwardProps()} ref={ref} />
         {props.label}
       </RadioLabel>

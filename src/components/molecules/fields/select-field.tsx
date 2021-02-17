@@ -1,7 +1,7 @@
 import { FieldProps } from "./field.types";
 import * as React from "react";
 import { FieldErrorMessage, FieldLabel, Select } from "../../..";
-import { FieldContentContainer } from "./base-fields";
+import { FieldContentContainer } from "./base";
 
 export type FieldOption = {
   label: string;

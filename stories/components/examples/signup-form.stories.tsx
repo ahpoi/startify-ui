@@ -37,7 +37,7 @@ export const signUpForm = () => {
         resolver: zodResolver(schema)
     });
 
-    const onSubmit = (data: FormValues) => console.log(data);
+    const onSubmit = (data: FormValues) => alert(JSON.stringify(data));
 
     return (
             <form onSubmit={handleSubmit(onSubmit)}>

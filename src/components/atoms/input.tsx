@@ -1,27 +1,32 @@
 import * as React from "react";
 import styled, { css } from "styled-components";
-import { colors } from "../../theme/styles/colors";
+import { useColorScheme } from "../../theme/styles/hooks";
 
 const BaseInputCss = css<InputProps>`
-  font-size: 16px;
-  font-weight: 400;
-  color: ${({ theme }) => theme.typography.color.body.dark};
+  font-size: ${({ theme }) => theme.components.input.base.fontSize};
+  font-weight: ${({ theme }) => theme.components.input.base.fontWeight};
+  color: ${({ theme }) => useColorScheme(theme.components.input.base.color)};
   width: 100%;
-  height: 40px;
-  line-height: normal;
-  border-radius: ${({ theme }) => theme.radius.xs};
-  border: 1px solid
-    ${({ error, disabled, theme }) => (error && !disabled ? theme.colors.red["500"] : colors.grey["300"])};
-  background-color: ${colors.whiteAlpha["900"]};
-  padding: 8px 10px;
+  height: ${({ theme }) => theme.components.input.base.height};
+  line-height: ${({ theme }) => theme.components.input.base.lineHeight};
+  border-radius: ${({ theme }) => theme.components.input.base.borderRadius};
+  border-width: ${({ theme }) => theme.components.input.base.borderWidth};
+  border-style: solid;
+  border-color: ${(props) =>
+    props.error && !props.disabled
+      ? useColorScheme(props.theme.components.input.base.borderColorError)
+      : useColorScheme(props.theme.components.input.base.borderColor)};
+  background-color: ${({ theme }) => useColorScheme(theme.components.input.base.backgroundColor)};
+  padding: ${({ theme }) => theme.components.input.base.padding};
   outline: none;
   &:disabled {
     cursor: not-allowed;
-    background-color: ${colors.grey["200"]};
+    background-color: ${({ theme }) => theme.components.input.base.backgroundColorDisabled};
   }
   &:hover:enabled,
   &:focus:enabled {
-    border-color: ${({ theme }) => theme.colors.secondary[500]};
+    border-width: ${({ theme }) => theme.components.input.base.borderWidthOnHover};
+    border-color: ${({ theme }) => useColorScheme(theme.components.input.base.borderColorOnHover)};
   }
 `;
 
@@ -49,7 +54,6 @@ export const TextArea = styled.textarea<TextAreaProps>`
 
 export const Select = styled.select<InputProps>`
   ${BaseInputCss};
-  font-size: 14px;
   text-overflow: ellipsis;
 ` as React.FunctionComponent<
   React.DetailedHTMLProps<React.SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement> & InputProps
