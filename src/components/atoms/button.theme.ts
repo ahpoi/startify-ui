@@ -18,14 +18,12 @@ export type ButtonThemeBase = {
 
 export type ButtonThemeVariant = {
   color: string;
+  colorOnHover: string;
   borderColor: string;
+  borderColorOnHover: string;
   backgroundColor: string;
-  onHover: {
-    color: string;
-    borderColor: string;
-    backgroundColor: string;
-    textDecoration?: string;
-  };
+  backgroundColorOnHover: string;
+  textDecorationOnHover?: string;
 };
 
 export type ButtonThemeSize = { fontSize: string; padding: string };
@@ -44,42 +42,44 @@ export const buttonTheme: ButtonTheme = {
   variants: {
     solid: {
       color: "white",
+      colorOnHover: "white",
       backgroundColor: "500",
+      backgroundColorOnHover: "700",
       borderColor: "500",
-      onHover: {
-        backgroundColor: "700",
-        borderColor: "700",
-        color: "white",
-      },
+      borderColorOnHover: "700",
     },
     outlined: {
       color: "500",
-      backgroundColor: "transparent",
+      colorOnHover: "500",
       borderColor: "500",
-      onHover: { backgroundColor: "transparent", borderColor: "500", color: "500" },
+      borderColorOnHover: "500",
+      backgroundColor: "transparent",
+      backgroundColorOnHover: "transparent",
     },
     "outlined-filled": {
       color: "500",
-      backgroundColor: "transparent",
+      colorOnHover: "white",
       borderColor: "500",
-      onHover: { backgroundColor: "500", borderColor: "500", color: "white" },
+      borderColorOnHover: "500",
+      backgroundColor: "transparent",
+      backgroundColorOnHover: "500",
     },
     ghost: {
       color: "500",
-      backgroundColor: "transparent",
+      colorOnHover: "white",
       borderColor: "transparent",
-      onHover: { backgroundColor: "500", borderColor: "transparent", color: "white" },
+      borderColorOnHover: "transparent",
+      backgroundColor: "transparent",
+      backgroundColorOnHover: "500",
     },
     link: {
       color: "500",
-      backgroundColor: "transparent",
+      colorOnHover: "500",
       borderColor: "transparent",
-      onHover: {
-        backgroundColor: "transparent",
-        borderColor: "transparent",
-        color: "500",
-        textDecoration: "underline",
-      },
+      borderColorOnHover: "transparent",
+      backgroundColorOnHover: "transparent",
+      backgroundColor: "transparent",
+      textDecorationOnHover: "underline",
     },
   },
 };

@@ -65,14 +65,12 @@ export const useButtonVariant = (variant: ButtonVariantType, scheme: ColorScheme
   const theme = variants[variant];
   return {
     color: useColorScheme(theme.color, colorSchemes),
+    colorOnHover: useColorScheme(theme.color, colorSchemes),
     backgroundColor: useColorScheme(theme.backgroundColor, colorSchemes),
+    backgroundColorOnHover: useColorScheme(theme.backgroundColorOnHover, colorSchemes),
     borderColor: useColorScheme(theme.borderColor, colorSchemes),
-    onHover: {
-      color: useColorScheme(theme.onHover.color, colorSchemes),
-      backgroundColor: useColorScheme(theme.onHover.backgroundColor, colorSchemes),
-      borderColor: useColorScheme(theme.onHover.borderColor, colorSchemes),
-      textDecoration: theme.onHover.textDecoration,
-    },
+    borderColorOnHover: useColorScheme(theme.borderColorOnHover, colorSchemes),
+    textDecorationOnHOver: theme.textDecorationOnHover,
   };
 };
 
@@ -118,10 +116,10 @@ const StyledButton = styled.button<StyledButtonProps>`
   &:hover:enabled,
   &:focus:enabled,
   &:active:enabled {
-    color: ${(props) => props.onHover.color};
-    background-color: ${(props) => props.onHover.backgroundColor};
-    border-color: ${(props) => props.onHover.borderColor};
-    box-shadow: inset 0px 0px 0px 1px ${(props) => props.onHover.borderColor};
-    ${(props) => props.onHover.textDecoration && `text-decoration: ${props.onHover.textDecoration}`};
+    color: ${(props) => props.colorOnHover};
+    background-color: ${(props) => props.backgroundColorOnHover};
+    border-color: ${(props) => props.borderColorOnHover};
+    box-shadow: inset 0px 0px 0px 1px ${(props) => props.borderColorOnHover};
+    ${(props) => props.textDecorationOnHover && `text-decoration: ${props.textDecorationOnHover}`};
   }
 `;

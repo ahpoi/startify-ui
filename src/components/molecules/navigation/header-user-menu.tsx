@@ -12,28 +12,33 @@ type Props = {
 export const HeaderUserMenu = (props: Props) => {
   const [isOpen, setOpen] = React.useState(false);
   const containerNode = React.useRef<HTMLDivElement>(null);
-  const menuNode = React.useRef<HTMLDivElement>(null);
+  const menuItemsNode = React.useRef<HTMLDivElement>(null);
 
   useOnOutsideClick(containerNode, () => setOpen(false));
-  useOnInsideClick(menuNode, () => setOpen(false));
+  useOnInsideClick(menuItemsNode, () => setOpen(false));
 
   return (
-    <HeaderUserMenuContainer ref={containerNode}>
-      <UserProfileButton type={"button"} onClick={() => setOpen(!isOpen)}>
+    <MenuContainer ref={containerNode}>
+      <MenuAction type={"button"} onClick={() => setOpen(!isOpen)}>
         <Horizontal spacing={4} verticalAlign={"center"}>
           <IconMenu />
           <IconUserAvatarCircle size={32} />
         </Horizontal>
-      </UserProfileButton>
-      {isOpen && <MenuContainer ref={menuNode}>{props.children}</MenuContainer>}
-    </HeaderUserMenuContainer>
+      </MenuAction>
+      {isOpen && <MenuItemsContainer ref={menuItemsNode}>{props.children}</MenuItemsContainer>}
+    </MenuContainer>
   );
 };
 
-const HeaderUserMenuContainer = styled.div`
+/**
+ * Consider moving to a Reusable Menu Component
+ */
+
+const MenuContainer = styled.div`
   position: relative;
 `;
-const UserProfileButton = styled.button`
+
+const MenuAction = styled.button`
   appearance: none;
   background: white;
   border: 1px solid rgb(221, 221, 221);
@@ -55,7 +60,7 @@ const UserProfileButton = styled.button`
   }
 `;
 
-const MenuContainer = styled.div`
+const MenuItemsContainer = styled.div`
   position: absolute;
   top: 130%;
   right: 0px;
