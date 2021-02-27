@@ -2,7 +2,6 @@ import * as React from "react";
 import styled, { useTheme } from "styled-components";
 import { ButtonThemeBase, ButtonThemeSize, ButtonThemeVariant, ColorScheme } from "../..";
 import { Spinner } from "./spinner";
-import { colors } from "../../theme/styles/colors";
 import { useColorScheme } from "../../theme/styles/hooks";
 import { ButtonSizeType, ButtonVariantType } from "./button.theme";
 
@@ -59,18 +58,18 @@ export const useButtonBase = () => {
   return useTheme().components.button.base;
 };
 
-export const useButtonVariant = (variant: ButtonVariantType, scheme: ColorScheme) => {
+export const useButtonVariant = (variant: ButtonVariantType, scheme: ColorScheme): ButtonThemeVariant => {
   const variants = useTheme().components.button.variants;
   const colorSchemes = useTheme().colors[scheme as never];
   const theme = variants[variant];
   return {
     color: useColorScheme(theme.color, colorSchemes),
-    colorOnHover: useColorScheme(theme.color, colorSchemes),
+    colorOnHover: useColorScheme(theme.colorOnHover, colorSchemes),
     backgroundColor: useColorScheme(theme.backgroundColor, colorSchemes),
     backgroundColorOnHover: useColorScheme(theme.backgroundColorOnHover, colorSchemes),
     borderColor: useColorScheme(theme.borderColor, colorSchemes),
     borderColorOnHover: useColorScheme(theme.borderColorOnHover, colorSchemes),
-    textDecorationOnHOver: theme.textDecorationOnHover,
+    textDecorationOnHover: theme.textDecorationOnHover,
   };
 };
 
@@ -103,9 +102,9 @@ const StyledButton = styled.button<StyledButtonProps>`
   `};
   &:disabled {
     cursor: not-allowed;
-    color: rgba(0, 0, 0, 0.25);
-    background-color: ${colors.grey["100"]};
-    border-color: ${colors.grey["100"]};
+    color: ${(props) => useColorScheme(props.theme.components.button.base.colorDisabled)};
+    background-color: ${(props) => useColorScheme(props.theme.components.button.base.backgroundColorDisabled)};
+    border-color: ${(props) => useColorScheme(props.theme.components.button.base.borderColorDisabled)};
   }
   color: ${(props) => props.color};
   background-color: ${(props) => props.backgroundColor};

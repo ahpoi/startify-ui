@@ -6,6 +6,8 @@ import { badgeTheme } from "../../components/atoms/badge.theme";
 import { alertTheme } from "../../components/molecules/alert.theme";
 import { inputTheme } from "../../components/atoms/input.theme";
 import { fieldErrorMessageTheme, fieldLabelTheme } from "../../components/molecules/fields/field-label.theme";
+import { navigationItemTheme } from "../../components/molecules/navigation/navigation-item.theme";
+import { sidebarItemTheme } from "../../components/molecules/navigation/sidebar-item.theme";
 
 export const appTheme = {
   colors: colors,
@@ -18,6 +20,8 @@ export const appTheme = {
     input: inputTheme,
     fieldLabel: fieldLabelTheme,
     fieldErrorMessage: fieldErrorMessageTheme,
+    navigationItem: navigationItemTheme,
+    sidebarItem: sidebarItemTheme,
   },
 };
 

@@ -1,7 +1,7 @@
 import {
     DesktopHeader,
     HeaderLogo,
-    HeaderLink,
+    NavigationItem,
     StartifyProvider,
 } from "../../src";
 import * as React from "react";
@@ -90,19 +90,19 @@ export const TestDesktopHeader = () => (
     <DesktopHeader
         logo={<TestHeaderLogo/>}
         leftLinks={LeftLinks.map((it) => (
-            <HeaderLink key={it.text} href={it.href} onClick={() => alert(it.text)}>
+            <NavigationItem key={it.text} href={it.href} onClick={() => alert(it.text)}>
                 {it.text}
-            </HeaderLink>
+            </NavigationItem>
         ))}
         rightLinks={RightLinks.map((it) => (
-            <HeaderLink
+            <NavigationItem
                 key={it.text}
                 href={it.href}
                 color={"#008DA6"}
                 onClick={() => alert(it.text)}
             >
                 {it.text}
-            </HeaderLink>
+            </NavigationItem>
         ))}
     />
 );

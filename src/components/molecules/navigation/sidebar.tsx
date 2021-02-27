@@ -23,8 +23,8 @@ export const Sidebar = ({ isOpen, onStateChange, children }: SidebarProps) => {
   useOnOutsideClick(node, onClose);
   return (
     <SidebarRoot data-comment="sidebar-root" isOpen={isOpen}>
-      <SideBarContent data-comment="sidebar-content" ref={node} isOpen={isOpen} children={children} />
-      <SideBarOverlay role="presentation" data-comment="sidebar-overlay" isOpen={isOpen}>
+      <SidebarContent data-comment="sidebar-content" ref={node} isOpen={isOpen} children={children} />
+      <SidebarOverlay role="presentation" data-comment="sidebar-overlay" isOpen={isOpen}>
         <CloseButton
           style={{
             position: "absolute",
@@ -34,7 +34,7 @@ export const Sidebar = ({ isOpen, onStateChange, children }: SidebarProps) => {
           color={"white"}
           size={"sm"}
         />
-      </SideBarOverlay>
+      </SidebarOverlay>
     </SidebarRoot>
   );
 };
@@ -56,7 +56,7 @@ export const SidebarRoot = styled.div<{ isOpen: boolean }>`
   pointer-events: ${({ isOpen }) => (isOpen ? "all" : "none")};
 `;
 
-export const SideBarOverlay = styled.div<{ isOpen: boolean }>`
+export const SidebarOverlay = styled.div<{ isOpen: boolean }>`
   z-index: ${zIndexOverlay};
   position: fixed;
   top: 0;
@@ -68,7 +68,7 @@ export const SideBarOverlay = styled.div<{ isOpen: boolean }>`
   background-color: rgba(0, 0, 0, 0.8);
 `;
 
-export const SideBarContent = styled.div<{ isOpen: boolean }>`
+export const SidebarContent = styled.div<{ isOpen: boolean }>`
   background: white;
   z-index: ${zIndexContent};
   position: absolute;

@@ -14,6 +14,9 @@ export type ButtonVariantType = "solid" | "ghost" | "outlined" | "outlined-fille
 export type ButtonThemeBase = {
   fontWeight: number;
   borderRadius: string;
+  colorDisabled: string;
+  borderColorDisabled: string;
+  backgroundColorDisabled: string;
 };
 
 export type ButtonThemeVariant = {
@@ -32,6 +35,9 @@ export const buttonTheme: ButtonTheme = {
   base: {
     borderRadius: radius.xs,
     fontWeight: typography.fontWeight.medium,
+    colorDisabled: "rgba(0,0,0,0.25)",
+    backgroundColorDisabled: "grey.100",
+    borderColorDisabled: "grey.100",
   },
   sizes: {
     xs: { fontSize: "10px", padding: "6px 14px 6px" },

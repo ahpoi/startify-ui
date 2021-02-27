@@ -10,7 +10,7 @@ export * from "./components/atoms/spinner";
 export * from "./components/atoms/tooltip";
 export * from "./components/atoms/skeleton";
 
-export * from "./components/molecules/menu";
+export * from "./components/molecules/navigation/sidebar-item";
 export * from "./components/molecules/modal";
 export * from "./components/molecules/alert";
 export * from "./components/molecules/tabs";
@@ -23,7 +23,7 @@ export * from "./components/molecules/fields/field.types";
 
 export * from "./components/molecules/navigation/sidebar";
 export * from "./components/molecules/navigation/header";
-export * from "./components/molecules/navigation/header-user-menu";
+export * from "./components/molecules/navigation/navigation-item";
 
 export * from "./components/layout/layout";
 export * from "./components/layout/page-layout";

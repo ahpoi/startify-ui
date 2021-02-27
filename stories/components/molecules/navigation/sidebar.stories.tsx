@@ -1,7 +1,11 @@
 import * as React from "react";
 import {TestHeaderLogo} from "../../../utils/stories-container";
-import {colors, MenuList, Sidebar, SidebarToggle,} from "../../../../src";
-import {MenuDivider, MenuItemContainer, MenuItemButton} from "../../../../src/components/molecules/menu";
+import {Sidebar, SidebarItemList, SidebarToggle,} from "../../../../src";
+import {
+  SidebarDivider,
+  SidebarItem,
+  SidebarItemContainer
+} from "../../../../src/components/molecules/navigation/sidebar-item";
 
 export default {
   title: "Molecules/Sidebar",
@@ -34,40 +38,41 @@ const SecondaryLinks = [
   },
 ];
 
-const SidebarItemsLinks = () => (
+const PrimaryItemsLinks = () => (
   <>
     {Links.map((it) => (
-      <MenuItemButton key={it.text} onClick={() => alert(it.text)}>
+      <SidebarItem key={it.text} onClick={() => alert(it.text)}>
         {it.text}
-      </MenuItemButton>
+      </SidebarItem>
     ))}
   </>
 );
 
+const SecondaryItems = () => (
+    <>
+      {SecondaryLinks.map((it) => (
+          <SidebarItem key={it.text} onClick={() => alert(it.text)} colorScheme={"secondary"}>
+            {it.text}
+          </SidebarItem>
+      ))}
+    </>
+);
 
 export const sidebar = () => {
   const [isOpen, setOpen] = React.useState(false);
-  const MenuItems = () => (
-      <>
-        {SecondaryLinks.map((it) => (
-            <MenuItemButton color={colors.secondary["700"]} key={it.text} onClick={() => alert(it.text)}>
-              {it.text}
-            </MenuItemButton>
-        ))}
-      </>
-  );
+
   return (
       <div>
         <SidebarToggle onClick={() => setOpen(!isOpen)} />
         <Sidebar isOpen={isOpen} onStateChange={({isOpen}) => setOpen(isOpen)}>
-          <MenuList>
-            <MenuItemContainer>
+          <SidebarItemList>
+            <SidebarItemContainer>
               <TestHeaderLogo />
-            </MenuItemContainer>
-            <SidebarItemsLinks />
-            <MenuDivider/>
-            <MenuItems />
-          </MenuList>
+            </SidebarItemContainer>
+            <PrimaryItemsLinks />
+            <SidebarDivider/>
+            <SecondaryItems />
+          </SidebarItemList>
         </Sidebar>
       </div>
   );
