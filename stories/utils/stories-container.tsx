@@ -1,10 +1,6 @@
-import {
-    DesktopHeader,
-    HeaderLogo,
-    NavigationItem,
-    StartifyProvider,
-} from "../../src";
+import {HeaderLogo, NavigationItem, StartifyProvider,} from "../../src";
 import * as React from "react";
+import {DesktopHeader} from "../components/examples/header.stories";
 
 export const StoriesDefaultThemeProvider = (props: { children: React.ReactNode }) => {
     return <StartifyProvider rootId={'root'} theme={{
@@ -106,3 +102,4 @@ export const TestDesktopHeader = () => (
         ))}
     />
 );
+

@@ -22,7 +22,6 @@ export * from "./components/molecules/fields/checkbox-field";
 export * from "./components/molecules/fields/field.types";
 
 export * from "./components/molecules/navigation/sidebar";
-export * from "./components/molecules/navigation/header";
 export * from "./components/molecules/navigation/navigation-item";
 
 export * from "./components/layout/layout";
