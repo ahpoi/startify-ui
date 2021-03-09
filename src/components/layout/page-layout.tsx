@@ -46,8 +46,9 @@ export const cssPageResponsiveSideSpace = css`
  * Please use <GlobalStyle/> first to setup and normalised the html/body/setup flex..etc
  *  <PageRoot>
  *    <PageHeader>
- *    <PageBody>
- *    <PageBody/>
+ *      <PageBody>
+ *          <div> My Components </div>
+ *      <PageBody/>
  *    <PageFooter/>
  *  </PageRoot>
  */

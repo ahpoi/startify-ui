@@ -8,6 +8,8 @@ import { inputTheme } from "../../components/atoms/input.theme";
 import { fieldErrorMessageTheme, fieldLabelTheme } from "../../components/molecules/fields/field-label.theme";
 import { navigationItemTheme } from "../../components/molecules/navigation/navigation-item.theme";
 import { sidebarItemTheme } from "../../components/molecules/navigation/sidebar-item.theme";
+import { tabsTheme } from "../../components/molecules/tabs.theme";
+import { modalTheme } from "../../components/molecules/modal.theme";
 
 export const appTheme = {
   colors: colors,
@@ -20,6 +22,8 @@ export const appTheme = {
     input: inputTheme,
     fieldLabel: fieldLabelTheme,
     fieldErrorMessage: fieldErrorMessageTheme,
+    modal: modalTheme,
+    tabs: tabsTheme,
     navigationItem: navigationItemTheme,
     sidebarItem: sidebarItemTheme,
   },

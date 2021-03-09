@@ -97,7 +97,7 @@ export const signUpForm = () => {
                                        </Paragraph>}
                     />
 
-                    <Button type={"submit"}>Login</Button>
+                    <Button type={"submit"}>Continue</Button>
                 </Vertical>
             </form>
     );

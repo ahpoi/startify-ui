@@ -1,10 +1,12 @@
 import * as React from "react";
 import styled from "styled-components";
 import { fadeIn } from "../others/animations";
-import { colors } from "../../theme/styles/colors";
+import { ColorScheme } from "../../theme/styles/colors";
+import { useColorScheme } from "../../theme/styles/hooks";
 
 type TabsProps = {
   activeKey?: number;
+  colorScheme?: ColorScheme;
   children: React.ReactElement<typeof TabContent> | React.ReactElement<typeof TabContent>[];
 };
 
@@ -18,7 +20,14 @@ export const Tabs = (props: TabsProps) => {
     <div>
       <TabLists role={"tablist"}>
         {children.map((tabContentComponent, i) => (
-          <TabButton type={"button"} role={"tab"} key={i} onClick={() => setActiveTab(i)} isActive={activeTab === i}>
+          <TabButton
+            colorScheme={props.colorScheme ?? "secondary"}
+            type={"button"}
+            role={"tab"}
+            key={i}
+            onClick={() => setActiveTab(i)}
+            isActive={activeTab === i}
+          >
             {tabContentComponent.props.label}
           </TabButton>
         ))}
@@ -36,14 +45,14 @@ type TabContentProp = {
 export const TabContent = (props: TabContentProp) => <>{props.children}</>;
 
 type TabButtonProps = {
-  disabled?: boolean;
   isActive?: boolean;
+  colorScheme?: ColorScheme;
 };
 
 const TabLists = styled.div`
   display: flex;
   flex-direction: row;
-  border-color: ${colors.grey["200"]};
+  border-color: ${({ theme }) => theme.components.tabs.base.borderBottomColor};
   border-bottom-width: 2px;
   border-bottom-style: solid;
   & > * {
@@ -57,30 +66,34 @@ const TabLists = styled.div`
 const TabButton = styled.button<TabButtonProps>`
   cursor: pointer;
   height: auto;
-  font-size: ${(props) => props.theme.typography.size.body.md};
-  font-weight: ${(props) => props.theme.typography.fontWeight.medium};
-  padding: 0 10px 12px 10px;
+  color: ${({ theme, colorScheme }) =>
+    useColorScheme(theme.components.tabs.action.color, theme.colors[colorScheme as never])};
+  font-size: ${({ theme }) => theme.components.tabs.action.fontSize};
+  font-weight: ${({ theme }) => theme.components.tabs.action.fontWeight};
+  padding: ${({ theme }) => theme.components.tabs.action.padding};
   margin-bottom: -2px;
   text-decoration: none;
   outline: none;
   background: none;
   border: none;
   transition: color 0.2s ease 0s;
-  color: ${({ theme }) => theme.typography.color.body.dark};
-  ${({ isActive, theme }) =>
+  ${({ isActive, theme, colorScheme }) =>
     isActive &&
     `
-    color: ${theme.colors.secondary[500]};
-    border-bottom: 2px solid ${theme.colors.secondary[500]};
+    color: ${useColorScheme(theme.components.tabs.action.colorOnHover, theme.colors[colorScheme as never])};
+    border-bottom: 2px solid ${useColorScheme(
+      theme.components.tabs.action.colorOnHover,
+      theme.colors[colorScheme as never]
+    )};
   `};
   &:hover:enabled,
-  &:focus:enabled,
-  &:active:enabled {
-    color: ${({ theme }) => theme.colors.secondary[500]};
+  &:focus:enabled {
+    color: ${({ theme, colorScheme }) =>
+      useColorScheme(theme.components.tabs.action.colorOnHover, theme.colors[colorScheme as never])};
   }
 `;
 
 const TabContentContainer = styled.div`
-  margin-top: 20px;
+  margin: ${({ theme }) => theme.components.tabs.content.padding};
   ${fadeIn}
 `;

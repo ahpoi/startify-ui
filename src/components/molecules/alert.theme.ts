@@ -18,7 +18,7 @@ export type AlertThemeBase = {
 export const alertTheme: AlertTheme = {
   base: {
     color: "700",
-    backgroundColor: "100",
+    backgroundColor: "50",
     fontSize: "14px",
   },
   border: {

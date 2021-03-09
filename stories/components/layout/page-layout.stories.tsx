@@ -46,7 +46,7 @@ export const pageLayout = () => (
 export const landingPageLayout = () => (
     <PageRoot>
         <TestDesktopHeader/>
-        <VerticalSpacer spacing={48}/>
+        <VerticalSpacer spacing={32}/>
         <LandingPageBody>
             <Vertical>
                 <img src={"https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png"}/>
