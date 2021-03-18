@@ -25,7 +25,7 @@ export * from "./components/molecules/navigation/sidebar";
 export * from "./components/molecules/navigation/navigation-item";
 
 export * from "./components/layout/layout";
-export * from "./components/layout/page-layout";
+export * from "./components/layout/page";
 export * from "./components/layout/responsive-layout";
 export * from "./components/layout/global-style";
 export * from "./components/layout/normalise";

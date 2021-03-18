@@ -1,6 +1,5 @@
-import {HeaderLogo, NavigationItem, StartifyProvider,} from "../../src";
+import {HeaderLogo, StartifyProvider,} from "../../src";
 import * as React from "react";
-import {DesktopHeader} from "../components/examples/header.stories";
 
 export const StoriesDefaultThemeProvider = (props: { children: React.ReactNode }) => {
     return <StartifyProvider rootId={'root'} theme={{
@@ -59,47 +58,3 @@ export const TestLogo = () => (
         </g>
     </svg>
 );
-
-const LeftLinks = [
-    {
-        href: "",
-        text: "How it works",
-    },
-    {
-        href: "",
-        text: "Pricing",
-    },
-];
-
-const RightLinks = [
-    {
-        href: "",
-        text: "Sign up",
-    },
-    {
-        href: "",
-        text: "Login",
-    },
-];
-
-export const TestDesktopHeader = () => (
-    <DesktopHeader
-        logo={<TestHeaderLogo/>}
-        leftLinks={LeftLinks.map((it) => (
-            <NavigationItem key={it.text} href={it.href} onClick={() => alert(it.text)}>
-                {it.text}
-            </NavigationItem>
-        ))}
-        rightLinks={RightLinks.map((it) => (
-            <NavigationItem
-                key={it.text}
-                href={it.href}
-                color={"#008DA6"}
-                onClick={() => alert(it.text)}
-            >
-                {it.text}
-            </NavigationItem>
-        ))}
-    />
-);
-
