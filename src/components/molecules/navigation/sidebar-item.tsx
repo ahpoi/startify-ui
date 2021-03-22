@@ -16,8 +16,7 @@ export const SidebarItem = styled.button<SidebarItemProps>`
    border: none;
    outline: none;
    cursor: pointer;
-   color: ${({ theme, colorScheme = "black" }) =>
-     useColorScheme(theme.components.sidebarItem.base.color, theme.colors[colorScheme as never])};
+   color: ${({ theme, colorScheme = "black" }) => useColorScheme(theme.components.sidebarItem.base.color, colorScheme)};
    font-size: ${(props) => props.theme.components.sidebarItem.base.fontSize};
    font-weight: ${(props) => props.theme.components.sidebarItem.base.fontWeight};
    padding ${(props) => props.theme.components.sidebarItem.base.padding};

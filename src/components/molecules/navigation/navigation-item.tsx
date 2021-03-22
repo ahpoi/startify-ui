@@ -14,7 +14,7 @@ export const NavigationItem = styled.a<NavProps>`
    cursor: pointer;
    text-decoration: none !important;
    color: ${({ theme, colorScheme = "secondary" }) =>
-     useColorScheme(theme.components.navigationItem.base.color, theme.colors[colorScheme as never])};
+     useColorScheme(theme.components.navigationItem.base.color, colorScheme)};
    font-size: ${(props) => props.theme.components.navigationItem.base.fontSize};
    font-weight: ${(props) => props.theme.components.navigationItem.base.fontWeight};
    display: inline-block;
@@ -23,7 +23,7 @@ export const NavigationItem = styled.a<NavProps>`
    &:focus,
    &:active {
      color: ${({ theme, colorScheme = "secondary" }) =>
-       useColorScheme(theme.components.navigationItem.base.colorOnHover, theme.colors[colorScheme as never])};
+       useColorScheme(theme.components.navigationItem.base.colorOnHover, colorScheme)};
   } 
 ` as React.FunctionComponent<
   NavProps & { as?: any } & React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>

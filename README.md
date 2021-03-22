@@ -99,11 +99,9 @@ ReactDOM.render(
 
 ### Why
 
-We considered other options before creating our own. Here is our opinion:
-
 - Written in typescript
 - Focus on startup developments, components such
-  as `Page, PageBody, TextInputField (Label, Error), Error Modal, Error Modal (Retry), Skeleton PlaceHolder` make it
+  as `Page, PageBody, TextInputField (Label, Error) Skeleton PlaceHolder` makes it
   much faster to build beautiful yet filled with your business logic.
 - Do not pull thousands of other dependencies [(70% self)](https://bundlephobia.com/result?p=startify-ui)
 
