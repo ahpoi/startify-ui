@@ -6,12 +6,13 @@ import { calculateUnit } from "../..";
 import { DivProps } from "../others/types";
 
 interface HorizontalProps {
-  height?: Property.Height<any>;
+  size?: Property.Height<any>;
   color?: Property.Color;
 }
 
 export const HorizontalDivider = styled.div<HorizontalProps>`
-  border-bottom: ${({ height }) => calculateUnit(height ?? 1)} solid ${({ color }) => color ?? "#EFF2F7"}};
+  border-bottom: ${({ theme, size }) => size ?? theme.components.divider.size} solid ${({ theme, color }) =>
+  color ?? theme.components.divider.color}};
 ` as React.FunctionComponent<HorizontalProps & DivProps>;
 
 interface VerticalProps {
@@ -21,6 +22,7 @@ interface VerticalProps {
 }
 
 export const VerticalDivider = styled.div<VerticalProps>`
-  border-left: ${(props) => calculateUnit(props.width ?? 1)} solid ${(props) => props.color ?? "#EFF2F7"};
+  border-left: ${({ theme, width }) => width ?? theme.components.divider.size} solid ${({ theme, color }) =>
+  color ?? theme.components.divider.color}};
   height: ${(props) => calculateUnit(props.height ?? "100%")};
 ` as React.FunctionComponent<VerticalProps & DivProps>;

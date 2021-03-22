@@ -1,5 +1,7 @@
-import {HeaderLogo, StartifyProvider,} from "../../src";
+import { Horizontal, StartifyProvider,} from "../../src";
 import * as React from "react";
+import {Property} from "csstype";
+
 
 export const StoriesDefaultThemeProvider = (props: { children: React.ReactNode }) => {
     return <StartifyProvider rootId={'root'} theme={{
@@ -57,4 +59,29 @@ export const TestLogo = () => (
             />
         </g>
     </svg>
+);
+
+
+type HeaderLogoProps  = {
+    name: string;
+    logo: React.ReactNode;
+    fontSize?: Property.FontSize<any>;
+    fontWeight?: Property.FontWeight;
+    color?: Property.Color;
+    onClick: () => any;
+}
+
+const HeaderLogo = ({ name, color, fontSize = "18px", fontWeight = 700, onClick, logo }: HeaderLogoProps) => (
+    <Horizontal verticalAlign={"center"} spacing={8} style={{ cursor: "pointer" }} onClick={onClick}>
+        {logo}
+        <div
+            style={{
+                color,
+                fontSize,
+                fontWeight,
+            }}
+        >
+            {name}
+        </div>
+    </Horizontal>
 );

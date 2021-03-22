@@ -1,18 +1,18 @@
 
 import * as React from "react";
-import { DotSpinner, PageSpinner, Spinner } from "../../../src/components/atoms/spinner";
+import { SpinnerDots, PageSpinner, SpinnerCircular } from "../../../src/components/atoms/spinner";
 
 export default {
   title: "Atoms/Spinner",
-  component: Spinner,
+  component: SpinnerCircular,
 };
 
 export const spinner = () => (
-    <Spinner />
+    <SpinnerCircular />
 );
 
 export const dotSpinner = () => (
-    <DotSpinner />
+    <SpinnerDots />
 );
 
 export const fullPageSpinner = () => (

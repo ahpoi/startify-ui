@@ -1,68 +1,12 @@
 import * as React from "react";
 import { Property } from "csstype";
-import { Text } from "../atoms/typography";
-import { Horizontal, Vertical } from "../layout/gls/gls";
-import { useTheme } from "styled-components";
-import { IconArrowLeft, IconChevronDown } from "./icons";
-import { LinkButton } from "../atoms/link";
-import { ColorScheme } from "../../theme/styles/colors";
-
-interface BackButtonProps {
-  onClick?: () => any;
-  colorScheme?: ColorScheme;
-  text?: string;
-}
-
-export const BackButton = ({ onClick, text, colorScheme = "secondary" }: BackButtonProps) => {
-  const color = useTheme().colors[colorScheme as never];
-  return (
-    <Horizontal spacing={4} verticalAlign={"center"}>
-      <IconArrowLeft size={16} color={color["500"]} />
-      <LinkButton colorScheme={colorScheme} onClick={onClick ? onClick : () => window.history.back()}>
-        {text ?? "Back"}
-      </LinkButton>
-    </Horizontal>
-  );
-};
-
-interface PoweredByProps {
-  name: string;
-  url: string;
-  fontSize?: Property.FontSize<any>;
-  logo: React.ReactNode;
-}
-
-export const PoweredBy = ({ name, url, logo, fontSize = "8px" }: PoweredByProps) => (
-  <div style={{ cursor: "pointer" }} onClick={() => window.open(url, "_blank")}>
-    <Horizontal spacing={4} verticalAlign={"center"}>
-      <Vertical spacing={0} horizontalAlign={"right"}>
-        <Text fontWeight={"light"} fontSize={fontSize}>
-          powered by
-        </Text>
-        <Text fontWeight={"light"} fontSize={fontSize}>
-          {name}
-        </Text>
-      </Vertical>
-      {logo}
-    </Horizontal>
-  </div>
-);
+import { Horizontal } from "../layout/gls/gls";
+import { IconChevronDown } from "./icons";
 
 interface DotProps {
   color: Property.Color;
   size?: Property.FontSize<any>;
 }
-
-/**
- * From Google https://careers.google.com/jobs/
- */
-export const DotColor = {
-  Red: "#ea4335",
-  Blue: "#0052CC",
-  Green: "#34a853",
-  Yellow: "#fbbc05",
-  Grey: "grey",
-};
 
 export const Dot = ({ size, color }: DotProps) => (
   <span
@@ -118,28 +62,4 @@ export const Chevron = ({
   >
     <IconChevronDown size={size} color={color} />
   </div>
-);
-
-interface HeaderLogoProps {
-  name: string;
-  logo: React.ReactNode;
-  fontSize?: Property.FontSize<any>;
-  fontWeight?: Property.FontWeight;
-  color?: Property.Color;
-  onClick: () => any;
-}
-
-export const HeaderLogo = ({ name, color, fontSize = "18px", fontWeight = 700, onClick, logo }: HeaderLogoProps) => (
-  <Horizontal verticalAlign={"center"} spacing={8} style={{ cursor: "pointer" }} onClick={onClick}>
-    {logo}
-    <div
-      style={{
-        color,
-        fontSize,
-        fontWeight,
-      }}
-    >
-      {name}
-    </div>
-  </Horizontal>
 );

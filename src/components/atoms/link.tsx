@@ -1,8 +1,9 @@
 import * as React from "react";
-import { Property } from "csstype";
 
-import styled, { css, useTheme } from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { ColorScheme } from "../../theme/styles/colors";
+import { SizeType } from "../others/types";
+import { useColorScheme } from "../../theme/styles/hooks";
 
 interface LinkProps {
   href: string;
@@ -11,7 +12,7 @@ interface LinkProps {
   underline?: boolean;
   children: React.ReactNode;
   colorScheme?: ColorScheme;
-  size?: "sm" | "md" | "lg";
+  size?: SizeType;
 }
 
 export const Link = ({
@@ -19,77 +20,39 @@ export const Link = ({
   onClick,
   underline = true,
   children,
-  colorScheme = "secondary",
+  colorScheme = "primary",
   size = "md",
   target = "_blank",
 }: LinkProps) => {
-  const linkVariant: LinkVariant = useColorScheme(colorScheme);
-  const styledProps = { ...linkVariant, ...useSizeVariant()[size] };
+  const forwardedProps = { ...useLinkBase(colorScheme), ...useSize(size) };
   return (
-    <StyledLink href={href} target={target} underline={underline} onClick={onClick} {...styledProps}>
+    <StyledLink href={href} target={target} underline={underline} onClick={onClick} {...forwardedProps}>
       {children}
     </StyledLink>
   );
 };
 
-export type LinkButtonProps = Omit<LinkProps, "target" | "href">;
-
-export const LinkButton = ({
-  onClick,
-  children,
-  underline = false,
-  colorScheme = "secondary",
-  size = "md",
-}: LinkButtonProps) => {
-  const linkVariant: LinkVariant = useColorScheme(colorScheme);
-  const styledProps = { ...linkVariant, ...useSizeVariant()[size] };
-  return (
-    <StyledLinkButton type={"button"} underline={underline} onClick={onClick} {...styledProps}>
-      {children}
-    </StyledLinkButton>
-  );
-};
-
-type LinkVariant = {
-  color: Property.Color;
-  colorOnHover: Property.Color;
-};
-
-const useColorScheme = (scheme: ColorScheme) => {
-  const color = useTheme().colors[scheme as never];
+const useLinkBase = (scheme: ColorScheme) => {
+  const linkColorTheme = useTheme().components.link.base;
   return {
-    color: color[500],
-    colorOnHover: color[300],
+    color: useColorScheme(linkColorTheme.color, scheme),
+    colorOnHover: useColorScheme(linkColorTheme.colorOnHover, scheme),
   };
 };
 
-const useSizeVariant = () => {
-  const { typography } = useTheme();
-  return {
-    sm: {
-      fontSize: typography.size.body.sm,
-      fontWeight: "normal",
-    },
-    md: {
-      fontSize: typography.size.body.md,
-      fontWeight: "normal",
-    },
-    lg: {
-      fontSize: typography.size.body.lg,
-      fontWeight: "normal",
-    },
-  };
+const useSize = (size: SizeType) => {
+  return useTheme().components.link.sizes[size];
 };
 
-interface StyledLinkProps {
+type StyledLinkProps = {
   color: string;
   colorOnHover: string;
   fontSize: string;
   fontWeight: number | string;
   underline?: boolean;
-}
+};
 
-const styledLinkBasedCss = css<StyledLinkProps>`
+const StyledLink = styled.a<StyledLinkProps>`
    background: none!important;
    display: inline-block;
    border: none;
@@ -99,18 +62,10 @@ const styledLinkBasedCss = css<StyledLinkProps>`
    color: ${(props) => props.color};
    font-size: ${(props) => props.fontSize};
    font-weight: ${(props) => props.fontWeight};
-   text-decoration: ${(props) => (props.underline ? "underline" : "none!important")};
+   text-decoration: ${(props) => (props.underline ? "underline" : "none !important")};
    &:hover,
    &:focus,
    &:active {
      color: ${(props) => props.colorOnHover};
   } 
-`;
-
-const StyledLink = styled.a<StyledLinkProps>`
-  ${styledLinkBasedCss}
-`;
-
-const StyledLinkButton = styled.button<StyledLinkProps>`
-  ${styledLinkBasedCss}
 `;

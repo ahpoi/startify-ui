@@ -10,6 +10,9 @@ import { navigationItemTheme } from "../../components/molecules/navigation/navig
 import { sidebarItemTheme } from "../../components/molecules/navigation/sidebar-item.theme";
 import { tabsTheme } from "../../components/molecules/tabs.theme";
 import { modalTheme } from "../../components/molecules/modal.theme";
+import { dividerTheme } from "../../components/atoms/divider.theme";
+import { linkTheme } from "../../components/atoms/link.theme";
+import { spinnerTheme } from "../../components/atoms/spinner.theme";
 
 export const appTheme = {
   colors: colors,
@@ -17,9 +20,12 @@ export const appTheme = {
   radius: radius,
   components: {
     alert: alertTheme,
+    divider: dividerTheme,
     button: buttonTheme,
+    link: linkTheme,
     badge: badgeTheme,
     input: inputTheme,
+    spinner: spinnerTheme,
     fieldLabel: fieldLabelTheme,
     fieldErrorMessage: fieldErrorMessageTheme,
     modal: modalTheme,

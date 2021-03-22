@@ -66,8 +66,7 @@ const TabLists = styled.div`
 const TabButton = styled.button<TabButtonProps>`
   cursor: pointer;
   height: auto;
-  color: ${({ theme, colorScheme }) =>
-    useColorScheme(theme.components.tabs.action.color, theme.colors[colorScheme as never])};
+  color: ${({ theme, colorScheme }) => useColorScheme(theme.components.tabs.action.color, colorScheme)};
   font-size: ${({ theme }) => theme.components.tabs.action.fontSize};
   font-weight: ${({ theme }) => theme.components.tabs.action.fontWeight};
   padding: ${({ theme }) => theme.components.tabs.action.padding};
@@ -80,16 +79,12 @@ const TabButton = styled.button<TabButtonProps>`
   ${({ isActive, theme, colorScheme }) =>
     isActive &&
     `
-    color: ${useColorScheme(theme.components.tabs.action.colorOnHover, theme.colors[colorScheme as never])};
-    border-bottom: 2px solid ${useColorScheme(
-      theme.components.tabs.action.colorOnHover,
-      theme.colors[colorScheme as never]
-    )};
+    color: ${useColorScheme(theme.components.tabs.action.colorOnHover, colorScheme)};
+    border-bottom: 2px solid ${useColorScheme(theme.components.tabs.action.colorOnHover, colorScheme)};
   `};
   &:hover:enabled,
   &:focus:enabled {
-    color: ${({ theme, colorScheme }) =>
-      useColorScheme(theme.components.tabs.action.colorOnHover, theme.colors[colorScheme as never])};
+    color: ${({ theme, colorScheme }) => useColorScheme(theme.components.tabs.action.colorOnHover, colorScheme)};
   }
 `;
 

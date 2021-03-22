@@ -17,7 +17,7 @@ export const useColorScheme = (color: string, scheme?: ColorScheme) => {
     return color;
   }
   if (["50", "100", "200", "300", "400", "500", "600", "700", "800", "900"].includes(color) && scheme) {
-    return scheme[color as never];
+    return useTheme().colors?.[scheme as never]?.[color] ?? color;
   }
   return color;
 };

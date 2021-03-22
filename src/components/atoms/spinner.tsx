@@ -1,13 +1,13 @@
 import * as React from "react";
-import { Property } from "csstype";
 
 import styled from "styled-components";
-import { BoxUnit, calculateUnit, Horizontal } from "../..";
+import { BoxUnit, calculateUnit, ColorScheme, Horizontal } from "../..";
 import { DivProps } from "../others/types";
+import { useColorScheme } from "../../theme/styles/hooks";
 
 interface PageSpinner {
   variant?: "circular" | "dots";
-  color?: Property.Color;
+  colorScheme?: ColorScheme;
   size?: BoxUnit;
   borderWidth?: BoxUnit;
 }
@@ -15,10 +15,10 @@ interface PageSpinner {
 /**
  * Full Page spinner
  */
-export const PageSpinner = ({ variant = "dots", color, size, borderWidth }: PageSpinner) => (
+export const PageSpinner = ({ variant = "dots", colorScheme = "secondary", size, borderWidth }: PageSpinner) => (
   <StyledFullScreen>
-    {variant === "circular" && <Spinner color={color} size={size} borderWidth={borderWidth} />}
-    {variant === "dots" && <DotSpinner color={color} size={size} />}
+    {variant === "circular" && <SpinnerCircular colorScheme={colorScheme} size={size} borderWidth={borderWidth} />}
+    {variant === "dots" && <SpinnerDots colorScheme={colorScheme} size={size} />}
   </StyledFullScreen>
 );
 
@@ -32,16 +32,18 @@ const StyledFullScreen = styled.div`
 `;
 
 interface SpinnerProps {
-  color?: Property.Color;
+  colorScheme?: ColorScheme;
   size?: BoxUnit;
   borderWidth?: BoxUnit;
 }
 
-export const Spinner = styled.div<SpinnerProps>`
-  border-width: ${({ borderWidth }) => calculateUnit(borderWidth ?? 2)};
-  width: ${({ size }) => calculateUnit(size ?? 24)};
-  height: ${({ size }) => calculateUnit(size ?? 24)};
-  color: ${(props) => props.color ?? props.theme.colors.secondary["500"]};
+export const SpinnerCircular = styled.div<SpinnerProps>`
+  border-width: ${({ theme, borderWidth }) =>
+    calculateUnit(borderWidth ?? theme.components.spinner.circular.borderWith)};
+  width: ${({ theme, size }) => calculateUnit(size ?? theme.components.spinner.circular.size)};
+  height: ${({ theme, size }) => calculateUnit(size ?? theme.components.spinner.circular.size)};
+  color: ${({ theme, colorScheme }) =>
+    useColorScheme(theme.components.spinner.base.color, colorScheme ?? theme.components.spinner.default.colorScheme)};
   display: inline-block;
   background: transparent;
   border-style: solid;
@@ -61,27 +63,27 @@ export const Spinner = styled.div<SpinnerProps>`
   }
 ` as React.FunctionComponent<SpinnerProps>;
 
-type DotsSpinner = {
-  color?: Property.Color;
+type SpinnerDotsProps = {
+  colorScheme?: ColorScheme;
   size?: BoxUnit;
 };
 
-export const DotSpinner = ({ color, size }: DotsSpinner) => (
+export const SpinnerDots = ({ colorScheme, size }: SpinnerDotsProps) => (
   <Horizontal spacing={6}>
-    <Dot color={color} size={size} animationDelay={"-0.32s"} />
-    <Dot color={color} size={size} animationDelay={"-0.16s"} />
-    <Dot color={color} size={size} animationDelay={"0s"} />
+    <Dot colorScheme={colorScheme} size={size} animationDelay={"-0.32s"} />
+    <Dot colorScheme={colorScheme} size={size} animationDelay={"-0.16s"} />
+    <Dot colorScheme={colorScheme} size={size} animationDelay={"0s"} />
   </Horizontal>
 );
 
 /**
  * https://codepen.io/AnoNewb/pen/JwypRN
  */
-const Dot = styled.div<DotsSpinner & { animationDelay: string }>`
-  width: ${({ size }) => calculateUnit(size ?? 12)};
-  height: ${({ size }) => calculateUnit(size ?? 12)};
-  background-color: ${(props) => props.color ?? props.theme.colors.primary["500"]};
-
+const Dot = styled.div<SpinnerDotsProps & { animationDelay: string }>`
+  width: ${({ theme, size }) => size ?? theme.components.spinner.dots.size};
+  height: ${({ theme, size }) => size ?? theme.components.spinner.dots.size};
+  background-color: ${({ theme, colorScheme }) =>
+    useColorScheme(theme.components.spinner.base.color, colorScheme ?? theme.components.spinner.default.colorScheme)};
   border-radius: 100%;
   display: inline-block;
 
@@ -98,4 +100,4 @@ const Dot = styled.div<DotsSpinner & { animationDelay: string }>`
       transform: scale(1);
     }
   }
-` as React.FunctionComponent<DotsSpinner & { animationDelay: string } & DivProps>;
+` as React.FunctionComponent<SpinnerDotsProps & { animationDelay: string } & DivProps>;

@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled, { useTheme } from "styled-components";
 import { ButtonThemeBase, ButtonThemeSize, ButtonThemeVariant, ColorScheme } from "../..";
-import { Spinner } from "./spinner";
+import { SpinnerCircular } from "./spinner";
 import { useColorScheme } from "../../theme/styles/hooks";
 import { ButtonSizeType, ButtonVariantType } from "./button.theme";
 
@@ -48,7 +48,7 @@ export const Button = ({
     <StyledButton {...styledBtnProps} id={id} type={"button"} style={{ width }}>
       <div style={{ color: "transparent" }} children={children} />
       <div style={{ position: "absolute", left: "50%", top: "52%", transform: "translate(-50%, -50%)" }}>
-        <Spinner color={"currentColor"} size={16} borderWidth={"2px"} />
+        <SpinnerCircular colorScheme={"currentColor" as any} size={"16px"} borderWidth={"2px"} />
       </div>
     </StyledButton>
   );
@@ -60,15 +60,14 @@ export const useButtonBase = () => {
 
 export const useButtonVariant = (variant: ButtonVariantType, scheme: ColorScheme): ButtonThemeVariant => {
   const variants = useTheme().components.button.variants;
-  const colorSchemes = useTheme().colors[scheme as never];
   const theme = variants[variant];
   return {
-    color: useColorScheme(theme.color, colorSchemes),
-    colorOnHover: useColorScheme(theme.colorOnHover, colorSchemes),
-    backgroundColor: useColorScheme(theme.backgroundColor, colorSchemes),
-    backgroundColorOnHover: useColorScheme(theme.backgroundColorOnHover, colorSchemes),
-    borderColor: useColorScheme(theme.borderColor, colorSchemes),
-    borderColorOnHover: useColorScheme(theme.borderColorOnHover, colorSchemes),
+    color: useColorScheme(theme.color, scheme),
+    colorOnHover: useColorScheme(theme.colorOnHover, scheme),
+    backgroundColor: useColorScheme(theme.backgroundColor, scheme),
+    backgroundColorOnHover: useColorScheme(theme.backgroundColorOnHover, scheme),
+    borderColor: useColorScheme(theme.borderColor, scheme),
+    borderColorOnHover: useColorScheme(theme.borderColorOnHover, scheme),
     textDecorationOnHover: theme.textDecorationOnHover,
   };
 };

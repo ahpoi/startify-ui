@@ -35,15 +35,14 @@ export const Alert = ({ children, colorScheme = "primary", onClose }: AlertProps
 
 export const useAlertTheme = (scheme: ColorScheme): AlertTheme => {
   const alertTheme = useTheme().components.alert;
-  const colorSchemes = useTheme().colors[scheme as never];
   return {
     base: {
-      backgroundColor: useColorScheme(alertTheme.base.backgroundColor, colorSchemes),
-      color: useColorScheme(alertTheme.base.color, colorSchemes),
+      backgroundColor: useColorScheme(alertTheme.base.backgroundColor, scheme),
+      color: useColorScheme(alertTheme.base.color, scheme),
       fontSize: alertTheme.base.fontSize,
     },
     border: {
-      color: useColorScheme(alertTheme.border.color, colorSchemes),
+      color: useColorScheme(alertTheme.border.color, scheme),
       radius: alertTheme.border.radius,
       width: alertTheme.border.width,
     },
