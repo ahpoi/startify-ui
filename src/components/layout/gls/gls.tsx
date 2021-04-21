@@ -1,5 +1,3 @@
-import * as React from "react";
-
 import styled from "styled-components";
 import {
   BoxUnit,
@@ -11,7 +9,6 @@ import {
   horizontallySpaced,
   verticallySpaced,
 } from "./box";
-import { DivProps } from "../../others/types";
 import { breakpoints } from "../../../theme/styles/breakpoints";
 
 /**
@@ -72,7 +69,8 @@ export const Horizontal = styled.div.attrs({
     `
     align-items: baseline;
  `};
-` as React.FunctionComponent<HorizontalsAlignProps & DivProps>;
+`;
+
 Horizontal.displayName = "Horizontal";
 
 export interface VerticalAlignProps extends SpacingProps {
@@ -110,7 +108,7 @@ export const Vertical = styled.div.attrs({
     `
     align-items: flex-end;
  `};
-` as React.FunctionComponent<VerticalAlignProps & DivProps>;
+`;
 Vertical.displayName = "Vertical";
 
 interface ResponsiveProps {
@@ -193,7 +191,7 @@ export const Responsive = styled.div.attrs({
         align-items: baseline;
      `};
   }
-` as React.FunctionComponent<ResponsiveProps & DivProps>;
+`;
 Vertical.displayName = "Responsive";
 
 /**
@@ -203,7 +201,7 @@ export const StretchSpacer = styled.div.attrs({
   "data-comment": "StretchSpacer",
 })<StretchProps>`
   flex: ${(props) => props.sizing || 1};
-` as React.FunctionComponent<StretchProps & DivProps>;
+`;
 StretchSpacer.displayName = "StretchSpacer";
 
 export const HorizontalSpacer = styled.div.attrs({
@@ -211,14 +209,14 @@ export const HorizontalSpacer = styled.div.attrs({
 })<SpacingProps>`
   display: inline-block;
   width: ${(props) => calculateUnit(props.spacing ?? defaultSpace)}};
-` as React.FunctionComponent<SpacingProps & DivProps>;
+`;
 HorizontalSpacer.displayName = "HorizontalSpacer";
 
 export const VerticalSpacer = styled.div.attrs({
   "data-comment": "VerticalSpacer",
 })<SpacingProps>`
   height: ${(props) => calculateUnit(props.spacing ?? defaultSpace)}};
-` as React.FunctionComponent<SpacingProps & DivProps>;
+`;
 
 VerticalSpacer.displayName = "VerticalSpacer";
 
@@ -231,10 +229,10 @@ export const Content = styled.div.attrs({
   "data-comment": "Content",
 })`
   ${content}
-` as React.FunctionComponent<DivProps>;
+`;
 
 export const Stretch = styled.div.attrs({
   "data-comment": "Stretch",
 })<{ sizing?: number }>`
   flex: ${(props) => props.sizing || 1};
-` as React.FunctionComponent<StretchProps & DivProps>;
+`;

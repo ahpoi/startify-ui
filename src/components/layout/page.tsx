@@ -17,11 +17,6 @@ export type BackgroundColorProps = {
   backgroundColor?: Property.BackgroundColor;
 };
 
-const cssFullWH = css`
-  height: 100%;
-  width: 100%;
-`;
-
 /**
  * Add padding to left and right when on mobile/tablet
  * Usually on Desktop we have a MaxWidth so no need for padding
@@ -49,29 +44,25 @@ const cssPageResponsiveSideSpace = css`
 export const PageRoot = styled.div.attrs({
   "data-comment": "page-root",
 })`
-  ${cssFullWH}
   ${vertical}
- flex: 1;
+  height: 100%;
+  width: 100%;
+  flex: 1;
 ` as React.FunctionComponent<DivProps>;
 
 type PageBodyProps = {} & BaseWidthProps & BackgroundColorProps;
-
-const cssPageBody = css`
-  flex: 1 1 auto;
-  flex-direction: column;
-  ${fadeIn}
-`;
 
 export const PageBody = styled.main.attrs({
   "data-comment": "page-body",
 })<PageBodyProps>`
   ${content}
+  ${fadeIn}
   ${cssPageResponsiveSideSpace}
- ${cssPageBody};
+  flex: 1 1 auto;
+  flex-direction: column;
   margin: 0 auto;
   width: 100%;
   max-width: ${(props: PageBodyProps) => calculateUnit(props.maxWidth ?? pageContainers.content)};
-  padding: 24px 0;
 ` as React.FunctionComponent<PageBodyProps & React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>>;
 
 export const Header = styled.header`
