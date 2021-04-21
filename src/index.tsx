@@ -1,3 +1,4 @@
+
 export * from "./components/atoms/button";
 export * from "./components/atoms/button.theme";
 export * from "./components/atoms/typography";
@@ -47,6 +48,7 @@ export * from "./utils/storage.utils";
 
 export * from "./theme/startify.provider";
 
+export * from "./theme/startify.provider"
 export * from "./theme/styles/theme";
 export * from "./theme/styles/colors";
 export * from "./theme/styles/radius";
