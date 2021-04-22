@@ -24,7 +24,7 @@ export interface HeadingProps extends BaseTypographyProps {
 
 export interface TextProps extends BaseTypographyProps {
   fontSize?: Property.FontSize<any>;
-  size?: "sm" | "md" | "lg";
+  size?: "xs" | "sm" | "md" | "lg";
 }
 
 const base = css<HeadingProps | TextProps>`

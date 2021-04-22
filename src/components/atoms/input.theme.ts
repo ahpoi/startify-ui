@@ -1,5 +1,5 @@
 import { radius } from "../../theme/styles/radius";
-import { typography } from "../../theme/styles/typography";
+import { typography } from "./typography.theme";
 
 export const inputTheme = {
   base: {

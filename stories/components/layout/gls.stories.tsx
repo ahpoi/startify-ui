@@ -21,7 +21,7 @@ export const vertical = () => (
 );
 
 export const responsive = () => (
-    <Responsive>
+    <Responsive vertical={{spacing: 50}}>
       <div style={{ backgroundColor: "darkorange" }}>Hello</div>
       <div style={{ backgroundColor: "lightpink" }}>World</div>
     </Responsive>

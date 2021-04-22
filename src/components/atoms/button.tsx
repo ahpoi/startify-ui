@@ -12,7 +12,7 @@ export type ButtonProps = {
   size?: ButtonSizeType;
   colorScheme?: ColorScheme;
   children: React.ReactNode;
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => any;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => any;
   disabled?: boolean;
   width?: string;
   isLoading?: boolean;
@@ -64,11 +64,19 @@ export const useButtonVariant = (variant: ButtonVariantType, scheme: ColorScheme
   return {
     color: useColorScheme(theme.color, scheme),
     colorOnHover: useColorScheme(theme.colorOnHover, scheme),
+    colorOnFocus: useColorScheme(theme.colorOnFocus, scheme),
+    colorOnActive: useColorScheme(theme.colorOnActive, scheme),
     backgroundColor: useColorScheme(theme.backgroundColor, scheme),
     backgroundColorOnHover: useColorScheme(theme.backgroundColorOnHover, scheme),
+    backgroundColorOnFocus: useColorScheme(theme.backgroundColorOnFocus, scheme),
+    backgroundColorOnActive: useColorScheme(theme.backgroundColorOnActive, scheme),
     borderColor: useColorScheme(theme.borderColor, scheme),
     borderColorOnHover: useColorScheme(theme.borderColorOnHover, scheme),
+    borderColorOnFocus: useColorScheme(theme.borderColorOnFocus, scheme),
+    borderColorOnActive: useColorScheme(theme.borderColorOnActive, scheme),
     textDecorationOnHover: theme.textDecorationOnHover,
+    textDecorationOnFocus: theme.textDecorationOnFocus,
+    textDecorationOnActive: theme.textDecorationOnActive,
   };
 };
 
@@ -111,13 +119,27 @@ const StyledButton = styled.button<StyledButtonProps>`
 
   transition: all 300ms ease 0s;
 
-  &:hover:enabled,
-  &:focus:enabled,
-  &:active:enabled {
+  &:focus:enabled {
+    color: ${(props) => props.colorOnFocus};
+    background-color: ${(props) => props.backgroundColorOnFocus};
+    border-color: ${(props) => props.borderColorOnFocus};
+    box-shadow: inset 0px 0px 0px 1px ${(props) => props.borderColorOnFocus};
+    ${(props) => props.textDecorationOnFocus && `text-decoration: ${props.textDecorationOnFocus}`};
+  }
+
+  &:hover:enabled {
     color: ${(props) => props.colorOnHover};
     background-color: ${(props) => props.backgroundColorOnHover};
     border-color: ${(props) => props.borderColorOnHover};
     box-shadow: inset 0px 0px 0px 1px ${(props) => props.borderColorOnHover};
     ${(props) => props.textDecorationOnHover && `text-decoration: ${props.textDecorationOnHover}`};
+  }
+
+  &:active:enabled {
+    color: ${(props) => props.colorOnActive};
+    background-color: ${(props) => props.backgroundColorOnActive};
+    border-color: ${(props) => props.borderColorOnActive};
+    box-shadow: inset 0px 0px 0px 1px ${(props) => props.borderColorOnActive};
+    ${(props) => props.textDecorationOnActive && `text-decoration: ${props.textDecorationOnActive}`};
   }
 `;

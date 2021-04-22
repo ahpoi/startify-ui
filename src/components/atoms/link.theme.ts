@@ -1,9 +1,11 @@
-import { typography } from "../../theme/styles/typography";
+import { typography } from "./typography.theme";
 
 export const linkTheme = {
   base: {
     color: "500",
     colorOnHover: "300",
+    colorOnFocus: "300",
+    colorOnActive: "300",
   },
   sizes: {
     xs: {

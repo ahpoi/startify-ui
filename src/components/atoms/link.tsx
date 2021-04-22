@@ -8,7 +8,7 @@ import { useColorScheme } from "../../theme/styles/hooks";
 interface LinkProps {
   href: string;
   target?: string;
-  onClick?: () => any;
+  onClick?: (event?: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
   underline?: boolean;
   children: React.ReactNode;
   colorScheme?: ColorScheme;
@@ -37,6 +37,8 @@ const useLinkBase = (scheme: ColorScheme) => {
   return {
     color: useColorScheme(linkColorTheme.color, scheme),
     colorOnHover: useColorScheme(linkColorTheme.colorOnHover, scheme),
+    colorOnFocus: useColorScheme(linkColorTheme.colorOnFocus, scheme),
+    colorOnActive: useColorScheme(linkColorTheme.colorOnActive, scheme),
   };
 };
 
@@ -47,6 +49,8 @@ const useSize = (size: SizeType) => {
 type StyledLinkProps = {
   color: string;
   colorOnHover: string;
+  colorOnActive: string;
+  colorOnFocus: string;
   fontSize: string;
   fontWeight: number | string;
   underline?: boolean;
@@ -63,9 +67,13 @@ const StyledLink = styled.a<StyledLinkProps>`
    font-size: ${(props) => props.fontSize};
    font-weight: ${(props) => props.fontWeight};
    text-decoration: ${(props) => (props.underline ? "underline" : "none !important")};
-   &:hover,
-   &:focus,
-   &:active {
+   &:hover {
      color: ${(props) => props.colorOnHover};
-  } 
+   } 
+   &:active {
+     color: ${(props) => props.colorOnActive};
+   } 
+   &:focus {
+     color: ${(props) => props.colorOnFocus};
+   } 
 `;

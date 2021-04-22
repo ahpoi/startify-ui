@@ -1,4 +1,4 @@
-import { typography } from "../../theme/styles/typography";
+import { typography } from "../atoms/typography.theme";
 import { colors } from "../../theme/styles/colors";
 
 export const tabsTheme = {

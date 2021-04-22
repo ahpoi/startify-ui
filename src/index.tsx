@@ -1,6 +1,7 @@
 export * from "./components/atoms/button";
 export * from "./components/atoms/button.theme";
 export * from "./components/atoms/typography";
+export * from "./components/atoms/typography.theme";
 export * from "./components/atoms/badge";
 export * from "./components/atoms/input";
 export * from "./components/atoms/link";
@@ -54,6 +55,5 @@ export * from "./theme/styles/radius";
 export * from "./theme/styles/spaces";
 export * from "./theme/styles/containers";
 export * from "./theme/styles/breakpoints";
-export * from "./theme/styles/typography";
 export * from "./theme/styles/shadows";
 export * from "./theme/styles/z-index";

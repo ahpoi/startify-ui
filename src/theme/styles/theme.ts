@@ -1,5 +1,5 @@
 import { radius } from "./radius";
-import { typography } from "./typography";
+import { typography } from "../../components/atoms/typography.theme";
 import { colors } from "./colors";
 import { buttonTheme } from "../../components/atoms/button.theme";
 import { badgeTheme } from "../../components/atoms/badge.theme";

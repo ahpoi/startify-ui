@@ -124,9 +124,14 @@ export const Responsive = styled.div.attrs({
   "data-comment": "Responsive",
 })<ResponsiveProps>`
   @media (max-width: ${breakpoints.sm}px) {
-    ${verticallySpaced}
     ${contentVertical}
-     ${({ vertical }) =>
+    & > * {
+      margin-bottom: ${(props) => calculateUnit(props.vertical?.spacing ?? defaultSpace)} !important;
+    }
+    &>*: last-child {
+      margin-bottom: 0px !important;
+    }
+    ${({ vertical }) =>
       vertical?.verticalAlign === "center" &&
       `
         justify-content: center;
@@ -153,9 +158,14 @@ export const Responsive = styled.div.attrs({
      `};
   }
   @media (min-width: ${breakpoints.sm + 1}px) {
-    ${horizontallySpaced}
     ${contentHorizontal}
-     ${({ horizontal }) =>
+    & > * {
+      margin-right: ${(props) => calculateUnit(props.horizontal?.spacing ?? defaultSpace)} !important;
+    }
+    &>*: last-child {
+      margin-right: 0px !important;
+    }
+    ${({ horizontal }) =>
       horizontal?.horizontalAlign === "left" &&
       `
         justify-content: flex-start;

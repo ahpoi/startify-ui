@@ -107,30 +107,6 @@ export const disabled = () => (
     </Horizontal>
 );
 
-export const override = () => (
-    <Horizontal>
-        <Button
-            onClick={onClick}
-            override={{
-                variant: {
-                    color: "white",
-                    backgroundColor: "#3D96EF",
-                    borderColor: "#3D96EF",
-                    colorOnHover: "white",
-                    backgroundColorOnHover: "yellow",
-                    borderColorOnHover: "red",
-                },
-                size: {
-                    fontSize: "14px",
-                    padding: "12px 30px 12px",
-                }
-            }}
-        >
-            Custom Styled
-        </Button>
-    </Horizontal>
-);
-
 const onClick = () => {
     console.log("clicked");
 };
