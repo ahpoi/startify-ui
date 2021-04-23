@@ -2,7 +2,7 @@ import { typography } from "../../atoms/typography.theme";
 
 export const fieldLabelTheme = {
   base: {
-    color: typography.color.body.dark,
+    color: typography.colour.body,
     fontSize: typography.size.body.md,
     fontWeight: 500,
     lineHeight: "24px",

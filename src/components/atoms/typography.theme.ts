@@ -1,4 +1,8 @@
 export const typography = {
+  colour: {
+    heading: "#2A2A2A",
+    body: "#2A2A2A",
+  },
   fontFamily: {
     heading: "Helvetica,Arial,sans-serif",
     body: "Helvetica,Arial,sans-serif",
@@ -8,14 +12,6 @@ export const typography = {
     normal: 400,
     medium: 500,
     bold: 700,
-  },
-  color: {
-    heading: "#2A2A2A",
-    body: {
-      dark: "#2A2A2A",
-      mid: "#585858",
-      light: "#bdbdbd",
-    },
   },
   size: {
     heading: {

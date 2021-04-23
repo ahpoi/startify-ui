@@ -8,7 +8,7 @@ export const inputTheme = {
     height: "40px",
     lineHeight: "normal",
     padding: "8px 10px",
-    color: typography.color.body.dark,
+    color: typography.colour.body,
     backgroundColor: "whiteAlpha.900",
     backgroundColorError: "red.50",
     backgroundColorDisabled: "grey.200",

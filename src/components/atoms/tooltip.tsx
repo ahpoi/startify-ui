@@ -91,7 +91,7 @@ const ChildrenContainer = styled.div`
   max-width: 350px;
   background: white;
   border-radius: ${({ theme }) => theme.radius.xs};
-  color: ${(props) => props.theme.typography.color.body};
+  color: ${(props) => props.theme.typography.colour.body};
   padding: 20px 30px 20px 20px;
   box-shadow: ${shadows.md};
   z-index: ${zIndices.tooltip};

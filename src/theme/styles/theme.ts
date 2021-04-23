@@ -6,18 +6,24 @@ import { badgeTheme } from "../../components/atoms/badge.theme";
 import { alertTheme } from "../../components/molecules/alert.theme";
 import { inputTheme } from "../../components/atoms/input.theme";
 import { fieldErrorMessageTheme, fieldLabelTheme } from "../../components/molecules/fields/field-label.theme";
-import { navigationItemTheme } from "../../components/molecules/navigation/navigation-item.theme";
-import { sidebarItemTheme } from "../../components/molecules/navigation/sidebar-item.theme";
 import { tabsTheme } from "../../components/molecules/tabs.theme";
 import { modalTheme } from "../../components/molecules/modal.theme";
 import { dividerTheme } from "../../components/atoms/divider.theme";
 import { linkTheme } from "../../components/atoms/link.theme";
 import { spinnerTheme } from "../../components/atoms/spinner.theme";
+import { spaces } from "./spaces";
+import { shadows } from "./shadows";
+import { breakpoints } from "./breakpoints";
+import { maxWidths } from "./max-widths";
 
 export const appTheme = {
   colors: colors,
   typography: typography,
   radius: radius,
+  spaces: spaces,
+  shadows: shadows,
+  breakpoints: breakpoints,
+  maxWidths: maxWidths,
   components: {
     alert: alertTheme,
     divider: dividerTheme,
@@ -30,8 +36,6 @@ export const appTheme = {
     fieldErrorMessage: fieldErrorMessageTheme,
     modal: modalTheme,
     tabs: tabsTheme,
-    navigationItem: navigationItemTheme,
-    sidebarItem: sidebarItemTheme,
   },
 };
 

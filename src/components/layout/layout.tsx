@@ -1,6 +1,5 @@
 import * as React from "react";
 import { BoxUnit, calculateUnit } from "./gls/box";
-import { pageContainers } from "../..";
 import styled from "styled-components";
 import { DivProps } from "../others/types";
 
@@ -18,7 +17,7 @@ interface MaxWidthProps {
 }
 
 export const MaxWidth = styled.div<MaxWidthProps>`
-  max-width: ${(props) => calculateUnit(props.maxWidth ?? pageContainers.content)};
+  max-width: ${(props) => calculateUnit(props.maxWidth ?? props.theme.maxWidths.content)};
   width: 100%;
   ${({ centered }) =>
     centered &&

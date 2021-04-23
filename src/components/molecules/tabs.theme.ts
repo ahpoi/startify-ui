@@ -6,7 +6,7 @@ export const tabsTheme = {
     borderBottomColor: colors.grey["200"],
   },
   action: {
-    color: typography.color.body.dark,
+    color: typography.colour.body,
     colorOnHover: "500",
     fontWeight: typography.fontWeight.medium,
     fontSize: typography.size.body.md,

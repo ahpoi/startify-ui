@@ -5,7 +5,6 @@ import {
   content,
   contentHorizontal,
   contentVertical,
-  defaultSpace,
   horizontallySpaced,
   verticallySpaced,
 } from "./box";
@@ -126,7 +125,7 @@ export const Responsive = styled.div.attrs({
   @media (max-width: ${breakpoints.sm}px) {
     ${contentVertical}
     & > * {
-      margin-bottom: ${(props) => calculateUnit(props.vertical?.spacing ?? defaultSpace)} !important;
+      margin-bottom: ${(props) => calculateUnit(props.vertical?.spacing ?? props.theme.spaces.md)} !important;
     }
     &>*: last-child {
       margin-bottom: 0px !important;
@@ -160,7 +159,7 @@ export const Responsive = styled.div.attrs({
   @media (min-width: ${breakpoints.sm + 1}px) {
     ${contentHorizontal}
     & > * {
-      margin-right: ${(props) => calculateUnit(props.horizontal?.spacing ?? defaultSpace)} !important;
+      margin-right: ${(props) => calculateUnit(props.horizontal?.spacing ?? props.theme.spaces.md)} !important;
     }
     &>*: last-child {
       margin-right: 0px !important;
@@ -218,14 +217,14 @@ export const HorizontalSpacer = styled.div.attrs({
   "data-comment": "HorizontalSpacer",
 })<SpacingProps>`
   display: inline-block;
-  width: ${(props) => calculateUnit(props.spacing ?? defaultSpace)}};
+  width: ${(props) => calculateUnit(props.spacing ?? props.theme.spaces.md)}};
 `;
 HorizontalSpacer.displayName = "HorizontalSpacer";
 
 export const VerticalSpacer = styled.div.attrs({
   "data-comment": "VerticalSpacer",
 })<SpacingProps>`
-  height: ${(props) => calculateUnit(props.spacing ?? defaultSpace)}};
+  height: ${(props) => calculateUnit(props.spacing ?? props.theme.spaces.md)}};
 `;
 
 VerticalSpacer.displayName = "VerticalSpacer";

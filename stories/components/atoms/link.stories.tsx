@@ -21,11 +21,3 @@ export const linkSizes = () => (
         <Link href={"/hello"} size={"lg"}>Link LG</Link>
     </Vertical>
 );
-
-export const linkColorScheme= () => (
-    <Vertical>
-        <Link href={"/hello"} colorScheme={"red"}>Link Red</Link>
-        <Link href={"/hello"} colorScheme={"blue"}>Link Blue</Link>
-        <Link href={"/hello"} colorScheme={"yellow"}>Link Yellow</Link>
-    </Vertical>
-);

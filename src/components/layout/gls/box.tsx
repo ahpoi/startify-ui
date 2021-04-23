@@ -5,8 +5,6 @@ import { css } from "styled-components";
  * rewritten in styled component
  */
 
-export const defaultSpace = 24;
-
 export type BoxUnit = number | string;
 
 export const calculateUnit = (value: BoxUnit): string => (typeof value === "number" ? value.toString() + "px" : value);
@@ -47,7 +45,7 @@ export const contentVertical = css`
 
 export const horizontallySpaced = css<{ spacing?: BoxUnit }>`
   & > * {
-    margin-right: ${(props) => calculateUnit(props.spacing ?? defaultSpace)} !important;
+    margin-right: ${(props) => calculateUnit(props.spacing ?? props.theme.spaces.md)} !important;
   }
   &>*: last-child {
     margin-right: 0px !important;
@@ -56,7 +54,7 @@ export const horizontallySpaced = css<{ spacing?: BoxUnit }>`
 
 export const verticallySpaced = css<{ spacing?: BoxUnit }>`
   & > * {
-    margin-bottom: ${(props) => calculateUnit(props.spacing ?? defaultSpace)} !important;
+    margin-bottom: ${(props) => calculateUnit(props.spacing ?? props.theme.spaces.md)} !important;
   }
   &>*: last-child {
     margin-bottom: 0px !important;
