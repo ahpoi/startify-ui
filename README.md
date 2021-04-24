@@ -114,7 +114,6 @@ ReactDOM.render(
 ### Improvements
 
 - More focus on accessibility with WAI-ARIA guidelines specifications
-- Remove react-tether as a dependency
 - More themeable properties (Spaces, Breakpoints...etc instead of constant)
 
 ## Default Theme

@@ -5,7 +5,7 @@ import { IconQuestionCircle } from "../others/icons";
 import { CloseButton, Horizontal, useOnOutsideClick } from "../..";
 import { zIndices } from "../../theme/styles/z-index";
 import { shadows } from "../../theme/styles/shadows";
-import TetherComponent from "react-tether";
+import { TetherComponent } from "./tether";
 
 export type TooltipProps = {
   id?: string;
