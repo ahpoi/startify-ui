@@ -31,7 +31,6 @@ export * from "./components/layout/normalise";
 export * from "./components/layout/gls/box";
 export * from "./components/layout/gls/gls";
 
-export * from "./components/others/extras";
 export * from "./components/others/types";
 export * from "./components/others/icons";
 export * from "./components/others/portal";

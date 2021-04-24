@@ -1,7 +1,6 @@
 import * as React from "react";
 import { BoxUnit, calculateUnit } from "./gls/box";
 import styled from "styled-components";
-import { DivProps } from "../others/types";
 
 export const ConditionalDisplay = (props: { when?: boolean; children: React.ReactNode }) => {
   return <>{props.when && props.children}</>;
@@ -24,4 +23,4 @@ export const MaxWidth = styled.div<MaxWidthProps>`
     `
     margin: 0 auto;
   `};
-` as React.FunctionComponent<MaxWidthProps & DivProps>;
+`;

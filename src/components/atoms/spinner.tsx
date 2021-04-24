@@ -2,7 +2,6 @@ import * as React from "react";
 
 import styled from "styled-components";
 import { BoxUnit, calculateUnit, ColorScheme, Horizontal } from "../..";
-import { DivProps } from "../others/types";
 import { useColorScheme } from "../../theme/styles/hooks";
 
 interface PageSpinner {
@@ -100,4 +99,4 @@ const Dot = styled.div<SpinnerDotsProps & { animationDelay: string }>`
       transform: scale(1);
     }
   }
-` as React.FunctionComponent<SpinnerDotsProps & { animationDelay: string } & DivProps>;
+`;

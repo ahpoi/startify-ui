@@ -1,17 +1,11 @@
-import { Horizontal, StartifyProvider,} from "../../src";
+import {  StartifyProvider,} from "../../src";
 import * as React from "react";
-import {Property} from "csstype";
-
 
 export const StoriesDefaultThemeProvider = (props: { children: React.ReactNode }) => {
     return <StartifyProvider rootId={'root'} theme={{
         typography: { fontFamily: {body: "Montserrat,Helvetica Neue", heading: "Montserrat, Helvetica"}},
     }}>{props.children}</StartifyProvider>
 };
-
-export const TestHeaderLogo = () => (
-    <HeaderLogo name={"Dog House"} color={"#FF5050"} fontWeight={500} onClick={() => 0} logo={<TestLogo/>}/>
-);
 
 export const onClickComponent = () => {
     alert("I have clicked")
@@ -59,29 +53,4 @@ export const TestLogo = () => (
             />
         </g>
     </svg>
-);
-
-
-type HeaderLogoProps  = {
-    name: string;
-    logo: React.ReactNode;
-    fontSize?: Property.FontSize<any>;
-    fontWeight?: Property.FontWeight;
-    color?: Property.Color;
-    onClick: () => any;
-}
-
-const HeaderLogo = ({ name, color, fontSize = "18px", fontWeight = 700, onClick, logo }: HeaderLogoProps) => (
-    <Horizontal verticalAlign={"center"} spacing={8} style={{ cursor: "pointer" }} onClick={onClick}>
-        {logo}
-        <div
-            style={{
-                color,
-                fontSize,
-                fontWeight,
-            }}
-        >
-            {name}
-        </div>
-    </Horizontal>
 );

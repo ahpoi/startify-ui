@@ -1,7 +1,4 @@
-import * as React from "react";
-
 import styled from "styled-components";
-import { DivProps } from "../others/types";
 
 //https://cloudcannon.com/deconstructions/2014/11/15/facebook-content-placeholder-deconstruction.html
 
@@ -26,4 +23,4 @@ export const Skeleton = styled.div`
       background-position: 468px 0;
     }
   }
-` as React.FunctionComponent<DivProps>;
+`;

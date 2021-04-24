@@ -1,6 +1,5 @@
 import { createGlobalStyle } from "styled-components";
 import { normalize } from "./normalise";
-import { Property } from "csstype";
 
 /**
  * Setups:
@@ -12,7 +11,7 @@ import { Property } from "csstype";
  */
 
 interface Props {
-  backgroundColor?: Property.Color;
+  backgroundColor?: string | number;
   fontFamily?: string;
   rootId?: string;
 }

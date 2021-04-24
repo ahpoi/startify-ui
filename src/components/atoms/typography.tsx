@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Property } from "csstype";
 
 import styled, { css } from "styled-components";
 import { breakpoints } from "../../theme/styles/breakpoints";
@@ -8,21 +7,21 @@ import { useColorScheme } from "../../theme/styles/hooks";
 
 interface BaseTypographyProps {
   children: React.ReactNode;
-  fontFamily?: Property.FontFamily;
+  fontFamily?: string;
   fontWeight?: "light" | "normal" | "medium" | "bold";
-  textAlign?: Property.TextAlign;
+  textAlign?: "string";
   colorScheme?: ColorScheme;
 }
 
 export interface HeadingProps extends BaseTypographyProps {
   fontSize?: {
-    web?: Property.FontSize<any>;
-    mobile?: Property.FontSize<any>;
+    web?: string | number;
+    mobile?: string | number;
   };
 }
 
 export interface TextProps extends BaseTypographyProps {
-  fontSize?: Property.FontSize<any>;
+  fontSize?: string | number;
   size?: "xs" | "sm" | "md" | "lg";
 }
 
